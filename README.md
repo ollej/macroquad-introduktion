@@ -171,8 +171,14 @@ async fn main() {
 ## Fallande fyrkanter
 
 För att det ska hända lite mer i vårt spel är det dags att skapa lite
-konflikt. Eftersom hjälten i vårt spel är en modig cirkel så får våra
+action. Eftersom hjälten i vårt spel är en modig cirkel så får våra
 motståndare bli kantiga fyrkanter som faller ner från toppen av fönstret.
+
+För att hålla reda på vår cirkel och alla fyrkanter så skapar vi en struct som
+heter `Shape` som innehåller storlek, hastighet samt x och y-koordinater.  I
+början av `main`-funktionen skapar vi en vektor `squares` som kommer innehåll
+alla fyrkanter som ska visas på skärmen. Den ny variabeln `circle` får
+representera vår hjälte, den fantastiska cirkeln.
 
 Vi kommer använda oss av en slumpgenerator för att avgöra när nya fyrkanter
 ska komma in på skärmen. Därför behöver vi seeda slumpgeneratorn så att det
@@ -180,12 +186,6 @@ inte blir samma slumptal varje gång. Detta görs i början av `main`-funktionen
 med metoden `srand()` som vi skickar in nuvarande tid till som seed. Eftersom
 rand-funktionerna inte är med i Macroquads "prelude"-modul måste vi även
 importera den längst upp i koden.
-
-För att hålla reda på vår cirkel och alla fyrkanter så skapar vi en struct som
-heter `Shape` som innehåller storlek, hastighet samt x och y-koordinater.  I
-början av `main`-funktionen skapar vi en vektor `squares` som kommer innehåll
-alla fyrkanter som ska visas på skärmen. Den ny variabeln `circle` får
-representera vår hjälte, den fantastiska cirkeln.
 
 Nu är det dags att starta invasionen av fyrkanter. Här delar vi som tidigare
 upp förflyttningen och utritningen av fyrkanterna. Det gör att förflyttningen
@@ -212,7 +212,10 @@ storleken på fyrkanten.
 
 Till sist lägger vi till en for-loop som går igenom vektorn `squares` och
 använder funktionen `draw_rectangle() för att rita ut en rektangel på den
-uppdaterade positionen och med rätt storlek.
+uppdaterade positionen och med rätt storlek. Eftersom rektanglar ritas ut med
+x och y från hörnet längst upp till vänster och våra koordinater utgår från
+center av fyrkanten så använder vi lite matematik för att räkna ut var dom ska
+placeras.
 
 ### Källkod
 
@@ -235,7 +238,7 @@ async fn main() {
     srand(miniquad::date::now() as u64);
     let mut squares = vec![];
     let mut circle = Shape {
-        size: 15.0,
+        size: 30.0,
         speed: MOVEMENT_SPEED,
         x: screen_width() / 2.0,
         y: screen_height() / 2.0,
@@ -264,11 +267,12 @@ async fn main() {
 
         // Generate a new square
         if gen_range(0, 99) >= 95 {
+            let size = gen_range::<f32>(15.0, 40.0);
             let square = Shape {
-                size: gen_range::<f32>(10.0, 20.0),
+                size,
                 speed: gen_range::<f32>(50.0, 150.0),
-                x: gen_range::<f32>(0.0, screen_width()),
-                y: -20.0,
+                x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
+                y: -size,
             };
             squares.push(square);
         }
@@ -282,12 +286,187 @@ async fn main() {
         squares.retain(|square| square.y < screen_width() + square.size);
 
         // Draw everything
-        draw_circle(circle.x, circle.y, circle.size, YELLOW);
+        draw_circle(circle.x, circle.y, circle.size / 2.0, YELLOW);
         for square in &squares {
-            draw_rectangle(square.x, square.y, square.size, square.size, GREEN);
+            draw_rectangle(
+                square.x - square.size / 2.0,
+                square.y - square.size / 2.0,
+                square.size,
+                square.size,
+                GREEN,
+            );
         }
         next_frame().await
     }
 }
 ```
 
+## Kollission
+
+Våra ovänner fyrkanterna är ännu inte så farliga, så får att öka spänningen är
+det dags att skapa konflikt. Om vår vän cirkeln kolliderar med en fyrkant så
+är spelet över och måste startas om.
+
+Efter att vi har ritat upp alla cirklar och fyrkanter så lägger vi till en
+kontroll som ser om någon fyrkant rör vid cirkeln. Om den gör det så visar vi
+texten Game Over och väntar på att spelaren trycker på space-tangenten. När
+spelaren trycker på space så nollställs vektorn med fyrkanter och cirkeln
+flyttas tillbaka till mitten av skärmen.
+
+Vi utökar structen `Shape` med en implementation som innehåller metoden
+`collides_with()` som kollar om den kolliderar med en annan `Shape`. Denna
+använder sig av Macroquads `Rect` struct som har hjälpmetoden `overlaps()`. Vi
+skapar även en egen hjälpmetod som skapar en `Rect` från vår `Shape`.
+
+I slutet av huvudloopen lägger vi till vår kontroll av kollissioner. Vi
+använder metoden `any()` på vektorn `squares` och kollar om någon fyrkant
+kolliderar med vår hjälte cirkeln.
+
+Om det har skett en kollission så gör vi en inre loop som väntar på att
+spelaren trycker på mellanslag. Medan vi väntar ritar vi ut texten "Game
+Over!" mitt på skärmen.
+
+När spelaren trycker på space-tangenten så tömmer vi vektorn `squares` med
+metoden `clear()` och återställer cirkelns x och y-koordinater till mitten av
+skärmen. Därefter avbryter vi den inre loopen och återgår till den vanliga
+spelloopen.
+
+### Källkoden
+
+```rust
+use macroquad::{prelude::*, rand::*};
+
+struct Shape {
+    size: f32,
+    speed: f32,
+    x: f32,
+    y: f32,
+}
+
+impl Shape {
+    fn collides_with(&self, other: &Self) -> bool {
+        self.rect().overlaps(&other.rect())
+    }
+
+    fn rect(&self) -> Rect {
+        Rect {
+            x: self.x,
+            y: self.y,
+            w: self.size,
+            h: self.size,
+        }
+    }
+}
+
+#[macroquad::main("Mitt spel")]
+async fn main() {
+    const MOVEMENT_SPEED: f32 = 100.0;
+
+    srand(miniquad::date::now() as u64);
+    let mut squares = vec![];
+    let mut circle = Shape {
+        size: 30.0,
+        speed: MOVEMENT_SPEED,
+        x: screen_width() / 2.0,
+        y: screen_height() / 2.0,
+    };
+
+    loop {
+        clear_background(DARKPURPLE);
+
+        let delta_time = get_frame_time();
+        if is_key_down(KeyCode::Right) {
+            circle.x += MOVEMENT_SPEED * delta_time;
+        }
+        if is_key_down(KeyCode::Left) {
+            circle.x -= MOVEMENT_SPEED * delta_time;
+        }
+        if is_key_down(KeyCode::Down) {
+            circle.y += MOVEMENT_SPEED * delta_time;
+        }
+        if is_key_down(KeyCode::Up) {
+            circle.y -= MOVEMENT_SPEED * delta_time;
+        }
+
+        // Clamp X and Y to be within the screen
+        circle.x = circle.x.min(screen_width()).max(0.0);
+        circle.y = circle.y.min(screen_height()).max(0.0);
+
+        // Generate a new square
+        if gen_range(0, 99) >= 95 {
+            let size = gen_range::<f32>(15.0, 40.0);
+            let square = Shape {
+                size,
+                speed: gen_range::<f32>(50.0, 150.0),
+                x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
+                y: -size,
+            };
+            squares.push(square);
+        }
+
+        // Move squares
+        for square in &mut squares {
+            square.y += square.speed * delta_time;
+        }
+
+        // Remove squares below bottom of screen
+        squares.retain(|square| square.y < screen_width() + square.size);
+
+        // Draw everything
+        draw_circle(circle.x, circle.y, circle.size / 2.0, YELLOW);
+        for square in &squares {
+            draw_rectangle(
+                square.x - square.size / 2.0,
+                square.y - square.size / 2.0,
+                square.size,
+                square.size,
+                GREEN,
+            );
+        }
+
+        // Check for collissions
+        if squares.iter().any(|square| circle.collides_with(square)) {
+            let text = "Game Over!";
+            let text_dimensions = measure_text(text, None, 60, 1.0);
+            loop {
+                clear_background(DARKPURPLE);
+                draw_text(
+                    text,
+                    screen_width() / 2.0 - text_dimensions.width / 2.0,
+                    screen_height() / 2.0,
+                    50.0,
+                    RED,
+                );
+                if is_key_down(KeyCode::Space) {
+                    squares.clear();
+                    circle.x = screen_width() / 2.0;
+                    circle.y = screen_height() / 2.0;
+                    break;
+                }
+                next_frame().await
+            }
+        }
+
+        next_frame().await
+    }
+}
+```
+
+
+
+## Skjuta
+
+
+## Inertia movement
+
+
+## Poäng
+
+
+## Startmeny
+
+
+## Byt till texturer
+
+
+## Lägg till ljud
