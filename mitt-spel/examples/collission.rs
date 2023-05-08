@@ -7,6 +7,21 @@ struct Shape {
     y: f32,
 }
 
+impl Shape {
+    fn collides_with(&self, other: &Self) -> bool {
+        self.rect().overlaps(&other.rect())
+    }
+
+    fn rect(&self) -> Rect {
+        Rect {
+            x: self.x,
+            y: self.y,
+            w: self.size,
+            h: self.size,
+        }
+    }
+}
+
 #[macroquad::main("Mitt spel")]
 async fn main() {
     const MOVEMENT_SPEED: f32 = 100.0;
@@ -72,6 +87,30 @@ async fn main() {
                 GREEN,
             );
         }
+
+        // Check for collissions
+        if squares.iter().any(|square| circle.collides_with(square)) {
+            let text = "Game Over!";
+            let text_dimensions = measure_text(text, None, 60, 1.0);
+            loop {
+                clear_background(DARKPURPLE);
+                draw_text(
+                    text,
+                    screen_width() / 2.0 - text_dimensions.width / 2.0,
+                    screen_height() / 2.0,
+                    50.0,
+                    RED,
+                );
+                if is_key_down(KeyCode::Space) {
+                    squares.clear();
+                    circle.x = screen_width() / 2.0;
+                    circle.y = screen_height() / 2.0;
+                    break;
+                }
+                next_frame().await
+            }
+        }
+
         next_frame().await
     }
 }
