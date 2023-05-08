@@ -318,18 +318,20 @@ Vi utökar structen `Shape` med en implementation som innehåller metoden
 använder sig av Macroquads `Rect` struct som har hjälpmetoden `overlaps()`. Vi
 skapar även en egen hjälpmetod som skapar en `Rect` från vår `Shape`.
 
-I slutet av huvudloopen lägger vi till vår kontroll av kollissioner. Vi
+I början av huvudloopen lägger vi till vår kontroll av kollissioner. Vi
 använder metoden `any()` på vektorn `squares` och kollar om någon fyrkant
 kolliderar med vår hjälte cirkeln.
 
-Om det har skett en kollission så gör vi en inre loop som väntar på att
-spelaren trycker på mellanslag. Medan vi väntar ritar vi ut texten "Game
-Over!" mitt på skärmen.
+Om det har skett en kollission så sätter vi variabeln `gameover` till true.
+Om `gameover`-variabeln är sann och spelaren trycker på mellanslagstangenten
+så tömmer vi vektorn `squares` med metoden `clear()` och återställer cirkelns
+x och y-koordinater till mitten av skärmen.
 
-När spelaren trycker på space-tangenten så tömmer vi vektorn `squares` med
-metoden `clear()` och återställer cirkelns x och y-koordinater till mitten av
-skärmen. Därefter avbryter vi den inre loopen och återgår till den vanliga
-spelloopen.
+För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
+görs all kod för förflyttning enbart om variabeln `gameover` är falsk.
+
+Slutligen ritar vi ut texten "Game Over!" i mitten av skärmen efter cirkeln
+och fyrkanterna har ritats ut, men bara om variabeln `gameover` är sann.
 
 ### Källkoden
 
@@ -374,43 +376,53 @@ async fn main() {
     loop {
         clear_background(DARKPURPLE);
 
-        let delta_time = get_frame_time();
-        if is_key_down(KeyCode::Right) {
-            circle.x += MOVEMENT_SPEED * delta_time;
+        // Check for collissions
+        let mut gameover = squares.iter().any(|square| circle.collides_with(square));
+        if gameover && is_key_down(KeyCode::Space) {
+            squares.clear();
+            circle.x = screen_width() / 2.0;
+            circle.y = screen_height() / 2.0;
+            gameover = false;
         }
-        if is_key_down(KeyCode::Left) {
-            circle.x -= MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Down) {
-            circle.y += MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Up) {
-            circle.y -= MOVEMENT_SPEED * delta_time;
-        }
+        if !gameover {
+            let delta_time = get_frame_time();
+            if is_key_down(KeyCode::Right) {
+                circle.x += MOVEMENT_SPEED * delta_time;
+            }
+            if is_key_down(KeyCode::Left) {
+                circle.x -= MOVEMENT_SPEED * delta_time;
+            }
+            if is_key_down(KeyCode::Down) {
+                circle.y += MOVEMENT_SPEED * delta_time;
+            }
+            if is_key_down(KeyCode::Up) {
+                circle.y -= MOVEMENT_SPEED * delta_time;
+            }
 
-        // Clamp X and Y to be within the screen
-        circle.x = circle.x.min(screen_width()).max(0.0);
-        circle.y = circle.y.min(screen_height()).max(0.0);
+            // Clamp X and Y to be within the screen
+            circle.x = circle.x.min(screen_width()).max(0.0);
+            circle.y = circle.y.min(screen_height()).max(0.0);
 
-        // Generate a new square
-        if gen_range(0, 99) >= 95 {
-            let size = gen_range::<f32>(15.0, 40.0);
-            let square = Shape {
-                size,
-                speed: gen_range::<f32>(50.0, 150.0),
-                x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
-                y: -size,
-            };
-            squares.push(square);
+            // Generate a new square
+            if gen_range(0, 99) >= 95 {
+                let size = gen_range::<f32>(15.0, 40.0);
+                let square = Shape {
+                    size,
+                    speed: gen_range::<f32>(50.0, 150.0),
+                    x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
+                    y: -size,
+                };
+                squares.push(square);
+            }
+
+            // Move squares
+            for square in &mut squares {
+                square.y += square.speed * delta_time;
+            }
+
+            // Remove squares below bottom of screen
+            squares.retain(|square| square.y < screen_width() + square.size);
         }
-
-        // Move squares
-        for square in &mut squares {
-            square.y += square.speed * delta_time;
-        }
-
-        // Remove squares below bottom of screen
-        squares.retain(|square| square.y < screen_width() + square.size);
 
         // Draw everything
         draw_circle(circle.x, circle.y, circle.size / 2.0, YELLOW);
@@ -423,28 +435,16 @@ async fn main() {
                 GREEN,
             );
         }
-
-        // Check for collissions
-        if squares.iter().any(|square| circle.collides_with(square)) {
+        if gameover {
             let text = "Game Over!";
             let text_dimensions = measure_text(text, None, 60, 1.0);
-            loop {
-                clear_background(DARKPURPLE);
-                draw_text(
-                    text,
-                    screen_width() / 2.0 - text_dimensions.width / 2.0,
-                    screen_height() / 2.0,
-                    50.0,
-                    RED,
-                );
-                if is_key_down(KeyCode::Space) {
-                    squares.clear();
-                    circle.x = screen_width() / 2.0;
-                    circle.y = screen_height() / 2.0;
-                    break;
-                }
-                next_frame().await
-            }
+            draw_text(
+                text,
+                screen_width() / 2.0 - text_dimensions.width / 2.0,
+                screen_height() / 2.0,
+                50.0,
+                RED,
+            );
         }
 
         next_frame().await
