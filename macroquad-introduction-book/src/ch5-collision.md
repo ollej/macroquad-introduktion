@@ -1,4 +1,4 @@
-# Kollission
+# Kollision
 
 Våra ovänner fyrkanterna är ännu inte så farliga, så får att öka spänningen är
 det dags att skapa konflikt. Om vår vän cirkeln kolliderar med en fyrkant så
@@ -23,8 +23,8 @@ impl Shape {
 
     fn rect(&self) -> Rect {
         Rect {
-            x: self.x,
-            y: self.y,
+            x: self.x - self.size / 2.0,
+            y: self.y - self.size / 2.0,
             w: self.size,
             h: self.size,
         }
@@ -32,9 +32,9 @@ impl Shape {
 }
 ```
 
-I början av huvudloopen lägger vi till vår kontroll av kollissioner. Vi
+I början av huvudloopen lägger vi till vår kontroll av kollisioner. Vi
 använder metoden `any()` på vektorn `squares` och kollar om någon fyrkant
-kolliderar med vår hjälte cirkeln. Om det har skett en kollission så sätter
+kolliderar med vår hjälte cirkeln. Om det har skett en kollision så sätter
 vi variabeln `gameover` till true.
 
 ```rust
@@ -101,8 +101,8 @@ impl Shape {
 
     fn rect(&self) -> Rect {
         Rect {
-            x: self.x,
-            y: self.y,
+            x: self.x - self.size / 2.0,
+            y: self.y - self.size / 2.0,
             w: self.size,
             h: self.size,
         }
@@ -125,7 +125,7 @@ async fn main() {
     loop {
         clear_background(DARKPURPLE);
 
-        // Check for collissions
+        // Check for collisions
         let mut gameover = squares.iter().any(|square| circle.collides_with(square));
         if gameover && is_key_down(KeyCode::Space) {
             squares.clear();
