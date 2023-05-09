@@ -17,8 +17,10 @@ default-theme = "macchiato"
 preferred-dark-theme = "navy"
 curly-quotes = true
 git-repository-url = "https://github.com/ollej/macroquad-introduktion"
-runnable = false
 additional-css = ["./theme/catppuccin.css", "./theme/catppuccin-highlight.css"]
+
+[output.html.playground]
+runnable = false
 
 [preprocessor]
 
