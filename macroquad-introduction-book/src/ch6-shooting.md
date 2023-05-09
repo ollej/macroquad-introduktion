@@ -7,7 +7,7 @@ skjuta ner fyrkanterna med.
 För att hålla reda på vilka fyrkanter som har blivit träffade av kulor så
 lägger vi till ett nytt fält `collided` av typen `bool` i `Shape`.
 
-```rust
+```rust [hl,6]
 {{#include ../../mitt-spel/examples/shooting.rs:shape}}
 ```
 
@@ -33,7 +33,7 @@ i koden.
 Om det har blivit game over måste vi även rensa vektorn med kulor så att dom
 försvinner när ett nytt spel påbörjas.
 
-```rust
+```rust [hl,3]
 {{#include ../../mitt-spel/examples/shooting.rs:clearbullets}}
 ```
 

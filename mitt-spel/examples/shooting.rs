@@ -59,15 +59,15 @@ async fn main() {
         }
         // ANCHOR_END: collided
 
+        // ANCHOR: clearbullets
         if gameover && is_key_down(KeyCode::Space) {
             squares.clear();
-            // ANCHOR: clearbullets
             bullets.clear();
-            // ANCHOR_END: clearbullets
             circle.x = screen_width() / 2.0;
             circle.y = screen_height() / 2.0;
             gameover = false;
         }
+        // ANCHOR_END: clearbullets
         if !gameover {
             let delta_time = get_frame_time();
             if is_key_down(KeyCode::Right) {

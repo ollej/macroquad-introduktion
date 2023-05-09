@@ -18,6 +18,7 @@ preferred-dark-theme = "navy"
 curly-quotes = true
 git-repository-url = "https://github.com/ollej/macroquad-introduktion"
 additional-css = ["./theme/catppuccin.css", "./theme/catppuccin-highlight.css"]
+additional-js = ["code-line-highlight.js"]
 
 [output.html.playground]
 runnable = false

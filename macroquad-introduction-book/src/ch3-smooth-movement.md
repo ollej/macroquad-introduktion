@@ -26,7 +26,7 @@ Förändringen av variablerna `x` och `y` kan sedan bytas ut till en
 multiplikation av värdena för `MOVEMENT_SPEED` och `delta_time` för att få hur
 långt cirkeln ska förflyttas under denna bildruta.
 
-```rust
+```rust [hl,2,5,8,11]
 {{#include ../../mitt-spel/examples/smooth-movement.rs:movement}}
 ```
 
