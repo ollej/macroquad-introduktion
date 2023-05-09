@@ -63,13 +63,35 @@ börja med visar vi en boll som vi kan styra med knapptryckningar.
 De första två raderna i main-funktionen använder funktionerna `screen_width()`
 och `screen_height()` för att få bredden och höjden på fönstret. Dessa värden
 delas med 2 för att få koordinaterna till mitten av skärmen, och tilldelas
-till variablerna `x` och `y`. Inne i loopen rensar vi fortfarande skärmen,
-vilket måste göras vid varje bildruta. Därefter kommer fyra if-satser som
-kollar om piltangerna är nedtryckta och ändrar på variablerna `x` eller `y`
-som avgör var cirkeln ska visas. Funktionen `is_key_down()` returnerar sant om
-den angivna tangenten är nedtryckt. Dess argument är enumen `KeyCode` som
-innehåller alla tangenter som finns på ett tangentbord. Slutligen ritas
-cirkeln ut på de angivna koordinaterna med en radie på 15 och med gul färg.
+till variablerna `x` och `y`.
+
+```rust
+    let mut x = screen_width() / 2.0;
+    let mut y = screen_height() / 2.0;
+```
+
+Inne i loopen rensar vi fortfarande skärmen, vilket måste göras vid varje
+bildruta. Därefter kommer fyra if-satser som kollar om piltangerna är
+nedtryckta och ändrar på variablerna `x` eller `y` som avgör var cirkeln ska
+visas. Funktionen `is_key_down()` returnerar sant om den angivna tangenten är
+nedtryckt. Dess argument är enumen `KeyCode` som innehåller alla tangenter som
+finns på ett tangentbord. Slutligen ritas cirkeln ut på de angivna
+koordinaterna med en radie på 15 och med gul färg.
+
+```rust
+        if is_key_down(KeyCode::Right) {
+            x += 1.0;
+        }
+        if is_key_down(KeyCode::Left) {
+            x -= 1.0;
+        }
+        if is_key_down(KeyCode::Down) {
+            y += 1.0;
+        }
+        if is_key_down(KeyCode::Up) {
+            y -= 1.0;
+        }
+```
 
 ### Källkod
 
@@ -118,15 +140,46 @@ datorer, beroende på hur snabbt dom kan köra programmet.
 Vi ska därför utöka programmet och lägga till en konstant variabel som avgör
 hur snabbt cirkeln ska röra sig. Vi kallar den `MOVEMENT_SPEED` och börjar med
 att tilldela den värden `50.0`. Går det för fort eller för sakta kan vi sänka
-eller öka detta värde. Därefter använder vi funktionen `get_frame_time()` som
-ger oss hur lång tid det har gått sedan föregående bildruta ritades på skärmen
-och tilldelar den till variabeln `delta_time`. Förändringen av variablerna `x`
-och `y` kan sedan bytas ut till en multiplikation av värdena för
-`MOVEMENT_SPEED` och `delta_time` för att få hur långt cirkeln ska förflyttas
-under denna bildruta.
+eller öka detta värde.
+
+```rust
+    const MOVEMENT_SPEED: f32 = 100.0;
+```
+
+Därefter använder vi funktionen `get_frame_time()` som ger oss hur lång tid
+det har gått sedan föregående bildruta ritades på skärmen och tilldelar den
+till variabeln `delta_time`.
+
+```rust
+        let delta_time = get_frame_time();
+```
+
+Förändringen av variablerna `x` och `y` kan sedan bytas ut till en
+multiplikation av värdena för `MOVEMENT_SPEED` och `delta_time` för att få hur
+långt cirkeln ska förflyttas under denna bildruta.
+
+```rust
+        if is_key_down(KeyCode::Right) {
+            x += MOVEMENT_SPEED * delta_time;
+        }
+        if is_key_down(KeyCode::Left) {
+            x -= MOVEMENT_SPEED * delta_time;
+        }
+        if is_key_down(KeyCode::Down) {
+            y += MOVEMENT_SPEED * delta_time;
+        }
+        if is_key_down(KeyCode::Up) {
+            y -= MOVEMENT_SPEED * delta_time;
+        }
+```
 
 Slutligen vill vi också att cirkeln aldrig ska hamna utanför fönstret, därför
 begränsar vi variablerna `x` och `y`.
+
+```rust
+        x = x.min(screen_width()).max(0.0);
+        y = y.min(screen_height()).max(0.0);
+```
 
 ### Källkod
 
@@ -175,10 +228,16 @@ action. Eftersom hjälten i vårt spel är en modig cirkel så får våra
 motståndare bli kantiga fyrkanter som faller ner från toppen av fönstret.
 
 För att hålla reda på vår cirkel och alla fyrkanter så skapar vi en struct som
-heter `Shape` som innehåller storlek, hastighet samt x och y-koordinater.  I
-början av `main`-funktionen skapar vi en vektor `squares` som kommer innehåll
-alla fyrkanter som ska visas på skärmen. Den ny variabeln `circle` får
-representera vår hjälte, den fantastiska cirkeln.
+heter `Shape` som innehåller storlek, hastighet samt x och y-koordinater.
+
+```rust
+struct Shape {
+    size: f32,
+    speed: f32,
+    x: f32,
+    y: f32,
+}
+```
 
 Vi kommer använda oss av en slumpgenerator för att avgöra när nya fyrkanter
 ska komma in på skärmen. Därför behöver vi seeda slumpgeneratorn så att det
@@ -186,6 +245,24 @@ inte blir samma slumptal varje gång. Detta görs i början av `main`-funktionen
 med metoden `srand()` som vi skickar in nuvarande tid till som seed. Eftersom
 rand-funktionerna inte är med i Macroquads "prelude"-modul måste vi även
 importera den längst upp i koden.
+
+```rust
+    srand(miniquad::date::now() as u64);
+```
+
+I början av `main`-funktionen skapar vi en vektor `squares` som kommer
+innehåll alla fyrkanter som ska visas på skärmen. Den ny variabeln `circle`
+får representera vår hjälte, den fantastiska cirkeln.
+
+```rust
+    let mut squares = vec![];
+    let mut circle = Shape {
+        size: 30.0,
+        speed: MOVEMENT_SPEED,
+        x: screen_width() / 2.0,
+        y: screen_height() / 2.0,
+    };
+```
 
 Nu är det dags att starta invasionen av fyrkanter. Här delar vi som tidigare
 upp förflyttningen och utritningen av fyrkanterna. Det gör att förflyttningen
@@ -200,15 +277,38 @@ värde, och returnerar sedan ett slumpat tal mellan dom två värdena. Om värde
 `squares`. För att få lite variation använder vi även `gen_range()` för att få
 olika storlek, hastighet och startposition på alla fyrkanter.
 
+```rust
+        if gen_range(0, 99) >= 95 {
+            let size = gen_range::<f32>(15.0, 40.0);
+            let square = Shape {
+                size,
+                speed: gen_range::<f32>(50.0, 150.0),
+                x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
+                y: -size,
+            };
+            squares.push(square);
+        }
+```
+
 Nu kan vi gå igenom hela vektorn med en for-loop och uppdatera y-positionen
 med hjälp av fyrkantens hastighet och variabeln `delta_time`. Detta gör att
 fyrkanterna kommer åka neråt över skärmen.
+
+```rust
+        for square in &mut squares {
+            square.y += square.speed * delta_time;
+        }
+```
 
 Därefter måste vi rensa upp alla fyrkanter som har hamnat utanför skärmen då
 det är onödigt att rita ut saker som inte syns. Vi använder oss av metoden
 `retain()` på vektorn som tar en funktion som avgör om elementen ska behållas.
 Vi kollar att fyrkantens y-värde fortfarande är mindre än höjden på fönstret +
 storleken på fyrkanten.
+
+```rust
+        squares.retain(|square| square.y < screen_width() + square.size);
+```
 
 Till sist lägger vi till en for-loop som går igenom vektorn `squares` och
 använder funktionen `draw_rectangle() för att rita ut en rektangel på den
@@ -217,7 +317,19 @@ x och y från hörnet längst upp till vänster och våra koordinater utgår fr�
 center av fyrkanten så använder vi lite matematik för att räkna ut var dom ska
 placeras.
 
-### Källkod
+```rust
+        for square in &squares {
+            draw_rectangle(
+                square.x - square.size / 2.0,
+                square.y - square.size / 2.0,
+                square.size,
+                square.size,
+                GREEN,
+            );
+        }
+```
+
+### Komplett källkod
 
 Hela programmet ser nu ut så här:
 
@@ -318,22 +430,74 @@ Vi utökar structen `Shape` med en implementation som innehåller metoden
 använder sig av Macroquads `Rect` struct som har hjälpmetoden `overlaps()`. Vi
 skapar även en egen hjälpmetod som skapar en `Rect` från vår `Shape`.
 
+```rust
+impl Shape {
+    fn collides_with(&self, other: &Self) -> bool {
+        self.rect().overlaps(&other.rect())
+    }
+
+    fn rect(&self) -> Rect {
+        Rect {
+            x: self.x,
+            y: self.y,
+            w: self.size,
+            h: self.size,
+        }
+    }
+}
+```
+
 I början av huvudloopen lägger vi till vår kontroll av kollissioner. Vi
 använder metoden `any()` på vektorn `squares` och kollar om någon fyrkant
-kolliderar med vår hjälte cirkeln.
+kolliderar med vår hjälte cirkeln. Om det har skett en kollission så sätter
+vi variabeln `gameover` till true.
 
-Om det har skett en kollission så sätter vi variabeln `gameover` till true.
+```rust
+        let mut gameover = squares.iter().any(|square| circle.collides_with(square));
+```
+
 Om `gameover`-variabeln är sann och spelaren trycker på mellanslagstangenten
 så tömmer vi vektorn `squares` med metoden `clear()` och återställer cirkelns
 x och y-koordinater till mitten av skärmen.
 
+```rust
+        if gameover && is_key_down(KeyCode::Space) {
+            squares.clear();
+            circle.x = screen_width() / 2.0;
+            circle.y = screen_height() / 2.0;
+            gameover = false;
+        }
+```
+
 För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
 görs all kod för förflyttning enbart om variabeln `gameover` är falsk.
+
+```rust
+        if !gameover {
+            ...
+        }
+```
 
 Slutligen ritar vi ut texten "Game Over!" i mitten av skärmen efter cirkeln
 och fyrkanterna har ritats ut, men bara om variabeln `gameover` är sann.
 
-### Källkoden
+```rust
+        if gameover {
+            let text = "Game Over!";
+            let text_dimensions = measure_text(text, None, 60, 1.0);
+            draw_text(
+                text,
+                screen_width() / 2.0 - text_dimensions.width / 2.0,
+                screen_height() / 2.0,
+                50.0,
+                RED,
+            );
+        }
+```
+
+### Kompletta källkoden
+
+Källkoden för vårt spel ska nu se ut så här:
 
 ```rust
 use macroquad::{prelude::*, rand::*};
@@ -452,10 +616,11 @@ async fn main() {
 }
 ```
 
-
-
 ## Skjuta
 
+Det känns lite orättvist att vår stackars cirkel inte kan försvara sig mot de
+läskiga fyrkanterna. Därför är det dags att implementera skott som cirkeln kan
+skjuta ner fyrkanterna med.
 
 ## Inertia movement
 
