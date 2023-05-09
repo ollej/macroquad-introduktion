@@ -67,7 +67,7 @@ async fn main() {
         for square in &mut squares {
             square.y += square.speed * delta_time;
         }
-        // ANCHOR: movesquares
+        // ANCHOR_END: movesquares
 
         // Remove squares below bottom of screen
         // ANCHOR: removesquares
