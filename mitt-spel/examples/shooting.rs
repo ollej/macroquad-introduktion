@@ -1,5 +1,7 @@
+// ANCHOR: all
 use macroquad::{prelude::*, rand::*};
 
+// ANCHOR: shape
 struct Shape {
     size: f32,
     speed: f32,
@@ -7,6 +9,7 @@ struct Shape {
     y: f32,
     collided: bool,
 }
+// ANCHOR_END: shape
 
 impl Shape {
     fn collides_with(&self, other: &Self) -> bool {
@@ -29,7 +32,9 @@ async fn main() {
 
     srand(miniquad::date::now() as u64);
     let mut squares = vec![];
+    // ANCHOR: bullets
     let mut bullets: Vec<Shape> = vec![];
+    // ANCHOR_END: bullets
     let mut circle = Shape {
         size: 30.0,
         speed: MOVEMENT_SPEED,
@@ -43,6 +48,7 @@ async fn main() {
 
         // Check for collisions
         let mut gameover = squares.iter().any(|square| circle.collides_with(square));
+        // ANCHOR: collided
         for square in squares.iter_mut() {
             for bullet in bullets.iter_mut() {
                 if bullet.collides_with(square) {
@@ -51,10 +57,13 @@ async fn main() {
                 }
             }
         }
+        // ANCHOR_END: collided
 
         if gameover && is_key_down(KeyCode::Space) {
             squares.clear();
+            // ANCHOR: clearbullets
             bullets.clear();
+            // ANCHOR_END: clearbullets
             circle.x = screen_width() / 2.0;
             circle.y = screen_height() / 2.0;
             gameover = false;
@@ -73,6 +82,7 @@ async fn main() {
             if is_key_down(KeyCode::Up) {
                 circle.y -= MOVEMENT_SPEED * delta_time;
             }
+            // ANCHOR: shoot
             if is_key_pressed(KeyCode::Space) {
                 bullets.push(Shape {
                     x: circle.x,
@@ -82,6 +92,7 @@ async fn main() {
                     collided: false,
                 });
             }
+            // ANCHOR_END: shoot
 
             // Clamp X and Y to be within the screen
             circle.x = circle.x.min(screen_width()).max(0.0);
@@ -110,17 +121,23 @@ async fn main() {
 
             // Remove shapes outside of screen
             squares.retain(|square| square.y < screen_width() + square.size);
+            // ANCHOR: removebullets
             bullets.retain(|bullet| bullet.y > 0.0 - bullet.size / 2.0);
+            // ANCHOR_END: removebullets
 
             // Remove collided shapes
+            // ANCHOR: removecollided
             squares.retain(|square| !square.collided);
             bullets.retain(|bullet| !bullet.collided);
+            // ANCHOR_END: removecollided
         }
 
         // Draw everything
+        // ANCHOR: drawbullets
         for bullet in &bullets {
             draw_circle(bullet.x, bullet.y, bullet.size / 2.0, RED);
         }
+        // ANCHOR_END: drawbullets
         draw_circle(circle.x, circle.y, circle.size / 2.0, YELLOW);
         for square in &squares {
             draw_rectangle(
@@ -146,3 +163,4 @@ async fn main() {
         next_frame().await
     }
 }
+// ANCHOR_END: all

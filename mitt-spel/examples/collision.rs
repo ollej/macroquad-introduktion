@@ -1,3 +1,4 @@
+// ANCHOR: all
 use macroquad::{prelude::*, rand::*};
 
 struct Shape {
@@ -7,6 +8,7 @@ struct Shape {
     y: f32,
 }
 
+// ANCHOR: implshape
 impl Shape {
     fn collides_with(&self, other: &Self) -> bool {
         self.rect().overlaps(&other.rect())
@@ -21,6 +23,7 @@ impl Shape {
         }
     }
 }
+// ANCHOR_END: implshape
 
 #[macroquad::main("Mitt spel")]
 async fn main() {
@@ -39,13 +42,19 @@ async fn main() {
         clear_background(DARKPURPLE);
 
         // Check for collisions
+        // ANCHOR: collision
         let mut gameover = squares.iter().any(|square| circle.collides_with(square));
+        // ANCHOR_END: collision
+
+        // ANCHOR: gameover
         if gameover && is_key_down(KeyCode::Space) {
             squares.clear();
             circle.x = screen_width() / 2.0;
             circle.y = screen_height() / 2.0;
             gameover = false;
         }
+        // ANCHOR_END: gameover
+
         if !gameover {
             let delta_time = get_frame_time();
             if is_key_down(KeyCode::Right) {
@@ -97,6 +106,7 @@ async fn main() {
                 GREEN,
             );
         }
+        // ANCHOR: drawgameover
         if gameover {
             let text = "Game Over!";
             let text_dimensions = measure_text(text, None, 60, 1.0);
@@ -108,7 +118,9 @@ async fn main() {
                 RED,
             );
         }
+        // ANCHOR_END: drawgameover
 
         next_frame().await
     }
 }
+// ANCHOR_END: all

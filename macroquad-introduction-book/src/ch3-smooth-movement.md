@@ -11,7 +11,7 @@ att tilldela den värden `50.0`. Går det för fort eller för sakta kan vi sän
 eller öka detta värde.
 
 ```rust
-    const MOVEMENT_SPEED: f32 = 100.0;
+{{#include ../../mitt-spel/examples/smooth-movement.rs:constant}}
 ```
 
 Därefter använder vi funktionen `get_frame_time()` som ger oss hur lång tid
@@ -19,7 +19,7 @@ det har gått sedan föregående bildruta ritades på skärmen och tilldelar den
 till variabeln `delta_time`.
 
 ```rust
-        let delta_time = get_frame_time();
+{{#include ../../mitt-spel/examples/smooth-movement.rs:deltatime}}
 ```
 
 Förändringen av variablerna `x` och `y` kan sedan bytas ut till en
@@ -27,26 +27,14 @@ multiplikation av värdena för `MOVEMENT_SPEED` och `delta_time` för att få h
 långt cirkeln ska förflyttas under denna bildruta.
 
 ```rust
-        if is_key_down(KeyCode::Right) {
-            x += MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Left) {
-            x -= MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Down) {
-            y += MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Up) {
-            y -= MOVEMENT_SPEED * delta_time;
-        }
+{{#include ../../mitt-spel/examples/smooth-movement.rs:movement}}
 ```
 
 Slutligen vill vi också att cirkeln aldrig ska hamna utanför fönstret, därför
 begränsar vi variablerna `x` och `y`.
 
 ```rust
-        x = x.min(screen_width()).max(0.0);
-        y = y.min(screen_height()).max(0.0);
+{{#include ../../mitt-spel/examples/smooth-movement.rs:clamp}}
 ```
 
 ### Källkod
@@ -54,39 +42,6 @@ begränsar vi variablerna `x` och `y`.
 Nu ser vårt program ut så här:
 
 ```rust
-use macroquad::prelude::*;
-
-#[macroquad::main("Mitt spel")]
-async fn main() {
-    const MOVEMENT_SPEED: f32 = 100.0;
-
-    let mut x = screen_width() / 2.0;
-    let mut y = screen_height() / 2.0;
-
-    loop {
-        clear_background(DARKPURPLE);
-
-        let delta_time = get_frame_time();
-        if is_key_down(KeyCode::Right) {
-            x += MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Left) {
-            x -= MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Down) {
-            y += MOVEMENT_SPEED * delta_time;
-        }
-        if is_key_down(KeyCode::Up) {
-            y -= MOVEMENT_SPEED * delta_time;
-        }
-
-        x = x.min(screen_width()).max(0.0);
-        y = y.min(screen_height()).max(0.0);
-
-        draw_circle(x, y, 15.0, YELLOW);
-        next_frame().await
-    }
-}
+{{#include ../../mitt-spel/examples/smooth-movement.rs:all}}
 ```
-
 

@@ -9,8 +9,7 @@ delas med 2 för att få koordinaterna till mitten av skärmen, och tilldelas
 till variablerna `x` och `y`.
 
 ```rust
-    let mut x = screen_width() / 2.0;
-    let mut y = screen_height() / 2.0;
+{{#include ../../mitt-spel/examples/move-a-circle.rs:coordinates}}
 ```
 
 Inne i loopen rensar vi fortfarande skärmen, vilket måste göras vid varje
@@ -22,18 +21,7 @@ finns på ett tangentbord. Slutligen ritas cirkeln ut på de angivna
 koordinaterna med en radie på 15 och med gul färg.
 
 ```rust
-        if is_key_down(KeyCode::Right) {
-            x += 1.0;
-        }
-        if is_key_down(KeyCode::Left) {
-            x -= 1.0;
-        }
-        if is_key_down(KeyCode::Down) {
-            y += 1.0;
-        }
-        if is_key_down(KeyCode::Up) {
-            y -= 1.0;
-        }
+{{#include ../../mitt-spel/examples/move-a-circle.rs:movement}}
 ```
 
 ### Källkod
@@ -41,33 +29,7 @@ koordinaterna med en radie på 15 och med gul färg.
 Byt ut innehållet i `main.rs` till följande kod:
 
 ```rust
-use macroquad::prelude::*;
-
-#[macroquad::main("Mitt spel")]
-async fn main() {
-    let mut x = screen_width() / 2.0;
-    let mut y = screen_height() / 2.0;
-
-    loop {
-        clear_background(DARKPURPLE);
-
-        if is_key_down(KeyCode::Right) {
-            x += 1.0;
-        }
-        if is_key_down(KeyCode::Left) {
-            x -= 1.0;
-        }
-        if is_key_down(KeyCode::Down) {
-            y += 1.0;
-        }
-        if is_key_down(KeyCode::Up) {
-            y -= 1.0;
-        }
-
-        draw_circle(x, y, 15.0, YELLOW);
-        next_frame().await
-    }
-}
+{{#include ../../mitt-spel/examples/move-a-circle.rs:all}}
 ```
 
 När du kör programmet så kommer det visas en gul cirkel i mitten av skärmen.

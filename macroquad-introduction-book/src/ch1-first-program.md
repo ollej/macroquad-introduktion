@@ -15,15 +15,7 @@ cargo add macroquad
 följande kod:
 
 ```rust
-use macroquad::prelude::*;
-
-#[macroquad::main("Mitt spel")]
-async fn main() {
-    loop {
-        clear_background(DARKPURPLE);
-        next_frame().await
-    }
-}
+{{#include ../../mitt-spel/examples/first-program.rs}}
 ```
 
 Kör programmet med `cargo run` så ska ett nytt fönster med mörklila bakgrund

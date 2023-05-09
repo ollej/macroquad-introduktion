@@ -1,17 +1,23 @@
+// ANCHOR: all
 use macroquad::{prelude::*, rand::*};
 
+// ANCHOR: shape
 struct Shape {
     size: f32,
     speed: f32,
     x: f32,
     y: f32,
 }
+// ANCHOR_END: shape
 
 #[macroquad::main("Mitt spel")]
 async fn main() {
     const MOVEMENT_SPEED: f32 = 100.0;
 
+    // ANCHOR: srand
     srand(miniquad::date::now() as u64);
+    // ANCHOR_END: srand
+    // ANCHOR: variables
     let mut squares = vec![];
     let mut circle = Shape {
         size: 30.0,
@@ -19,6 +25,7 @@ async fn main() {
         x: screen_width() / 2.0,
         y: screen_height() / 2.0,
     };
+    // ANCHOR_END: variables
 
     loop {
         clear_background(DARKPURPLE);
@@ -42,6 +49,7 @@ async fn main() {
         circle.y = circle.y.min(screen_height()).max(0.0);
 
         // Generate a new square
+        // ANCHOR: generatesquare
         if gen_range(0, 99) >= 95 {
             let size = gen_range::<f32>(15.0, 40.0);
             let square = Shape {
@@ -52,17 +60,23 @@ async fn main() {
             };
             squares.push(square);
         }
+        // ANCHOR_END: generatesquare
 
         // Move squares
+        // ANCHOR: movesquares
         for square in &mut squares {
             square.y += square.speed * delta_time;
         }
+        // ANCHOR: movesquares
 
         // Remove squares below bottom of screen
+        // ANCHOR: removesquares
         squares.retain(|square| square.y < screen_width() + square.size);
+        // ANCHOR_END: removesquares
 
         // Draw everything
         draw_circle(circle.x, circle.y, circle.size / 2.0, YELLOW);
+        // ANCHOR: drawsquares
         for square in &squares {
             draw_rectangle(
                 square.x - square.size / 2.0,
@@ -72,6 +86,9 @@ async fn main() {
                 GREEN,
             );
         }
+        // ANCHOR_END: drawsquares
+
         next_frame().await
     }
 }
+// ANCHOR_END: all
