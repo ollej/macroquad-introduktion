@@ -23,8 +23,8 @@ typ det är innan vi har tilldelat den något värde. Vi använder structen
 
 Efter vi har kollat om cirkeln har kolliderat med en fyrkant lägger vi till en
 kontroll om någon fyrkant blir träffad av en kula. Både kulan och fyrkanten
-uppdatera och collided sätts till `true` så att vi kan ta bort dom längre ned
-i koden.
+uppdateras och fältet `collided` sätts till `true` så att vi kan ta bort dem
+längre ned i koden.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:collided}}
@@ -46,7 +46,7 @@ cirkelns hastighet.
 {{#include ../../mitt-spel/examples/shooting.rs:shoot}}
 ```
 
-Även kulorna behöver tas bort om dom hamnar utanför skärmen.
+Även kulorna behöver tas bort om de hamnar utanför skärmen.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:removebullets}}
@@ -61,7 +61,7 @@ något. Det gör vi enkelt med `retain`-metoden och behåller alla som inte har
 {{#include ../../mitt-spel/examples/shooting.rs:removecollided}}
 ```
 
-Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att dom hamnar under
+Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att de ritas ut under
 övriga former.
 
 ```rust
@@ -69,6 +69,13 @@ Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att dom hamnar under
 ```
 
 Det var allt för att kunna skjuta sönder fyrkanter.
+
+```admonish tip
+För att öka svårighetsgraden går det att lägga till en begränsning så att det
+måste gå en viss tid mellan varje skott. Använd funktionen `get_time()` för
+att spara undan när varje skott skjuts och jämför aktuella tiden med detta
+värde.
+```
 
 ## Kompletta källkoden
 

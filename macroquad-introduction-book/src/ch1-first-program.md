@@ -11,7 +11,7 @@ cd mitt-spel/
 cargo add macroquad
 ```
 
-Öppna sedan filen `src/main.rs` i din favorit-editor och ändra innehållet till
+Öppna filen `src/main.rs` i din favorit-editor och ändra innehållet till
 följande kod:
 
 ```rust
@@ -31,9 +31,20 @@ Attributet `#[macroquad::main("Mitt spel")]` används för att berätta för
 Macroquad vilken funktion som ska köras. Macroquad kommer skapa ett fönster
 med titeln som anges som argument, och exekvera main-funktionen asynkront.
 
+```admonish info
+För att ändra andra inställningar för fönstret, som storlek eller om det ska
+visas i fullskärm, går det att använda structen
+[Conf](https://docs.rs/macroquad/latest/macroquad/window/struct.Conf.html).
+```
+
 Inne i main-funktionen körs en evig loop som aldrig avslutas. Inne i loopen
 ligger all spellogik som ska köras varje bildruta. I vårt fall rensar vi
 bakgrunden till mörklila med funktionen `clear_background(DARKPURPLE)`. I
 slutet av loopen används funktionen `next_frame().await` som kommer blocka
 exekveringen tills nästa bildruta.
+
+```admonish note
+Även om `clear_background()` inte används explicit så kommer Macroquad att rensa
+skärmen i början av varje bildruta.
+```
 

@@ -5,7 +5,8 @@ action. Eftersom hjälten i vårt spel är en modig cirkel så får våra
 motståndare bli kantiga fyrkanter som faller ner från toppen av fönstret.
 
 För att hålla reda på vår cirkel och alla fyrkanter så skapar vi en struct som
-heter `Shape` som innehåller storlek, hastighet samt x och y-koordinater.
+vi kan ge namnet `Shape` som innehåller storlek, hastighet samt x och
+y-koordinater.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:shape}}
@@ -14,16 +15,20 @@ heter `Shape` som innehåller storlek, hastighet samt x och y-koordinater.
 Vi kommer använda oss av en slumpgenerator för att avgöra när nya fyrkanter
 ska komma in på skärmen. Därför behöver vi seeda slumpgeneratorn så att det
 inte blir samma slumptal varje gång. Detta görs i början av `main`-funktionen
-med metoden `srand()` som vi skickar in nuvarande tid till som seed. Eftersom
-rand-funktionerna inte är med i Macroquads "prelude"-modul måste vi även
-importera den längst upp i koden.
+med metoden `rand::srand()` som vi skickar in nuvarande tid till som seed.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:srand}}
 ```
 
+```admonish note
+Vi använder oss av metoden `miniquad::date::now()` från det underliggande
+[grafikramverket Miniquad](https://docs.rs/miniquad/0.3.13/miniquad/index.html)
+för att få den aktuella tiden.
+```
+
 I början av `main`-funktionen skapar vi en vektor `squares` som kommer
-innehåll alla fyrkanter som ska visas på skärmen. Den nya variabeln `circle`
+innehålla alla fyrkanter som ska visas på skärmen. Den nya variabeln `circle`
 får representera vår hjälte, den fantastiska cirkeln. Hastigheten använder
 konstanten `MOVEMENT_SPEED` och `x` och `y`-fälten sätts till mitten av
 skärmen.
@@ -38,15 +43,21 @@ inte behöver vara beroende av uppdateringsfrekvensen av skärmen, och vi kan se
 till att alla förändringar har skett innan vi börjar rita upp något på
 skärmen.
 
-Först använder vi oss av funktionen `gen_range` för att avgöra om vi ska lägga
-till en ny fyrkant. Den tar två argument, ett lägsta värde och ett högsta
-värde, och returnerar sedan ett slumpat tal mellan dom två värdena. Om värdet
-är tillräckligt högt så skapar vi en ny Shape och lägger till i vektorn
-`squares`. För att få lite variation använder vi även `gen_range()` för att få
-olika storlek, hastighet och startposition på alla fyrkanter.
+Först använder vi oss av funktionen `rand::gen_range()` för att avgöra om vi ska
+lägga till en ny fyrkant. Den tar två argument, ett lägsta värde och ett
+högsta värde, och returnerar sedan ett slumpat tal mellan dom två värdena. Om
+värdet är tillräckligt högt så skapar vi en ny Shape och lägger till i vektorn
+`squares`. För att få lite variation använder vi även `rand::gen_range()` för
+att få olika storlek, hastighet och startposition på alla fyrkanter.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:generatesquare}}
+```
+
+```admonish note
+Rektanglar ritas ut med början från övre vänstra hörnet. Därför subtraherar vi
+halva fyrkantens storlek när vi räknar ut X-positionen. Y-positionen börjar på
+negativt av fyrkantens storlek, så att den börjar helt utanför skärmen.
 ```
 
 Nu kan vi gå igenom hela vektorn med en for-loop och uppdatera y-positionen
@@ -60,8 +71,8 @@ fyrkanterna kommer åka neråt över skärmen.
 Därefter måste vi rensa upp alla fyrkanter som har hamnat utanför skärmen då
 det är onödigt att rita ut saker som inte syns. Vi använder oss av metoden
 `retain()` på vektorn som tar en funktion som avgör om elementen ska behållas.
-Vi kollar att fyrkantens y-värde fortfarande är mindre än höjden på fönstret +
-storleken på fyrkanten.
+Vi kollar att fyrkantens y-värde fortfarande är mindre än höjden på fönstret
+plus storleken på fyrkanten.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:removesquares}}
@@ -76,6 +87,13 @@ placeras.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:drawsquares}}
+```
+
+```admonish tip
+Försök att ge olika färger till fyrkanterna genom att använda metoden
+`choose()` på vektorer från Macroquads 
+[ChooseRandom trait](https://docs.rs/macroquad/latest/macroquad/rand/trait.ChooseRandom.html)
+som returnerar ett slumpmässigt valt element från vektorn.
 ```
 
 ## Komplett källkod

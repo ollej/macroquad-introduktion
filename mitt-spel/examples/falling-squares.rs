@@ -1,5 +1,5 @@
 // ANCHOR: all
-use macroquad::{prelude::*, rand::*};
+use macroquad::prelude::*;
 
 // ANCHOR: shape
 struct Shape {
@@ -15,7 +15,7 @@ async fn main() {
     const MOVEMENT_SPEED: f32 = 100.0;
 
     // ANCHOR: srand
-    srand(miniquad::date::now() as u64);
+    rand::srand(miniquad::date::now() as u64);
     // ANCHOR_END: srand
     // ANCHOR: variables
     let mut squares = vec![];
@@ -50,12 +50,12 @@ async fn main() {
 
         // Generate a new square
         // ANCHOR: generatesquare
-        if gen_range(0, 99) >= 95 {
-            let size = gen_range::<f32>(15.0, 40.0);
+        if rand::gen_range(0, 99) >= 95 {
+            let size = rand::gen_range(15.0, 40.0);
             let square = Shape {
                 size,
-                speed: gen_range::<f32>(50.0, 150.0),
-                x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
+                speed: rand::gen_range(50.0, 150.0),
+                x: rand::gen_range(size / 2.0, screen_width() - size / 2.0),
                 y: -size,
             };
             squares.push(square);

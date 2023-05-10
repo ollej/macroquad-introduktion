@@ -1,5 +1,5 @@
 // ANCHOR: all
-use macroquad::{prelude::*, rand::*};
+use macroquad::prelude::*;
 
 // ANCHOR: shape
 struct Shape {
@@ -30,7 +30,7 @@ impl Shape {
 async fn main() {
     const MOVEMENT_SPEED: f32 = 100.0;
 
-    srand(miniquad::date::now() as u64);
+    rand::srand(miniquad::date::now() as u64);
     let mut squares = vec![];
     // ANCHOR: bullets
     let mut bullets: Vec<Shape> = vec![];
@@ -60,7 +60,7 @@ async fn main() {
         // ANCHOR_END: collided
 
         // ANCHOR: clearbullets
-        if gameover && is_key_down(KeyCode::Space) {
+        if gameover && is_key_pressed(KeyCode::Space) {
             squares.clear();
             bullets.clear();
             circle.x = screen_width() / 2.0;
@@ -87,7 +87,7 @@ async fn main() {
                 bullets.push(Shape {
                     x: circle.x,
                     y: circle.y,
-                    speed: MOVEMENT_SPEED * 2.0,
+                    speed: circle.speed * 2.0,
                     size: 5.0,
                     collided: false,
                 });
@@ -99,12 +99,12 @@ async fn main() {
             circle.y = circle.y.min(screen_height()).max(0.0);
 
             // Generate a new square
-            if gen_range(0, 99) >= 95 {
-                let size = gen_range::<f32>(15.0, 40.0);
+            if rand::gen_range(0, 99) >= 95 {
+                let size = rand::gen_range(15.0, 40.0);
                 let square = Shape {
                     size,
-                    speed: gen_range::<f32>(50.0, 150.0),
-                    x: gen_range::<f32>(size / 2.0, screen_width() - size / 2.0),
+                    speed: rand::gen_range(50.0, 150.0),
+                    x: rand::gen_range(size / 2.0, screen_width() - size / 2.0),
                     y: -size,
                     collided: false,
                 };

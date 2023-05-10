@@ -14,9 +14,9 @@ eller öka detta värde.
 {{#include ../../mitt-spel/examples/smooth-movement.rs:constant}}
 ```
 
-Därefter använder vi funktionen `get_frame_time()` som ger oss hur lång tid
-det har gått sedan föregående bildruta ritades på skärmen och tilldelar den
-till variabeln `delta_time`.
+Därefter använder vi funktionen `get_frame_time()` som ger oss hur lång tid i
+sekunder det har gått sedan föregående bildruta ritades på skärmen och
+tilldelar den till variabeln `delta_time`.
 
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:deltatime}}
@@ -35,6 +35,11 @@ begränsar vi variablerna `x` och `y`.
 
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:clamp}}
+```
+
+```admonish info
+Metoderna `min()` och `max()` används för att få det minsta eller högsta av
+två värden.
 ```
 
 ### Källkod

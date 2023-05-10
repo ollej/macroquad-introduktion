@@ -19,25 +19,39 @@ skapar även en egen hjälpmetod som skapar en `Rect` från vår `Shape`.
 {{#include ../../mitt-spel/examples/collision.rs:implshape}}
 ```
 
-I början av huvudloopen lägger vi till vår kontroll av kollisioner. Vi
-använder metoden `any()` på vektorn `squares` och kollar om någon fyrkant
-kolliderar med vår hjälte cirkeln. Om det har skett en kollision så sätter
-vi variabeln `gameover` till true.
+```admonish note
+Macroquads `Rect` utgår också från övre vänstra hörnet, därför måste vi även
+här subtrahera halva storlken från både X och Y.
+```
+
+I början av huvudloopen lägger vi till en kontroll om någon fyrkant kolliderar
+med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn `squares`
+och kollar om någon fyrkant kolliderar med vår hjälte cirkeln. Om det har
+skett en kollision sätter vi variabeln `gameover` till `true`.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:collision}}
 ```
 
-Om `gameover`-variabeln är sann och spelaren trycker på mellanslagstangenten
-så tömmer vi vektorn `squares` med metoden `clear()` och återställer cirkelns
-x och y-koordinater till mitten av skärmen.
+Om `gameover`-variabeln är `true` och spelaren precis har tryckt på
+mellanslagstangenten så tömmer vi vektorn `squares` med metoden `clear()` och
+återställer cirkelns x och y-koordinater till mitten av skärmen. Sen sätter vi
+`gameover` till `false` så att spelet kan börja igen.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:gameover}}
 ```
 
+```admonish info
+Skillnaden mellan `is_key_down()` och `is_key_pressed()` är att den senare
+bara kollar om tangenten trycktes ned under den aktuella bildrutan, medan den
+tidigare gälla alla bildrutor som knappen hålls nedtryckt. Det finns även
+`is_key_released()` som kollar om tangenten släpptes under den aktuella
+bildrutan.
+```
+
 För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
-görs all kod för förflyttning enbart om variabeln `gameover` är falsk.
+görs all kod för förflyttning enbart om variabeln `gameover` är `false`.
 
 ```rust
         if !gameover {
@@ -46,10 +60,18 @@ görs all kod för förflyttning enbart om variabeln `gameover` är falsk.
 ```
 
 Slutligen ritar vi ut texten "Game Over!" i mitten av skärmen efter cirkeln
-och fyrkanterna har ritats ut, men bara om variabeln `gameover` är sann.
+och fyrkanterna har ritats ut, men bara om variabeln `gameover` är `true`.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:drawgameover}}
+```
+
+```admonish tip
+Eftersom `draw_text()` utgår från textens baslinje så kommer texten inte visas
+exakt i mitten av skärmen. Prova att använda fälten `offset_y` och `height`
+från `text_dimensions` för att räkna ut textens mittpunkt. Macroquads exempel [text
+measures](https://github.com/not-fl3/macroquad/blob/master/examples/text_measures.rs)
+kan ge tips till hur det fungerar.
 ```
 
 ## Kompletta källkoden

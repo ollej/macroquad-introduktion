@@ -23,11 +23,22 @@ finns på ett tangentbord.
 {{#include ../../mitt-spel/examples/move-a-circle.rs:movement}}
 ```
 
+```admonish info
+Vilka andra tangenter som finns tillgängliga finns beskrivet i [manualen för
+KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
+```
+
 Slutligen ritas cirkeln ut på de angivna
 koordinaterna med en radie på 15 och med gul färg.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
+```
+
+```admonish info
+Vilka andra former som går att rita med Macroquad finns beskrivet i
+dokumentationen för [Macroquads Shape
+API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 ```
 
 ### Källkod
