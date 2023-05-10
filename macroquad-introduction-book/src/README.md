@@ -17,3 +17,9 @@ I denna guide kommer vi bygga ett spel från grunden genom att lägga till
 lite mer funktionalitet i varje kapitel. Till att börja med kommer det vara
 väldigt rudimentärt, men i slutet av guiden kommer det vara ett komplett spel
 med grafik, ljud och allt som hör till.
+
+```admonish info
+På [Macroquads hemsida](https://macroquad.rs) finns
+[exempel](https://macroquad.rs/examples/) som visar hur Macroquad fungerar och
+[dokumentation](https://docs.rs/macroquad/latest/macroquad/) av dess API.
+```
