@@ -3,8 +3,8 @@ authors = ["Olle Wreede"]
 language = "sv"
 multilingual = false
 src = "src"
-title = "Skapa ett spel med Rust och Macroquad"
-description = "En guide som beskriver hur man skriver ett spel med programmeringsspråket Rust och spelramverket Macroquad."
+title = "Koda ett spel med Rust och Macroquad"
+description = "En guide som beskriver hur man kodar ett spel med programmeringsspråket Rust och spelramverket Macroquad."
 
 [build]
 create-missing = false
@@ -14,7 +14,7 @@ edition = "2021"
 
 [output.html]
 default-theme = "macchiato"
-preferred-dark-theme = "navy"
+preferred-dark-theme = "macchiato"
 curly-quotes = true
 git-repository-url = "https://github.com/ollej/macroquad-introduktion"
 additional-css = ["./theme/catppuccin.css", "./theme/catppuccin-highlight.css", "./theme/mdbook-admonish.css"]
