@@ -5,7 +5,7 @@ läskiga fyrkanterna. Därför är det dags att implementera skott som cirkeln k
 skjuta ner fyrkanterna med.
 
 För att hålla reda på vilka fyrkanter som har blivit träffade av kulor så
-lägger vi till ett nytt fält `collided` av typen `bool` i `Shape`.
+lägger vi till ett nytt fält `collided` av typen `bool` i structen `Shape`.
 
 ```rust [hl,6]
 {{#include ../../mitt-spel/examples/shooting.rs:shape}}

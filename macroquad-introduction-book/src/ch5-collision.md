@@ -33,6 +33,11 @@ skett en kollision sätter vi variabeln `gameover` till `true`.
 {{#include ../../mitt-spel/examples/collision.rs:collision}}
 ```
 
+```admonish tip
+Kollisionskoden utgår från att cirkeln är en fyrkant. Prova att skriva kod som
+tar hänsyn till att cirkeln inte fyller ut hela fyrkanten.
+```
+
 Om `gameover`-variabeln är `true` och spelaren precis har tryckt på
 mellanslagstangenten så tömmer vi vektorn `squares` med metoden `clear()` och
 återställer cirkelns x och y-koordinater till mitten av skärmen. Sen sätter vi
