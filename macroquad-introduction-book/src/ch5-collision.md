@@ -24,6 +24,13 @@ Macroquads `Rect` utgår också från övre vänstra hörnet, därför måste vi
 här subtrahera halva storlken från både X och Y.
 ```
 
+Vi behöver en ny boolesk variabel `gameover` som håller reda på om spelaren
+har dött som vi lägger in före huvudloopen.
+
+```rust
+{{#include ../../mitt-spel/examples/collision.rs:variable}}
+```
+
 I början av huvudloopen lägger vi till en kontroll om någon fyrkant kolliderar
 med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn `squares`
 och kollar om någon fyrkant kolliderar med vår hjälte cirkeln. Om det har

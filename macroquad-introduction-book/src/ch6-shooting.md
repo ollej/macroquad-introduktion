@@ -30,8 +30,8 @@ längre ned i koden.
 {{#include ../../mitt-spel/examples/shooting.rs:collided}}
 ```
 
-Om det har blivit game over måste vi även rensa vektorn med kulor så att dom
-försvinner när ett nytt spel påbörjas.
+Om det har blivit game over måste vi även rensa vektorn `bullets` så att
+kulorna försvinner när ett nytt spel påbörjas.
 
 ```rust [hl,3]
 {{#include ../../mitt-spel/examples/shooting.rs:clearbullets}}

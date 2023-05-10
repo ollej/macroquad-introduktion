@@ -42,12 +42,15 @@ async fn main() {
         y: screen_height() / 2.0,
         collided: false,
     };
+    let mut gameover = false;
 
     loop {
         clear_background(DARKPURPLE);
 
         // Check for collisions
-        let mut gameover = squares.iter().any(|square| circle.collides_with(square));
+        if squares.iter().any(|square| circle.collides_with(square)) {
+            gameover = true;
+        }
         // ANCHOR: collided
         for square in squares.iter_mut() {
             for bullet in bullets.iter_mut() {
