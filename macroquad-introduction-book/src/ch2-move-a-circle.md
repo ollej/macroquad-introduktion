@@ -15,13 +15,19 @@ till variablerna `x` och `y`.
 Inne i loopen rensar vi fortfarande skärmen, vilket måste göras vid varje
 bildruta. Därefter kommer fyra if-satser som kollar om piltangerna är
 nedtryckta och ändrar på variablerna `x` eller `y` som avgör var cirkeln ska
-visas. Funktionen `is_key_down()` returnerar sant om den angivna tangenten är
+visas. Funktionen `is_key_down()` returnerar `true` om den angivna tangenten är
 nedtryckt. Dess argument är enumen `KeyCode` som innehåller alla tangenter som
-finns på ett tangentbord. Slutligen ritas cirkeln ut på de angivna
-koordinaterna med en radie på 15 och med gul färg.
+finns på ett tangentbord.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:movement}}
+```
+
+Slutligen ritas cirkeln ut på de angivna
+koordinaterna med en radie på 15 och med gul färg.
+
+```rust
+{{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
 ```
 
 ### Källkod

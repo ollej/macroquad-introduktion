@@ -1,8 +1,8 @@
 ## Mjukare rörelser
 
-Eftersom Macroquad kommer rita bildrutor så snabbt som den kan så måste vi
-kolla hur lång tid som har gått mellan varje uppdatering för att avgöra hur
-långt cirkeln ska förflyttas. Annars kommer vårt spel gå olika fort på olika
+Eftersom Macroquad kommer rita bildrutor så snabbt som den kan måste vi kolla
+hur lång tid som har gått mellan varje uppdatering för att avgöra hur långt
+cirkeln ska förflyttas. Annars kommer vårt spel gå olika fort på olika
 datorer, beroende på hur snabbt dom kan köra programmet.
 
 Vi ska därför utöka programmet och lägga till en konstant variabel som avgör
