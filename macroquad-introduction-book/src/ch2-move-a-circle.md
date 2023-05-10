@@ -24,21 +24,31 @@ finns på ett tangentbord.
 ```
 
 ```admonish info
-Vilka andra tangenter som finns tillgängliga finns beskrivet i [manualen för
-KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
+Vilka andra tangenter som finns tillgängliga finns beskrivet i
+[dokumentationen för KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
 ```
 
-Slutligen ritas cirkeln ut på de angivna
-koordinaterna med en radie på 15 och med gul färg.
+Slutligen ritas cirkeln ut på de angivna koordinaterna med en radie på 15 och
+med gul färg.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
 ```
 
 ```admonish info
+Macroquad har ett flertal konstanter för vanliga
+[färger](https://docs.rs/macroquad/latest/macroquad/color/colors/index.html),
+det går också att använda makrot
+[`color_u8`](https://docs.rs/macroquad/latest/macroquad/macro.color_u8.html)
+för att ange en färg med värden för röd, grön, blå och transparens.
 Vilka andra former som går att rita med Macroquad finns beskrivet i
-dokumentationen för [Macroquads Shape
+dokumentationen för Macroquads [Shape
 API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
+```
+
+```admonish tip
+Ändra värdet som adderas till `x` och `y` för att öka eller minska hastigheten
+som cirkeln förflyttas.
 ```
 
 ### Källkod

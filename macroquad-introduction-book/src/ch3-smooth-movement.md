@@ -42,6 +42,11 @@ Metoderna `min()` och `max()` används för att få det minsta eller högsta av
 två värden.
 ```
 
+```admonish tip
+Ändra konstanten `MOVEMENT_SPEED` om cirkeln rör sig för fort eller för sakta.
+Vad behöver ändras för att hela cirkeln ska vara kvar på skärmen?
+```
+
 ### Källkod
 
 Nu ser vårt program ut så här:
