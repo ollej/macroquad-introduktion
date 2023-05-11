@@ -9,6 +9,6 @@
 - [Kollision](ch5-collision.md)
 - [Skjuta](ch6-shooting.md)
 - [Poängsystem](ch7-points-system.md)
-- [Startmeny och state](ch8-start-menu.md)
+- [Game state](ch8-game-state.md)
 - [Lägg till texturer](ch9-add-textures.md)
 - [Lägg till ljud](ch10-add-sounds.md)

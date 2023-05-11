@@ -31,10 +31,19 @@ har dött som vi lägger in före huvudloopen.
 {{#include ../../mitt-spel/examples/collision.rs:variable}}
 ```
 
-I början av huvudloopen lägger vi till en kontroll om någon fyrkant kolliderar
-med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn `squares`
-och kollar om någon fyrkant kolliderar med vår hjälte cirkeln. Om det har
-skett en kollision sätter vi variabeln `gameover` till `true`.
+För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
+görs all kod för förflyttning enbart om variabeln `gameover` är `false`.
+
+```rust
+        if !gameover {
+            ...
+        }
+```
+
+Efter förflyttningskoden lägger vi till en kontroll om någon fyrkant
+kolliderar med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn
+`squares` och kollar om någon fyrkant kolliderar med vår hjälte cirkeln. Om
+det har skett en kollision sätter vi variabeln `gameover` till `true`.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:collision}}
@@ -60,15 +69,6 @@ bara kollar om tangenten trycktes ned under den aktuella bildrutan, medan den
 tidigare gälla alla bildrutor som knappen hålls nedtryckt. Det finns även
 `is_key_released()` som kollar om tangenten släpptes under den aktuella
 bildrutan.
-```
-
-För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
-görs all kod för förflyttning enbart om variabeln `gameover` är `false`.
-
-```rust
-        if !gameover {
-            ...
-        }
 ```
 
 Slutligen ritar vi ut texten "Game Over!" i mitten av skärmen efter cirkeln

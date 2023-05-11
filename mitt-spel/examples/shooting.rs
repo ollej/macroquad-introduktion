@@ -47,30 +47,6 @@ async fn main() {
     loop {
         clear_background(DARKPURPLE);
 
-        // Check for collisions
-        if squares.iter().any(|square| circle.collides_with(square)) {
-            gameover = true;
-        }
-        // ANCHOR: collided
-        for square in squares.iter_mut() {
-            for bullet in bullets.iter_mut() {
-                if bullet.collides_with(square) {
-                    bullet.collided = true;
-                    square.collided = true;
-                }
-            }
-        }
-        // ANCHOR_END: collided
-
-        // ANCHOR: clearbullets
-        if gameover && is_key_pressed(KeyCode::Space) {
-            squares.clear();
-            bullets.clear();
-            circle.x = screen_width() / 2.0;
-            circle.y = screen_height() / 2.0;
-            gameover = false;
-        }
-        // ANCHOR_END: clearbullets
         if !gameover {
             let delta_time = get_frame_time();
             if is_key_down(KeyCode::Right) {
@@ -104,14 +80,15 @@ async fn main() {
             // Generate a new square
             if rand::gen_range(0, 99) >= 95 {
                 let size = rand::gen_range(15.0, 40.0);
-                let square = Shape {
+                // ANCHOR: squarecollided
+                squares.push(Shape {
                     size,
                     speed: rand::gen_range(50.0, 150.0),
                     x: rand::gen_range(size / 2.0, screen_width() - size / 2.0),
                     y: -size,
                     collided: false,
-                };
-                squares.push(square);
+                });
+                // ANCHOR_END: squarecollided
             }
 
             // Movement
@@ -134,6 +111,31 @@ async fn main() {
             bullets.retain(|bullet| !bullet.collided);
             // ANCHOR_END: removecollided
         }
+
+        // Check for collisions
+        if squares.iter().any(|square| circle.collides_with(square)) {
+            gameover = true;
+        }
+        // ANCHOR: collided
+        for square in squares.iter_mut() {
+            for bullet in bullets.iter_mut() {
+                if bullet.collides_with(square) {
+                    bullet.collided = true;
+                    square.collided = true;
+                }
+            }
+        }
+        // ANCHOR_END: collided
+
+        // ANCHOR: clearbullets
+        if gameover && is_key_pressed(KeyCode::Space) {
+            squares.clear();
+            bullets.clear();
+            circle.x = screen_width() / 2.0;
+            circle.y = screen_height() / 2.0;
+            gameover = false;
+        }
+        // ANCHOR_END: clearbullets
 
         // Draw everything
         // ANCHOR: drawbullets

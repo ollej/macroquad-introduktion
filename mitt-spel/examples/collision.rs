@@ -44,22 +44,6 @@ async fn main() {
     loop {
         clear_background(DARKPURPLE);
 
-        // Check for collisions
-        // ANCHOR: collision
-        if squares.iter().any(|square| circle.collides_with(square)) {
-            gameover = true;
-        }
-        // ANCHOR_END: collision
-
-        // ANCHOR: gameover
-        if gameover && is_key_pressed(KeyCode::Space) {
-            squares.clear();
-            circle.x = screen_width() / 2.0;
-            circle.y = screen_height() / 2.0;
-            gameover = false;
-        }
-        // ANCHOR_END: gameover
-
         if !gameover {
             let delta_time = get_frame_time();
             if is_key_down(KeyCode::Right) {
@@ -82,13 +66,12 @@ async fn main() {
             // Generate a new square
             if rand::gen_range(0, 99) >= 95 {
                 let size = rand::gen_range(15.0, 40.0);
-                let square = Shape {
+                squares.push(Shape {
                     size,
                     speed: rand::gen_range(50.0, 150.0),
                     x: rand::gen_range(size / 2.0, screen_width() - size / 2.0),
                     y: -size,
-                };
-                squares.push(square);
+                });
             }
 
             // Move squares
@@ -99,6 +82,22 @@ async fn main() {
             // Remove squares below bottom of screen
             squares.retain(|square| square.y < screen_width() + square.size);
         }
+
+        // Check for collisions
+        // ANCHOR: collision
+        if squares.iter().any(|square| circle.collides_with(square)) {
+            gameover = true;
+        }
+        // ANCHOR_END: collision
+
+        // ANCHOR: gameover
+        if gameover && is_key_pressed(KeyCode::Space) {
+            squares.clear();
+            circle.x = screen_width() / 2.0;
+            circle.y = screen_height() / 2.0;
+            gameover = false;
+        }
+        // ANCHOR_END: gameover
 
         // Draw everything
         draw_circle(circle.x, circle.y, circle.size / 2.0, YELLOW);
@@ -114,7 +113,7 @@ async fn main() {
         // ANCHOR: drawgameover
         if gameover {
             let text = "Game Over!";
-            let text_dimensions = measure_text(text, None, 60, 1.0);
+            let text_dimensions = measure_text(text, None, 50, 1.0);
             draw_text(
                 text,
                 screen_width() / 2.0 - text_dimensions.width / 2.0,

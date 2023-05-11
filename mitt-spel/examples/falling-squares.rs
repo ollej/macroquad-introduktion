@@ -52,13 +52,12 @@ async fn main() {
         // ANCHOR: generatesquare
         if rand::gen_range(0, 99) >= 95 {
             let size = rand::gen_range(15.0, 40.0);
-            let square = Shape {
+            squares.push(Shape {
                 size,
                 speed: rand::gen_range(50.0, 150.0),
                 x: rand::gen_range(size / 2.0, screen_width() - size / 2.0),
                 y: -size,
-            };
-            squares.push(square);
+            });
         }
         // ANCHOR_END: generatesquare
 
