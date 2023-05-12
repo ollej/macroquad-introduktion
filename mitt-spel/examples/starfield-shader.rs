@@ -104,7 +104,7 @@ async fn main() {
             },
         );
         gl_use_default_material();
-        // ANCHOR: drawshader
+        // ANCHOR_END: drawshader
 
         match game_state {
             GameState::MainMenu => {

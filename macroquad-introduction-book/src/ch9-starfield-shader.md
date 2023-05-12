@@ -1,0 +1,62 @@
+# Stjärnfält med en shader
+
+Denn gröna bakgrund börjar kännas lite tråkig, så nu är det dags att göra en
+lite mer intressant bakgrund. Vi kommer använda oss av en pixel shader för att
+göra ett stjärnfält. Hur man kodar en shader ligger utanför den här guiden,
+utan vi kommer använda oss av en färdig utan att gå in på detaljerna.
+
+Börja med att skapa en fil som heter `starfield-shader.glsl` i din
+`src`-katalog som har följande innehåll:
+
+```glsl
+{{#include ../../mitt-spel/examples/starfield-shader.glsl}}
+```
+
+```admonish info
+Om du vill veta hur shadern fungerar så kan du titta på videon [Shader Coding:
+Making a starfield](https://youtu.be/rvDo9LvfoVE) av The Art of Code.
+```
+
+Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment
+shadern från ovanstående fil. Vi använder oss av macrot `include_str!()` som
+läser in filen som en `&str` vid kompilering.
+
+```rust
+{{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
+```
+
+I vår `main()` funktion, innan loopen, så måste vi sätta upp några variabler
+för att kunna rita ut shadern. Först skapar vi en `render_target` som shadern
+kommer att renderas till. Sen laddar vi in vår vertex shader och fragment
+shader till en `Material`. Vi sätter även upp en `uniform` till shadern som
+kommer innehålla fönstrets upplösning då shadern behöver tillgång till det.
+
+```rust
+{{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
+```
+
+Nu är det dags att byta ut den lila bakgrund till vårt stjärnfält. Byt ut
+`clear_background(DARKPURPLE);` till nedanstående kod. Först måste vi tilldela
+fönstrets upplösning till materialets uniform `iResolution` för att alltid få
+rätt fönsterstorlek. Därefter använder vi funktionen `gl_use_material()` för
+att använda materialet. Slutligen använder vi funktionen `draw_texture_ex()`
+för att rita ut texturen från vår `render_target` på skärmens bakgrund. Innan
+vi fortsätter återställer vi shadern med `gl_use_default_material()` så den
+inte används när vi ritar ut resten av spelet.
+
+```rust
+{{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
+```
+
+Nu är vårt stjärnfält klart och vårt spel börjar se ut som det utspelar sig i
+rymden!
+
+## Kompletta källkoden
+
+Källkoden för vårt spel ska nu se ut så här:
+
+```rust
+{{#include ../../mitt-spel/examples/starfield-shader.rs:all}}
+```
+
+
