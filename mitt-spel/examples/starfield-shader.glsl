@@ -1,6 +1,21 @@
+#version 100
+
+precision lowp float;
+
+varying vec4 color;
+varying vec2 uv;
+varying float iTime;
+
+uniform vec2 iResolution;
+
 // From The Art of Code: https://www.youtube.com/watch?v=rvDo9LvfoVE
 
 #define NUM_LAYERS 8.
+
+mat2 Rot(float a) {
+    float s = sin(a), c = cos(a);
+    return mat2(c, -s, s, c);
+}
 
 float Star(vec2 uv, float flare) {
     float d = length(uv);
@@ -45,13 +60,13 @@ vec3 StarLayer(vec2 uv) {
     return col;
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
+void main()
 {
-    vec2 uv = (fragCoord - .5 * iResolution.xy) / iResolution.y;
+    vec2 uv = (gl_FragCoord.xy - .5 * iResolution.xy) / iResolution.y;
     float t = iTime * .02;
     
     float speed = 3.0;
-    vec2 direction = vec2(0., -1.0) * speed;
+    vec2 direction = vec2(-0.25, -1.0) * speed;
     uv += direction;
     vec3 col = vec3(0);
     
@@ -62,5 +77,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         col += StarLayer(uv * scale + i * 453.2) * fade;
     }
         
-    fragColor = vec4(col, 1.0);
+    gl_FragColor = vec4(col, 1.0);
 }
