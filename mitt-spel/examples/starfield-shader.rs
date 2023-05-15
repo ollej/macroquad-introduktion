@@ -74,13 +74,17 @@ async fn main() {
     let mut game_state = GameState::MainMenu;
 
     // ANCHOR: setupshader
+    let mut direction_modifier: f32 = 0.0;
     let render_target = render_target(320, 150);
     render_target.texture.set_filter(FilterMode::Nearest);
     let material = load_material(
         VERTEX_SHADER,
         FRAGMENT_SHADER,
         MaterialParams {
-            uniforms: vec![("iResolution".to_owned(), UniformType::Float2)],
+            uniforms: vec![
+                ("iResolution".to_owned(), UniformType::Float2),
+                ("direction_modifier".to_owned(), UniformType::Float1),
+            ],
             ..Default::default()
         },
     )
@@ -92,6 +96,7 @@ async fn main() {
         clear_background(BLACK);
 
         material.set_uniform("iResolution", (screen_width(), screen_height()));
+        material.set_uniform("direction_modifier", direction_modifier);
         gl_use_material(material);
         draw_texture_ex(
             render_target.texture,
@@ -131,12 +136,16 @@ async fn main() {
             }
             GameState::Playing => {
                 let delta_time = get_frame_time();
+                // ANCHOR: shaderdir
                 if is_key_down(KeyCode::Right) {
                     circle.x += MOVEMENT_SPEED * delta_time;
+                    direction_modifier += 0.05 * delta_time;
                 }
                 if is_key_down(KeyCode::Left) {
                     circle.x -= MOVEMENT_SPEED * delta_time;
+                    direction_modifier -= 0.05 * delta_time;
                 }
+                // ANCHOR_END: shaderdir
                 if is_key_down(KeyCode::Down) {
                     circle.y += MOVEMENT_SPEED * delta_time;
                 }

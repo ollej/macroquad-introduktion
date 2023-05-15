@@ -22,10 +22,14 @@ från en fil som vi kommer skapa senare. Vi använder oss av macrot
 ```
 
 I vår `main()` funktion, innan loopen, så måste vi sätta upp några variabler
-för att kunna rita ut shadern. Först skapar vi en `render_target` som shadern
-kommer att renderas till. Sen laddar vi in vår vertex shader och fragment
-shader till en `Material`. Vi sätter även upp en `uniform` till shadern som
-kommer innehålla fönstrets upplösning då shadern behöver tillgång till det.
+för att kunna rita ut shadern.  Vi börjar med att skapa variabeln
+`direction_modifier` som vi ska använda för att påverka hur stjärnorna rör sig
+medan cirkeln förflyttas i sidled.  Därefter skapar vi en `render_target` som
+shadern kommer att renderas till. Sen laddar vi in vår vertex shader och
+fragment shader till en `Material`. Vi sätter även upp två uniforms till
+shadern som är globala variabler som vi kan sätta för varje bildruta.
+Uniformen `iResolution` innehåller fönstrets storlek, och `direction_modifier`
+kommer sättas till samma som variabeln med samma namn.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
@@ -38,10 +42,21 @@ rätt fönsterstorlek. Därefter använder vi funktionen `gl_use_material()` fö
 att använda materialet. Slutligen använder vi funktionen `draw_texture_ex()`
 för att rita ut texturen från vår `render_target` på skärmens bakgrund. Innan
 vi fortsätter återställer vi shadern med `gl_use_default_material()` så den
-inte används när vi ritar ut resten av spelet.
+inte används när vi ritar ut resten av spelet. Vi sätter även uniformen
+`direction_modifier` till värdet av den motsvarande variabeln.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
+```
+
+När spelaren håller ner höger eller vänster pil så lägger vi till eller drar
+ifrån ett värde från variabeln `direction_modifier` så att shadern kan ändra
+riktningen på stjärnornas rörelse. Även här multiplicerar vi värdet med
+`delta_time` så det blir relativt till hur lång tid det har tagit sedan
+föregående bildruta.
+
+ ```rust [hl,3,7]
+{{#include ../../mitt-spel/examples/starfield-shader.rs:shaderdir}}
 ```
 
 Till sist måste vi skapa en fil som innehåller fragment shadern. Skapa en fil

@@ -12,7 +12,7 @@ varying vec2 uv;
 varying float iTime;
 
 uniform vec2 iResolution;
-uniform float dir;
+uniform float direction_modifier;
 
 #define NUM_LAYERS 4.
 
@@ -71,7 +71,8 @@ void main()
     float t = iTime * .02;
 
     float speed = 3.0;
-    vec2 direction = vec2(-0.25, -1.0) * speed;
+    vec2 direction = vec2(-0.25 + direction_modifier, -1.0) * speed;
+
     uv += direction;
     vec3 col = vec3(0);
 
