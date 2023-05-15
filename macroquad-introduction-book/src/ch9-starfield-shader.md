@@ -1,25 +1,21 @@
 # Stjärnfält med en shader
 
-Denn gröna bakgrund börjar kännas lite tråkig, så nu är det dags att göra en
+Den gröna bakgrunden börjar kännas lite tråkig, så nu är det dags att göra en
 lite mer intressant bakgrund. Vi kommer använda oss av en pixel shader för att
 göra ett stjärnfält. Hur man kodar en shader ligger utanför den här guiden,
 utan vi kommer använda oss av en färdig utan att gå in på detaljerna.
 
-Börja med att skapa en fil som heter `starfield-shader.glsl` i din
-`src`-katalog som har följande innehåll:
+Kortfattat är en shader ett program som körs på datorn GPU, skrivet i ett
+C-liknande programmeringsspråk som kallas GLSL. Shadern består av två delar,
+en vertex shader och en fragment shader. Vertex shadern konverterar från
+koordinater i en 3D-miljö till 2D-koordinater för en skärm. Fragment shadern
+körs sedan för varje pixel på skärmen, och sätter variabeln `gl_FragColor` som
+avgör vilken färg pixeln ska ha. Eftersom vårt spel är i 2D så gör vertex
+shadern ingenting mer än att sätta positionen.
 
-```glsl
-{{#include ../../mitt-spel/examples/starfield-shader.glsl}}
-```
-
-```admonish info
-Om du vill veta hur shadern fungerar så kan du titta på videon [Shader Coding:
-Making a starfield](https://youtu.be/rvDo9LvfoVE) av The Art of Code.
-```
-
-Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment
-shadern från ovanstående fil. Vi använder oss av macrot `include_str!()` som
-läser in filen som en `&str` vid kompilering.
+Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment shadern
+från en fil som vi kommer skapa senare. Vi använder oss av macrot
+`include_str!()` som läser in filen som en `&str` vid kompilering.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
@@ -46,6 +42,19 @@ inte används när vi ritar ut resten av spelet.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
+```
+
+Till sist måste vi skapa en fil som innehåller fragment shadern. Skapa en fil
+med namnet `starfield-shader.glsl` i din `src`-katalog och lägg in följande
+kod:
+
+```glsl
+{{#include ../../mitt-spel/examples/starfield-shader.glsl}}
+```
+
+```admonish info
+Om du vill veta hur shadern fungerar så kan du titta på videon [Shader Coding:
+Making a starfield](https://youtu.be/rvDo9LvfoVE) av The Art of Code.
 ```
 
 Nu är vårt stjärnfält klart och vårt spel börjar se ut som det utspelar sig i
