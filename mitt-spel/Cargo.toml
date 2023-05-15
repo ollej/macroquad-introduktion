@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 macroquad = "0.3.25"
+macroquad-particles = "0.1.1"
