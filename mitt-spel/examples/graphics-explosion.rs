@@ -235,9 +235,9 @@ async fn main() {
                 if is_key_pressed(KeyCode::Space) {
                     bullets.push(Shape {
                         x: circle.x,
-                        y: circle.y,
+                        y: circle.y - 24.0,
                         speed: circle.speed * 2.0,
-                        size: 5.0,
+                        size: 32.0,
                         collided: false,
                     });
                 }
@@ -315,11 +315,11 @@ async fn main() {
                 for bullet in &bullets {
                     draw_texture_ex(
                         bullet_texture,
-                        bullet.x - bullet.size / 2.0,
-                        bullet.y - bullet.size / 2.0,
+                        bullet.x - bullet_frame.dest_size.x,
+                        bullet.y - bullet_frame.dest_size.y,
                         WHITE,
                         DrawTextureParams {
-                            dest_size: Some(bullet_frame.dest_size),
+                            dest_size: Some(bullet_frame.dest_size * 2.0),
                             source: Some(bullet_frame.source_rect),
                             ..Default::default()
                         },
@@ -328,11 +328,11 @@ async fn main() {
                 let ship_frame = ship_sprite.frame();
                 draw_texture_ex(
                     ship_texture,
-                    circle.x - circle.size / 2.0,
-                    circle.y - circle.size / 2.0,
+                    circle.x - ship_frame.dest_size.x,
+                    circle.y - ship_frame.dest_size.y,
                     WHITE,
                     DrawTextureParams {
-                        dest_size: Some(vec2(32.0, 48.0)),
+                        dest_size: Some(ship_frame.dest_size * 2.0),
                         source: Some(ship_frame.source_rect),
                         ..Default::default()
                     },
