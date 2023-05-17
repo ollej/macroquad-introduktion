@@ -116,6 +116,7 @@ async fn main() {
     let ship_texture: Texture2D = load_texture("assets/ship.png")
         .await
         .expect("Couldn't load file");
+    ship_texture.set_filter(FilterMode::Nearest);
     let mut ship_sprite = AnimatedSprite::new(
         16,
         24,
@@ -144,6 +145,7 @@ async fn main() {
     let bullet_texture: Texture2D = load_texture("assets/laser-bolts.png")
         .await
         .expect("Couldn't load file");
+    bullet_texture.set_filter(FilterMode::Nearest);
     let mut bullet_sprite = AnimatedSprite::new(
         16,
         16,
@@ -168,6 +170,7 @@ async fn main() {
     let explosion_texture: Texture2D = load_texture("assets/explosion.png")
         .await
         .expect("Couldn't load file");
+    explosion_texture.set_filter(FilterMode::Nearest);
     // ANCHOR_END: loadresources
     build_textures_atlas();
 
