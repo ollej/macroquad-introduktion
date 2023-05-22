@@ -113,9 +113,8 @@ async fn main() {
 
     let mut explosions: Vec<(Emitter, Vec2)> = vec![];
 
-    let ship_texture: Texture2D = load_texture("assets/ship.png")
-        .await
-        .expect("Couldn't load file");
+    set_pc_assets_folder("assets");
+    let ship_texture: Texture2D = load_texture("ship.png").await.expect("Couldn't load file");
     let mut ship_sprite = AnimatedSprite::new(
         16,
         24,
@@ -141,7 +140,7 @@ async fn main() {
         ],
         true,
     );
-    let bullet_texture: Texture2D = load_texture("assets/laser-bolts.png")
+    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
         .await
         .expect("Couldn't load file");
     let mut bullet_sprite = AnimatedSprite::new(
@@ -165,11 +164,11 @@ async fn main() {
     );
     bullet_sprite.set_animation(1);
     // ANCHOR: loadresources
-    let explosion_texture: Texture2D = load_texture("assets/explosion.png")
+    let explosion_texture: Texture2D = load_texture("explosion.png")
         .await
         .expect("Couldn't load file");
     explosion_texture.set_filter(FilterMode::Nearest);
-    let enemy_small_texture: Texture2D = load_texture("assets/enemy-small.png")
+    let enemy_small_texture: Texture2D = load_texture("enemy-small.png")
         .await
         .expect("Couldn't load file");
     enemy_small_texture.set_filter(FilterMode::Nearest);
