@@ -316,11 +316,11 @@ async fn main() {
                 for bullet in &bullets {
                     draw_texture_ex(
                         bullet_texture,
-                        bullet.x - bullet_frame.dest_size.x,
-                        bullet.y - bullet_frame.dest_size.y,
+                        bullet.x - bullet.size / 2.0,
+                        bullet.y - bullet.size / 2.0,
                         WHITE,
                         DrawTextureParams {
-                            dest_size: Some(bullet_frame.dest_size * 2.0),
+                            dest_size: Some(vec2(bullet.size, bullet.size)),
                             source: Some(bullet_frame.source_rect),
                             ..Default::default()
                         },
