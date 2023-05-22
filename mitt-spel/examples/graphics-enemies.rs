@@ -55,7 +55,6 @@ enum GameState {
     GameOver,
 }
 
-// ANCHOR: emitterconfig
 fn particle_explosion() -> particles::EmitterConfig {
     particles::EmitterConfig {
         local_coords: false,
@@ -73,7 +72,6 @@ fn particle_explosion() -> particles::EmitterConfig {
         ..Default::default()
     }
 }
-// ANCHOR_END: emitterconfig
 
 #[macroquad::main("Mitt spel")]
 async fn main() {
