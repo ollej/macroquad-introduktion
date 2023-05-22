@@ -174,7 +174,7 @@ async fn main() {
         .expect("Couldn't load file");
     enemy_small_texture.set_filter(FilterMode::Nearest);
     let mut enemy_small_sprite = AnimatedSprite::new(
-        16,
+        17,
         16,
         &[Animation {
             name: "enemy_small".to_string(),
