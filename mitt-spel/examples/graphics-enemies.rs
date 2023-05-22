@@ -268,7 +268,6 @@ async fn main() {
                 // Generate a new square
                 if rand::gen_range(0, 99) >= 95 {
                     let size = rand::gen_range(16.0, 64.0);
-                    // ANCHOR: changesize
                     squares.push(Shape {
                         size,
                         speed: rand::gen_range(50.0, 150.0),
@@ -276,7 +275,6 @@ async fn main() {
                         y: -size,
                         collided: false,
                     });
-                    // ANCHOR_END: changesize
                 }
 
                 // Movement

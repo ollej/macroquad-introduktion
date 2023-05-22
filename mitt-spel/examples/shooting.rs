@@ -79,7 +79,7 @@ async fn main() {
 
             // Generate a new square
             if rand::gen_range(0, 99) >= 95 {
-                let size = rand::gen_range(15.0, 40.0);
+                let size = rand::gen_range(16.0, 64.0);
                 // ANCHOR: squarecollided
                 squares.push(Shape {
                     size,

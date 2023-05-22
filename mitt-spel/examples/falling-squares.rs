@@ -51,7 +51,7 @@ async fn main() {
         // Generate a new square
         // ANCHOR: generatesquare
         if rand::gen_range(0, 99) >= 95 {
-            let size = rand::gen_range(15.0, 40.0);
+            let size = rand::gen_range(16.0, 64.0);
             squares.push(Shape {
                 size,
                 speed: rand::gen_range(50.0, 150.0),
