@@ -36,7 +36,7 @@ async fn main() {
     let mut bullets: Vec<Shape> = vec![];
     // ANCHOR_END: bullets
     let mut circle = Shape {
-        size: 30.0,
+        size: 32.0,
         speed: MOVEMENT_SPEED,
         x: screen_width() / 2.0,
         y: screen_height() / 2.0,

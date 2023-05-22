@@ -36,7 +36,7 @@ async fn main() {
         y = y.min(screen_height()).max(0.0);
         // ANCHOR_END: clamp
 
-        draw_circle(x, y, 15.0, YELLOW);
+        draw_circle(x, y, 16.0, YELLOW);
         next_frame().await
     }
 }

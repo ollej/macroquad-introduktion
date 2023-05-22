@@ -27,7 +27,7 @@ async fn main() {
         // ANCHOR_END: movement
 
         // ANCHOR: draw
-        draw_circle(x, y, 15.0, YELLOW);
+        draw_circle(x, y, 16.0, YELLOW);
         // ANCHOR_END: draw
 
         next_frame().await
