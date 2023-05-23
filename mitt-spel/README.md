@@ -22,3 +22,19 @@ Sci-fi sounds
 Author: Kenney.nl
 License: CC0 Public Domain
 https://opengameart.org/content/sci-fi-sounds
+
+### UI
+
+Sci-fi User Interface Elements
+Author: Buch
+License: CC0 Public Domain
+sci-fi-ui.psd
+https://opengameart.org/content/sci-fi-user-interface-elements
+
+### Font
+
+AtariGames 
+Author: Kieran
+License: Public Domain
+https://nimblebeastscollective.itch.io/nb-pixel-font-bundle
+
