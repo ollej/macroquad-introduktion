@@ -14,6 +14,7 @@
 - [Explosioner](ch10-particle-explosions.md)
 - [Grafik](ch11-graphics.md)
   - [Skepp och kulor](ch11-1-ship-and-bullets.md)
+  - [Explosioner](ch11-2-explosions.md)
 - [Smartare fiender]()
 - [Fiender med vapen]()
 - [Flera liv]()
