@@ -15,6 +15,7 @@
 - [Grafik](ch11-graphics.md)
   - [Skepp och kulor](ch11-1-ship-and-bullets.md)
   - [Explosioner](ch11-2-explosions.md)
+  - [Fiender](ch11-3-enemies.md)
 - [Smartare fiender]()
 - [Fiender med vapen]()
 - [Flera liv]()

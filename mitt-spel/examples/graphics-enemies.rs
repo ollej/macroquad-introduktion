@@ -1,9 +1,7 @@
 // ANCHOR: all
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
-// ANCHOR: import
 use macroquad_particles::{self as particles, AtlasConfig, Emitter, EmitterConfig};
-// ANCHOR_END: import
 
 use std::fs;
 
