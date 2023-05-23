@@ -60,7 +60,7 @@ fn particle_explosion() -> particles::EmitterConfig {
         local_coords: false,
         one_shot: true,
         emitting: true,
-        lifetime: 0.25,
+        lifetime: 0.3,
         lifetime_randomness: 0.7,
         explosiveness: 0.95,
         initial_direction_spread: 2.0 * std::f32::consts::PI,
