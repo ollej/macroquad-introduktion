@@ -1,5 +1,7 @@
 // ANCHOR: all
+// ANCHOR: import
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
+// ANCHOR_END: import
 use macroquad::prelude::*;
 use macroquad_particles::{self as particles, ColorCurve, Emitter, EmitterConfig};
 
@@ -113,10 +115,22 @@ async fn main() {
 
     let mut explosions: Vec<(Emitter, Vec2)> = vec![];
 
-    // ANCHOR: loadresources
+    // ANCHOR: assetsfolder
     set_pc_assets_folder("assets");
+    // ANCHOR_END: assetsfolder
+    // ANCHOR: loadresources
     let ship_texture: Texture2D = load_texture("ship.png").await.expect("Couldn't load file");
     ship_texture.set_filter(FilterMode::Nearest);
+    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
+        .await
+        .expect("Couldn't load file");
+    bullet_texture.set_filter(FilterMode::Nearest);
+    // ANCHOR_END: loadresources
+    // ANCHOR: atlas
+    build_textures_atlas();
+    // ANCHOR_END: atlas
+
+    // ANCHOR: shipsprite
     let mut ship_sprite = AnimatedSprite::new(
         16,
         24,
@@ -142,10 +156,8 @@ async fn main() {
         ],
         true,
     );
-    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
-        .await
-        .expect("Couldn't load file");
-    bullet_texture.set_filter(FilterMode::Nearest);
+    // ANCHOR_END: shipsprite
+    // ANCHOR: bulletsprite
     let mut bullet_sprite = AnimatedSprite::new(
         16,
         16,
@@ -166,8 +178,7 @@ async fn main() {
         true,
     );
     bullet_sprite.set_animation(1);
-    build_textures_atlas();
-    // ANCHOR_END: loadresources
+    // ANCHOR_END: bulletsprite
 
     loop {
         clear_background(BLACK);
@@ -262,13 +273,14 @@ async fn main() {
                 }
 
                 // Movement
+                // ANCHOR: updatesprites
                 for square in &mut squares {
                     square.y += square.speed * delta_time;
                 }
                 for bullet in &mut bullets {
                     bullet.y -= bullet.speed * delta_time;
                 }
-                // ANCHOR: updatesprites
+
                 ship_sprite.update();
                 bullet_sprite.update();
                 // ANCHOR_END: updatesprites

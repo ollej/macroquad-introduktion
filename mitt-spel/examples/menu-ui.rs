@@ -115,6 +115,38 @@ async fn main() {
 
     set_pc_assets_folder("assets");
     let ship_texture: Texture2D = load_texture("ship.png").await.expect("Couldn't load file");
+    ship_texture.set_filter(FilterMode::Nearest);
+    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
+        .await
+        .expect("Couldn't load file");
+    bullet_texture.set_filter(FilterMode::Nearest);
+    let explosion_texture: Texture2D = load_texture("explosion.png")
+        .await
+        .expect("Couldn't load file");
+    explosion_texture.set_filter(FilterMode::Nearest);
+    let enemy_small_texture: Texture2D = load_texture("enemy-small.png")
+        .await
+        .expect("Couldn't load file");
+    enemy_small_texture.set_filter(FilterMode::Nearest);
+    build_textures_atlas();
+
+    let theme_music = audio::load_sound("8bit-spaceshooter.ogg").await.unwrap();
+    let sound_explosion = audio::load_sound("explosion.wav").await.unwrap();
+    let sound_laser = audio::load_sound("laser.wav").await.unwrap();
+
+    // ANCHOR: loadresources
+    let window_background = macroquad::texture::load_image("window_background.png")
+        .await
+        .unwrap();
+    let button_background = macroquad::texture::load_image("button_background.png")
+        .await
+        .unwrap();
+    let button_clicked_background = macroquad::texture::load_image("button_clicked_background.png")
+        .await
+        .unwrap();
+    let font = load_file("atari_games.ttf").await.unwrap();
+    // ANCHOR_END: loadresources
+
     let mut ship_sprite = AnimatedSprite::new(
         16,
         24,
@@ -140,9 +172,6 @@ async fn main() {
         ],
         true,
     );
-    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
-        .await
-        .expect("Couldn't load file");
     let mut bullet_sprite = AnimatedSprite::new(
         16,
         16,
@@ -163,14 +192,6 @@ async fn main() {
         true,
     );
     bullet_sprite.set_animation(1);
-    let explosion_texture: Texture2D = load_texture("explosion.png")
-        .await
-        .expect("Couldn't load file");
-    explosion_texture.set_filter(FilterMode::Nearest);
-    let enemy_small_texture: Texture2D = load_texture("enemy-small.png")
-        .await
-        .expect("Couldn't load file");
-    enemy_small_texture.set_filter(FilterMode::Nearest);
     let mut enemy_small_sprite = AnimatedSprite::new(
         17,
         16,
@@ -182,10 +203,7 @@ async fn main() {
         }],
         true,
     );
-    build_textures_atlas();
-    let theme_music = audio::load_sound("8bit-spaceshooter.ogg").await.unwrap();
-    let sound_explosion = audio::load_sound("explosion.wav").await.unwrap();
-    let sound_laser = audio::load_sound("laser.wav").await.unwrap();
+
     audio::play_sound(
         theme_music,
         audio::PlaySoundParams {
@@ -193,18 +211,7 @@ async fn main() {
             volume: 1.,
         },
     );
-    // ANCHOR: loadresources
-    let window_background = macroquad::texture::load_image("window_background.png")
-        .await
-        .unwrap();
-    let button_background = macroquad::texture::load_image("button_background.png")
-        .await
-        .unwrap();
-    let button_clicked_background = macroquad::texture::load_image("button_clicked_background.png")
-        .await
-        .unwrap();
-    let font = load_file("atari_games.ttf").await.unwrap();
-    // ANCHOR_END: loadresources
+
     // ANCHOR: windowstyle
     let window_style = root_ui()
         .style_builder()
@@ -356,6 +363,7 @@ async fn main() {
                 for bullet in &mut bullets {
                     bullet.y -= bullet.speed * delta_time;
                 }
+
                 ship_sprite.update();
                 bullet_sprite.update();
                 enemy_small_sprite.update();
