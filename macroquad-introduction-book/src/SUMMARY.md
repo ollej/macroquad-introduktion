@@ -12,6 +12,8 @@
 - [Game state](ch8-game-state.md)
 - [Stjärnfält med en shader](ch9-starfield-shader.md)
 - [Explosioner](ch10-particle-explosions.md)
+- [Grafik](ch11-graphics.md)
+  - [Skepp och kulor](ch11-1-ship-and-bullets.md)
 - [Smartare fiender]()
 - [Fiender med vapen]()
 - [Flera liv]()
