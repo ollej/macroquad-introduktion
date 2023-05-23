@@ -1,5 +1,5 @@
 // ANCHOR: all
-use macroquad::audio;
+use macroquad::audio::{load_sound, play_sound, play_sound_once, PlaySoundParams};
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
 // ANCHOR: import
@@ -130,9 +130,9 @@ async fn main() {
     enemy_small_texture.set_filter(FilterMode::Nearest);
     build_textures_atlas();
 
-    let theme_music = audio::load_sound("8bit-spaceshooter.ogg").await.unwrap();
-    let sound_explosion = audio::load_sound("explosion.wav").await.unwrap();
-    let sound_laser = audio::load_sound("laser.wav").await.unwrap();
+    let theme_music = load_sound("8bit-spaceshooter.ogg").await.unwrap();
+    let sound_explosion = load_sound("explosion.wav").await.unwrap();
+    let sound_laser = load_sound("laser.wav").await.unwrap();
 
     // ANCHOR: loadresources
     let window_background = macroquad::texture::load_image("window_background.png")
@@ -204,9 +204,9 @@ async fn main() {
         true,
     );
 
-    audio::play_sound(
+    play_sound(
         theme_music,
-        audio::PlaySoundParams {
+        PlaySoundParams {
             looped: true,
             volume: 1.,
         },
@@ -333,7 +333,7 @@ async fn main() {
                         collided: false,
                     });
                     // ANCHOR: playlaser
-                    audio::play_sound_once(sound_laser);
+                    play_sound_once(sound_laser);
                     // ANCHOR_END: playlaser
                 }
                 if is_key_pressed(KeyCode::Escape) {
@@ -402,7 +402,7 @@ async fn main() {
                                 vec2(square.x, square.y),
                             ));
                             // ANCHOR: playexplosion
-                            audio::play_sound_once(sound_explosion);
+                            play_sound_once(sound_explosion);
                             // ANCHOR_END: playexplosion
                         }
                     }

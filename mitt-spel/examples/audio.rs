@@ -1,6 +1,6 @@
 // ANCHOR: all
 // ANCHOR: import
-use macroquad::audio;
+use macroquad::audio::{load_sound, play_sound, play_sound_once, PlaySoundParams};
 // ANCHOR_END: import
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
@@ -130,9 +130,9 @@ async fn main() {
     build_textures_atlas();
 
     // ANCHOR: loadresources
-    let theme_music = audio::load_sound("8bit-spaceshooter.ogg").await.unwrap();
-    let sound_explosion = audio::load_sound("explosion.wav").await.unwrap();
-    let sound_laser = audio::load_sound("laser.wav").await.unwrap();
+    let theme_music = load_sound("8bit-spaceshooter.ogg").await.unwrap();
+    let sound_explosion = load_sound("explosion.wav").await.unwrap();
+    let sound_laser = load_sound("laser.wav").await.unwrap();
     // ANCHOR_END: loadresources
 
     let mut ship_sprite = AnimatedSprite::new(
@@ -193,9 +193,9 @@ async fn main() {
     );
 
     // ANCHOR: playmusic
-    audio::play_sound(
+    play_sound(
         theme_music,
-        audio::PlaySoundParams {
+        PlaySoundParams {
             looped: true,
             volume: 1.,
         },
@@ -264,6 +264,7 @@ async fn main() {
                     circle.y -= MOVEMENT_SPEED * delta_time;
                 }
                 if is_key_pressed(KeyCode::Space) {
+                    // ANCHOR: playlaser
                     bullets.push(Shape {
                         x: circle.x,
                         y: circle.y - 24.0,
@@ -271,8 +272,7 @@ async fn main() {
                         size: 32.0,
                         collided: false,
                     });
-                    // ANCHOR: playlaser
-                    audio::play_sound_once(sound_laser);
+                    play_sound_once(sound_laser);
                     // ANCHOR_END: playlaser
                 }
                 if is_key_pressed(KeyCode::Escape) {
@@ -326,6 +326,7 @@ async fn main() {
                 }
                 for square in squares.iter_mut() {
                     for bullet in bullets.iter_mut() {
+                        // ANCHOR: playexplosion
                         if bullet.collides_with(square) {
                             bullet.collided = true;
                             square.collided = true;
@@ -339,10 +340,9 @@ async fn main() {
                                 }),
                                 vec2(square.x, square.y),
                             ));
-                            // ANCHOR: playexplosion
-                            audio::play_sound_once(sound_explosion);
-                            // ANCHOR_END: playexplosion
+                            play_sound_once(sound_explosion);
                         }
+                        // ANCHOR_END: playexplosion
                     }
                 }
 

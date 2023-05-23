@@ -16,6 +16,7 @@
   - [Skepp och kulor](ch11-1-ship-and-bullets.md)
   - [Explosioner](ch11-2-explosions.md)
   - [Fiender](ch11-3-enemies.md)
+- [Musik och ljudeffekter](ch12-audio.md)
 - [Smartare fiender]()
 - [Fiender med vapen]()
 - [Flera liv]()
