@@ -17,6 +17,7 @@
   - [Explosioner](ch11-2-explosions.md)
   - [Fiender](ch11-3-enemies.md)
 - [Musik och ljudeffekter](ch12-audio.md)
+- [Grafisk meny](ch13-menu-ui.md)
 - [Smartare fiender]()
 - [Fiender med vapen]()
 - [Flera liv]()

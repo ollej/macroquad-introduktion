@@ -135,15 +135,9 @@ async fn main() {
     let sound_laser = load_sound("laser.wav").await.unwrap();
 
     // ANCHOR: loadresources
-    let window_background = macroquad::texture::load_image("window_background.png")
-        .await
-        .unwrap();
-    let button_background = macroquad::texture::load_image("button_background.png")
-        .await
-        .unwrap();
-    let button_clicked_background = macroquad::texture::load_image("button_clicked_background.png")
-        .await
-        .unwrap();
+    let window_background = load_image("window_background.png").await.unwrap();
+    let button_background = load_image("button_background.png").await.unwrap();
+    let button_clicked_background = load_image("button_clicked_background.png").await.unwrap();
     let font = load_file("atari_games.ttf").await.unwrap();
     // ANCHOR_END: loadresources
 
@@ -249,8 +243,8 @@ async fn main() {
         label_style,
         ..root_ui().default_skin()
     };
-    let window_size = vec2(280.0, 320.0);
     root_ui().push_skin(&ui_skin);
+    let window_size = vec2(370.0, 320.0);
     // ANCHOR_END: uiskin
 
     loop {
@@ -272,8 +266,8 @@ async fn main() {
         gl_use_default_material();
 
         match game_state {
+            // ANCHOR: menu
             GameState::MainMenu => {
-                // ANCHOR: menu
                 root_ui().window(
                     hash!(),
                     vec2(
@@ -282,11 +276,8 @@ async fn main() {
                     ),
                     window_size,
                     |ui| {
-                        ui.label(vec2(30.0, -34.0), "Main menu");
-                        if widgets::Button::new("Play")
-                            .position(vec2(20.0, 25.0))
-                            .ui(ui)
-                        {
+                        ui.label(vec2(80.0, -34.0), "Huvudmeny");
+                        if ui.button(vec2(45.0, 25.0), "Spela") {
                             squares.clear();
                             bullets.clear();
                             explosions.clear();
@@ -295,16 +286,13 @@ async fn main() {
                             score = 0;
                             game_state = GameState::Playing;
                         }
-                        if widgets::Button::new("Quit")
-                            .position(vec2(20.0, 125.0))
-                            .ui(ui)
-                        {
+                        if ui.button(vec2(20.0, 125.0), "Avsluta") {
                             std::process::exit(0);
                         }
                     },
                 );
-                // ANCHOR_END: menu
             }
+            // ANCHOR_END: menu
             GameState::Playing => {
                 let delta_time = get_frame_time();
                 ship_sprite.set_animation(0);
