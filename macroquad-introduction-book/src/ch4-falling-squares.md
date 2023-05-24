@@ -4,6 +4,10 @@ För att det ska hända lite mer i vårt spel är det dags att skapa lite
 action. Eftersom hjälten i vårt spel är en modig cirkel så får våra
 motståndare bli kantiga fyrkanter som faller ner från toppen av fönstret.
 
+## Implementering
+
+### Struct för former
+
 För att hålla reda på vår cirkel och alla fyrkanter så skapar vi en struct som
 vi kan ge namnet `Shape` som innehåller storlek, hastighet samt x och
 y-koordinater.
@@ -11,6 +15,8 @@ y-koordinater.
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:shape}}
 ```
+
+### Initiera slumpgenerator
 
 Vi kommer använda oss av en slumpgenerator för att avgöra när nya fyrkanter
 ska komma in på skärmen. Därför behöver vi seeda slumpgeneratorn så att det
@@ -27,6 +33,8 @@ Vi använder oss av metoden `miniquad::date::now()` från det underliggande
 för att få den aktuella tiden.
 ```
 
+### Vektor med fyrkanter
+
 I början av `main`-funktionen skapar vi en vektor `squares` som kommer
 innehålla alla fyrkanter som ska visas på skärmen. Den nya variabeln `circle`
 får representera vår hjälte, den fantastiska cirkeln. Hastigheten använder
@@ -36,6 +44,8 @@ skärmen.
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:variables}}
 ```
+
+### Skapa nya fyrkanter
 
 Nu är det dags att starta invasionen av fyrkanter. Här delar vi som tidigare
 upp förflyttningen och utritningen av fyrkanterna. Det gör att förflyttningen
@@ -60,6 +70,8 @@ halva fyrkantens storlek när vi räknar ut X-positionen. Y-positionen börjar p
 negativt av fyrkantens storlek, så att den börjar helt utanför skärmen.
 ```
 
+### Uppdatera fyrkanters position
+
 Nu kan vi gå igenom hela vektorn med en for-loop och uppdatera y-positionen
 med hjälp av fyrkantens hastighet och variabeln `delta_time`. Detta gör att
 fyrkanterna kommer åka neråt över skärmen.
@@ -67,6 +79,8 @@ fyrkanterna kommer åka neråt över skärmen.
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:movesquares}}
 ```
+
+### Rensa bort fyrkanter som inte syns
 
 Därefter måste vi rensa upp alla fyrkanter som har hamnat utanför skärmen då
 det är onödigt att rita ut saker som inte syns. Vi använder oss av metoden
@@ -77,6 +91,8 @@ plus storleken på fyrkanten.
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:removesquares}}
 ```
+
+### Rita ut fyrkanterna
 
 Till sist lägger vi till en for-loop som går igenom vektorn `squares` och
 använder funktionen `draw_rectangle()` för att rita ut en rektangel på den

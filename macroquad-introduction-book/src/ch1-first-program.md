@@ -1,9 +1,11 @@
-## Ditt första Macroquad-program
+# Ditt första Macroquad-program
 
 Nu är det dags att programmera ditt första program med Macroquad. Börja med
 att installera programmeringsspråket Rust om du inte redan har gjort det.
 Skapa därefter ett nytt Rust-projekt med Cargo och lägg till `macroquad` som
 beroende.
+
+## Implementering
 
 ```sh
 cargo new --bin mitt-spel
@@ -21,7 +23,7 @@ följande kod:
 Kör programmet med `cargo run` så ska ett nytt fönster med mörklila bakgrund
 öppnas efter att kompileringen är klar.
 
-### Beskrivning av programmet
+## Beskrivning av programmet
 
 Första raden används för att importera allt som behövs från Macroquad, vilket
 enklast görs med `use macroquad::prelude::*`, men det går också att importera

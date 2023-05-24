@@ -13,18 +13,31 @@ körs sedan för varje pixel på skärmen, och sätter variabeln `gl_FragColor` 
 avgör vilken färg pixeln ska ha. Eftersom vårt spel är i 2D så gör vertex
 shadern ingenting mer än att sätta positionen.
 
+## Implementering
+
+### Shaders
+
 Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment shadern
 från en fil som vi kommer skapa senare. Vi använder oss av macrot
 `include_str!()` som läser in filen som en `&str` vid kompilering.
+Vertex shadern är så kort att den kan läggas in direkt här i källkoden.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
 ```
 
+```admonish info
+Macroquad lägger automatiskt in några uniforms till shaders. De som finns
+tillgängliga är `_Time`, `Model`, `Projection`, `Texture` och
+`_ScreenTexture`.
+```
+
+### Initialisera shadern
+
 I vår `main()` funktion, innan loopen, så måste vi sätta upp några variabler
-för att kunna rita ut shadern.  Vi börjar med att skapa variabeln
+för att kunna rita ut shadern. Vi börjar med att skapa variabeln
 `direction_modifier` som vi ska använda för att påverka hur stjärnorna rör sig
-medan cirkeln förflyttas i sidled.  Därefter skapar vi en `render_target` som
+medan cirkeln förflyttas i sidled. Därefter skapar vi en `render_target` som
 shadern kommer att renderas till. Sen laddar vi in vår vertex shader och
 fragment shader till en `Material`. Vi sätter även upp två uniforms till
 shadern som är globala variabler som vi kan sätta för varje bildruta.
@@ -34,6 +47,8 @@ kommer sättas till samma som variabeln med samma namn.
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
 ```
+
+### Rita shadern
 
 Nu är det dags att byta ut den lila bakgrund till vårt stjärnfält. Byt ut
 `clear_background(DARKPURPLE);` till nedanstående kod. Först måste vi tilldela
@@ -49,15 +64,19 @@ inte används när vi ritar ut resten av spelet. Vi sätter även uniformen
 {{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
 ```
 
-När spelaren håller ner höger eller vänster pil så lägger vi till eller drar
-ifrån ett värde från variabeln `direction_modifier` så att shadern kan ändra
-riktningen på stjärnornas rörelse. Även här multiplicerar vi värdet med
-`delta_time` så det blir relativt till hur lång tid det har tagit sedan
+### Styr stjärnornas rörelse
+
+När spelaren håller ner höger eller vänster piltangent så lägger vi till
+eller drar ifrån ett värde från variabeln `direction_modifier` så att shadern
+kan ändra riktningen på stjärnornas rörelse. Även här multiplicerar vi värdet
+med `delta_time` så det blir relativt till hur lång tid det har tagit sedan
 föregående bildruta.
 
  ```rust [hl,3,7]
 {{#include ../../mitt-spel/examples/starfield-shader.rs:shaderdir}}
 ```
+
+### Skapa fil för shadern
 
 Till sist måste vi skapa en fil som innehåller fragment shadern. Skapa en fil
 med namnet `starfield-shader.glsl` i din `src`-katalog och lägg in följande

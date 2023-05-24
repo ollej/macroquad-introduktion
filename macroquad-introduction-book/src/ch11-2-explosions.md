@@ -3,12 +3,18 @@
 För att göra explosionerna lite mer effektfulla så ska vi lägga till grafik
 även för partiklarna.
 
+## Implementering
+
+### Importering
+
 Vi börjar med att uppdatera importeringen från paketet `macroquad_particles`,
 och byta ut `ColorCurve` mot `AtlasConfig`.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:import}}
 ```
+
+### Uppdatera partikelkonfigurationen
 
 Nu behöver vi uppdatera konfigurationen för vår `particle_explosion` så att
 den använder en `AtlasConfig` som beskriver hur den ska rita partiklarna från
@@ -19,6 +25,8 @@ och livstiden för att passa bättre med grafiken.
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:emitterconfig}}
 ```
 
+### Ladda in texturer
+
 Innan vi bygger texturatlasen så laddar vi in texturen med animeringen för
 partiklarna. Filen med animeringen heter `explosion.png`. Glöm inte att sätta
 filtret till `FilterMode::Nearest`.
@@ -26,6 +34,8 @@ filtret till `FilterMode::Nearest`.
 ```rust [hl,1-4]
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:loadresources}}
 ```
+
+### Lägg till texturen
 
 När vi skapar explosionen måste vi lägga till texturen, och vi uppdaterar även
 mängden för att få lite fler partiklar.

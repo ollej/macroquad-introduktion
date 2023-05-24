@@ -7,6 +7,10 @@ högsta poäng som har uppnåtts. Om poängen är en high score så kommer poän
 skrivas ner till en fil på disk så att det kan läsas in igen nästa gång spelet
 startas.
 
+## Implementering
+
+### Importera modul
+
 För att kunna läsa och skriva filer behöver vi importera [Rusts std::fs
 modul](https://doc.rust-lang.org/std/fs/index.html) som innehåller
 funktionalitet för att läsa och skriva till datorns lokala filsystem. Denna
@@ -15,6 +19,8 @@ rad kan läggas in under raden som importerar Macroquad längst upp i filen.
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:import}}
 ```
+
+### Nya variabler
 
 Vi behöver två nya variabler, `score` och `high_score` för att hålla reda på
 spelarens poäng och den högsta poängen som har uppnåtts. Vi använder oss av
@@ -32,6 +38,8 @@ Här skriver vi direkt till datorns hårddisk, vilket inte fungerar om spelet
 har kompilerats till WASM och körs på en webbsida.
 ```
 
+### Uppdatera high score
+
 Om cirkeln krockar med en fyrkant så lägger vi till en kontroll om spelarens
 poäng är en high score. Är den det så skriver vi ner high scoren till filen
 `highscore.dat`.
@@ -47,6 +55,8 @@ webbsida. Här skulle vi kunna använda funktionen
 istället, men eftersom vi inte kan skriva filen är det inte så meningsfullt.
 ```
 
+### Öka poäng
+
 Om en kula träffar en fyrkant så ökar vi spelarens poäng baserat på storleken
 på fyrkanten. Sen uppdaterar vi värdet i variabeln `high_score` om poängen är
 högre än det gamla värdet.
@@ -55,11 +65,15 @@ högre än det gamla värdet.
 {{#include ../../mitt-spel/examples/points.rs:points}}
 ```
 
+### Nollställ poäng
+
 När vi startar en ny spelomgång måste vi nollställa variabeln `score`.
 
 ```rust [hl,6]
 {{#include ../../mitt-spel/examples/points.rs:clearpoints}}
 ```
+
+### Skriv ut poäng och high score
 
 Till sist ritar vi ut poängen och high score på skärmen. Poängen skriver vi
 alltid ut i övre vänstra hörnet. För att kunna skriva ut high scoren i högra

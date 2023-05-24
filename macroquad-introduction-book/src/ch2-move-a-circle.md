@@ -1,7 +1,9 @@
-## Far å flyg
+# Far å flyg
 
 Ett spel är inte så roligt utan att det händer något på skärmen. Till att
 börja med visar vi en boll som vi kan styra med knapptryckningar.
+
+## Implementering
 
 De första två raderna i main-funktionen använder funktionerna `screen_width()`
 och `screen_height()` för att få bredden och höjden på fönstret. Dessa värden
@@ -11,6 +13,8 @@ till variablerna `x` och `y`.
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:coordinates}}
 ```
+
+### Hantera tangenbordsinput
 
 Inne i loopen rensar vi fortfarande skärmen, vilket måste göras vid varje
 bildruta. Därefter kommer fyra if-satser som kollar om piltangerna är
@@ -27,6 +31,8 @@ finns på ett tangentbord.
 Vilka andra tangenter som finns tillgängliga finns beskrivet i
 [dokumentationen för KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
 ```
+
+### Rita en cirkel
 
 Slutligen ritas cirkeln ut på de angivna koordinaterna med en radie på 15 och
 med gul färg.
@@ -51,9 +57,9 @@ API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 som cirkeln förflyttas.
 ```
 
-### Källkod
+## Källkod
 
-Byt ut innehållet i `main.rs` till följande kod:
+Hela källkoden i `main.rs` ska nu se ut så här:
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:all}}

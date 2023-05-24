@@ -7,6 +7,10 @@ partiklar på skärmen baserat på en grundkonfiguration. I vårt fall kommer
 partiklarna att åka ut från fyrkantens mittpunkt i alla riktningar. Vi kan
 senare lägga på en textur för att göra det ännu mer explosionsliknande.
 
+## Implementering
+
+### Lägg till crate
+
 Koden för Macroquads partikelsystem ligger i en egen crate, därför behöver vi
 lägga till den i vår `Cargo.toml` fil. Det kan göras antingen genom att ändra
 i filen eller att köra följande kommando.
@@ -15,12 +19,23 @@ i filen eller att köra följande kommando.
 cargo add macroquad-particles
 ```
 
+Följande rad kommer att läggas till i filen `Cargo.toml` under rubriken
+`[dependencies]`.
+
+```toml
+macroquad-particles = "0.1.1"
+```
+
+### Importera crate
+
 Överst i `main.rs` måste vi importera det vi använder från paketet
 `macroquad_particles`.
 
 ```rust
 {{#include ../../mitt-spel/examples/particle-explosions.rs:import}}
 ```
+
+### Partikelkonfiguration
 
 Vi kommer använda samma konfiguration för alla explosioner, och kommer bara
 ändra dess storlek baserat på fyrkantens storlek. Därför skapar vi en funktion
@@ -37,6 +52,8 @@ Det finns en mängd sätt att konfigurera en `Emitter`. Fälten för
 finns beskrivna i dokumentationen för modulen macroquad-particles.
 ```
 
+### Vektor med explosioner
+
 Vi behöver en vektor för att hålla reda på alla explosioner som inträffar. Den
 innehåller en tuple med en Emitter och koordinaten som den ska ritas ut på.
 
@@ -50,6 +67,8 @@ När vi startar ett nytt spel behöver vi rensa vektorn med explosioner.
 {{#include ../../mitt-spel/examples/particle-explosions.rs:clearexplosions}}
 ```
 
+### Skapa en explosion
+
 När en fyrkant träffas av en kula så skapar vi en ny `Emitter` baserat på
 konfigurationen från `particle_explosion()` med tillägget att antalet
 partiklar som ska genereras baseras på fyrkantens storlek. Koordinaten som
@@ -59,6 +78,8 @@ partiklarna ska genereras ifrån sätts till samma som fyrkantens koordinater.
 {{#include ../../mitt-spel/examples/particle-explosions.rs:addexplosion}}
 ```
 
+### Ta bort explosioner
+
 När emittern har ritat färdigt alla partiklar så måste vi ta bort den ur
 vektorn `explosions` då vi inte ska rita ut den längre. Lägg till denna kod
 efter fyrkanterna och kulorna har tagits bort.
@@ -66,6 +87,8 @@ efter fyrkanterna och kulorna har tagits bort.
 ```rust
 {{#include ../../mitt-spel/examples/particle-explosions.rs:removeexplosions}}
 ```
+
+### Rita ut explosioner
 
 Efter att fyrkanterna har ritats ut kan vi gå igenom vektorn med explosioner
 och rita ut dem. Vi behöver bara skicka in vilken koordinat partiklarna ska

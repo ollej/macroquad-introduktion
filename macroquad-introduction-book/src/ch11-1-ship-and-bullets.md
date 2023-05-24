@@ -5,6 +5,10 @@ att animeras med två olika sprites, och kommer även ha olika animeringar för
 om skeppet styr åt höger eller vänster. Dessutom lägger vi till en textur med
 animering för kulorna som skeppet skjuter.
 
+## Implementering
+
+### Importera
+
 Då animeringsstödet i Macroquad fortfarande räknas som experimentell måste vi
 importera stödet för det explicit längst upp i källkodsfilen. Det är
 structarna `AnimatedSprite` och `Animation` vi kommer använda oss av.
@@ -13,16 +17,20 @@ structarna `AnimatedSprite` och `Animation` vi kommer använda oss av.
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:import}}
 ```
 
-Först måste vi ange var Macroquad ska läsa
-resurserna ifrån, därför använder vi funktionen `set_pc_assets_folder()` som
-tar sökvägen till `assets`-katalogen med utgång från spelets rotkatalog. Detta
-behövs för att olika plattformar placerar filerna på olika ställen, och vi
-slipper dessutom ange katalogen för varje fil som ska laddas in. Lägg in
-nedanstående kod i `main`-funktionen innan loopen. 
+### Konfigurera assets-katalog
+
+Först måste vi ange var Macroquad ska läsa resurserna ifrån, därför använder
+vi funktionen `set_pc_assets_folder()` som tar sökvägen till
+`assets`-katalogen med utgång från spelets rotkatalog. Detta behövs för att
+olika plattformar placerar filerna på olika ställen, och vi slipper dessutom
+ange katalogen för varje fil som ska laddas in. Lägg in nedanstående kod i
+`main`-funktionen innan loopen. 
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:assetsfolder}}
 ```
+
+### Ladda in texturer
 
 Nu kan vi ladda in filerna med texturerna för animeringarna av skeppet och
 kulorna. För att ladda in en textur används funktionen `load_texture()` som
@@ -49,6 +57,8 @@ sparas i GPU-minnet. Motsvarande struct för bilder som sparas i CPU-minnet är
 `Image`.
 ```
 
+### Bygg en texturatlas
+
 Efter att alla texturer har laddats in anropar vi Macroquad-funktionen
 `build_textures_atlas` som bygger upp en atlas som innehåller alla inladdade
 texturer. Det gör att alla anrop till `draw_texture()` kommer använda texturen
@@ -58,6 +68,8 @@ innan detta anrop.
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:atlas}}
 ```
+
+### Animering av rymdskeppet
 
 Nu måste vi beskriva hur animeringarna i texturerna ska visas. Det gör vi
 genom att skapa en `AnimatedSprite` för varje textur. Storleken på varje
@@ -83,6 +95,8 @@ ska vara aktiv.
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:shipsprite}}
 ```
 
+### Animering av kulor
+
 Animeringen för kulorna är väldigt lika, det är två animeringar med två
 bildrutor var som ska visas med 12 bildrutor per sekund. Storleken på bilderna
 är 16x16 pixlar. Vi kommer bara använda den andra animeringen, så vi använder
@@ -92,6 +106,8 @@ oss av metoden `set_animation()` för att sätta att det är animeringen på rad
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:bulletsprite}}
 ```
+
+### Animera riktning
 
 För skeppet behöver vi sätta vilken animation som ska användas baserat på åt
 vilket håll skeppet åker. I koden som sätter vilket håll skeppet ska
@@ -104,6 +120,8 @@ förflyttas åt höger sätter vi `1`.
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:updateship}}
 ```
 
+### Uppdatera animeringar
+
 För att Macroquad ska kunna animera texturerna åt oss måste vi anropa metoden
 `update()` på varje sprite inne i loopen. Vi lägger därför till följande två
 rader nedanför koden som uppdaterar fienders och kulors position.
@@ -111,6 +129,8 @@ rader nedanför koden som uppdaterar fienders och kulors position.
 ```rust [hl,8-9]
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:updatesprites}}
 ```
+
+### Rita kulornas bildrutor
 
 Nu kan vi använda oss av funktionen `draw_texture_ex()` för att rita ut
 rätt bildruta från animeringen. Vi byter ut raderna som ritar ut en cirkel för
@@ -137,6 +157,8 @@ Med hjälp av
 går det att ändra hur texturen ska ritas ut.  Det går att rita ut texturen
 roterat eller spegelvänt med fälten `rotation`, `pivot`, `flip_x` och `flip_y`. 
 ```
+
+### Rita ut rymdskeppets bildrutor
 
 Till sist kan vi byta ut cirkeln mot texturen för skeppet. Det fungerar
 likadant som för att rita ut kulorna. Vi hämtar först ut aktuell bildruta från

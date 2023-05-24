@@ -4,12 +4,18 @@ Det känns lite orättvist att vår stackars cirkel inte kan försvara sig mot d
 läskiga fyrkanterna. Därför är det dags att implementera skott som cirkeln kan
 skjuta ner fyrkanterna med.
 
+## Implementering
+
+### Känner sig träffade
+
 För att hålla reda på vilka fyrkanter som har blivit träffade av kulor så
 lägger vi till ett nytt fält `collided` av typen `bool` i structen `Shape`.
 
 ```rust [hl,6]
 {{#include ../../mitt-spel/examples/shooting.rs:shape}}
 ```
+
+### Vektor för kulor
 
 Vi måste ha en ny vektor som håller reda på alla kulor som har skjutits. Vi
 kallar den `bullets` och skapar den efter vektorn med `squares`. Här anger vi
@@ -20,6 +26,8 @@ typ det är innan vi har tilldelat den något värde. Vi använder structen
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:bullets}}
 ```
+
+### Skjut kulor
 
 Efter cirkeln har förflyttats så lägger vi till en kontroll om spelaren har
 tryckt på mellanslag, och lägger till en kula i vektorn med kulor. Kulans x-
@@ -37,6 +45,8 @@ när vi skapar en fyrkant.
 {{#include ../../mitt-spel/examples/shooting.rs:squarecollided}}
 ```
 
+### Ta bort kulor och fyrkanter
+
 Även kulorna behöver tas bort om de hamnar utanför skärmen.
 
 ```rust
@@ -52,6 +62,8 @@ något. Det gör vi enkelt med `retain`-metoden och behåller alla som inte har
 {{#include ../../mitt-spel/examples/shooting.rs:removecollided}}
 ```
 
+### Kollidering
+
 Efter vi har kollat om cirkeln har kolliderat med en fyrkant lägger vi till en
 kontroll om någon fyrkant blir träffad av en kula. Både kulan och fyrkanten
 uppdateras och fältet `collided` sätts till `true` så att vi kan ta bort dem
@@ -61,6 +73,8 @@ längre ned i koden.
 {{#include ../../mitt-spel/examples/shooting.rs:collided}}
 ```
 
+### Rensa kulor
+
 Om det har blivit game over måste vi även rensa vektorn `bullets` så att
 kulorna försvinner när ett nytt spel påbörjas.
 
@@ -68,6 +82,7 @@ kulorna försvinner när ett nytt spel påbörjas.
 {{#include ../../mitt-spel/examples/shooting.rs:clearbullets}}
 ```
 
+### Rita ut kulor
 
 Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att de ritas ut under
 övriga former.

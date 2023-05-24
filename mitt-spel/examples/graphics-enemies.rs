@@ -2,6 +2,7 @@
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
 use macroquad_particles::{self as particles, AtlasConfig, Emitter, EmitterConfig};
+// ANCHOR_END: import
 
 use std::fs;
 
@@ -285,9 +286,9 @@ async fn main() {
                     bullet.y -= bullet.speed * delta_time;
                 }
 
+                // ANCHOR: updatesprites
                 ship_sprite.update();
                 bullet_sprite.update();
-                // ANCHOR: updatesprites
                 enemy_small_sprite.update();
                 // ANCHOR_END: updatesprites
 

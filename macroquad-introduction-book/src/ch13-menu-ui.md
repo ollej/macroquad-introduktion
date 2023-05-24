@@ -6,11 +6,21 @@ att skapa en grafisk huvudmeny för vårt spel. Det kommer vara ganska mycket
 kod för att definiera hur gränssnittet ska se ut. Att använda det kräver dock
 inte riktigt lika mycket kod.
 
+Menyn kommer bestå av ett fönster centrerat på skärmen, med texten "Huvudmeny"
+i titeln, och kommer innehålla två knappar, en för att "Spela" och en för att
+"Avsluta". Utseendet kommer beskrivas med kod, och använder bilder för att
+skapa utseendet. Gränssnitt byggs upp med hjälp av olika widgets som label,
+button, editbox och combobox.
+
+## Implementering 
+
 Till att börja med måste vi importera det vi behöver från `ui`-modulen.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:import}}
 ```
+
+### Ladda in resurser
 
 Efter att ljuden har laddats in ska vi ladda in fonten och de bilder som
 behövs för att rita upp gränssnittet. Vi har en bild för att skapa ett
@@ -26,6 +36,8 @@ kan vi avsluta programmet direkt.
 {{#include ../../mitt-spel/examples/menu-ui.rs:loadresources}}
 ```
 
+### Skapa ett Skin
+
 Innan loopen måste vi definiera hur vårt gränssnitt ska se ut. Vi bygger upp
 `Style`-structar för fönstret, knappar och texter. Därefter skapar vi ett
 `Skin` med stilarna.
@@ -33,6 +45,8 @@ Innan loopen måste vi definiera hur vårt gränssnitt ska se ut. Vi bygger upp
 Vi använder oss av funktionen `root_ui()` som kommer rita widgets sist i varje
 frame med en "default" kamera och koordinatsystemet
 `(0..screen_width(), 0..screen_height())`.
+
+#### Utseende på fönster
 
 För att bygga en stil använder man en `StyleBuilder` som har hjälpmetoder för
 att definiera alla delar av stilen. Vi får tillgång till den genom att
@@ -51,6 +65,14 @@ negativa för att rita ut innehåll på fönstrets bårder.
 {{#include ../../mitt-spel/examples/menu-ui.rs:windowstyle}}
 ```
 
+```admonish info
+Det finns många fler metoder för att definiera stilar, som finns beskrivna i
+dokumentationen för [Macroquads
+`StyleBuilder`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.StyleBuilder.html)
+```
+
+#### Utseende på knappar
+
 I definitionen för knappar använder vi två bilder, med `background()` sätter
 vi grundbilden och med `background_clicked()` sätter vi bilden som ska
 användas när knappen är nedtryckt.
@@ -63,12 +85,16 @@ bilden över hela textinnehållet. Utseendet på texten sätter vi med `font()`,
 {{#include ../../mitt-spel/examples/menu-ui.rs:buttonstyle}}
 ```
 
+#### Utseende på text
+
 Vanlig text som ska presenteras i gränssnittet använder `label_style`. Vi
 använder samma font som för knappar, men med en lite mindre storlek.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:labelstyle}}
 ```
+
+#### Definiera ett Skin
 
 Nu kan vi skapa ett `Skin` med hjälp av `window_style`, `button_style` och
 `label_style`. Övriga stilar i vårt skin låter vi vara som dom är då vi inte
@@ -92,6 +118,8 @@ dropboxar med mera. Mer information finns i [dokumentationen av structen
 Skin](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Skin.html).
 ```
 
+### Bygg upp menyn
+
 Nu kan vi skapa en meny genom att rita ut ett fönster med två knappar och en
 rubrik. Innehållet i matchningen av `GameState::MainMenu` kan bytas ut mot
 nedanstående kod.
@@ -102,11 +130,23 @@ baserat på fönsterstorleken och skärmens dimensioner och en `Vec2` som
 beskriver fönstrets storlek. Till sist tar den en funktion som används för att
 rita upp fönstret.
 
-I funktionen skapar vi först en titel på fönstret med `ul.label()`. Här
-använder vi en negativ Y-position för att den ska hamna i fönstrets titelrad.
+#### Fönstertitel
 
-Sen ritar vi ut en knapp för att börja spela Här använder vi en negativ
-Y-position för att den ska hamna i fönstrets titelrad.
+Inne i funktionen skapar vi först en titel på fönstret med widgeten `Label`
+som vi kan skapa med metoden `ul.label()`. Metoden tar två argument, först en
+`Vec2` med positionen för var den ska placeras, och texten som ska visas. Det
+går att skicka in `None` som position, då kommer den få en placering relativ
+till tidigare widgets. Här använder vi en negativ Y-position för att den ska
+hamna i fönstrets titelrad.
+
+```admonish info
+Widgets går också att skapa genom att instantiera ett objekt och använda
+builder-metoder.
+
+`widgets::Button::new("Spela").position(vec2(45.0, 25.0)).ui(ui);`
+```
+
+#### Knappar
 
 Sen ritar vi ut en knapp för att börja spela. Metoden `ui.button()` returnerar
 `true` om knappen är nedtryckt. Det använder vi oss för att sätta ett nytt
@@ -125,10 +165,10 @@ Läs mer om vad som finns tillgängligt i [dokumentationen av structen
 `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
 ```
 
+## Prova spelet
+
 När spelet startar nu så finns det en grafisk huvudmeny där spelaren kan välja
 att starta ett spel eller avsluta programmet.
-
-
 
 ## Kompletta källkoden
 

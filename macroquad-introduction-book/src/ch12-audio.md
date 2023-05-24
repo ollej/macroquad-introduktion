@@ -3,12 +3,18 @@
 Ett spel behöver inte bara grafik för att det ska bli bra. Det behövs även
 musik och ljudeffekter. 
 
+## Implementering
+
+### Importera
+
 Ljudmodulen är inte inkluderad i Macroquads `prelude`, därför behöver vi
 importera det vi använder i modulen `audio` längst upp i källkoden.
 
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:import}}
 ```
+
+### Ladda in resurser
 
 Efter att alla texturer är inladdade så kan vi ladda in musiken och
 ljudeffekter. Vi har en mp3-fil med musiken som heter `8bit-spaceshooter.ogg`
@@ -19,6 +25,8 @@ webbläsare.
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:loadresources}}
 ```
+
+### Spela upp musik
 
 Innan loopen börjar vi spela upp musiken. Det görs med `play_sound`,
 som tar ett ljud, och structen `PlaySoundParams`. Vi sätter att ljudet ska
@@ -33,6 +41,8 @@ För att stoppa musiken kan man använda funktionen `stop_sound()` som tar ett
 ljud som argument.
 ```
 
+### Spela laserljud
+
 När spelaren skjuter en ny kula så spelar vi upp ett laserljud med hjälp av
 funktionen `play_sound_once()` som tar det ljud som ska spelas upp som
 argument. Det är en genväg för att slippa använda `PlaySoundParams` för att
@@ -46,6 +56,8 @@ spela upp ett ljud som inte loopar.
 Det går även att sätta ljudvolym per ljud med hjälp av funktionen
 `set_sound_volume()` som tar ett ljud och ett tal mellan 0 och 1.
 ```
+
+### Spela explosionsljud
 
 När en kula träffar en fiende spelar vi upp explosionsljudet, även detta med
 `play_sound_once`.
