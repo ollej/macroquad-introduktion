@@ -20,6 +20,9 @@ lite mer funktionalitet i varje kapitel. Till att börja med kommer det vara
 väldigt rudimentärt, men i slutet av guiden kommer det vara ett komplett spel
 med grafik, ljud och allt som hör till.
 
+Spelet vi kommer skapa är ett klassiskt shoot 'em up där spelaren ska flyga
+ett rymdskepp och skjuta ner fiender.
+
 ```admonish info
 På [Macroquads hemsida](https://macroquad.rs) finns
 [exempel](https://macroquad.rs/examples/) som visar hur Macroquad fungerar och
