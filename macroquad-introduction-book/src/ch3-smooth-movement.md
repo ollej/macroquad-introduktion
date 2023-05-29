@@ -55,6 +55,8 @@ två värden.
 Vad behöver ändras för att hela cirkeln ska vara kvar på skärmen?
 ```
 
+<div class="no-page-break">
+
 ## Källkod
 
 Nu ser vårt program ut så här:
@@ -62,4 +64,5 @@ Nu ser vårt program ut så här:
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:all}}
 ```
+</div>
 

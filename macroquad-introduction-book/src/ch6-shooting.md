@@ -100,10 +100,16 @@ att spara undan när varje skott skjuts och jämför aktuella tiden med detta
 värde.
 ```
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:all}}
 ```
+</details>
+</div>
+

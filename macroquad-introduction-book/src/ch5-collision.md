@@ -46,7 +46,7 @@ görs all kod för förflyttning enbart om variabeln `gameover` är `false`.
         }
 ```
 
-### Kolldiering
+### Kollidering
 
 Efter förflyttningskoden lägger vi till en kontroll om någon fyrkant
 kolliderar med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn
@@ -98,12 +98,15 @@ measures](https://github.com/not-fl3/macroquad/blob/master/examples/text_measure
 kan ge tips till hur det fungerar.
 ```
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:all}}
 ```
-
-
+</details>
+</div>

@@ -47,11 +47,16 @@ mängden för att få lite fler partiklar.
 När du kör spelet nu ska explosionerna animeras med hjälp av
 explosionstexturen istället för att vara flerfärgade rutor.
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:all}}
 ```
+</details>
+</div>
 

@@ -91,11 +91,16 @@ Testa att skriva ut en gratulationstext på skärmen vid Game Over om spelaren
 uppnådde en high score.
 ```
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:all}}
 ```
+</details>
+</div>
 

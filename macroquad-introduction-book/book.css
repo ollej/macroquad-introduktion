@@ -1,0 +1,9 @@
+@media print {
+  .noprint {
+      display: none;
+  }
+
+  .no-page-break {
+    page-break-inside: avoid;
+  }
+}

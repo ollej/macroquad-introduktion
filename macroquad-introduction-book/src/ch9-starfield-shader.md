@@ -94,12 +94,16 @@ Making a starfield](https://youtu.be/rvDo9LvfoVE) av The Art of Code.
 Nu är vårt stjärnfält klart och vårt spel börjar se ut som det utspelar sig i
 rymden!
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:all}}
 ```
-
+</details>
+</div>
 

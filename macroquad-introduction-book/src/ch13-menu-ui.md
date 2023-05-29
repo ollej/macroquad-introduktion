@@ -170,11 +170,16 @@ Läs mer om vad som finns tillgängligt i [dokumentationen av structen
 När spelet startar nu så finns det en grafisk huvudmeny där spelaren kan välja
 att starta ett spel eller avsluta programmet.
 
+<div class="noprint no-page-break">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:all}}
 ```
+</details>
+</div>
 

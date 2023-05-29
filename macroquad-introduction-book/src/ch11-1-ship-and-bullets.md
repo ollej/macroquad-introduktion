@@ -181,11 +181,16 @@ mindre precis när det bytt håll för att sedan vinklas fullt ut efter en viss
 tid.
 ```
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:all}}
 ```
+</details>
+</div>
 

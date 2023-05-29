@@ -74,11 +74,16 @@ att sänka volymen i början och höj den när spelet börjar. Prova även att
 stoppa musiken när spelaren pausar spelet.
 ```
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:all}}
 ```
+</details>
+</div>
 

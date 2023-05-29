@@ -110,11 +110,16 @@ och flytta på dem.
 
 Prova spelet och se om det blir explosioner när fyrkanterna beskjuts.
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/particle-explosions.rs:all}}
 ```
+</details>
+</div>
 

@@ -57,6 +57,8 @@ API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 som cirkeln förflyttas.
 ```
 
+<div class="no-page-break">
+
 ## Källkod
 
 Hela källkoden i `main.rs` ska nu se ut så här:
@@ -67,5 +69,5 @@ Hela källkoden i `main.rs` ska nu se ut så här:
 
 När du kör programmet så kommer det visas en gul cirkel i mitten av skärmen.
 Prova att använda piltangenterna för att flytta omkring bollen.
-
+</div>
 

@@ -116,11 +116,16 @@ skriva ut det med stor text på övre delen av skärmen i tillståndet för
 `GameState::MainMenu`.
 ```
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:all}}
 ```
+</details>
+</div>
 

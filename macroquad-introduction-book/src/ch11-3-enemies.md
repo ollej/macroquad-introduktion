@@ -49,11 +49,16 @@ Y-koordinater.
 Nu har vi bytt till grafik för alla element i spelet och det ser mer ut som
 ett riktigt spel.
 
+<div class="noprint">
+
 ## Kompletta källkoden
 
-Källkoden för vårt spel ska nu se ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-enemies.rs:all}}
 ```
+</details>
+</div>
 

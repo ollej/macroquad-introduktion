@@ -112,12 +112,16 @@ Försök att ge olika färger till fyrkanterna genom att använda metoden
 som returnerar ett slumpmässigt valt element från vektorn.
 ```
 
+<div class="noprint">
+
 ## Komplett källkod
 
-Hela programmet ser nu ut så här:
+<details>
+  <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:all}}
 ```
-
+</details>
+</div>
 
