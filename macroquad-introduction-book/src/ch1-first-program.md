@@ -13,6 +13,20 @@ cd mitt-spel/
 cargo add macroquad
 ```
 
+Din `Cargo.toml` fil kommer nu se ut såhär:
+
+```toml
+[package]
+name = "mitt-spel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+macroquad = "0.3.25"
+```
+
 Öppna filen `src/main.rs` i din favorit-editor och ändra innehållet till
 följande kod:
 
