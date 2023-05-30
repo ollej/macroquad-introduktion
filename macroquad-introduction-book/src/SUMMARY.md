@@ -26,4 +26,8 @@
 - [Grafisk poängvisning]()
 - [Ökande svårighetsgrad]()
 - [Levels och waves]()
+- [Highscore]()
+  - [Spara topplista]()
+  - [Visa topplista]()
+  - [Fyll i initialer]()
 - [ECS]()
