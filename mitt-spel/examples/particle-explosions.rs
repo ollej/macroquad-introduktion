@@ -6,9 +6,9 @@ use macroquad_particles::{self as particles, ColorCurve, Emitter, EmitterConfig}
 
 use std::fs;
 
-const FRAGMENT_SHADER: &'static str = include_str!("starfield-shader.glsl");
+const FRAGMENT_SHADER: &str = include_str!("starfield-shader.glsl");
 
-const VERTEX_SHADER: &'static str = "#version 100
+const VERTEX_SHADER: &str = "#version 100
 attribute vec3 position;
 attribute vec2 texcoord;
 attribute vec4 color0;
