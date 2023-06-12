@@ -3,7 +3,7 @@ use macroquad::audio::{load_sound, play_sound, play_sound_once, PlaySoundParams}
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
 // ANCHOR: import
-use macroquad::ui::{hash, root_ui, widgets, Skin};
+use macroquad::ui::{hash, root_ui, Skin};
 // ANCHOR_END: import
 use macroquad_particles::{self as particles, AtlasConfig, Emitter, EmitterConfig};
 
