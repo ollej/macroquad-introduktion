@@ -1,5 +1,7 @@
 # Ditt första Macroquad-program
 
+![Screenshot](images/first-program.png#center)
+
 Nu är det dags att programmera ditt första program med Macroquad. Börja med
 att installera programmeringsspråket Rust om du inte redan har gjort det.
 Skapa därefter ett nytt Rust-projekt med Cargo och lägg till `macroquad` som

@@ -23,3 +23,4 @@
   - [Bygg för webben](release-web.md)
   - [Bygg för Android](release-android.md)
   - [Bygg för iOS](release-ios.md)
+- [Avslutning](wrapup.md)

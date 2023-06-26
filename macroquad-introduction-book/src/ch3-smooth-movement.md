@@ -1,5 +1,7 @@
 # Mjukare rörelser
 
+![Screenshot](images/move-a-circle.png#center)
+
 Eftersom Macroquad kommer rita bildrutor så snabbt som den kan måste vi kolla
 hur lång tid som har gått mellan varje uppdatering för att avgöra hur långt
 cirkeln ska förflyttas. Annars kommer vårt spel gå olika fort på olika

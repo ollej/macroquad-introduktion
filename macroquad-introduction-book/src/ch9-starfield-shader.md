@@ -1,5 +1,7 @@
 # Stjärnfält med en shader
 
+![Screenshot](images/starfield-shader.png#center)
+
 Den gröna bakgrunden börjar kännas lite tråkig, så nu är det dags att göra en
 lite mer intressant bakgrund. Vi kommer använda oss av en pixel shader för att
 göra ett stjärnfält. Hur man kodar en shader ligger utanför den här guiden,

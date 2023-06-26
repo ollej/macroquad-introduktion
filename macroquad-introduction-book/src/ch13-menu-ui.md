@@ -1,5 +1,7 @@
 # Grafisk meny
 
+![Screenshot](images/menu-ui.png#center)
+
 Macroquad har ett inbyggt system för att rita upp ett grafiskt gränssnitt som
 där utseendet enkelt kan ändras med hjälp av bilder. Vi ska använda det för
 att skapa en grafisk huvudmeny för vårt spel. Det kommer vara ganska mycket

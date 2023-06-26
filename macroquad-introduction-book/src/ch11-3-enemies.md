@@ -1,5 +1,7 @@
 # Animerade fiender
 
+![Screenshot](images/graphics-enemies.png#center)
+
 Nu är det bara fienderna som behöver bytas från tråkiga fyrkanter till lite
 mer spännande grafik. Det här fungerar likadant som med skeppet, vi laddar in
 en textur, skapar en animeringssprite och byter hur fienderna ritas ut.

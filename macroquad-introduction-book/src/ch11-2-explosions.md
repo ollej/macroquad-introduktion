@@ -1,5 +1,7 @@
 # Grafiska explosioner
 
+![Screenshot](images/graphics-explosion.png#center)
+
 För att göra explosionerna lite mer effektfulla så ska vi lägga till grafik
 även för partiklarna.
 

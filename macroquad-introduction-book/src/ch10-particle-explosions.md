@@ -1,5 +1,7 @@
 # Partikelexplosioner
 
+![Screenshot](images/particle-explosions.png#center)
+
 Vi vill inte att fyrkanterna bara ska försvinna i tomma intet när dom träffas
 av en kula. Därför ska vi nu använda oss av Macroquads partikelsystem för att
 generera explosioner. Partikelsystemet kan effektivt skapa och rita många små

@@ -1,5 +1,7 @@
 # Rymdskepp och kulor
 
+![Screenshot](images/graphics-spaceship.png#center)
+
 Först ska vi lägga till grafik för rymdskeppet som spelaren styr. Den kommer
 att animeras med två olika sprites, och kommer även ha olika animeringar för
 om skeppet styr åt höger eller vänster. Dessutom lägger vi till en textur med
@@ -70,6 +72,8 @@ innan detta anrop.
 ```
 
 ### Animering av rymdskeppet
+
+![Spritesheet för rymdskeppet](assets/ship.png#pixelated)
 
 Nu måste vi beskriva hur animeringarna i texturerna ska visas. Det gör vi
 genom att skapa en `AnimatedSprite` för varje textur. Storleken på varje

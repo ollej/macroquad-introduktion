@@ -1,5 +1,7 @@
 # Poängsystem
 
+![Screenshot](images/points.png#center)
+
 Vad vore ett spel utan poäng och high score? Det är nu dags att implementera
 ett poängsystem för vårt spel. Poäng kommer ges för varje fyrkant som skjuts
 ner, baserat på storleken. Poängen kommer visas på skärmen, såväl som den

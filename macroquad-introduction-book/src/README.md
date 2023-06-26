@@ -1,6 +1,6 @@
 # Koda ett spel i Rust med Macroquad
 
-![Ferris holding a game controller](ferris-gamer.png#center)
+![Ferris holding a game controller](images/ferris-gamer.png#center)
 
 Macroquad är ett spelramverk för programmeringsspråket Rust som har allt som
 behövs för att skapa ett 2D-spel. De största fördelarna jämfört med andra

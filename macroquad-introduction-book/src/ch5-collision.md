@@ -1,5 +1,7 @@
 # Kollision
 
+![Screenshot](images/collision.png#center)
+
 Våra ovänner fyrkanterna är ännu inte så farliga, så får att öka spänningen är
 det dags att skapa konflikt. Om vår vän cirkeln kolliderar med en fyrkant så
 är spelet över och måste startas om.

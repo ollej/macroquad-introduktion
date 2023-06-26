@@ -1,5 +1,7 @@
 # Game state
 
+![Screenshot](images/game-state.png#center)
+
 Innan vi lägger till någon ny funktionalitet i vårt spel så är det dags för
 lite refaktorisering. För att det ska bli enklare att hantera spelets
 tillstånd så inför vi en enum vid namn `GameState` som håller reda på om
