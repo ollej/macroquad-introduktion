@@ -12,3 +12,28 @@ img[src*="#center"] {
   display: block;
   margin: 0 auto;
 }
+
+img[src*="#pixelated"] {
+  display: block;
+  margin: 0 auto;
+  width: 96px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  float: right;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+canvas {
+  margin: 0px;
+  padding: 0px;
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  position: absolute;
+  background: black;
+  z-index: 0;
+}
+
+
