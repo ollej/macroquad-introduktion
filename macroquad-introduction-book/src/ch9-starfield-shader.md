@@ -7,7 +7,7 @@ lite mer intressant bakgrund. Vi kommer använda oss av en pixel shader för att
 göra ett stjärnfält. Hur man kodar en shader ligger utanför den här guiden,
 utan vi kommer använda oss av en färdig utan att gå in på detaljerna.
 
-Kortfattat är en shader ett program som körs på datorn GPU, skrivet i ett
+Kortfattat är en shader ett program som körs på datorns GPU, skrivet i ett
 C-liknande programmeringsspråk som kallas GLSL. Shadern består av två delar,
 en vertex shader och en fragment shader. Vertex shadern konverterar från
 koordinater i en 3D-miljö till 2D-koordinater för en skärm. Fragment shadern
