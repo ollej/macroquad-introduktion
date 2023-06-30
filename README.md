@@ -3,8 +3,7 @@
 En guide för att skapa ett shootemup-spel i spelramverket Macroquad och
 programmeringsspråket Rust.
 
-Läs boken [Macroquad
-Introduktion](https://ollej.github.io/macroquad-introduktion/index.html)
+Läs boken [Koda ett spel i Rust med Macroquad](https://ollej.github.io/macroquad-introduktion/index.html)
 online.
 
 Källkoden till kapitlen finns under
