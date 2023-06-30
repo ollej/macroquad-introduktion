@@ -148,21 +148,21 @@ några exempel på hur det kan göras från ett terminalfönster.
 ### Windows
 
 ```sh
-cp target/x86_64-pc-windows-gnu/release/rusty-aquarium.exe ./
-tar -c -a -f rusty-aquarium-win.zip rusty-aquarium.exe assets/*
+cp target/x86_64-pc-windows-gnu/release/mitt-spel.exe ./
+tar -c -a -f mitt-spel-win.zip mitt-spel.exe assets/*
 ```
 
 ### Linux
 
 ```sh
-cp target/x86_64-pc-linux-gnu/release/rusty-aquarium ./
-tar -zcf rusty-aquarium-linux.zip rusty-aquarium assets/*
+cp target/x86_64-pc-linux-gnu/release/mitt-spel ./
+tar -zcf mitt-spel-linux.zip mitt-spel assets/*
 ```
 
 ### Mac
 
 ```sh
-cp target/aarch64-apple-darwin/release/rusty-aquarium ./
-zip -r rusty-aquarium-mac.zip rusty-aquarium assets/*
+cp target/aarch64-apple-darwin/release/mitt-spel ./
+zip -r mitt-spel-mac.zip mitt-spel assets/*
 ```
 
