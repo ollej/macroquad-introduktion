@@ -1,6 +1,6 @@
 # Grafiska explosioner
 
-![Screenshot](images/graphics-explosion.png#center)
+![Screenshot](images/graphics-explosions.gif#center)
 
 För att göra explosionerna lite mer effektfulla så ska vi lägga till grafik
 även för partiklarna.
@@ -28,6 +28,8 @@ och livstiden för att passa bättre med grafiken.
 ```
 
 ### Ladda in texturer
+
+![Spritesheet för explosionen](assets/explosion.png#pixelated)
 
 Innan vi bygger texturatlasen så laddar vi in texturen med animeringen för
 partiklarna. Filen med animeringen heter `explosion.png`. Glöm inte att sätta

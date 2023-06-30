@@ -1,6 +1,6 @@
 # Stjärnfält med en shader
 
-![Screenshot](images/starfield-shader.png#center)
+![Screenshot](images/starfield-shader.gif#center)
 
 Den gröna bakgrunden börjar kännas lite tråkig, så nu är det dags att göra en
 lite mer intressant bakgrund. Vi kommer använda oss av en pixel shader för att

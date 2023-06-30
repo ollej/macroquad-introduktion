@@ -1,6 +1,6 @@
 # Animerade fiender
 
-![Screenshot](images/graphics-enemies.png#center)
+![Screenshot](images/graphics-enemies.gif#center)
 
 Nu är det bara fienderna som behöver bytas från tråkiga fyrkanter till lite
 mer spännande grafik. Det här fungerar likadant som med skeppet, vi laddar in
@@ -17,6 +17,8 @@ Ladda in texturen `enemy-small.png` och sätt filter mode till `Nearest`.
 ```
 
 ### Skapa animering
+
+![Spritesheet för rymdskeppet](assets/enemy-small.png#pixelated)
 
 Skapa en `AnimatedSprite` som beskriver vilka animationer som finns i
 texturen. Det är bara en animering med två bildrutor. Grafiken för fienden är

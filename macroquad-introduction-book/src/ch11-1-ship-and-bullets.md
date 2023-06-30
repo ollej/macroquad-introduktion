@@ -1,6 +1,6 @@
 # Rymdskepp och kulor
 
-![Screenshot](images/graphics-spaceship.png#center)
+![Screenshot](images/graphics-spaceship.gif#center)
 
 Först ska vi lägga till grafik för rymdskeppet som spelaren styr. Den kommer
 att animeras med två olika sprites, och kommer även ha olika animeringar för
@@ -100,6 +100,8 @@ ska vara aktiv.
 ```
 
 ### Animering av kulor
+
+![Spritesheet för rymdskeppet](assets/laser-bolts.png#pixelated)
 
 Animeringen för kulorna är väldigt lika, det är två animeringar med två
 bildrutor var som ska visas med 12 bildrutor per sekund. Storleken på bilderna

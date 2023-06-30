@@ -1,6 +1,6 @@
 # Partikelexplosioner
 
-![Screenshot](images/particle-explosions.png#center)
+![Screenshot](images/particle-explosions.gif#center)
 
 Vi vill inte att fyrkanterna bara ska försvinna i tomma intet när dom träffas
 av en kula. Därför ska vi nu använda oss av Macroquads partikelsystem för att

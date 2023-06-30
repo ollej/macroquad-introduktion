@@ -1,6 +1,6 @@
 # Far å flyg
 
-![Screenshot](images/move-a-circle.png#center)
+![Screenshot](images/move-a-circle.gif#center)
 
 Ett spel är inte så roligt utan att det händer något på skärmen. Till att
 börja med visar vi en boll som vi kan styra med knapptryckningar.

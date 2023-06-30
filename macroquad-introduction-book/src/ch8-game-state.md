@@ -1,6 +1,6 @@
 # Game state
 
-![Screenshot](images/game-state.png#center)
+![Screenshot](images/game-state.gif#center)
 
 Innan vi lägger till någon ny funktionalitet i vårt spel så är det dags för
 lite refaktorisering. För att det ska bli enklare att hantera spelets

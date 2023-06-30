@@ -1,6 +1,6 @@
 # Fallande fyrkanter
 
-![Screenshot](images/falling-squares.png#center)
+![Screenshot](images/falling-squares.gif#center)
 
 För att det ska hända lite mer i vårt spel är det dags att skapa lite
 action. Eftersom hjälten i vårt spel är en modig cirkel så får våra
