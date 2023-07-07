@@ -47,6 +47,16 @@ när vi skapar en fyrkant.
 {{#include ../../mitt-spel/examples/shooting.rs:squarecollided}}
 ```
 
+### Flytta kulor
+
+För att kulorna inte ska bli stillastående minor så måste vi loopa över alla
+kulor och flytta dom i Y-led. Lägg till följande kod efter förflyttningen av
+fyrkanterna.
+
+```rust [hl,4-6]
+{{#include ../../mitt-spel/examples/shooting.rs:movebullets}}
+```
+
 ### Ta bort kulor och fyrkanter
 
 Även kulorna behöver tas bort om de hamnar utanför skärmen.

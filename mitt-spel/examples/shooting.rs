@@ -92,12 +92,14 @@ async fn main() {
             }
 
             // Movement
+            // ANCHOR: movebullets
             for square in &mut squares {
                 square.y += square.speed * delta_time;
             }
             for bullet in &mut bullets {
                 bullet.y -= bullet.speed * delta_time;
             }
+            // ANCHOR_END: movebullets
 
             // Remove shapes outside of screen
             squares.retain(|square| square.y < screen_width() + square.size);
