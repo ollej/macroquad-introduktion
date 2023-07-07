@@ -37,7 +37,7 @@ enum GameState {
 
 #[macroquad::main("Mitt spel")]
 async fn main() {
-    const MOVEMENT_SPEED: f32 = 100.0;
+    const MOVEMENT_SPEED: f32 = 200.0;
 
     rand::srand(miniquad::date::now() as u64);
     let mut squares = vec![];

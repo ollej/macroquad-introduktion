@@ -12,7 +12,7 @@ struct Shape {
 
 #[macroquad::main("Mitt spel")]
 async fn main() {
-    const MOVEMENT_SPEED: f32 = 100.0;
+    const MOVEMENT_SPEED: f32 = 200.0;
 
     // ANCHOR: srand
     rand::srand(miniquad::date::now() as u64);

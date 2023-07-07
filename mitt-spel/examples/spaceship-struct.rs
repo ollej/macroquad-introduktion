@@ -1,15 +1,12 @@
 // ANCHOR: all
-// ANCHOR: import
-use macroquad::experimental::animation::{AnimatedSprite, Animation};
-// ANCHOR_END: import
 use macroquad::prelude::*;
 use macroquad_particles::{self as particles, ColorCurve, Emitter, EmitterConfig};
 
 use std::fs;
 
-const FRAGMENT_SHADER: &str = include_str!("starfield-shader.glsl");
+const FRAGMENT_SHADER: &'static str = include_str!("starfield-shader.glsl");
 
-const VERTEX_SHADER: &str = "#version 100
+const VERTEX_SHADER: &'static str = "#version 100
 attribute vec3 position;
 attribute vec2 texcoord;
 attribute vec4 color0;
@@ -25,6 +22,14 @@ void main() {
 }
 ";
 
+trait Collidable {
+    fn collides_with(&self, other: &dyn Collidable) -> bool {
+        self.rect().overlaps(&other.rect())
+    }
+
+    fn rect(&self) -> Rect;
+}
+
 struct Shape {
     size: f32,
     speed: f32,
@@ -33,11 +38,7 @@ struct Shape {
     collided: bool,
 }
 
-impl Shape {
-    fn collides_with(&self, other: &Self) -> bool {
-        self.rect().overlaps(&other.rect())
-    }
-
+impl Collidable for Shape {
     fn rect(&self) -> Rect {
         Rect {
             x: self.x - self.size / 2.0,
@@ -47,6 +48,99 @@ impl Shape {
         }
     }
 }
+
+// ANCHOR: shipstruct
+struct Ship {
+    size: f32,
+    speed: f32,
+    x: f32,
+    y: f32,
+    collided: bool,
+    direction_modifier: f32,
+    texture: Texture2D,
+}
+
+impl Ship {
+    fn new(texture: Texture2D) -> Self {
+        Ship {
+            size: 32.0,
+            speed: 150.0,
+            x: 0.0,
+            y: 0.0,
+            collided: false,
+            direction_modifier: 0.0,
+            texture,
+        }
+    }
+
+    fn reset(&mut self) {
+        self.x = screen_width() / 2.0;
+        self.y = screen_height() / 2.0;
+        self.collided = false;
+    }
+
+    fn move_right(&mut self, delta_time: f32) {
+        self.x += self.speed * delta_time;
+        self.direction_modifier += 0.05 * delta_time;
+        self.clamp();
+    }
+    fn move_left(&mut self, delta_time: f32) {
+        self.x -= self.speed * delta_time;
+        self.direction_modifier -= 0.05 * delta_time;
+        self.clamp();
+    }
+    fn move_down(&mut self, delta_time: f32) {
+        self.y += self.speed * delta_time;
+        self.clamp();
+    }
+    fn move_up(&mut self, delta_time: f32) {
+        self.y -= self.speed * delta_time;
+        self.clamp();
+    }
+
+    fn clamp(&mut self) {
+        // Clamp X and Y to be within the screen
+        self.x = self.x.min(screen_width()).max(0.0);
+        self.y = self.y.min(screen_height()).max(0.0);
+    }
+
+    fn bullet(&self) -> Shape {
+        Shape {
+            x: self.x,
+            y: self.y,
+            speed: self.speed * 2.0,
+            size: 5.0,
+            collided: false,
+        }
+    }
+
+    fn draw(&self) {
+        draw_texture_ex(
+            self.texture,
+            self.x - self.size / 2.0,
+            self.y - self.size / 2.0,
+            WHITE,
+            DrawTextureParams {
+                dest_size: Some(vec2(32.0, 48.0)),
+                source: Some(Rect::new(0.0, 0.0, 16.0, 24.0)),
+                ..Default::default()
+            },
+        );
+    }
+}
+
+impl Collidable for Ship {
+    fn rect(&self) -> Rect {
+        Rect {
+            x: self.x - self.size / 2.0,
+            y: self.y - self.size / 2.0,
+            w: self.size,
+            h: self.size,
+        }
+    }
+}
+
+// ANCHOR_END: shipstruct
 
 enum GameState {
     MainMenu,
@@ -60,7 +154,7 @@ fn particle_explosion() -> particles::EmitterConfig {
         local_coords: false,
         one_shot: true,
         emitting: true,
-        lifetime: 0.3,
+        lifetime: 0.25,
         lifetime_randomness: 0.7,
         explosiveness: 0.95,
         initial_direction_spread: 2.0 * std::f32::consts::PI,
@@ -84,20 +178,18 @@ async fn main() {
     rand::srand(miniquad::date::now() as u64);
     let mut squares = vec![];
     let mut bullets: Vec<Shape> = vec![];
-    let mut circle = Shape {
-        size: 32.0,
-        speed: MOVEMENT_SPEED,
-        x: screen_width() / 2.0,
-        y: screen_height() / 2.0,
-        collided: false,
-    };
+    // ANCHOR: newship
+    let ship_texture: Texture2D = load_texture("assets/ship.png")
+        .await
+        .expect("Couldn't load file");
+    let mut ship = Ship::new(ship_texture);
+    // ANCHOR_END: newship
     let mut score: u32 = 0;
     let mut high_score: u32 = fs::read_to_string("highscore.dat")
         .map_or(Ok(0), |i| i.parse::<u32>())
         .unwrap_or(0);
     let mut game_state = GameState::MainMenu;
 
-    let mut direction_modifier: f32 = 0.0;
     let render_target = render_target(320, 150);
     render_target.texture.set_filter(FilterMode::Nearest);
     let material = load_material(
@@ -115,76 +207,11 @@ async fn main() {
 
     let mut explosions: Vec<(Emitter, Vec2)> = vec![];
 
-    // ANCHOR: assetsfolder
-    set_pc_assets_folder("assets");
-    // ANCHOR_END: assetsfolder
-    // ANCHOR: loadresources
-    let ship_texture: Texture2D = load_texture("ship.png").await.expect("Couldn't load file");
-    ship_texture.set_filter(FilterMode::Nearest);
-    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
-        .await
-        .expect("Couldn't load file");
-    bullet_texture.set_filter(FilterMode::Nearest);
-    // ANCHOR_END: loadresources
-    // ANCHOR: atlas
-    build_textures_atlas();
-    // ANCHOR_END: atlas
-
-    // ANCHOR: shipsprite
-    let mut ship_sprite = AnimatedSprite::new(
-        16,
-        24,
-        &[
-            Animation {
-                name: "idle".to_string(),
-                row: 0,
-                frames: 2,
-                fps: 12,
-            },
-            Animation {
-                name: "left".to_string(),
-                row: 2,
-                frames: 2,
-                fps: 12,
-            },
-            Animation {
-                name: "right".to_string(),
-                row: 4,
-                frames: 2,
-                fps: 12,
-            },
-        ],
-        true,
-    );
-    // ANCHOR_END: shipsprite
-    // ANCHOR: bulletsprite
-    let mut bullet_sprite = AnimatedSprite::new(
-        16,
-        16,
-        &[
-            Animation {
-                name: "bullet".to_string(),
-                row: 0,
-                frames: 2,
-                fps: 12,
-            },
-            Animation {
-                name: "bolt".to_string(),
-                row: 1,
-                frames: 2,
-                fps: 12,
-            },
-        ],
-        true,
-    );
-    bullet_sprite.set_animation(1);
-    // ANCHOR_END: bulletsprite
-
     loop {
         clear_background(BLACK);
 
         material.set_uniform("iResolution", (screen_width(), screen_height()));
-        material.set_uniform("direction_modifier", direction_modifier);
+        material.set_uniform("direction_modifier", ship.direction_modifier);
         gl_use_material(material);
         draw_texture_ex(
             render_target.texture,
@@ -207,8 +234,9 @@ async fn main() {
                     squares.clear();
                     bullets.clear();
                     explosions.clear();
-                    circle.x = screen_width() / 2.0;
-                    circle.y = screen_height() / 2.0;
+                    // ANCHOR: resetship
+                    ship.reset();
+                    // ANCHOR_END: resetship
                     score = 0;
                     game_state = GameState::Playing;
                 }
@@ -224,45 +252,30 @@ async fn main() {
             }
             GameState::Playing => {
                 let delta_time = get_frame_time();
-                // ANCHOR: updateship
-                ship_sprite.set_animation(0);
+                // ANCHOR: moveship
                 if is_key_down(KeyCode::Right) {
-                    circle.x += MOVEMENT_SPEED * delta_time;
-                    direction_modifier += 0.05 * delta_time;
-                    ship_sprite.set_animation(2);
+                    ship.move_right(delta_time);
                 }
                 if is_key_down(KeyCode::Left) {
-                    circle.x -= MOVEMENT_SPEED * delta_time;
-                    direction_modifier -= 0.05 * delta_time;
-                    ship_sprite.set_animation(1);
+                    ship.move_left(delta_time);
                 }
-                // ANCHOR_END: updateship
                 if is_key_down(KeyCode::Down) {
-                    circle.y += MOVEMENT_SPEED * delta_time;
+                    ship.move_down(delta_time);
                 }
                 if is_key_down(KeyCode::Up) {
-                    circle.y -= MOVEMENT_SPEED * delta_time;
+                    ship.move_up(delta_time);
                 }
                 if is_key_pressed(KeyCode::Space) {
-                    bullets.push(Shape {
-                        x: circle.x,
-                        y: circle.y - 24.0,
-                        speed: circle.speed * 2.0,
-                        size: 32.0,
-                        collided: false,
-                    });
+                    bullets.push(ship.bullet());
                 }
+                // ANCHOR_END: moveship
                 if is_key_pressed(KeyCode::Escape) {
                     game_state = GameState::Paused;
                 }
 
-                // Clamp X and Y to be within the screen
-                circle.x = circle.x.min(screen_width()).max(0.0);
-                circle.y = circle.y.min(screen_height()).max(0.0);
-
                 // Generate a new square
                 if rand::gen_range(0, 99) >= 95 {
-                    let size = rand::gen_range(16.0, 64.0);
+                    let size = rand::gen_range(15.0, 40.0);
                     squares.push(Shape {
                         size,
                         speed: rand::gen_range(50.0, 150.0),
@@ -273,17 +286,12 @@ async fn main() {
                 }
 
                 // Movement
-                // ANCHOR: updatesprites
                 for square in &mut squares {
                     square.y += square.speed * delta_time;
                 }
                 for bullet in &mut bullets {
                     bullet.y -= bullet.speed * delta_time;
                 }
-
-                ship_sprite.update();
-                bullet_sprite.update();
-                // ANCHOR_END: updatesprites
 
                 // Remove shapes outside of screen
                 squares.retain(|square| square.y < screen_width() + square.size);
@@ -297,7 +305,7 @@ async fn main() {
                 explosions.retain(|(explosion, _)| explosion.config.emitting);
 
                 // Check for collisions
-                if squares.iter().any(|square| circle.collides_with(square)) {
+                if squares.iter().any(|square| ship.collides_with(square)) {
                     if score == high_score {
                         fs::write("highscore.dat", high_score.to_string()).ok();
                     }
@@ -322,35 +330,11 @@ async fn main() {
                 }
 
                 // Draw everything
-                // ANCHOR: drawbullets
-                let bullet_frame = bullet_sprite.frame();
                 for bullet in &bullets {
-                    draw_texture_ex(
-                        bullet_texture,
-                        bullet.x - bullet.size / 2.0,
-                        bullet.y - bullet.size / 2.0,
-                        WHITE,
-                        DrawTextureParams {
-                            dest_size: Some(vec2(bullet.size, bullet.size)),
-                            source: Some(bullet_frame.source_rect),
-                            ..Default::default()
-                        },
-                    );
+                    draw_circle(bullet.x, bullet.y, bullet.size / 2.0, RED);
                 }
-                // ANCHOR_END: drawbullets
                 // ANCHOR: drawship
-                let ship_frame = ship_sprite.frame();
-                draw_texture_ex(
-                    ship_texture,
-                    circle.x - ship_frame.dest_size.x,
-                    circle.y - ship_frame.dest_size.y,
-                    WHITE,
-                    DrawTextureParams {
-                        dest_size: Some(ship_frame.dest_size * 2.0),
-                        source: Some(ship_frame.source_rect),
-                        ..Default::default()
-                    },
-                );
+                ship.draw();
                 // ANCHOR_END: drawship
                 for square in &squares {
                     draw_rectangle(

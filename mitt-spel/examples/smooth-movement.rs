@@ -4,7 +4,7 @@ use macroquad::prelude::*;
 #[macroquad::main("Mitt spel")]
 async fn main() {
     // ANCHOR: constant
-    const MOVEMENT_SPEED: f32 = 100.0;
+    const MOVEMENT_SPEED: f32 = 200.0;
     // ANCHOR_END: constant
 
     let mut x = screen_width() / 2.0;

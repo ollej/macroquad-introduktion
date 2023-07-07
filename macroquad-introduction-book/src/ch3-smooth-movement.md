@@ -11,7 +11,7 @@ datorer, beroende på hur snabbt dom kan köra programmet.
 
 Vi ska därför utöka programmet och lägga till en konstant variabel som avgör
 hur snabbt cirkeln ska röra sig. Vi kallar den `MOVEMENT_SPEED` och börjar med
-att tilldela den värden `50.0`. Går det för fort eller för sakta kan vi sänka
+att tilldela den värden `200.0`. Går det för fort eller för sakta kan vi sänka
 eller öka detta värde.
 
 ```rust

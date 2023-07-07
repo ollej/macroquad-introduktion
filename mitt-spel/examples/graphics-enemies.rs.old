@@ -1,15 +1,13 @@
 // ANCHOR: all
-// ANCHOR: import
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
-// ANCHOR_END: import
 use macroquad::prelude::*;
 use macroquad_particles::{self as particles, ColorCurve, Emitter, EmitterConfig};
 
 use std::fs;
 
-const FRAGMENT_SHADER: &str = include_str!("starfield-shader.glsl");
+const FRAGMENT_SHADER: &'static str = include_str!("starfield-shader.glsl");
 
-const VERTEX_SHADER: &str = "#version 100
+const VERTEX_SHADER: &'static str = "#version 100
 attribute vec3 position;
 attribute vec2 texcoord;
 attribute vec4 color0;
@@ -60,7 +58,7 @@ fn particle_explosion() -> particles::EmitterConfig {
         local_coords: false,
         one_shot: true,
         emitting: true,
-        lifetime: 0.3,
+        lifetime: 0.25,
         lifetime_randomness: 0.7,
         explosiveness: 0.95,
         initial_direction_spread: 2.0 * std::f32::consts::PI,
@@ -79,13 +77,13 @@ fn particle_explosion() -> particles::EmitterConfig {
 
 #[macroquad::main("Mitt spel")]
 async fn main() {
-    const MOVEMENT_SPEED: f32 = 200.0;
+    const MOVEMENT_SPEED: f32 = 100.0;
 
     rand::srand(miniquad::date::now() as u64);
     let mut squares = vec![];
     let mut bullets: Vec<Shape> = vec![];
     let mut circle = Shape {
-        size: 32.0,
+        size: 30.0,
         speed: MOVEMENT_SPEED,
         x: screen_width() / 2.0,
         y: screen_height() / 2.0,
@@ -115,22 +113,9 @@ async fn main() {
 
     let mut explosions: Vec<(Emitter, Vec2)> = vec![];
 
-    // ANCHOR: assetsfolder
-    set_pc_assets_folder("assets");
-    // ANCHOR_END: assetsfolder
-    // ANCHOR: loadresources
-    let ship_texture: Texture2D = load_texture("ship.png").await.expect("Couldn't load file");
-    ship_texture.set_filter(FilterMode::Nearest);
-    let bullet_texture: Texture2D = load_texture("laser-bolts.png")
+    let ship_texture: Texture2D = load_texture("assets/ship.png")
         .await
         .expect("Couldn't load file");
-    bullet_texture.set_filter(FilterMode::Nearest);
-    // ANCHOR_END: loadresources
-    // ANCHOR: atlas
-    build_textures_atlas();
-    // ANCHOR_END: atlas
-
-    // ANCHOR: shipsprite
     let mut ship_sprite = AnimatedSprite::new(
         16,
         24,
@@ -156,8 +141,9 @@ async fn main() {
         ],
         true,
     );
-    // ANCHOR_END: shipsprite
-    // ANCHOR: bulletsprite
+    let bullet_texture: Texture2D = load_texture("assets/laser-bolts.png")
+        .await
+        .expect("Couldn't load file");
     let mut bullet_sprite = AnimatedSprite::new(
         16,
         16,
@@ -178,7 +164,51 @@ async fn main() {
         true,
     );
     bullet_sprite.set_animation(1);
-    // ANCHOR_END: bulletsprite
+    // ANCHOR: loadresources
+    let enemy_small_texture: Texture2D = load_texture("assets/enemy-small.png")
+        .await
+        .expect("Couldn't load file");
+    let mut enemy_small_sprite = AnimatedSprite::new(
+        16,
+        16,
+        &[Animation {
+            name: "enemy_small".to_string(),
+            row: 0,
+            frames: 2,
+            fps: 12,
+        }],
+        true,
+    );
+    let enemy_medium_texture: Texture2D = load_texture("assets/enemy-medium.png")
+        .await
+        .expect("Couldn't load file");
+    let mut enemy_medium_sprite = AnimatedSprite::new(
+        32,
+        32,
+        &[Animation {
+            name: "enemy_medium".to_string(),
+            row: 0,
+            frames: 2,
+            fps: 12,
+        }],
+        true,
+    );
+    let enemy_big_texture: Texture2D = load_texture("assets/enemy-big.png")
+        .await
+        .expect("Couldn't load file");
+    let mut enemy_big_sprite = AnimatedSprite::new(
+        32,
+        16,
+        &[Animation {
+            name: "enemy_medium".to_string(),
+            row: 0,
+            frames: 2,
+            fps: 12,
+        }],
+        true,
+    );
+    // ANCHOR_END: loadresources
+    build_textures_atlas();
 
     loop {
         clear_background(BLACK);
@@ -246,9 +276,9 @@ async fn main() {
                 if is_key_pressed(KeyCode::Space) {
                     bullets.push(Shape {
                         x: circle.x,
-                        y: circle.y - 24.0,
+                        y: circle.y,
                         speed: circle.speed * 2.0,
-                        size: 32.0,
+                        size: 5.0,
                         collided: false,
                     });
                 }
@@ -262,7 +292,7 @@ async fn main() {
 
                 // Generate a new square
                 if rand::gen_range(0, 99) >= 95 {
-                    let size = rand::gen_range(16.0, 64.0);
+                    let size = rand::gen_range(15.0, 40.0);
                     squares.push(Shape {
                         size,
                         speed: rand::gen_range(50.0, 150.0),
@@ -273,16 +303,18 @@ async fn main() {
                 }
 
                 // Movement
-                // ANCHOR: updatesprites
                 for square in &mut squares {
                     square.y += square.speed * delta_time;
                 }
                 for bullet in &mut bullets {
                     bullet.y -= bullet.speed * delta_time;
                 }
-
+                // ANCHOR: updatesprites
                 ship_sprite.update();
                 bullet_sprite.update();
+                enemy_small_sprite.update();
+                enemy_medium_sprite.update();
+                enemy_big_sprite.update();
                 // ANCHOR_END: updatesprites
 
                 // Remove shapes outside of screen
@@ -322,7 +354,6 @@ async fn main() {
                 }
 
                 // Draw everything
-                // ANCHOR: drawbullets
                 let bullet_frame = bullet_sprite.frame();
                 for bullet in &bullets {
                     draw_texture_ex(
@@ -331,36 +362,46 @@ async fn main() {
                         bullet.y - bullet.size / 2.0,
                         WHITE,
                         DrawTextureParams {
-                            dest_size: Some(vec2(bullet.size, bullet.size)),
+                            dest_size: Some(bullet_frame.dest_size),
                             source: Some(bullet_frame.source_rect),
                             ..Default::default()
                         },
                     );
                 }
-                // ANCHOR_END: drawbullets
-                // ANCHOR: drawship
                 let ship_frame = ship_sprite.frame();
                 draw_texture_ex(
                     ship_texture,
-                    circle.x - ship_frame.dest_size.x,
-                    circle.y - ship_frame.dest_size.y,
+                    circle.x - circle.size / 2.0,
+                    circle.y - circle.size / 2.0,
                     WHITE,
                     DrawTextureParams {
-                        dest_size: Some(ship_frame.dest_size * 2.0),
+                        dest_size: Some(vec2(32.0, 48.0)),
                         source: Some(ship_frame.source_rect),
                         ..Default::default()
                     },
                 );
-                // ANCHOR_END: drawship
+                // ANCHOR: drawenemies
                 for square in &squares {
-                    draw_rectangle(
+                    let (enemy_frame, enemy_texture) = if square.size < 25.0 {
+                        (enemy_small_sprite.frame(), enemy_small_texture)
+                    } else if square.size >= 25.0 && square.size < 35.0 {
+                        (enemy_medium_sprite.frame(), enemy_medium_texture)
+                    } else {
+                        (enemy_big_sprite.frame(), enemy_big_texture)
+                    };
+                    draw_texture_ex(
+                        enemy_texture,
                         square.x - square.size / 2.0,
                         square.y - square.size / 2.0,
-                        square.size,
-                        square.size,
-                        GREEN,
+                        WHITE,
+                        DrawTextureParams {
+                            dest_size: Some(enemy_frame.dest_size * 2.0),
+                            source: Some(enemy_frame.source_rect),
+                            ..Default::default()
+                        },
                     );
                 }
+                // ANCHOR_END: drawenemies
                 for (explosion, coords) in explosions.iter_mut() {
                     explosion.draw(*coords);
                 }
