@@ -74,7 +74,7 @@ innehåller en tuple med en Emitter och koordinaten som den ska ritas ut på.
 
 När vi startar ett nytt spel behöver vi rensa vektorn med explosioner.
 
-```rust [hl,3]
+```rust [hl,4]
 {{#include ../../mitt-spel/examples/particle-explosions.rs:clearexplosions}}
 ```
 
