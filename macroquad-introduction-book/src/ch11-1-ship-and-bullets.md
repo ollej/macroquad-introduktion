@@ -126,6 +126,15 @@ förflyttas åt höger sätter vi `1`.
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:updateship}}
 ```
 
+### Ändra kulstorlek
+
+Eftersom grafiken för kulorna är större än den lilla cirkeln vi ritade ut
+tidigare måste vi uppdatera storleken och startpositionen när vi skapar kulorna.
+
+```rust [hl,4,6]
+{{#include ../../mitt-spel/examples/graphics-spaceship.rs:shoot}}
+```
+
 ### Uppdatera animeringar
 
 För att Macroquad ska kunna animera texturerna åt oss måste vi anropa metoden

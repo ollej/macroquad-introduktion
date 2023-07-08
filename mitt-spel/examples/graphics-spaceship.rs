@@ -243,6 +243,7 @@ async fn main() {
                 if is_key_down(KeyCode::Up) {
                     circle.y -= MOVEMENT_SPEED * delta_time;
                 }
+                // ANCHOR: shoot
                 if is_key_pressed(KeyCode::Space) {
                     bullets.push(Shape {
                         x: circle.x,
@@ -252,6 +253,7 @@ async fn main() {
                         collided: false,
                     });
                 }
+                // ANCHOR_END: shoot
                 if is_key_pressed(KeyCode::Escape) {
                     game_state = GameState::Paused;
                 }
