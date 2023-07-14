@@ -16,10 +16,8 @@ Några tips att lägga till för att göra spelet roligare:
 
 ## Provkör spelet
 
-Så här kommer spelet bli när det är klart.
-
-<canvas id="glcanvas" tabindex='1'></canvas>
-<script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
-<script>load("mitt-spel.wasm");</script>
+Klicka för att <a href="game.html" target="_blank"
+onclick="window.open(this.href, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=480'); return false;">spela spelet</a>
+som det kommer se ut när det är klart. Så här kommer spelet bli när det är klart.
 
 </div>
