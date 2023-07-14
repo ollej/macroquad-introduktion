@@ -40,11 +40,16 @@ I vår `main()` funktion, innan loopen, så måste vi sätta upp några variable
 för att kunna rita ut shadern. Vi börjar med att skapa variabeln
 `direction_modifier` som vi ska använda för att påverka hur stjärnorna rör sig
 medan cirkeln förflyttas i sidled. Därefter skapar vi en `render_target` som
-shadern kommer att renderas till. Sen laddar vi in vår vertex shader och
-fragment shader till en `Material`. Vi sätter även upp två uniforms till
-shadern som är globala variabler som vi kan sätta för varje bildruta.
-Uniformen `iResolution` innehåller fönstrets storlek, och `direction_modifier`
-kommer sättas till samma som variabeln med samma namn.
+shadern kommer att renderas till.
+
+Sen laddar vi in vår vertex shader och fragment shader till en `Material` med
+hjälp av en `ShaderSource`. Vi sätter `metal_shader` till `None` då vi inte
+har aktiverat Metal-backenden.
+
+I parametrarna sätter vi även upp två uniforms till shadern som är globala
+variabler som vi kan sätta för varje bildruta.  Uniformen `iResolution`
+innehåller fönstrets storlek, och `direction_modifier` kommer sättas till
+samma som variabeln med samma namn.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}

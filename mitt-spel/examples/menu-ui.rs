@@ -99,8 +99,11 @@ async fn main() {
     let render_target = render_target(320, 150);
     render_target.texture.set_filter(FilterMode::Nearest);
     let material = load_material(
-        VERTEX_SHADER,
-        FRAGMENT_SHADER,
+        ShaderSource {
+            glsl_vertex: Some(VERTEX_SHADER),
+            glsl_fragment: Some(FRAGMENT_SHADER),
+            metal_shader: None,
+        },
         MaterialParams {
             uniforms: vec![
                 ("iResolution".to_owned(), UniformType::Float2),
@@ -199,7 +202,7 @@ async fn main() {
     );
 
     play_sound(
-        theme_music,
+        &theme_music,
         PlaySoundParams {
             looped: true,
             volume: 1.,
@@ -252,9 +255,9 @@ async fn main() {
 
         material.set_uniform("iResolution", (screen_width(), screen_height()));
         material.set_uniform("direction_modifier", direction_modifier);
-        gl_use_material(material);
+        gl_use_material(&material);
         draw_texture_ex(
-            render_target.texture,
+            &render_target.texture,
             0.,
             0.,
             WHITE,
@@ -321,7 +324,7 @@ async fn main() {
                         collided: false,
                     });
                     // ANCHOR: playlaser
-                    play_sound_once(sound_laser);
+                    play_sound_once(&sound_laser);
                     // ANCHOR_END: playlaser
                 }
                 if is_key_pressed(KeyCode::Escape) {
@@ -384,13 +387,13 @@ async fn main() {
                             explosions.push((
                                 Emitter::new(EmitterConfig {
                                     amount: square.size.round() as u32 * 4,
-                                    texture: Some(explosion_texture),
+                                    texture: Some(explosion_texture.clone()),
                                     ..particle_explosion()
                                 }),
                                 vec2(square.x, square.y),
                             ));
                             // ANCHOR: playexplosion
-                            play_sound_once(sound_explosion);
+                            play_sound_once(&sound_explosion);
                             // ANCHOR_END: playexplosion
                         }
                     }
@@ -400,7 +403,7 @@ async fn main() {
                 let bullet_frame = bullet_sprite.frame();
                 for bullet in &bullets {
                     draw_texture_ex(
-                        bullet_texture,
+                        &bullet_texture,
                         bullet.x - bullet.size / 2.0,
                         bullet.y - bullet.size / 2.0,
                         WHITE,
@@ -413,7 +416,7 @@ async fn main() {
                 }
                 let ship_frame = ship_sprite.frame();
                 draw_texture_ex(
-                    ship_texture,
+                    &ship_texture,
                     circle.x - ship_frame.dest_size.x,
                     circle.y - ship_frame.dest_size.y,
                     WHITE,
@@ -426,7 +429,7 @@ async fn main() {
                 let enemy_frame = enemy_small_sprite.frame();
                 for square in &squares {
                     draw_texture_ex(
-                        enemy_small_texture,
+                        &enemy_small_texture,
                         square.x - square.size / 2.0,
                         square.y - square.size / 2.0,
                         WHITE,

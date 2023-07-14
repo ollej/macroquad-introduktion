@@ -5,6 +5,25 @@ musik och ljudeffekter.
 
 ## Implementering
 
+### Aktivera feature för ljud
+
+För att kunna använda ljud i Macroquad måste en feature aktiveras för dess
+crate i `Cargo.toml` filen för ditt spel. Uppdatera raden för `macroquad`
+under rubriken `[dependencies]` till att inkludera featuren `audio`.
+
+```toml [hl,9]
+[package]
+name = "mitt-spel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+macroquad = { version = "0.4", features = ["audio"] }
+macroquad-particles = "0.2.0"
+```
+
 ### Importera
 
 Ljudmodulen är inte inkluderad i Macroquads `prelude`, därför behöver vi
@@ -48,7 +67,7 @@ funktionen `play_sound_once()` som tar det ljud som ska spelas upp som
 argument. Det är en genväg för att slippa använda `PlaySoundParams` för att
 spela upp ett ljud som inte loopar.
 
-```rust
+```rust [hl,8]
 {{#include ../../mitt-spel/examples/audio.rs:playlaser}}
 ```
 

@@ -78,8 +78,11 @@ async fn main() {
     let render_target = render_target(320, 150);
     render_target.texture.set_filter(FilterMode::Nearest);
     let material = load_material(
-        VERTEX_SHADER,
-        FRAGMENT_SHADER,
+        ShaderSource {
+            glsl_vertex: Some(VERTEX_SHADER),
+            glsl_fragment: Some(FRAGMENT_SHADER),
+            metal_shader: None,
+        },
         MaterialParams {
             uniforms: vec![
                 ("iResolution".to_owned(), UniformType::Float2),
@@ -97,9 +100,9 @@ async fn main() {
 
         material.set_uniform("iResolution", (screen_width(), screen_height()));
         material.set_uniform("direction_modifier", direction_modifier);
-        gl_use_material(material);
+        gl_use_material(&material);
         draw_texture_ex(
-            render_target.texture,
+            &render_target.texture,
             0.,
             0.,
             WHITE,

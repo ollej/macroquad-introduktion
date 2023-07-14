@@ -42,7 +42,8 @@ filtret till `FilterMode::Nearest`.
 ### Lägg till texturen
 
 När vi skapar explosionen måste vi lägga till texturen, och vi uppdaterar även
-mängden för att få lite fler partiklar.
+mängden för att få lite fler partiklar. Här måste vi anropa metoden `clone()`
+på texturen, vilket går väldigt snabbt då det bara är en pekare till texturen.
 
 ```rust [hl,3-4]
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:explosiontexture}}

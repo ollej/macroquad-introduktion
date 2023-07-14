@@ -186,9 +186,9 @@ checksum = "edc207893e85c5d6be840e969b496b53d94cec8be2d501b214f50daa97fa8024"
 
 [[package]]
 name = "macroquad"
-version = "0.3.26"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b92608a005ca1f16fe4e78c85a1cb18481898ac1347c71ae3398a6795c493c15"
+checksum = "17e29d28c6e08e098455c03a94afda970c9d009a0ccca95904a26e73b4cace7b"
 dependencies = [
  "bumpalo",
  "fontdue",
@@ -198,13 +198,14 @@ dependencies = [
  "miniquad",
  "quad-rand",
  "quad-snd",
+ "slotmap",
 ]
 
 [[package]]
 name = "macroquad-particles"
-version = "0.1.1"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8505dc035e4d68799a53a459afef0bc345410039325b5928af2e0d83eb15de40"
+checksum = "88aaaca261af84793761b251afbd503ab3f30a47cc6375f8313cdd7307eea30c"
 dependencies = [
  "macroquad",
 ]
@@ -232,9 +233,9 @@ checksum = "60302e4db3a61da70c0cb7991976248362f30319e88850c487b9b95bbf059e00"
 
 [[package]]
 name = "miniquad"
-version = "0.3.16"
+version = "0.4.0-alpha.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1251d63dfea7109063b2cec354253e8bf150e7878837a6ac0f9185d6a2518b6"
+checksum = "f9a0c72bbe6fe751b03e87054c06822bab8e4494bbec4eb63a670cbe5980f538"
 dependencies = [
  "libc",
  "ndk-sys",
@@ -366,6 +367,15 @@ name = "simd-adler32"
 version = "0.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "238abfbb77c1915110ad968465608b68e869e0772622c9656714e73e5a1a522f"
+
+[[package]]
+name = "slotmap"
+version = "1.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e1e08e261d0e8f5c43123b7adf3e4ca1690d655377ac93a03b2c9d3e98de1342"
+dependencies = [
+ "version_check",
+]
 
 [[package]]
 name = "smallvec"

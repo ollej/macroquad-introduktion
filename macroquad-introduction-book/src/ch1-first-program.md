@@ -4,15 +4,16 @@
 
 Nu är det dags att programmera ditt första program med Macroquad. Börja med
 att installera programmeringsspråket Rust om du inte redan har gjort det.
-Skapa därefter ett nytt Rust-projekt med Cargo och lägg till `macroquad` som
-beroende.
 
 ## Implementering
+
+Skapa ett nytt Rust-projekt med Cargo och lägg till `macroquad` med version
+0.4 som beroende.
 
 ```sh
 cargo new --bin mitt-spel
 cd mitt-spel/
-cargo add macroquad
+cargo add macroquad@0.4
 ```
 
 Din `Cargo.toml` fil kommer nu se ut såhär:
@@ -26,7 +27,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-macroquad = "0.3.25"
+macroquad = "0.4"
 ```
 
 Öppna filen `src/main.rs` i din favorit-editor och ändra innehållet till
