@@ -225,7 +225,8 @@ async fn main() {
                     50.0,
                     RED,
                 );
-            } // ANCHOR_END: gameover
+            }
+            // ANCHOR_END: gameover
         }
 
         next_frame().await
