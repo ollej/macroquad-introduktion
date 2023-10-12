@@ -78,7 +78,7 @@ mellanslagstangenten så tömmer vi vektorn `squares` med metoden `clear()` och
 ```admonish info
 Skillnaden mellan `is_key_down()` och `is_key_pressed()` är att den senare
 bara kollar om tangenten trycktes ned under den aktuella bildrutan, medan den
-tidigare gälla alla bildrutor som knappen hålls nedtryckt. Det finns även
+tidigare gäller för alla bildrutor som knappen hålls nedtryckt. Det finns även
 `is_key_released()` som kollar om tangenten släpptes under den aktuella
 bildrutan.
 ```
