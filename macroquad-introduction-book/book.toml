@@ -30,5 +30,5 @@ assets_version = "0.1.1" # DO NOT EDIT: Managed by `mdbook-catppuccin install`
 
 [preprocessor.admonish]
 command = "mdbook-admonish"
-assets_version = "2.0.1" # do not edit: managed by `mdbook-admonish install`
+assets_version = "3.0.0" # do not edit: managed by `mdbook-admonish install`
 
