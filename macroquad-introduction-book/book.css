@@ -36,4 +36,6 @@ canvas {
   z-index: 0;
 }
 
-
+main details > summary {
+  cursor: pointer;
+}
