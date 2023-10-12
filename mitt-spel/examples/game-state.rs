@@ -83,7 +83,7 @@ async fn main() {
                     50.0,
                     WHITE,
                 );
-            }
+            },
             // ANCHOR_END: mainmenu
             // ANCHOR: playing
             GameState::Playing => {
@@ -193,7 +193,7 @@ async fn main() {
                     25.0,
                     WHITE,
                 );
-            }
+            },
             // ANCHOR_END: playing
             // ANCHOR: paused
             GameState::Paused => {
@@ -209,7 +209,7 @@ async fn main() {
                     50.0,
                     WHITE,
                 );
-            }
+            },
             // ANCHOR_END: paused
             // ANCHOR: gameover
             GameState::GameOver => {
@@ -225,7 +225,7 @@ async fn main() {
                     50.0,
                     RED,
                 );
-            }
+            },
             // ANCHOR_END: gameover
         }
 
