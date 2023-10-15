@@ -18,6 +18,8 @@
   - [Fiender](ch11-3-enemies.md)
 - [Musik och ljudeffekter](ch12-audio.md)
 - [Grafisk meny](ch13-menu-ui.md)
+- [Resurser](ch14-resources.md)
+  - [Resurser och felmeddelanden](ch14-1-resources-and-errors.md)
 - [Releasea ditt spel](release-game.md)
   - [Bygg för desktop](release-desktop.md)
   - [Bygg för webben](release-web.md)
