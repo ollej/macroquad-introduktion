@@ -37,6 +37,15 @@ macroquad = { version = "0.4", features = ["audio"] }
 macroquad-particles = "0.2.0"
 ```
 
+```admonish warning
+Version 0.2.0 av macroquad-particles stödjer inte senaste versionen av
+Macroquad. Om du får felet `"error[E0574]: expected struct, variant or union
+type, found enum 'ShaderSource'"` måste du använda macroquad och
+macroquad-particles [direkt från
+git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories)
+tills detta är åtgärdat.
+```
+
 ### Importera crate
 
 Överst i `main.rs` måste vi importera det vi använder från paketet
