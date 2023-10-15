@@ -82,10 +82,7 @@ struct Resources {
     theme_music: Sound,
     sound_explosion: Sound,
     sound_laser: Sound,
-    window_background: Image,
-    button_background: Image,
-    button_clicked_background: Image,
-    font: Vec<u8>,
+    ui_skin: Skin,
 }
 // ANCHOR_END: struct
 
@@ -111,6 +108,35 @@ impl Resources {
         let button_clicked_background = load_image("button_clicked_background.png").await?;
         let font = load_file("atari_games.ttf").await?;
 
+        let window_style = root_ui()
+            .style_builder()
+            .background(window_background)
+            .background_margin(RectOffset::new(32.0, 76.0, 44.0, 20.0))
+            .margin(RectOffset::new(0.0, -40.0, 0.0, 0.0))
+            .build();
+        let button_style = root_ui()
+            .style_builder()
+            .background(button_background)
+            .background_clicked(button_clicked_background)
+            .background_margin(RectOffset::new(16.0, 16.0, 16.0, 16.0))
+            .margin(RectOffset::new(16.0, 0.0, -8.0, -8.0))
+            .font(&font)?
+            .text_color(WHITE)
+            .font_size(64)
+            .build();
+        let label_style = root_ui()
+            .style_builder()
+            .font(&font)?
+            .text_color(WHITE)
+            .font_size(28)
+            .build();
+        let ui_skin = Skin {
+            window_style,
+            button_style,
+            label_style,
+            ..root_ui().default_skin()
+        };
+
         Ok(Resources {
             ship_texture,
             bullet_texture,
@@ -119,10 +145,7 @@ impl Resources {
             theme_music,
             sound_explosion,
             sound_laser,
-            window_background,
-            button_background,
-            button_clicked_background,
-            font,
+            ui_skin,
         })
     }
 }
@@ -244,37 +267,9 @@ async fn main() -> Result<(), macroquad::Error> {
     // ANCHOR_END: theme
 
     // ANCHOR: ui
-    let window_style = root_ui()
-        .style_builder()
-        .background(resources.window_background)
-        .background_margin(RectOffset::new(32.0, 76.0, 44.0, 20.0))
-        .margin(RectOffset::new(0.0, -40.0, 0.0, 0.0))
-        .build();
-    let button_style = root_ui()
-        .style_builder()
-        .background(resources.button_background)
-        .background_clicked(resources.button_clicked_background)
-        .background_margin(RectOffset::new(16.0, 16.0, 16.0, 16.0))
-        .margin(RectOffset::new(16.0, 0.0, -8.0, -8.0))
-        .font(&resources.font)?
-        .text_color(WHITE)
-        .font_size(64)
-        .build();
-    let label_style = root_ui()
-        .style_builder()
-        .font(&resources.font)?
-        .text_color(WHITE)
-        .font_size(28)
-        .build();
-    let ui_skin = Skin {
-        window_style,
-        button_style,
-        label_style,
-        ..root_ui().default_skin()
-    };
-    // ANCHOR_END: ui
-    root_ui().push_skin(&ui_skin);
+    root_ui().push_skin(&resources.ui_skin);
     let window_size = vec2(370.0, 320.0);
+    // ANCHOR_END: ui
 
     loop {
         clear_background(BLACK);

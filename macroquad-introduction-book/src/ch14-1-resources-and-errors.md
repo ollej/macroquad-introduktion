@@ -27,6 +27,10 @@ alla filer och returnerar en instans av structen om allt går bra. Här använde
 vi i stort sett samma kod som tidigare låg i `main`-funktionen för att ladda
 in alla filer.
 
+Vi sparar även hela UI-skinnet som en resurs så vi inte behöver returnera alla
+separata bilder och fonten. Notera att vi även här har bytt ut `unwrap()`
+efter `font()`-funktionerna till att använda `?`-operatorn.
+
 Skillnaden är att vi har bytt ut alla `unwrap()` och `expect()`
 till `?`-operatorn. Med hjälp av denna kommer felmeddelandet returneras
 istället för att avsluta programmet. Det gör att vi kan hantera felmeddelandet
@@ -107,11 +111,11 @@ framför alla resursnamn.
 
 #### Gränssnittet
 
-Vid definitionen av gränssnittet måste vi uppdatera alla bilder och fonten.
-Notera att vi även här har bytt ut `unwrap()` efter `font()`-funktionerna till
-att använda `?`-operatorn.
+Nu när vi har sparat gränssnittets utssende i vår `Resources` struct räcker
+det med att sätta det som aktivt skin med `root_ui().push_skin()`. Här kan vi
+alltså ta bort alla rader som bygger upp utseendet med en enda rad.
 
-```rust [hl,3,9-10,13,19]
+```rust [hl,1]
 {{#include ../../mitt-spel/examples/resources-and-errors.rs:ui}}
 ```
 
