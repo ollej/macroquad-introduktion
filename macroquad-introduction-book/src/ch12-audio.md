@@ -87,7 +87,7 @@ När en kula träffar en fiende spelar vi upp explosionsljudet, även detta med
 
 När du startar spelet bör det nu spela upp musik och ljudeffekter.
 
-```admonish tip
+```admonish tip title="Utmaning"
 Det kanske är lite intensivt att musiken börjar på full volym direkt, prova
 att sänka volymen i början och höj den när spelet börjar. Prova även att
 stoppa musiken när spelaren pausar spelet.

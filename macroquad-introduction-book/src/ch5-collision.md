@@ -59,7 +59,7 @@ det har skett en kollision sätter vi variabeln `gameover` till `true`.
 {{#include ../../mitt-spel/examples/collision.rs:collision}}
 ```
 
-```admonish tip
+```admonish tip title="Utmaning"
 Kollisionskoden utgår från att cirkeln är en fyrkant. Prova att skriva kod som
 tar hänsyn till att cirkeln inte fyller ut hela fyrkanten.
 ```
@@ -92,7 +92,7 @@ och fyrkanterna har ritats ut, men bara om variabeln `gameover` är `true`.
 {{#include ../../mitt-spel/examples/collision.rs:drawgameover}}
 ```
 
-```admonish tip
+```admonish tip title="Utmaning"
 Eftersom `draw_text()` utgår från textens baslinje så kommer texten inte visas
 exakt i mitten av skärmen. Prova att använda fälten `offset_y` och `height`
 från `text_dimensions` för att räkna ut textens mittpunkt. Macroquads exempel [text

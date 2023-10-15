@@ -164,7 +164,7 @@ Det ska vara allt som behöver ändras den här gången. Vi har nu skapat en
 struct som innehåller alla resurser som vi kan använda oss av när vi ritar ut
 texturer och spelar upp ljud.
 
-```admonish tip
+```admonish tip title="Utmaning"
 Istället för att bara avsluta applikationen så kan du pröva att skriva ut
 felmeddelandet på skärmen med Macroquads `draw_text` funktion. Tänk på att
 programmet då måste fortsätta köra utan att göra något annat än att rita ut

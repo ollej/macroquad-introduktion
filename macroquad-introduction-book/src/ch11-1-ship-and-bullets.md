@@ -190,7 +190,7 @@ att det inte ska bli så smått ritar vi ut den med dubbla storleken.
 Om allt fungerar som det ska så ska det nu vara grafik för både skeppet och
 kulorna.
 
-```admonish tip
+```admonish tip title="Utmaning"
 Prova att använda de två extra skeppanimationerna för att vinkla skeppet lite
 mindre precis när det bytt håll för att sedan vinklas fullt ut efter en viss
 tid.
