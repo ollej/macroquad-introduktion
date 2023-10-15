@@ -99,10 +99,9 @@ async fn main() {
     let render_target = render_target(320, 150);
     render_target.texture.set_filter(FilterMode::Nearest);
     let material = load_material(
-        ShaderSource {
-            glsl_vertex: Some(VERTEX_SHADER),
-            glsl_fragment: Some(FRAGMENT_SHADER),
-            metal_shader: None,
+        ShaderSource::Glsl {
+            vertex: VERTEX_SHADER,
+            fragment: FRAGMENT_SHADER,
         },
         MaterialParams {
             uniforms: vec![

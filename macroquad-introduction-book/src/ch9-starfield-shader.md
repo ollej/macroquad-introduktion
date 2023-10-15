@@ -43,11 +43,10 @@ medan cirkeln förflyttas i sidled. Därefter skapar vi en `render_target` som
 shadern kommer att renderas till.
 
 Sen laddar vi in vår vertex shader och fragment shader till en `Material` med
-hjälp av en `ShaderSource`. Vi sätter `metal_shader` till `None` då vi inte
-har aktiverat Metal-backenden.
+hjälp av en `ShaderSource::Glsl`. 
 
 I parametrarna sätter vi även upp två uniforms till shadern som är globala
-variabler som vi kan sätta för varje bildruta.  Uniformen `iResolution`
+variabler som vi kan sätta för varje bildruta. Uniformen `iResolution`
 innehåller fönstrets storlek, och `direction_modifier` kommer sättas till
 samma som variabeln med samma namn.
 
