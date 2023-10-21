@@ -107,7 +107,7 @@ placeras.
 {{#include ../../mitt-spel/examples/falling-squares.rs:drawsquares}}
 ```
 
-```admonish tip title="Utmaning"
+```admonish tip title="Utmaning" class="challenge"
 Försök att ge olika färger till fyrkanterna genom att använda metoden
 `choose()` på vektorer från Macroquads 
 [ChooseRandom trait](https://docs.rs/macroquad/latest/macroquad/rand/trait.ChooseRandom.html)

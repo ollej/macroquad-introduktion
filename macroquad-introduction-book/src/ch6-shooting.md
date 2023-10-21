@@ -105,7 +105,7 @@ Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att de ritas ut under
 
 Det var allt för att kunna skjuta sönder fyrkanter.
 
-```admonish tip title="Utmaning"
+```admonish tip title="Utmaning" class="challenge"
 För att öka svårighetsgraden går det att lägga till en begränsning så att det
 måste gå en viss tid mellan varje skott. Använd funktionen `get_time()` för
 att spara undan när varje skott skjuts och jämför aktuella tiden med detta

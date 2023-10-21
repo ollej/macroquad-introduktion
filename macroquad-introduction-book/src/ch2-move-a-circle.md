@@ -54,7 +54,7 @@ dokumentationen för Macroquads [Shape
 API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 ```
 
-```admonish tip title="Utmaning"
+```admonish tip title="Utmaning" class="challenge"
 Ändra värdet som adderas till `x` och `y` för att öka eller minska hastigheten
 som cirkeln förflyttas.
 ```

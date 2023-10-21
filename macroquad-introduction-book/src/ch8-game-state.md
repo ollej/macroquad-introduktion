@@ -112,7 +112,7 @@ Eftersom tillstånden för `Playing` och `GameOver` är separerade nu så visas
 inte någonting från spelet när det är game over.
 ```
 
-```admonish tip title="Utmaning"
+```admonish tip title="Utmaning" class="challenge"
 Nu när det finns en startmeny så kan du hitta på ett namn på ditt spel och
 skriva ut det med stor text på övre delen av skärmen i tillståndet för
 `GameState::MainMenu`.

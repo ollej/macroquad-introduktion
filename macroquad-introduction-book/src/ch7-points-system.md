@@ -88,7 +88,7 @@ hur långt från skärmens högra sida texten ska placeras.
 
 Kör igång spelet och försök få så hög poäng som möjligt!
 
-```admonish tip title="Utmaning"
+```admonish tip title="Utmaning" class="challenge"
 Testa att skriva ut en gratulationstext på skärmen vid Game Over om spelaren
 uppnådde en high score.
 ```
