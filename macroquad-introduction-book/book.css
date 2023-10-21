@@ -41,7 +41,7 @@ main details > summary {
 }
 
 .admonition.challenge > div:nth-child(2)::before {
-  content:url(/images/ferris-teacher-small.png);
+  content:url(images/ferris-teacher-small.png);
   display: flex;
   flex-direction: column;
   width: 200px;
