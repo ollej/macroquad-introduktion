@@ -13,8 +13,8 @@ create-missing = false
 edition = "2021"
 
 [output.html]
-default-theme = "macchiato"
-preferred-dark-theme = "macchiato"
+default-theme = "catppuccin"
+preferred-dark-theme = "catppuccin"
 curly-quotes = true
 git-repository-url = "https://github.com/ollej/macroquad-introduktion"
 additional-css = ["./book.css", "./theme/catppuccin.css", "./theme/catppuccin-highlight.css", "./theme/mdbook-admonish.css", "./theme/catppuccin-admonish.css"]
@@ -24,6 +24,7 @@ additional-js = ["code-line-highlight.js"]
 runnable = false
 
 [preprocessor]
+[preprocessor.quiz]
 
 [preprocessor.catppuccin]
 assets_version = "2.0.1" # DO NOT EDIT: Managed by `mdbook-catppuccin install`

@@ -67,3 +67,8 @@ exekveringen tills nästa bildruta.
 skärmen i början av varje bildruta.
 ```
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/first-program.toml}}

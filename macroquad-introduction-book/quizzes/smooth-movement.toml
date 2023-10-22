@@ -1,0 +1,50 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+I vilken tidsenhet returneras tiden från funktionen `get_frame_time`?
+"""
+prompt.distractors = [
+  "nanosekunder",
+  "millisekunder",
+  "picosekunder"
+
+]
+answer.answer = "sekunder"
+context = """
+Funktionen `get_frame_time()` returnerar tiden i sekunder.
+"""
+id = "4474fdcd-da2a-444e-ad69-1c92b6f5d38e"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilken funktion används för att få tiden som gått sedan föregeånde bildruta?
+"""
+prompt.distractors = [
+  "get\\_delta\\_time",
+  "get_time",
+  "get_fps"
+
+]
+answer.answer = "get\\_frame\\_time"
+context = """
+Funktionen `get_frame_time()` ger delta-tiden medan `get_time()` ger tiden sedan programmet startade.
+"""
+id = "81a88077-097f-48d2-8812-74056a054632"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Varför multipliceras `delta_time` med `MOVEMENT_SPEED`?
+"""
+prompt.distractors = [
+    "För att öka hastigheten varje bildruta",
+    "Tiden sedan programmet startats avgör hur långt cirkeln kan röra sig",
+    "För att kompensera att datorns klocka kan gå fel"
+]
+answer.answer = "För att förflyttningen per sekund alltid ska vara samma"
+context = """
+Macroquads rit-funktioner börjar normalt med koordinater och avslutas med färgen.
+"""
+id = "9a89f5d1-7500-43bc-abf3-77e43aa941bb"
+

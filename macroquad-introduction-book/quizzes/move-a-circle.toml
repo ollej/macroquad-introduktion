@@ -1,0 +1,43 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vad heter funktionen för att få reda på vilken höjd fönstret har?"
+answer.answer = "screen_height"
+context = "Det kan se ut så här: `let height = screen_height()`"
+id = "3dd45345-5b47-414a-972c-7d0221cbf73b"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Hur kollar man om mellanslagstangenten är nedtryckt?
+"""
+prompt.distractors = [
+  "is\\_key\\_down(Key::Space)",
+  "is\\_space\\_down()",
+  "is\\_key\\_pressed(SPACE)",
+  "is\\_key\\_released(KeyCode::Space)"
+
+]
+answer.answer = "is\\_key\\_down(KeyCode::Space)"
+context = """
+Funktionen `is_key_down()` tar enumen `KeyCode` som argument och returnerar sant om den tangenten är nedtryckt.
+"""
+id = "16fdc6e2-dd78-4119-ad48-f439daf7a8aa"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilket av alternativen för funktionen `draw_circle()` har rätt ordning på argumenten?
+"""
+prompt.distractors = [
+    "draw_circle(color, x, y, radius)",
+    "draw_circle(radius, x, y, color)",
+    "draw_circle(radius, color, x, y)",
+    "draw_circle(color, radius, x, y)",
+    "draw_circle(x, y, color, radius)"
+]
+answer.answer = "draw_circle(x, y, radius, color)"
+context = """
+Macroquads rit-funktioner börjar normalt med koordinater och avslutas med färgen.
+"""
+id = "b18d4b82-9068-4b2a-b8cb-317181f20fb8"
+

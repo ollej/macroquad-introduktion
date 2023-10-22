@@ -36,8 +36,8 @@ Vilka andra tangenter som finns tillgängliga finns beskrivet i
 
 ### Rita en cirkel
 
-Slutligen ritas cirkeln ut på de angivna koordinaterna med en radie på 15 och
-med gul färg.
+Slutligen ritas cirkeln ut på de angivna koordinaterna med en radie på 16 och
+med gul färg på koordinaterna `x` och `y`.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
@@ -73,3 +73,8 @@ När du kör programmet så kommer det visas en gul cirkel i mitten av skärmen.
 Prova att använda piltangenterna för att flytta omkring bollen.
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/move-a-circle.toml}}
