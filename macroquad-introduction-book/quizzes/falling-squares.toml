@@ -1,0 +1,40 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vad är namnet på grafikramverket som Macroquad bygger på?"
+answer.answer = "miniquad"
+context = "Miniquad är ett grafikramverk medan Macroquad är ett spelramverk."
+id = "7c0bb742-0aad-4abc-8c88-ec39adf9b07f"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilken används funktionen `rand::gen_range()` till?
+"""
+prompt.distractors = [
+  "Den returnerar en lista av tal från första till andra argumentet.",
+  "Den ritar en rand på skärmen mellan positionerna som anges som argument.",
+  "Den returnerar ett slumpat tal mellan 0 och 1.",
+  "Den returnerar ett slumpat tal mellan 0 och u32::MAX"
+
+]
+answer.answer = "Den slumpar fram ett tal mellan dess argument."
+context = """
+Funktionen `rand::gen_range()` tar argumenten low och high, och returnerar ett tal av samma typ.
+"""
+id = "c52791b2-91b5-424d-a632-e739b64a39c5"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vad händer om man använder funktionen `rand::srand(42)`?
+"""
+prompt.distractors = [
+    "Funktionen `rand()` kommer alltid returnera talet 42.",
+    "Det blir ett kompileringsfel eftersom argumentet inte är en tid.",
+    "Det returneras ett slumpat tal mellan 0 och 42."
+]
+answer.answer = "Värdena som returneras av `rand()` kommer bli samma varje körning."
+context = """
+Pseudo-randomgeneratorn måste seedas med olika värden varje körning för att `rand()` ska returnera olika värden.
+"""
+id = "4516bf86-c579-4054-9741-c8da7b8d6f9a"

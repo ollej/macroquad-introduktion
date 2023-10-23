@@ -31,7 +31,7 @@ med metoden `rand::srand()` som vi skickar in nuvarande tid till som seed.
 
 ```admonish note
 Vi använder oss av metoden `miniquad::date::now()` från det underliggande
-[grafikramverket Miniquad](https://docs.rs/miniquad/0.3.13/miniquad/index.html)
+[grafikramverket Miniquad](https://docs.rs/miniquad/latest/miniquad/index.html)
 för att få den aktuella tiden.
 ```
 
@@ -101,7 +101,18 @@ använder funktionen `draw_rectangle()` för att rita ut en rektangel på den
 uppdaterade positionen och med rätt storlek. Eftersom rektanglar ritas ut med
 x och y från hörnet längst upp till vänster och våra koordinater utgår från
 center av fyrkanten så använder vi lite matematik för att räkna ut var dom ska
-placeras.
+placeras. Storleken används två gånger, en gång för fyrkantens bredd och en
+gång för fyrkantens höjd. Vi sätter färgen till `GREEN` så att alla fyrkanter
+blir gröna.
+
+```admonish note
+Det finns även funktionen
+[`draw_rectangle_ex()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_rectangle_ex.html)
+som tar structen
+[`DrawTextureParams`](https://docs.rs/macroquad/latest/macroquad/shapes/struct.DrawRectangleParams.html)
+istället för en färg. Med den kan man förutom färg även sätta `rotation`
+och `offset` på rektangeln.
+```
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:drawsquares}}
@@ -127,3 +138,8 @@ som returnerar ett slumpmässigt valt element från vektorn.
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/falling-squares.toml}}
