@@ -27401,7 +27401,7 @@ let MultipleChoiceMethods = {
     let toList = (s) => _.sortBy(s instanceof Array ? s : [s]);
     return _.isEqual(toList(provided.answer), toList(user.answer));
   },
-  AnswerView: ({ answer, baseline }) => React.createElement("div", { className: classNames("md-flex", MultipleChoiceMethods.compareAnswers(baseline, answer) ? "rätt" : "fel") }, answer.answer instanceof Array ? React.createElement("ul", null, answer.answer.map((a, i) => React.createElement(
+  AnswerView: ({ answer, baseline }) => React.createElement("div", { className: classNames("md-flex", MultipleChoiceMethods.compareAnswers(baseline, answer) ? "correct" : "incorrect") }, answer.answer instanceof Array ? React.createElement("ul", null, answer.answer.map((a, i) => React.createElement(
     "li",
     { key: i },
     React.createElement(MarkdownView, { markdown: a })
@@ -27419,7 +27419,7 @@ let ShortAnswerMethods = {
       React.createElement("textarea", { ...formFields, placeholder: "Fyll i ditt svar här..." })
     ));
   },
-  AnswerView: ({ answer, baseline }) => React.createElement("code", { className: ShortAnswerMethods.compareAnswers(baseline, answer) ? "rätt" : "fel" }, answer.answer),
+  AnswerView: ({ answer, baseline }) => React.createElement("code", { className: ShortAnswerMethods.compareAnswers(baseline, answer) ? "correct" : "incorrect" }, answer.answer),
   compareAnswers(providedAnswer, userAnswer) {
     let clean = (s) => s.toLowerCase().trim();
     let possibleAnswers = [providedAnswer.answer].concat(providedAnswer.alternatives || []).map(clean);
@@ -27498,7 +27498,7 @@ let TracingMethods = {
     }
   },
   AnswerView: ({ answer, baseline }) => {
-    let correctnessClass = (key) => answer[key] == baseline[key] ? "rätt" : "fel";
+    let correctnessClass = (key) => answer[key] == baseline[key] ? "correct" : "incorrect";
     return React.createElement(
       "div",
       null,
@@ -27513,7 +27513,7 @@ let TracingMethods = {
       answer.doesCompile ? React.createElement(
         React.Fragment,
         null,
-        React.createElement("p", { className: baseline.stdout && answer.stdout.trim() == baseline.stdout.trim() ? "rätt" : "fel" }, "Utskriften från detta program kommer vara:"),
+        React.createElement("p", { className: baseline.stdout && answer.stdout.trim() == baseline.stdout.trim() ? "correct" : "incorrect" }, "Utskriften från detta program kommer vara:"),
         React.createElement("pre", null, answer.stdout)
       ) : (
         /*<p className={correctnessClass("lineNumber")}>
