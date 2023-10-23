@@ -13,8 +13,8 @@ create-missing = false
 edition = "2021"
 
 [output.html]
-default-theme = "catppuccin"
-preferred-dark-theme = "catppuccin"
+default-theme = "macchiato"
+preferred-dark-theme = "macchiato"
 curly-quotes = true
 git-repository-url = "https://github.com/ollej/macroquad-introduktion"
 additional-css = ["./book.css", "./theme/catppuccin.css", "./theme/catppuccin-highlight.css", "./theme/mdbook-admonish.css", "./theme/catppuccin-admonish.css"]
