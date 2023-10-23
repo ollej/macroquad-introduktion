@@ -315,13 +315,13 @@
 .mdbook-quiz .answer .answer-row > div .correct:before {
   color: green;
   margin-right: 1rem;
-  content: "✓ Correct";
+  content: "✓ Rätt";
   font-size: 1.5rem;
 }
 .mdbook-quiz .answer .answer-row > div .incorrect:before {
   color: red;
   margin-right: 1rem;
-  content: "✗ Incorrect";
+  content: "✗ Fel";
   font-size: 1.5rem;
 }
 .mdbook-quiz .answer .context {
