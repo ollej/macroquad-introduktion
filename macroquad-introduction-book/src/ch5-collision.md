@@ -18,8 +18,15 @@ flyttas tillbaka till mitten av skärmen.
 
 Vi utökar structen `Shape` med en implementation som innehåller metoden
 `collides_with()` som kollar om den kolliderar med en annan `Shape`. Denna
-använder sig av Macroquads `Rect` struct som har hjälpmetoden `overlaps()`. Vi
-skapar även en egen hjälpmetod som skapar en `Rect` från vår `Shape`.
+använder sig av Macroquads
+[`Rect`](https://docs.rs/macroquad/latest/macroquad/math/struct.Rect.html)
+struct som har hjälpmetoden `overlaps()`. Vi skapar även en egen hjälpmetod
+som skapar en `Rect` från vår `Shape`.
+
+```admonish info
+Det finns många hjälpmetoder på `Rect` för göra beräkningar på rektanglar, som
+`contains()`, `intersect()`, `scale()`, `combine_with() och `move_to()`.
+```
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:implshape}}
@@ -27,7 +34,7 @@ skapar även en egen hjälpmetod som skapar en `Rect` från vår `Shape`.
 
 ```admonish note
 Macroquads `Rect` utgår också från övre vänstra hörnet, därför måste vi även
-här subtrahera halva storlken från både X och Y.
+här subtrahera halva storleken från både X och Y.
 ```
 
 ### Är det game over?
@@ -68,8 +75,8 @@ tar hänsyn till att cirkeln inte fyller ut hela fyrkanten.
 
 Om `gameover`-variabeln är `true` och spelaren precis har tryckt på
 mellanslagstangenten så tömmer vi vektorn `squares` med metoden `clear()` och
-återställer cirkelns x och y-koordinater till mitten av skärmen. Sen sätter vi
-`gameover` till `false` så att spelet kan börja igen.
+återställer cirkelns `x` och `y`-koordinater till mitten av skärmen. Sen
+sätter vi variabeln `gameover` till `false` så att spelet kan börja igen.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:gameover}}
@@ -87,6 +94,14 @@ bildrutan.
 
 Slutligen ritar vi ut texten "Game Over!" i mitten av skärmen efter cirkeln
 och fyrkanterna har ritats ut, men bara om variabeln `gameover` är `true`.
+
+```admonish info
+Det går också att använda funktionen
+[`draw_text_ex()`](https://docs.rs/macroquad/latest/macroquad/text/fn.draw_text_ex.html)
+som tar en [`DrawTextParams` struct](https://docs.rs/macroquad/latest/macroquad/text/struct.TextParams.html)
+istället för `font_size` och `color`. Med den kan man ange fler parameterar som
+`font`, `font_scale`, `font_scale_aspect` och `rotation`.
+```
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:drawgameover}}
@@ -112,3 +127,9 @@ kan ge tips till hur det fungerar.
 ```
 </details>
 </div>
+
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/collision.toml}}

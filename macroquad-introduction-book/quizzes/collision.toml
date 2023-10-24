@@ -1,0 +1,51 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vad heter structen som representerar en rektangel i Macroquad?"
+answer.answer = "Rect"
+context = "Macroquads `math` namespace innehåller representation för många olika matematiska koncept."
+id = "0d01a70a-80fe-4fa7-bcdb-a10bf54d14ee"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vad är namnet på metoden i `Rect` som kontrollerar om den delvis täcker en annan rektangel?
+"""
+prompt.distractors = [
+  "`contains()`",
+  "`intersect()`",
+  "`combine_with()`"
+
+]
+answer.answer = "`overlaps()`"
+context = """
+Metoden `overlaps()` kollar om två rektanglar överlappar varandra.
+"""
+id = "cbdd1bb6-2701-45ee-bb94-6548c47ceb36"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilken funktion kollar om en tangent trycktes ned under den aktuella bildrutan?
+"""
+prompt.distractors = [
+    "`is_key_down()`",
+    "`is_key_released()`",
+    "`get_char_pressed()`"
+]
+answer.answer = "`is_key_pressed()`"
+context = """
+Funktionen `is_key_pressed()` gäller bara första bildrutan tangent trycktes ned,
+medan `is_key_down()` fortsätter vara sann ända tills tangenten släpps.
+"""
+id = "36c980ed-ef56-4da9-b292-72c307e1d16e"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vilken funktion används för att skriva ut text på skärmen med extra parametrar?"
+answer.answer = "draw_text_ex"
+context = """
+Många funktioner i Macroquad har en motsvarande funktion med suffixet `_ex`
+som tar en struct med extra parametrar.
+"""
+id = "19ca2d73-ad8c-4627-95b2-edc5061c88c6"
+
