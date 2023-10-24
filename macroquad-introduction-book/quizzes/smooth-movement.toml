@@ -21,12 +21,12 @@ prompt.prompt = """
 Vilken funktion används för att få tiden som gått sedan föregeånde bildruta?
 """
 prompt.distractors = [
-  "get\\_delta\\_time",
-  "get_time",
-  "get_fps"
+  "`get_delta_time()`",
+  "`get_time()`",
+  "`get_fps()`"
 
 ]
-answer.answer = "get\\_frame\\_time"
+answer.answer = "`get_frame_time()`"
 context = """
 Funktionen `get_frame_time()` ger delta-tiden medan `get_time()` ger tiden sedan programmet startade.
 """
@@ -38,13 +38,13 @@ prompt.prompt = """
 Varför multipliceras `delta_time` med `MOVEMENT_SPEED`?
 """
 prompt.distractors = [
-    "För att öka hastigheten varje bildruta",
-    "Tiden sedan programmet startats avgör hur långt cirkeln kan röra sig",
-    "För att kompensera att datorns klocka kan gå fel"
+    "För att öka hastigheten varje bildruta.",
+    "Tiden sedan programmet startats avgör hur långt cirkeln kan röra sig.",
+    "För att kompensera att datorns klocka kan gå fel."
 ]
-answer.answer = "För att förflyttningen per sekund alltid ska vara samma"
+answer.answer = "För att förflyttningen per sekund alltid ska vara samma."
 context = """
-Macroquads rit-funktioner börjar normalt med koordinater och avslutas med färgen.
+Antalet bildrutor som ritas ut per sekund kan vara olika mellan olika datorer.
 """
 id = "9a89f5d1-7500-43bc-abf3-77e43aa941bb"
 

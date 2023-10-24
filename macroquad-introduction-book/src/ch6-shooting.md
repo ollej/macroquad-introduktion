@@ -32,12 +32,17 @@ typ det är innan vi har tilldelat den något värde. Vi använder structen
 ### Skjut kulor
 
 Efter cirkeln har förflyttats så lägger vi till en kontroll om spelaren har
-tryckt på mellanslag, och lägger till en kula i vektorn med kulor. Kulans x-
-och y-koordinater sätts till samma som cirkeln, och hastigheten till dubbla
+tryckt på mellanslag, och lägger till en kula i vektorn med kulor. Kulans `x`-
+och `y`-koordinater sätts till samma som cirkeln, och hastigheten till dubbla
 cirkelns hastighet.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:shoot}}
+```
+
+```admonish notes
+Notera att vi använder funktionen `is_key_pressed()` som bara är sann under
+den första bildrutan som tangenten trycks ned.
 ```
 
 Eftersom vi har lagt till ett fält på structen `Shape` måste vi lägga till den
@@ -103,12 +108,19 @@ Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att de ritas ut under
 {{#include ../../mitt-spel/examples/shooting.rs:drawbullets}}
 ```
 
+```admonish info
+Det finns även en funktion som heter
+[`draw_circle_lines()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_circle_lines.html)
+som används för att rita ut en cirkel som inte är ifylld.
+```
+
 Det var allt för att kunna skjuta sönder fyrkanter.
 
 ```admonish tip title="Utmaning" class="challenge"
 För att öka svårighetsgraden går det att lägga till en begränsning så att det
-måste gå en viss tid mellan varje skott. Använd funktionen `get_time()` för
-att spara undan när varje skott skjuts och jämför aktuella tiden med detta
+måste gå en viss tid mellan varje skott. Använd funktionen
+[`get_time()`](https://docs.rs/macroquad/latest/macroquad/time/fn.get_time.html)
+för att spara undan när varje skott skjuts och jämför aktuella tiden med detta
 värde.
 ```
 
@@ -125,3 +137,8 @@ värde.
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/shooting.toml}}
