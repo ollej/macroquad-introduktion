@@ -1,0 +1,49 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilket enum-värde representerar escape-tangenten?
+"""
+prompt.distractors = [
+  "`KeyCode::Esc`",
+  "`Key::Escape`",
+  "`Code::Esc`"
+]
+answer.answer = "`KeyCode::Escape`"
+context = """
+Värdena för de flesta tangenterna i enumen `KeyCode` är oförkortade.
+"""
+id = "b757ea7f-7afd-4551-9e83-e945ce017329"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Hur kan man avsluta ett Macroquad-program?
+"""
+prompt.distractors = [
+  "`macroquad::exit()`",
+  "`miniquad::quit()`",
+  "`quit_program()`"
+]
+answer.answer = "`std::process::exit(0)`"
+context = """
+Macroquad har inget eget sätt att avsluta men det går bra att använda
+Rusts vanliga funktionalitet för att avsluta programmet.
+"""
+id = "bb65e1bf-9d06-499e-a782-164f64e1cf33"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilken argumentsordning till `measure_text()` är korrekt?
+"""
+prompt.distractors = [
+    "`measure_text(text, font_size, font_scale, font)`",
+    "`measure_text(text, font_size, font, font_scale)`",
+    "`measure_text(text, font_scale, font, font_size)`",
+    "`measure_text(font, font_size, font_scale, text)`"
+]
+answer.answer = "`measure_text(text, font, font_size, font_scale)`"
+context = """
+Första argumentet är `text`, precis som i `draw_text()`.
+"""
+id = "dfd61b93-182c-42cb-a78f-6455d477d73b"

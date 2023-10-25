@@ -79,8 +79,16 @@ När vi startar en ny spelomgång måste vi nollställa variabeln `score`.
 
 Till sist ritar vi ut poängen och high score på skärmen. Poängen skriver vi
 alltid ut i övre vänstra hörnet. För att kunna skriva ut high scoren i högra
-hörnet behöver vi använda oss av funktionen `measure_text()` för att räkna ut
-hur långt från skärmens högra sida texten ska placeras.
+hörnet behöver vi använda oss av funktionen
+[`measure_text()`](https://docs.rs/macroquad/latest/macroquad/text/fn.measure_text.html)
+för att räkna ut hur långt från skärmens högra sida texten ska placeras.
+
+För att dimensionerna ska stämma måste samma värden användas som argument till
+`measure_text()` som till `draw_text()`. Argumenten är `text`, `font`,
+`font_size` och `font_scale`. Eftersom vi inte sätter någon speciell font
+eller skalar om texten så skickar vi in `None` som `font`, och `1.0` som
+`font_scale`. Däremot måste `font_size` vara samma som i anropet av
+`draw_text()` vilket i vårt fall är `25.0`.
 
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:drawpoints}}

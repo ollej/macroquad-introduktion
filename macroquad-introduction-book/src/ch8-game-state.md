@@ -131,3 +131,8 @@ skriva ut det med stor text på övre delen av skärmen i tillståndet för
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/game-state.toml}}
