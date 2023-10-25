@@ -86,6 +86,12 @@ hur långt från skärmens högra sida texten ska placeras.
 {{#include ../../mitt-spel/examples/points.rs:drawpoints}}
 ```
 
+```admonish info
+Funktionen `measure_text()` returnerar structen
+[`TextDimensions`](https://docs.rs/macroquad/latest/macroquad/text/struct.TextDimensions.html)
+som innehåller fälten `width`, `height` och `offset_y`.
+```
+
 Kör igång spelet och försök få så hög poäng som möjligt!
 
 ```admonish tip title="Utmaning" class="challenge"
@@ -106,3 +112,8 @@ uppnådde en high score.
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/points-system.toml}}
