@@ -44,7 +44,8 @@ programmet med ett felmmeddelande om det uppstår.
 Efter att texturen är inladdad så sätter vi vilket sorts filter som ska
 användas när texturen skalas upp med metoden `set_filter()`. Vi sätter
 `FilterMode::Nearest` för att vi vill bibehålla pixelutseendet. Det här måste
-vi göra på varje textur.
+vi göra på varje textur. För högupplösta texturer är det bättre att använda
+`FilterMode::Linear` som ger linjär skalning av texturen.
 
 Vi laddar in filerna `ship.png` som innehåller animeringarna för skeppet, och
 `laser-bolts.png` som innehåller animeringar för två olika sorts kulor.
@@ -54,9 +55,11 @@ Vi laddar in filerna `ship.png` som innehåller animeringarna för skeppet, och
 ```
 
 ```admonish info
-Bilderna returneras som structen `Texture2D` som innehåller bilddatan som
-sparas i GPU-minnet. Motsvarande struct för bilder som sparas i CPU-minnet är
-`Image`.
+Bilderna returneras som structen
+[`Texture2D`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Texture2D.html)
+som innehåller bilddatan som sparas i GPU-minnet. Motsvarande struct för
+bilder som sparas i CPU-minnet är
+[`Image`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Image.html).
 ```
 
 ### Bygg en texturatlas
@@ -209,3 +212,8 @@ tid.
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/ship-and-bullets.toml}}
