@@ -19,19 +19,17 @@ shadern ingenting mer än att sätta positionen.
 
 ### Shaders
 
-Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment shadern
-från en fil som vi kommer skapa senare. Vi använder oss av macrot
-`include_str!()` som läser in filen som en `&str` vid kompilering.
-Vertex shadern är så kort att den kan läggas in direkt här i källkoden.
+Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment-shadern
+från en fil som vi kommer skapa senare. Vi använder oss av Rusts macro
+`include_str!()` som läser in filen som en `&str` vid kompileringen.
+Vertex-shadern är så kort att den kan läggas in direkt här i källkoden.
+
+Den viktigaste raden i shadern är den som sätter `gl_Position`. För
+enkelhetens skull sätter vi `iTime` som används av shadern från `_Time.x`. Det
+hade också gått att använda `_Time` direkt i shadern.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
-```
-
-```admonish info
-Macroquad lägger automatiskt in några uniforms till shaders. De som finns
-tillgängliga är `_Time`, `Model`, `Projection`, `Texture` och
-`_ScreenTexture`.
 ```
 
 ### Initialisera shadern
@@ -47,24 +45,33 @@ hjälp av en `ShaderSource::Glsl`.
 
 I parametrarna sätter vi även upp två uniforms till shadern som är globala
 variabler som vi kan sätta för varje bildruta. Uniformen `iResolution`
-innehåller fönstrets storlek, och `direction_modifier` kommer sättas till
-samma som variabeln med samma namn.
+innehåller fönstrets storlek, och `direction_modifier` kommer användas för att
+styra åt vilken riktning stjärnorna ska röra sig.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
 ```
 
-### Rita shadern
+```admonish info
+Macroquad lägger automatiskt in några uniforms till shaders. De som finns
+tillgängliga är `_Time`, `Model`, `Projection`, `Texture` och
+`_ScreenTexture`.
+```
+
+### Rita ut shadern
 
 Nu är det dags att byta ut den lila bakgrund till vårt stjärnfält. Byt ut
-`clear_background(DARKPURPLE);` till nedanstående kod. Först måste vi tilldela
-fönstrets upplösning till materialets uniform `iResolution` för att alltid få
-rätt fönsterstorlek. Därefter använder vi funktionen `gl_use_material()` för
-att använda materialet. Slutligen använder vi funktionen `draw_texture_ex()`
-för att rita ut texturen från vår `render_target` på skärmens bakgrund. Innan
-vi fortsätter återställer vi shadern med `gl_use_default_material()` så den
-inte används när vi ritar ut resten av spelet. Vi sätter även uniformen
+kodraden `clear_background(DARKPURPLE);` till nedanstående kod.
+
+Först måste vi tilldela fönstrets upplösning till materialets uniform
+`iResolution` för att alltid få rätt fönsterstorlek. Vi sätter även uniformen
 `direction_modifier` till värdet av den motsvarande variabeln.
+
+Därefter använder vi funktionen `gl_use_material()` för att använda
+materialet. Slutligen använder vi funktionen `draw_texture_ex()` för att rita
+ut texturen från vår `render_target` på skärmens bakgrund. Innan vi fortsätter
+återställer vi shadern med `gl_use_default_material()` så den inte används när
+vi ritar ut resten av spelet.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
@@ -100,6 +107,11 @@ Making a starfield](https://youtu.be/rvDo9LvfoVE) av The Art of Code.
 Nu är vårt stjärnfält klart och vårt spel börjar se ut som det utspelar sig i
 rymden!
 
+```admonish tip title="Utmaning" class="challenge"
+Titta på videon som nämns ovan och se om du kan ändra på färger och storlek
+på stjärnorna.
+```
+
 <div class="noprint">
 
 ## Kompletta källkoden
@@ -113,3 +125,8 @@ rymden!
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/starfield-shader.toml}}
