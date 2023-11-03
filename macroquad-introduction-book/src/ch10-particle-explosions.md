@@ -121,6 +121,12 @@ och flytta på dem.
 
 Prova spelet och se om det blir explosioner när fyrkanterna beskjuts.
 
+```admonish tip title="Utmaning" class="challenge"
+Läs dokumentationen för `EmitterConfig` och prova vad som händer om du ändrar
+olika värden. Kan du lägga till ett partikelsystem som skjuter ut rakt bakåt
+från cirkeln så att det ser ut som en raketflamma.
+```
+
 <div class="noprint">
 
 ## Kompletta källkoden
@@ -134,3 +140,8 @@ Prova spelet och se om det blir explosioner när fyrkanterna beskjuts.
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/particle-explosions.toml}}
