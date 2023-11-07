@@ -47,3 +47,10 @@ main details > summary {
   width: 200px;
   padding: 2rem 0 0 0;
 }
+
+footer {
+  text-align: right;
+}
+footer img {
+  margin: 2rem 0 0 0;
+}
