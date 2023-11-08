@@ -2,6 +2,15 @@
 
 ![Ferris the rustacean with a santa hat holding a game controller](images/ferris-gamer-santa.png#center)
 
+## Välkommen till Agicals julkalender 2023!
+
+Häng med på Agicals spelmakarpyssel och bygg ett eget shoot 'em up-spel i
+Rust. Varje dag under december kommer vi lägga ut ett nytt kapitel och lagom
+till julafton kommer vi skrivit ett färdigt spel.
+
+Guiden är skriven av [Olle Wreede](mailto:olle.wreede@agical.se) på
+[Agical](https://www.agical.se/). 
+
 Macroquad är ett spelramverk för programmeringsspråket Rust som har allt som
 behövs för att skapa ett 2D-spel. De största fördelarna jämfört med andra
 spelramverk är att det har väldigt få beroenden och går snabbt att kompilera.
