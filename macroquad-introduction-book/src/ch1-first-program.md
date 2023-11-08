@@ -1,9 +1,9 @@
 # Ditt första Macroquad-program
 
-![Screenshot](images/first-program.png#center)
-
 Nu är det dags att programmera ditt första program med Macroquad. Börja med
 att installera programmeringsspråket Rust om du inte redan har gjort det.
+
+![Screenshot](images/first-program.png#center)
 
 ## Implementering
 
@@ -62,9 +62,13 @@ bakgrunden till mörklila med funktionen `clear_background(DARKPURPLE)`. I
 slutet av loopen används funktionen `next_frame().await` som kommer blocka
 exekveringen tills nästa bildruta.
 
-```admonish note
+```admonish note title="Notera" 
 Även om `clear_background()` inte används explicit så kommer Macroquad att rensa
 skärmen i början av varje bildruta.
+```
+
+```admonish tip title="Utmaning" class="challenge"
+Prova att ändra vilken bakgrundsfärg fönstret ska ha till din favoritfärg.
 ```
 
 ## Quiz

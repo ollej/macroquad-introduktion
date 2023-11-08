@@ -32,7 +32,7 @@ Det finns många hjälpmetoder på `Rect` för göra beräkningar på rektanglar
 {{#include ../../mitt-spel/examples/collision.rs:implshape}}
 ```
 
-```admonish note
+```admonish note title="Notera"
 Macroquads `Rect` utgår också från övre vänstra hörnet, därför måste vi även
 här subtrahera halva storleken från både X och Y.
 ```

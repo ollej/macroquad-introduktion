@@ -35,7 +35,7 @@ innehåller något som inte är en siffra, så kommer siffran `0` att returneras
 {{#include ../../mitt-spel/examples/points.rs:variables}}
 ```
 
-```admonish note
+```admonish note title="Notera"
 Här skriver vi direkt till datorns hårddisk, vilket inte fungerar om spelet
 har kompilerats till WASM och körs på en webbsida.
 ```
@@ -50,7 +50,7 @@ poäng är en high score. Är den det så skriver vi ner high scoren till filen
 {{#include ../../mitt-spel/examples/points.rs:savepoints}}
 ```
 
-```admonish note
+```admonish note title="Notera"
 Macroquad har stöd för att läsa filer som fungerar även när spelet körs på en
 webbsida. Här skulle vi kunna använda funktionen
 [`load_string()`](https://docs.rs/macroquad/latest/macroquad/file/fn.load_string.html)

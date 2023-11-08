@@ -29,7 +29,7 @@ med metoden `rand::srand()` som vi skickar in nuvarande tid till som seed.
 {{#include ../../mitt-spel/examples/falling-squares.rs:srand}}
 ```
 
-```admonish note
+```admonish note title="Notera"
 Vi använder oss av metoden `miniquad::date::now()` från det underliggande
 [grafikramverket Miniquad](https://docs.rs/miniquad/latest/miniquad/index.html)
 för att få den aktuella tiden.
@@ -66,7 +66,7 @@ att få olika storlek, hastighet och startposition på alla fyrkanter.
 {{#include ../../mitt-spel/examples/falling-squares.rs:generatesquare}}
 ```
 
-```admonish note
+```admonish note title="Notera"
 Rektanglar ritas ut med början från övre vänstra hörnet. Därför subtraherar vi
 halva fyrkantens storlek när vi räknar ut X-positionen. Y-positionen börjar på
 negativt av fyrkantens storlek, så att den börjar helt utanför skärmen.
@@ -105,7 +105,7 @@ placeras. Storleken används två gånger, en gång för fyrkantens bredd och en
 gång för fyrkantens höjd. Vi sätter färgen till `GREEN` så att alla fyrkanter
 blir gröna.
 
-```admonish note
+```admonish note title="Notera"
 Det finns även funktionen
 [`draw_rectangle_ex()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_rectangle_ex.html)
 som tar structen

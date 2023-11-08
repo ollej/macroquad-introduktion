@@ -107,7 +107,7 @@ texten på skärmen som tidigare.
 {{#include ../../mitt-spel/examples/game-state.rs:gameover}}
 ```
 
-```admonish note
+```admonish note title="Notera"
 Eftersom tillstånden för `Playing` och `GameOver` är separerade nu så visas
 inte någonting från spelet när det är game over.
 ```

@@ -40,7 +40,7 @@ cirkelns hastighet.
 {{#include ../../mitt-spel/examples/shooting.rs:shoot}}
 ```
 
-```admonish notes
+```admonish notes title="Notera"
 Notera att vi använder funktionen `is_key_pressed()` som bara är sann under
 den första bildrutan som tangenten trycks ned.
 ```
