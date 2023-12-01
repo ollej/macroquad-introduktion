@@ -65,3 +65,8 @@ explosionstexturen istället för att vara flerfärgade rutor.
 </details>
 </div>
 
+## Quiz
+
+Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+
+{{#quiz ../quizzes/explosions.toml}}

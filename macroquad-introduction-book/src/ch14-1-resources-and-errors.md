@@ -1,4 +1,4 @@
-# Resurser och felmmeddelanden
+# Resurser och felmeddelanden
 
 I detta kapitel kommer vi refaktorisera vår kod utan att lägga någon direkt
 funktionalitet i spelet. Detta gör vi framförallt för att bygga en grund för

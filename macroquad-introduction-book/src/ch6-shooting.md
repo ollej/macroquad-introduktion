@@ -1,4 +1,4 @@
-# Skjuta
+# Bomber och granater
 
 ![Screenshot](images/shooting.gif#center)
 

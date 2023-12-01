@@ -1,4 +1,4 @@
-# Kollision
+# Kollisionskurs
 
 ![Screenshot](images/collision.gif#center)
 

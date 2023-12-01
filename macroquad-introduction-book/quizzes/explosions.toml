@@ -1,0 +1,37 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+"""
+answer.answer = "load_texture"
+context = """
+"""
+id = "5a7314ce-09b4-4210-b19b-b54ab714f5bf"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+"""
+prompt.distractors = [
+    "",
+    "",
+    ""
+]
+answer.answer = ""
+context = """
+"""
+id = "02260b1e-d79f-4daf-8d73-5a8fea9f0b13"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+"""
+prompt.distractors = [
+    "",
+    "",
+    ""
+]
+answer.answer = ""
+context = """
+
+"""
+id = "0cf6a8b0-0a5c-4bd3-b563-9ceed8eeffb7"
