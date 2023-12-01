@@ -88,7 +88,7 @@ pausa spelet och få en startmeny.
 
 https://macroquad-introduktion.agical.se/ch8-game-state.html
 
-## Lucka 10 - Stjärnfält
+## Lucka 10 - Stjärnglitter
 
 Den andra advent firar vi med att lägga till ett stjärnfält till spelet vi
 bygger i Agicals spelmakarstuga. Med hjälp av en färdig pixel shader ändrar vi
@@ -97,7 +97,7 @@ skeppet flyger genom rymden.
 
 https://macroquad-introduktion.agical.se/ch9-starfield-shader.html
 
-## Lucka 11 - Partikelexplosioner
+## Lucka 11 - Smällkarameller
 
 Dags för lucka 11 i Agicals julkalender! Nu använder vi oss av Macroquads
 partikelsystem för att simulera explosioner när fienderna skjuts ner. Det
@@ -105,7 +105,7 @@ kommer krasha, banga och panga så att det står härliga till.
 
 https://macroquad-introduktion.agical.se/ch10-particle-explosions.html
 
-## Lucka 12 - Grafik
+## Lucka 12 - Prydnader
 
 Nu har vi kommit till lucka 12 i Agicals spelmakarstuga där vi bygger ett
 shoot'em'up-spel med spelramverket Macroquad i programmeringsspråket Rust.
@@ -126,45 +126,93 @@ https://macroquad-introduktion.agical.se/ch11-1-ship-and-bullets.html
 
 ## Lucka 14 - Grafiska explosioner
 
+Såhär dagen efter lucia passar vi på att öppna lucka 14 i Agicals julkalender
+med spelmakarstuga. I vårt spel som vi bygger med Rust och Macroquad är det nu
+dags att skapa mer färgsprakande explosioner. Vi utökar explosionerna vi
+skapade med partikelsystemet i lucka 11 med att lägga till animerade
+explosioner.
+
 https://macroquad-introduktion.agical.se/ch11-2-explosions.html
 
 ## Lucka 15 - Animerade fiender
 
+Agical avslutar veckan med att öppna en ny lucka i julkalendern med
+spelmakarstuga. Det är nu dags att lägga till animerade bilder för fienderna i
+spelet så vi slipper de tråkiga fyrkanterna.
+
 https://macroquad-introduktion.agical.se/ch11-3-enemies.html
 
-## Lucka 16 - Musik och ljudeffekter
+## Lucka 16 - Bjällerklang
+
+Bakom lucka 16 i Agicals spelmakarstuga hittar vi hur man lägger till musik
+och ljudeffekter med hjälp av spelramverket Macroquad. 
 
 https://macroquad-introduktion.agical.se/ch12-audio.html
 
 ## Lucka 17 - Grafisk meny
 
+Nu när det är tredje advent och bara en vecka kvar till julafton så öppnar vi
+lucka 17 i Agicals julkalender. Nu när det finns grafik i vårt spel så är det
+dags att även göra en grafisk huvudmeny. Vi lär oss hur man använder
+Macroquads UI-stöd för att göra en meny baserat på en bild.
+
 https://macroquad-introduktion.agical.se/ch13-menu-ui.html
 
 ## Lucka 18 - Resurser
+
+Vi börjar sista veckan innan julafton med att öppna lucka 18 i Agicals
+julkalender. Idag kör vi en kort introduktion av kommande två luckor som
+handlar om hur man hanterar resurser i Macroquad.
 
 https://macroquad-introduktion.agical.se/ch14-resources.html
 
 ## Lucka 19 - Resurser och felmeddelanden
 
+Agical fortsätter sin spelmakarstuga med att öppna lucka 19 i julkalendern. 
+Nu är det återigen dags att refaktorisera lite kod som kommer underlätta inför
+morgondagens lucka. Vi flyttar all inladdning av resurser till en egen
+funktion och förbättrar felhanteringen.
+
 https://macroquad-introduktion.agical.se/ch14-1-resources-and-errors.html
 
 ## Lucka 20 - Coroutines och Storage
+
+I dagens lucka i Agicals julkalender fortsätter spelmakarstugan där vi bygger
+ett shoot'em'up-spel i Rust med Macroquad. Nu får vi lära oss att använda
+coroutines och storage i Macroquad för att göra en inladdningsskärm.
 
 https://macroquad-introduktion.agical.se/ch14-2-coroutines-and-storage.html
 
 ## Lucka 21 - Scene
 
-https://macroquad-introduktion.agical.se/ch15-scene.html
+Tomtenissen verkar ha försovit sig och dagens lucka i Agicals julkalender med
+spelmakarstuga är tom. Passa på att repetera vad du har lärt dig och gå igenom
+spelmakarstugan från början.
+
+https://macroquad-introduktion.agical.se/
 
 ## Lucka 22 - State machine
 
-https://macroquad-introduktion.agical.se/ch15-statemachine.html
+Även dagens kapitel i Agicals spelmakarstuga saknas, det verkar som det är
+fullt upp i tomtens IT-verkstad inför julafton. Ta tillfället i akt och kolla
+igenom din kod och se om det finns några buggar.
+
+https://macroquad-introduktion.agical.se/
 
 ## Lucka 23 - Releasa ditt spel
+
+Dan före dopparedan är det dags för det sista av julstöket. I dagens lucka i
+Agicals spelmakarstuga får vi reda på hur man gör för att releasa sit spel.
+Det finns flera underkapitel som visar hur man bygger sitt spel för Windows,
+Mac, Linux, iOS, Android och även för att lägga upp det på en hemsida.
 
 https://macroquad-introduktion.agical.se/release-game.html
 
 ## Lucka 24 - Ett färdigt spel
+
+God Jul från Agical! Idag är det dags att öppna den sista luckan i
+julkalendern med spelmakarstugan. Vårat spel är klart och releasat, men det
+tar inte slut ännu. Nu är det dags att förbättra spelet på egen hand.
 
 https://macroquad-introduktion.agical.se/wrapup.html
 
