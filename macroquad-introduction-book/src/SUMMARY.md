@@ -29,4 +29,5 @@
   - [Bygg för Android](release-android.md)
   - [Bygg för iOS](release-ios.md)
 - [Avslutning](wrapup.md)
-- [Credits](credits.md)
+
+[Credits](credits.md)
