@@ -2,10 +2,11 @@
 
 ## Lucka 1 - Spelmakarstuga
 
-Häng med oss på Agical när vi gör en julkalender med en spelmakarstuga.
-Varje dag under december fram till julafton lägger vi ut en ny del.
+Tycker du att december är en enda lång väntan på jultomten? Vi har lösningen. 
+Lär dig spelprogrammering med Agicals julkalender!  Varje dag under december
+fram till julafton lägger vi ut en ny del.
 
-Häng med oss och lär dig att programmera ett klassiskt Shoot'em'up-spel där
+Du kommer att lära dig att programmera ett klassiskt Shoot'em'up-spel där
 spelaren styr ett rymdskepp som ska skjuta ner anfallande fiendeskepp.
 
 Spelet kommer skrivas i programmeringsspråket Rust och använder sig av
@@ -60,26 +61,30 @@ https://macroquad-introduktion.agical.se/ch5-collision.html
 
 Vi på Agical fortsätter vår spelmakarstuga där vi använder
 programmeringsspråket Rust och spelramverket Macroquad för att skriva ett
-klassiskt shoot'em'up-spel. Innanför den sjunde luckan är det dags att lägga
-till möjligheten för spelaren att skjuta på de fallande fyrkanterna.
+klassiskt shoot'em'up-spel.
+
+Lucka 6 var dåliga nyheter för spelaren som står försvarslös och måste
+lita helt till sin förmåga att hinna flytta sig i tid. I dagens lucka är
+det dags att beväpna spelaren så att denne kan skjuta på de fallande
+fyrkanterna.
 
 https://macroquad-introduktion.agical.se/ch6-shooting.html
 
 ## Lucka 8 - Poängsystem
 
 Nu är det dags att öppna lucka 8 av Agicals julkalender med spelmakarstuga.
-Igår la vi till så att spelaren kan skjuta ner fyrkanterna och idag så lägger
-vi till poängräkning.
+Igår la vi till så att spelaren kan skjuta ner de elaka fyrkanterna. Idag
+lägger vi till poängräkning. Hörde vi ”Score!“?
 
 https://macroquad-introduktion.agical.se/ch7-points-system.html
 
 ## Lucka 9 - Game state
 
-Julkalendern från Agical med en spelmakarstuga där vi skriver ett
-shoot'em'up-spel i programmeringsspråket Rust och spelramverket Macroquad
-fortsätter med lucka 9. I denna lucka blir det lite faktorisering genom att vi
-lägger till ett så kallat "game state" som gör att vi kan pausa spelet och få
-en startmeny.
+Årets julkalendern från Agical är en spelmakarstuga där vi skriver ett
+shoot'em'up-spel i programmeringsspråket Rust och spelramverket Macroquad.
+Idag fortsätter vi med lucka 9. I denna lucka blir det lite faktorisering
+genom att vi lägger till ett så kallat "game state" som gör att vi kan
+pausa spelet och få en startmeny.
 
 https://macroquad-introduktion.agical.se/ch8-game-state.html
 
@@ -94,18 +99,19 @@ https://macroquad-introduktion.agical.se/ch9-starfield-shader.html
 
 ## Lucka 11 - Partikelexplosioner
 
-Idag fortsätter vi med vår spelmakarstuga med lucka 11 i Agicals julkalender.
-Nu använder vi oss av Macroquads partikelsystem för att simulera explosioner
-när fienderna skjuts ner.
+Dags för lucka 11 i Agicals julkalender! Nu använder vi oss av Macroquads
+partikelsystem för att simulera explosioner när fienderna skjuts ner. Det
+kommer krasha, banga och panga så att det står härliga till.
 
 https://macroquad-introduktion.agical.se/ch10-particle-explosions.html
 
 ## Lucka 12 - Grafik
 
 Nu har vi kommit till lucka 12 i Agicals spelmakarstuga där vi bygger ett
-shoot'em'up-spel med spelramverket Macroquad i programmeringsspråket Rust. Det
-är dags att börja lägga till lite grafik och i dagens lucka hämtar vi hem ett
-grafikpaket som vi kommer använda oss av under de kommande tre dagarna.
+shoot'em'up-spel med spelramverket Macroquad i programmeringsspråket Rust.
+Spelet är än så länge lite tråkigt ritat. Det är dags att börja lägga till
+lite grafik! I dagens lucka hämtar vi hem ett grafikpaket som vi kommer
+använda oss av under de kommande tre dagarna.
 
 https://macroquad-introduktion.agical.se/ch11-graphics.html
 
