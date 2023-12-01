@@ -14,6 +14,8 @@ spelramverket Macroquad.
 
 https://macroquad-introduktion.agical.se/
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 2 - Ett första program
 
 Nu är det dags att öppna den andra luckan i Agicals spelmakarstuga. Bakom
@@ -21,6 +23,8 @@ denna lucka finns en beskrivning av att skriva ett minimalt program som öppnar
 ett fönster i programmeringsspråket Rust och spelramverket Macroquad.
 
 https://macroquad-introduktion.agical.se/ch1-first-program.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 3 - Far å flyg
 
@@ -31,6 +35,8 @@ hjälp av piltangenterna.
 
 https://macroquad-introduktion.agical.se/ch2-move-a-circle.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 4 - Mjukare rörelser
 
 I den fjärde luckan i Agicals julkalender med spelmakarstuga bygger vi vidare
@@ -38,6 +44,8 @@ på gårdagens program. Vi får lära oss hur vi anpassar spelets rörelser efte
 datorns uppdateringsfrekvens.
 
 https://macroquad-introduktion.agical.se/ch3-smooth-movement.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 5 - Fallande fyrkanter
 
@@ -49,6 +57,8 @@ spelaren ska skjuta ner.
 
 https://macroquad-introduktion.agical.se/ch4-falling-squares.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 6 - Kollisionskurs
 
 Spelmakarstugan från Agical fortsätter i lucka 6 och nu börjar det bli
@@ -56,6 +66,8 @@ farligt. Här får vi reda på hur vi kan göra så att spelaren förlorar om
 cirkeln krockar med en av de fallande fyrkanterna. 
 
 https://macroquad-introduktion.agical.se/ch5-collision.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 7 - Bomber och granater
 
@@ -70,6 +82,8 @@ fyrkanterna.
 
 https://macroquad-introduktion.agical.se/ch6-shooting.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 8 - Poängsystem
 
 Nu är det dags att öppna lucka 8 av Agicals julkalender med spelmakarstuga.
@@ -77,6 +91,8 @@ Igår la vi till så att spelaren kan skjuta ner de elaka fyrkanterna. Idag
 lägger vi till poängräkning. Hörde vi ”Score!“?
 
 https://macroquad-introduktion.agical.se/ch7-points-system.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 9 - Game state
 
@@ -88,6 +104,8 @@ pausa spelet och få en startmeny.
 
 https://macroquad-introduktion.agical.se/ch8-game-state.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 10 - Stjärnglitter
 
 Den andra advent firar vi med att lägga till ett stjärnfält till spelet vi
@@ -97,6 +115,8 @@ skeppet flyger genom rymden.
 
 https://macroquad-introduktion.agical.se/ch9-starfield-shader.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 11 - Smällkarameller
 
 Dags för lucka 11 i Agicals julkalender! Nu använder vi oss av Macroquads
@@ -104,6 +124,8 @@ partikelsystem för att simulera explosioner när fienderna skjuts ner. Det
 kommer krasha, banga och panga så att det står härliga till.
 
 https://macroquad-introduktion.agical.se/ch10-particle-explosions.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 12 - Prydnader
 
@@ -115,6 +137,8 @@ använda oss av under de kommande tre dagarna.
 
 https://macroquad-introduktion.agical.se/ch11-graphics.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 13 - Rymdskepp och kulor
 
 Idag är det Lucia och vi på Agical firar med att öppna lucka 13 i vår
@@ -123,6 +147,8 @@ kulorna i vårt shoot'em'up-spel som vi skriver i programmeringsspråket Rust
 och spelramverket Macroquad.
 
 https://macroquad-introduktion.agical.se/ch11-1-ship-and-bullets.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 14 - Grafiska explosioner
 
@@ -134,6 +160,8 @@ explosioner.
 
 https://macroquad-introduktion.agical.se/ch11-2-explosions.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 15 - Animerade fiender
 
 Agical avslutar veckan med att öppna en ny lucka i julkalendern med
@@ -142,12 +170,16 @@ spelet så vi slipper de tråkiga fyrkanterna.
 
 https://macroquad-introduktion.agical.se/ch11-3-enemies.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 16 - Bjällerklang
 
 Bakom lucka 16 i Agicals spelmakarstuga hittar vi hur man lägger till musik
 och ljudeffekter med hjälp av spelramverket Macroquad. 
 
 https://macroquad-introduktion.agical.se/ch12-audio.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 17 - Grafisk meny
 
@@ -158,6 +190,8 @@ Macroquads UI-stöd för att göra en meny baserat på en bild.
 
 https://macroquad-introduktion.agical.se/ch13-menu-ui.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 18 - Resurser
 
 Vi börjar sista veckan innan julafton med att öppna lucka 18 i Agicals
@@ -165,6 +199,8 @@ julkalender. Idag kör vi en kort introduktion av kommande två luckor som
 handlar om hur man hanterar resurser i Macroquad.
 
 https://macroquad-introduktion.agical.se/ch14-resources.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 19 - Resurser och felmeddelanden
 
@@ -175,6 +211,8 @@ funktion och förbättrar felhanteringen.
 
 https://macroquad-introduktion.agical.se/ch14-1-resources-and-errors.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 20 - Coroutines och Storage
 
 I dagens lucka i Agicals julkalender fortsätter spelmakarstugan där vi bygger
@@ -182,6 +220,8 @@ ett shoot'em'up-spel i Rust med Macroquad. Nu får vi lära oss att använda
 coroutines och storage i Macroquad för att göra en inladdningsskärm.
 
 https://macroquad-introduktion.agical.se/ch14-2-coroutines-and-storage.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 21 - Scene
 
@@ -191,6 +231,8 @@ spelmakarstugan från början.
 
 https://macroquad-introduktion.agical.se/
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 22 - State machine
 
 Även dagens kapitel i Agicals spelmakarstuga saknas, det verkar som det är
@@ -198,6 +240,8 @@ fullt upp i tomtens IT-verkstad inför julafton. Ta tillfället i akt och kolla
 igenom din kod och se om det finns några buggar.
 
 https://macroquad-introduktion.agical.se/
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
 ## Lucka 23 - Releasa ditt spel
 
@@ -208,6 +252,8 @@ Mac, Linux, iOS, Android och även för att lägga upp det på en hemsida.
 
 https://macroquad-introduktion.agical.se/release-game.html
 
+#rust #gamedev #game #programming #AdventCalendar #macroquad
+
 ## Lucka 24 - Ett färdigt spel
 
 God Jul från Agical! Idag är det dags att öppna den sista luckan i
@@ -215,4 +261,6 @@ julkalendern med spelmakarstugan. Vårat spel är klart och releasat, men det
 tar inte slut ännu. Nu är det dags att förbättra spelet på egen hand.
 
 https://macroquad-introduktion.agical.se/wrapup.html
+
+#rust #gamedev #game #programming #AdventCalendar #macroquad
 
