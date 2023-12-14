@@ -1,5 +1,16 @@
 # Julkalender 2023
 
+## Bildtext
+
+Spelmakarstuga från Agical. Ferris the Rustacean med tomteluva som håller i en
+spelkontroller. Ett datorfönster med lila bakgrund som har en gul cirkel som
+skjuter vita cirklar mot gröna fyrkanter.
+
+Spelmakarstuga från Agical. Ferris the Rustacean med tomteluva som håller i en
+spelkontroller. Ett datorfönster med svart bakgrund med olika stora stjärnor.
+En gul cirkel och gröna fyrkanter.
+
+
 ## Lucka 1 - Spelmakarstuga
 
 Tycker du att december är en enda lång väntan på jultomten? Vi har lösningen. 
@@ -166,20 +177,22 @@ https://macroquad-introduktion.agical.se/ch11-2-explosions.html
 
 Agical avslutar veckan med att öppna en ny lucka i julkalendern med
 spelmakarstuga. Det är nu dags att lägga till animerade bilder för fienderna i
-spelet så vi slipper de tråkiga fyrkanterna.
+spelet så vi slipper de tråkiga fyrkanterna. Spelaren kommer nu attackeras av
+fienderymdskepp istället för gröna fyrkanter.
 
 https://macroquad-introduktion.agical.se/ch11-3-enemies.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 16 - Bjällerklang
 
 Bakom lucka 16 i Agicals spelmakarstuga hittar vi hur man lägger till musik
-och ljudeffekter med hjälp av spelramverket Macroquad. 
+och ljudeffekter med hjälp av spelramverket Macroquad. Nu när det finns både
+grafik och ljud i vårt spel så det verkligen ser ut som ett riktigt spel.
 
 https://macroquad-introduktion.agical.se/ch12-audio.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 17 - Grafisk meny
 
@@ -190,7 +203,7 @@ Macroquads UI-stöd för att göra en meny baserat på en bild.
 
 https://macroquad-introduktion.agical.se/ch13-menu-ui.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 18 - Resurser
 
@@ -200,7 +213,7 @@ handlar om hur man hanterar resurser i Macroquad.
 
 https://macroquad-introduktion.agical.se/ch14-resources.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 19 - Resurser och felmeddelanden
 
@@ -211,7 +224,7 @@ funktion och förbättrar felhanteringen.
 
 https://macroquad-introduktion.agical.se/ch14-1-resources-and-errors.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 20 - Coroutines och Storage
 
@@ -221,7 +234,7 @@ coroutines och storage i Macroquad för att göra en inladdningsskärm.
 
 https://macroquad-introduktion.agical.se/ch14-2-coroutines-and-storage.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 21 - Scene
 
@@ -231,7 +244,7 @@ spelmakarstugan från början.
 
 https://macroquad-introduktion.agical.se/
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 22 - State machine
 
@@ -241,7 +254,7 @@ igenom din kod och se om det finns några buggar.
 
 https://macroquad-introduktion.agical.se/
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 23 - Releasa ditt spel
 
@@ -252,15 +265,15 @@ Mac, Linux, iOS, Android och även för att lägga upp det på en hemsida.
 
 https://macroquad-introduktion.agical.se/release-game.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
 ## Lucka 24 - Ett färdigt spel
 
-God Jul från Agical! Idag är det dags att öppna den sista luckan i
+God Jul önskar Agical! Idag är det dags att öppna den sista luckan i
 julkalendern med spelmakarstugan. Vårat spel är klart och releasat, men det
 tar inte slut ännu. Nu är det dags att förbättra spelet på egen hand.
 
 https://macroquad-introduktion.agical.se/wrapup.html
 
-#rust #gamedev #game #programming #AdventCalendar #macroquad
+#rust #RustLang #gamedev #game #programmering #adventskalender #macroquad #spelutveckling #spel
 
