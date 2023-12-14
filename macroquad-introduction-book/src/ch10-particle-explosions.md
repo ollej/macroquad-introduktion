@@ -37,7 +37,7 @@ macroquad = { version = "0.4", features = ["audio"] }
 macroquad-particles = "0.2.0"
 ```
 
-```admonish warning
+```admonish bug
 Version 0.2.0 av macroquad-particles stödjer inte senaste versionen av
 Macroquad. Om du får felet `"error[E0574]: expected struct, variant or union
 type, found enum 'ShaderSource'"` måste du använda macroquad och

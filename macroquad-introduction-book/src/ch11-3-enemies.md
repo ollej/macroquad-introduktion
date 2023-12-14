@@ -6,6 +6,12 @@ Nu är det bara fienderna som behöver bytas från tråkiga fyrkanter till lite
 mer spännande grafik. Det här fungerar likadant som med skeppet, vi laddar in
 en textur, skapar en animeringssprite och byter hur fienderna ritas ut.
 
+```admonish bug
+I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
+fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
+konstiga ut eller flimrar så prova att ta bort detta anrop.
+```
+
 ## Implementering
 
 ### Ladda in textur

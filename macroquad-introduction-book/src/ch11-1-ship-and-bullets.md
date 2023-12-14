@@ -38,7 +38,7 @@ Nu kan vi ladda in filerna med texturerna för animeringarna av skeppet och
 kulorna. För att ladda in en textur används funktionen `load_texture()` som
 tar namnet på filen. Det är en asynkron funktion, så vi måste köra `await` och
 vänta på att inladdningen är klar. Filladdningen kan misslyckas, så vi får
-tillbaka ett `Result` så vi använder oss av `expect()` för att avsluta
+tillbaka ett `Result` och använder oss av `expect()` för att avsluta
 programmet med ett felmmeddelande om det uppstår. 
 
 Efter att texturen är inladdad så sätter vi vilket sorts filter som ska
@@ -72,6 +72,12 @@ innan detta anrop.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:atlas}}
+```
+
+```admonish bug
+I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
+fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
+konstiga ut eller flimrar så prova att ta bort detta anrop.
 ```
 
 ### Animering av rymdskeppet

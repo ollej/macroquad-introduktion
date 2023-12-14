@@ -5,6 +5,12 @@
 För att göra explosionerna lite mer effektfulla så ska vi lägga till grafik
 även för partiklarna.
 
+```admonish bug
+I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
+fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
+konstiga ut eller flimrar så prova att ta bort detta anrop.
+```
+
 ## Implementering
 
 ### Importering
