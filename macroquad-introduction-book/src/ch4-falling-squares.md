@@ -47,6 +47,10 @@ skärmen.
 {{#include ../../mitt-spel/examples/falling-squares.rs:variables}}
 ```
 
+Börja med att ändra programmet så att `circle` används i stället för variablerna
+`x`, och `y` och bekräfta att allt fungerar som förut innan du börjar skapa
+fiendefyrkanter.
+
 ### Skapa nya fyrkanter
 
 Nu är det dags att starta invasionen av fyrkanter. Här delar vi som tidigare
