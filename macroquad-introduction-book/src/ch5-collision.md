@@ -85,9 +85,12 @@ sätter vi variabeln `gameover` till `false` så att spelet kan börja igen.
 ```admonish info
 Skillnaden mellan `is_key_down()` och `is_key_pressed()` är att den senare
 bara kollar om tangenten trycktes ned under den aktuella bildrutan, medan den
-tidigare gäller för alla bildrutor som knappen hålls nedtryckt. Det finns även
-`is_key_released()` som kollar om tangenten släpptes under den aktuella
-bildrutan.
+tidigare returnerar sant för alla bildrutor från att knappen trycktes ned
+och sedan hålls nedtryckt. Ett experiment du kan göra är att använda
+`is_key_pressed()` för att styra cirkeln.
+
+Det finns även `is_key_released()` som kollar om tangenten släpptes under den
+aktuella bildrutan.
 ```
 
 ### Skriv ut Game Over
