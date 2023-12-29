@@ -10,6 +10,7 @@ To run the guide on your machine you need to have mdbook and some plugins instal
 1. `cargo install mdbook`
 1. `cargo install mdbook-quiz`
 1. `cargo install mdbook-catppuccin`
+1. `cargo install mdbook-admonish`
 
 ## Run the guide
 
