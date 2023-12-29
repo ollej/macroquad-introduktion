@@ -175,6 +175,10 @@ text.
 
 Spelet ska se ut precis som förut.
 
+```admonish info
+Ibland kan cargo-beroenden hamna ur synk och för vissa användare har det märkts när de gjort ändringarna i just detta kapitel. Symptomen är att knapparna i huvudmenyn börjar ”glappa” och kräver flera klick. Lösningen är att tvinga fran att beroendena byggs om igen, med `cargo clean`.
+```
+
 <div class="noprint no-page-break">
 
 ## Kompletta källkoden
