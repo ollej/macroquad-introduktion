@@ -20,7 +20,7 @@ To run the guide on your machine you need to have mdbook and some plugins instal
 
 ## PRs welcome
 
-If your contributions are larger than, say, correcting some typo, make sure your contribution is in line with the aims of this project. Please start by filing an issue about the thing you wwant to fix, to get feedback on which direction to take it.
+If your contributions are larger than, say, correcting some typo, make sure your contribution is in line with the aims of this project. Please start by filing an issue about the thing you want to fix, to get feedback on which direction to take it.
 
 ## Happy contributing!
 
