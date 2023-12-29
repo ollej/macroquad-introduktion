@@ -18,6 +18,6 @@ Några tips att lägga till för att göra spelet roligare:
 
 Klicka för att <a href="game.html" target="_blank"
 onclick="window.open(this.href, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=480'); return false;">spela spelet</a>
-som det kommer se ut när det är klart. Så här kommer spelet bli när det är klart.
+som det kommer se ut när det är klart.
 
 </div>
