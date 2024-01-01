@@ -70,7 +70,7 @@ async fn main() {
 
         // Remove squares below bottom of screen
         // ANCHOR: removesquares
-        squares.retain(|square| square.y < screen_width() + square.size);
+        squares.retain(|square| square.y < screen_height() + square.size);
         // ANCHOR_END: removesquares
 
         // Draw everything

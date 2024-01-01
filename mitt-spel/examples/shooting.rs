@@ -102,7 +102,7 @@ async fn main() {
             // ANCHOR_END: movebullets
 
             // Remove shapes outside of screen
-            squares.retain(|square| square.y < screen_width() + square.size);
+            squares.retain(|square| square.y < screen_height() + square.size);
             // ANCHOR: removebullets
             bullets.retain(|bullet| bullet.y > 0.0 - bullet.size / 2.0);
             // ANCHOR_END: removebullets
