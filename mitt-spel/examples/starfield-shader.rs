@@ -192,7 +192,7 @@ async fn main() {
                 }
 
                 // Remove shapes outside of screen
-                squares.retain(|square| square.y < screen_width() + square.size);
+                squares.retain(|square| square.y < screen_height() + square.size);
                 bullets.retain(|bullet| bullet.y > 0.0 - bullet.size / 2.0);
 
                 // Remove collided shapes

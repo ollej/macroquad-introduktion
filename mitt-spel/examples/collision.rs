@@ -80,7 +80,7 @@ async fn main() {
             }
 
             // Remove squares below bottom of screen
-            squares.retain(|square| square.y < screen_width() + square.size);
+            squares.retain(|square| square.y < screen_height() + square.size);
         }
 
         // Check for collisions
