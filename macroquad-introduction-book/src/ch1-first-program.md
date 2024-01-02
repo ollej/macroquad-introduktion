@@ -76,3 +76,33 @@ Prova att ändra vilken bakgrundsfärg fönstret ska ha till din favoritfärg.
 Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
 
 {{#quiz ../quizzes/first-program.toml}}
+
+## Publicera på webben (om du vill)
+
+En stor fördel med Rust och Macroquad är att det är väldigt smidigt att kompilera ett fristående program för olika plattformar. Vi kommer att gå igenom hur det görs senare i den här guiden, men om du vill kan du redan nu ordna så att varje gång du pushar kod till ditt Github-repository så publiceras även en webbversion av spelet.
+
+När du skapade spelet med `cargo new` skapades även ett lokalt Git repository. Börja med att committa dina ändringar lokalt. Skapa sedan ett repository på Github, och pusha koden dit.
+
+Du behöver ändra inställningarna för Github-repot så att workflows har skrivrättigheter. **Settings** -> **Actions** > **General** > **Workflow permissions**:
+
+![Github Actions Workflow Settings](images/githob-actions-settings.png)
+
+Det behövs en HTML-fil för att visa spelet. Skapa `index.html` i roten av projektet/craten med detta innehåll:
+
+```html
+{{#include game.html}}
+```
+
+Följande Github Actions Workflow kompilerar spelet till WASM och lägger i ordning alla filer så att spelet funkar på webben. Koden skall placeras i `.github/workflows/deploy.yml`.
+
+```yaml
+{{#include ../../mitt-spel/examples/deploy-early.yml}}
+```
+
+Committa och pusha! Första gången du gör det kommer spelet att byggas och alla filer placeras rätt i branchen `gh-pages`, men ingen webbsida kommer byggas. Du behöver justera en inställning till för Github-repot, **Settings** > **Pages** > **Build and deployment**:
+
+![Github Pages Settings](images/github-pages-settings.png)
+
+Du kan följa bygget under **Actions** för repositoryt. När det är klart kommer du kunna “spela” spelet på `https://<ditt-github-namn>.github.io/<reposritory-namn>`.
+
+Spela, och spela... du ska se en helt lila webbsida. Men vartefter du lägger till saker till spelet och pushar dem till Github kommer den senaste versionen kunna spelas på webben. Redan i nästa kapitel börjar det röra på sig!
