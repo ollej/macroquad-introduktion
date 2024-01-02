@@ -117,3 +117,7 @@ index.html
 mitt-spel.wasm
 assets/*
 ```
+
+```admonish note
+Vi påminner om att det redan i [kapitel 1](ch1-first-program.md#publicera-på-webben-om-du-vill) finns instruktioner för hur du publicerar spelet till webben utan webbhotell. Se i så fall till att du använder den uppdaterade `deploy.yml` från [kapitel 10 – Grafik](ch11-graphics.md#uppdatera-webbpubliceringen).
+```
