@@ -39,3 +39,28 @@ Filstrukturen för ditt spel bör nu se ut såhär:
     ├── main.rs
     └── starfield-shader.glsl
 ```
+
+## Uppdatera webbpubliceringen
+
+Om du ordnade med att publicera ditt spel till Github Pages i [första kapitlet](ch1-first-program.md#publicera-på-webben-om-du-vill) behöver du även uppdatera `.github/workflows/deploy.yml` så att assets inkluderas i publiceringen:
+
+Dels behöver `assets`-katalogen skapas:
+
+```yaml
+{{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-mkdir}}
+```
+
+Och `assets`-filerna skall kopieras på plats:
+
+```yaml
+{{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-cp}}
+```
+
+Den fullständiga deploy-konfigurationen skall se ut så här:
+
+```yaml
+{{#include ../../mitt-spel/examples/deploy-with-assets.yml:all}}
+```
+
+Committa och pusha och verifiera att spelet funkar som förut på:
+* `https://<ditt-github-namn>.github.io/<reposritory-namn>`.
