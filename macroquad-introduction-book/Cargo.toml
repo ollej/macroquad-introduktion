@@ -1,0 +1,13 @@
+# Dummy project to cache book build dependencies with Netlify
+[package]
+name = "macroquad-introduktion"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+mdbook = "*"
+mdbook-quiz = "*"
+mdbook-catppuccin = "*"
+mdbook-admonish = "*"
