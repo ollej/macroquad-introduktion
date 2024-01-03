@@ -83,10 +83,6 @@ En stor fördel med Rust och Macroquad är att det är väldigt smidigt att komp
 
 När du skapade spelet med `cargo new` skapades även ett lokalt Git repository. Börja med att committa dina ändringar lokalt. Skapa sedan ett repository på Github, och pusha koden dit.
 
-Du behöver ändra inställningarna för Github-repot så att workflows har skrivrättigheter. **Settings** -> **Actions** > **General** > **Workflow permissions**:
-
-![Github Actions Workflow Settings](images/githob-actions-settings.png)
-
 ```admonish note
 Nedanstående två filer refererar till `mitt-spel.wasm`. Om du döpt din crate till något annat än `mitt-spel` behöver du ändra de referenserna.
 ```
@@ -103,10 +99,10 @@ Följande Github Actions Workflow kompilerar spelet till WASM och lägger i ordn
 {{#include ../../mitt-spel/examples/deploy-early.yml}}
 ```
 
-Committa och pusha! Första gången du gör det kommer spelet att byggas och alla filer placeras rätt i branchen `gh-pages`, men ingen webbsida kommer byggas. Du behöver justera en inställning till för Github-repot, **Settings** > **Pages** > **Build and deployment**:
+Committa och pusha! Du kan följa bygget under **Actions** för repositoryt. Första gången du pushar kommer spelet att byggas och alla filer placeras rätt i, i roten för branchen `gh-pages`, men ingen webbpats kommer att byggas. Du behöver justera en inställning för Github-repot i **Settings** > **Pages** > **Build and deployment**, och konfigurera `gh-pages` som den branch webbplatsen skall byggas från.
 
 ![Github Pages Settings](images/github-pages-settings.png)
 
-Du kan följa bygget under **Actions** för repositoryt. När det är klart kommer du kunna “spela” spelet på `https://<ditt-github-namn>.github.io/<reposritory-namn>`.
+När bygget är klart kommer du kunna spela spelet på `https://<ditt-github-namn>.github.io/<repository-namn>`.
 
-Spela, och spela... du ska se en helt lila webbsida. Men vartefter du lägger till saker till spelet och pushar dem till Github kommer den senaste versionen kunna spelas på webben. Redan i nästa kapitel börjar det röra på sig!
+Eller... spela, och spela, du kommer se en helt lila webbsida. Men nu har du levererat tidigt och projektet är dessutom konfigurerat för kontinuerlig leverans. Vartefter du lägger till funktionalitet till spelet och pushar dem till Github kommer den senaste versionen kunna spelas på webben. Redan i nästa kapitel börjar det röra på sig!

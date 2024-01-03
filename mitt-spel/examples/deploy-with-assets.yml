@@ -5,6 +5,10 @@ on:
     branches:
       - main # If your default branch is named something else, change this
 
+permissions:
+  contents: write
+  pages: write
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

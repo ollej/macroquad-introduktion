@@ -63,4 +63,4 @@ Den fullständiga deploy-konfigurationen skall se ut så här:
 ```
 
 Committa och pusha och verifiera att spelet funkar som förut på:
-* `https://<ditt-github-namn>.github.io/<reposritory-namn>`.
+* `https://<ditt-github-namn>.github.io/<repository-namn>`.
