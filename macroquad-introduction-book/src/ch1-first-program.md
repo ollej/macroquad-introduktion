@@ -79,13 +79,17 @@ Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare
 
 ## Publicera på webben (om du vill)
 
-En stor fördel med Rust och Macroquad är att det är väldigt smidigt att kompilera ett fristående program för olika plattformar. Vi kommer att gå igenom hur det görs senare i den här guiden, men om du vill kan du redan nu ordna så att varje gång du pushar kod till ditt Github-repository så publiceras även en webbversion av spelet.
+En stor fördel med Rust och Macroquad är att det är väldigt smidigt att kompilera ett fristående program för olika plattformar. Vi kommer att gå igenom hur det görs senare i den här guiden, men om du vill kan du redan nu ordna så att varje gång du pushar kod till ditt Github-repository så publiceras även en webbläsarversion av spelet.
 
 När du skapade spelet med `cargo new` skapades även ett lokalt Git repository. Börja med att committa dina ändringar lokalt. Skapa sedan ett repository på Github, och pusha koden dit.
 
 Du behöver ändra inställningarna för Github-repot så att workflows har skrivrättigheter. **Settings** -> **Actions** > **General** > **Workflow permissions**:
 
 ![Github Actions Workflow Settings](images/githob-actions-settings.png)
+
+```admonish note
+Nedanstående två filer refererar till `mitt-spel.wasm`. Om du döpt din crate till något annat än `mitt-spel` behöver du ändra de referenserna.
+```
 
 Det behövs en HTML-fil för att visa spelet. Skapa `index.html` i roten av projektet/craten med detta innehåll:
 
