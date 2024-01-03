@@ -76,3 +76,33 @@ Prova att ändra vilken bakgrundsfärg fönstret ska ha till din favoritfärg.
 Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
 
 {{#quiz ../quizzes/first-program.toml}}
+
+## Publicera på webben (om du vill)
+
+En stor fördel med Rust och Macroquad är att det är väldigt smidigt att kompilera ett fristående program för olika plattformar. Vi kommer att gå igenom hur det görs senare i den här guiden, men om du vill kan du redan nu ordna så att varje gång du pushar kod till ditt Github-repository så publiceras även en webbläsarversion av spelet.
+
+När du skapade spelet med `cargo new` skapades även ett lokalt Git repository. Börja med att committa dina ändringar lokalt. Skapa sedan ett repository på Github, och pusha koden dit.
+
+```admonish note
+Nedanstående två filer refererar till `mitt-spel.wasm`. Om du döpt din crate till något annat än `mitt-spel` behöver du ändra de referenserna.
+```
+
+Det behövs en HTML-fil för att visa spelet. Skapa `index.html` i roten av projektet/craten med detta innehåll:
+
+```html
+{{#include game.html}}
+```
+
+Följande Github Actions Workflow kompilerar spelet till WASM och lägger i ordning alla filer så att spelet funkar på webben. Koden skall placeras i `.github/workflows/deploy.yml`.
+
+```yaml
+{{#include ../../mitt-spel/examples/deploy-early.yml}}
+```
+
+Committa och pusha! Du kan följa bygget under **Actions** för repositoryt. Första gången du pushar kommer spelet att byggas och alla filer placeras rätt i, i roten för branchen `gh-pages`, men ingen webbpats kommer att byggas. Du behöver justera en inställning för Github-repot i **Settings** > **Pages** > **Build and deployment**, och konfigurera `gh-pages` som den branch webbplatsen skall byggas från.
+
+![Github Pages Settings](images/github-pages-settings.png)
+
+När bygget är klart kommer du kunna spela spelet på `https://<ditt-github-namn>.github.io/<repository-namn>`.
+
+Eller... spela, och spela, du kommer se en helt lila webbsida. Men nu har du levererat tidigt och projektet är dessutom konfigurerat för kontinuerlig leverans. Vartefter du lägger till funktionalitet till spelet och pushar dem till Github kommer den senaste versionen kunna spelas på webben. Redan i nästa kapitel börjar det röra på sig!
