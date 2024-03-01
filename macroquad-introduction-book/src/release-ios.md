@@ -89,12 +89,30 @@ kan du göra det via **Settings...** -> **Platforms** och sedan välja någon
 av iOS-versionerna där. Där finns en även knapp (`+`) för att lägga till
 ytterligare iOS-versioner.
 
+För att sätta upp via kommandoraden så kör först `xcrun simctl list` för att
+se en lista på alla tillgängliga simulatorer. Kopiera den långa hex-koden för
+den simulator du vill boota och använd det som argument till `xcrun simctl
+boot`. Detta behöver bara göras första gången du ska köra simulatorn.
+
+```bash
+xcrun simctl list
+xcrun simctl boot <hex string>
+```
+
+## Kör igång simulatorn
+
 Kommandot vi kommer att använda för att installera och köra spelet, `xcrun
 simctl`, väljer ut simulator med argumentet `booted`. Det innebär att du
 först behöver starta en simulator, och för att göra det förutsägbart bör du
 ha endast en simulator igång. Även detta går att göra via kommandoraden,
 men det enklaste är nog att starta **Simulator**-appen och sedan starta en
 simulator via **File** -> **Open Simulator**.
+
+För att starta simulatorn via commandline använd följande kommando:
+
+```bash
+open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
+```
 
 ## Installera spelet
 
