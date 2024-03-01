@@ -5,7 +5,7 @@
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 // From The Art of Code: https://www.youtube.com/watch?v=rvDo9LvfoVE
 
-precision lowp float;
+precision highp float;
 
 varying vec4 color;
 varying vec2 uv;
