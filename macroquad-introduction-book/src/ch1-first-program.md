@@ -99,7 +99,7 @@ Följande Github Actions Workflow kompilerar spelet till WASM och lägger i ordn
 {{#include ../../mitt-spel/examples/deploy-early.yml}}
 ```
 
-Committa och pusha! Du kan följa bygget under **Actions** för repositoryt. Första gången du pushar kommer spelet att byggas och alla filer placeras rätt i, i roten för branchen `gh-pages`, men ingen webbpats kommer att byggas. Du behöver justera en inställning för Github-repot i **Settings** > **Pages** > **Build and deployment**, och konfigurera `gh-pages` som den branch webbplatsen skall byggas från.
+Committa och pusha! Du kan följa bygget under **Actions** för repositoryt. Första gången du pushar kommer spelet att byggas och alla filer placeras rätt i, i roten för branchen `gh-pages`, men ingen webbplats kommer att byggas. Du behöver justera en inställning för Github-repot i **Settings** > **Pages** > **Build and deployment**, och konfigurera `gh-pages` som den branch webbplatsen skall byggas från.
 
 ![Github Pages Settings](images/github-pages-settings.png)
 
