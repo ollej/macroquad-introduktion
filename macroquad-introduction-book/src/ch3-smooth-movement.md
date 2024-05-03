@@ -48,13 +48,14 @@ begränsar vi variablerna `x` och `y`.
 ```
 
 ```admonish info
-Metoderna `min()` och `max()` används för att få det minsta eller högsta av
-två värden.
+Funktionen `clamp()` är en Macroquad-funktion som begränsar ett värde till ett
+minimum- och ett maximumvärde.
 ```
 
 ```admonish tip title="Utmaning" class="challenge"
 Ändra konstanten `MOVEMENT_SPEED` om cirkeln rör sig för fort eller för sakta.
-Vad behöver ändras för att hela cirkeln ska vara kvar på skärmen?
+Vad behöver ändras för att hela cirkeln ska vara kvar på skärmen när
+förflyttningen begränsas?
 ```
 
 <div class="no-page-break">
