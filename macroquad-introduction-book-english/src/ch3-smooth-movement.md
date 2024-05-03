@@ -1,4 +1,4 @@
-# Mjukare rörelser
+# Smooth movement
 
 ![Screenshot](images/smooth-movement.gif#center)
 

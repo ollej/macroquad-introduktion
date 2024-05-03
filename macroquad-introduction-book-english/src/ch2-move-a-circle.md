@@ -1,80 +1,85 @@
-# Far å flyg
+# Fly away
 
 ![Screenshot](images/move-a-circle.gif#center)
 
-Ett spel är inte så roligt utan att det händer något på skärmen. Till att
-börja med visar vi en boll som vi kan styra med knapptryckningar.
+A game is not much fun without something happeing on the screen. To begin
+with, we will show a circle that we can steer with the arrow keys on the
+keyboard.
 
-## Implementering
+## Implementation
 
-De första två raderna i main-funktionen använder funktionerna `screen_width()`
-och `screen_height()` för att få bredden och höjden på fönstret. Dessa värden
-delas med 2 för att få koordinaterna till mitten av skärmen, och tilldelas
-till variablerna `x` och `y`.
+The first two lines of the `main` function uses the functions `screen_width()`
+and `screen_height()` to get the width and height of the application window.
+These values are divided by `2` to get the coordinates of the center of the
+window, and stored in the variables `x` and `y`. These variables will be used
+to decide where to draw the circle on the screen.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:coordinates}}
 ```
 
-### Hantera tangenbordsinput
+### Handle keyboard input
 
-Inne i loopen rensar vi fortfarande skärmen, vilket måste göras vid varje
-bildruta. Därefter kommer fyra if-satser som kollar om piltangerna är
-nedtryckta och ändrar på variablerna `x` eller `y` som avgör var cirkeln ska
-visas. Funktionen `is_key_down()` returnerar `true` om den angivna tangenten är
-nedtryckt. Dess argument är enumen `KeyCode` som innehåller alla tangenter som
-finns på ett tangentbord.
+Inside the main loop we will still clear the background as it should be done
+on each frame. After that there are four `if` statements that check if any of
+the arrow keys on the keyboard has been pressed. The variables `x` and `y` are
+changed to move the circle in the corresponding direction.
+
+The function `is_key_down()` returns true if the given key is being
+pressed during the current frame. The argument is of the enum `KeyCode` that
+contains all keys available on the keyboad.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:movement}}
 ```
 
 ```admonish info
-Vilka andra tangenter som finns tillgängliga finns beskrivet i
-[dokumentationen för KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
+You can find which other keys are available in the 
+[documentation of KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
 ```
 
-### Rita en cirkel
+### Draw a circle
 
-Slutligen ritas cirkeln ut på de angivna koordinaterna med en radie på 16 och
-med gul färg på koordinaterna `x` och `y`.
+Finally we will draw a circle on the screen at the coordinates in `x` and `y`.
+The circle has a radius of 16 and will be drawn with a yellow color.
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
 ```
 
 ```admonish info
-Macroquad har ett flertal konstanter för vanliga
-[färger](https://docs.rs/macroquad/latest/macroquad/color/colors/index.html),
-det går också att använda makrot
+Macroquad has several constants for common
+[colors](https://docs.rs/macroquad/latest/macroquad/color/colors/index.html),
+and you can also use the macro 
 [`color_u8`](https://docs.rs/macroquad/latest/macroquad/macro.color_u8.html)
-för att ange en färg med värden för röd, grön, blå och transparens.
-Vilka andra former som går att rita med Macroquad finns beskrivet i
-dokumentationen för Macroquads [Shape
-API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
+to create a color with specific values for red, green, blue and transparency.
+
+The other shapes that can be drawn with Macroquad is described in the
+documentation of Macroquad's 
+[Shape API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Ändra värdet som adderas till `x` och `y` för att öka eller minska hastigheten
-som cirkeln förflyttas.
+```admonish tip title="Challenge" class="challenge"
+Change the value added to `x` and `y` to increase or decrease the speed the
+circle will move.
 ```
 
 <div class="no-page-break">
 
-## Källkod
+## Source
 
-Hela källkoden i `main.rs` ska nu se ut så här:
+The source of `main.rs` should look like this:
 
 ```rust
 {{#include ../../mitt-spel/examples/move-a-circle.rs:all}}
 ```
 
-När du kör programmet så kommer det visas en gul cirkel i mitten av skärmen.
-Prova att använda piltangenterna för att flytta omkring bollen.
+When you run the game there will be a yellow circle drawn in the middle of the
+window. Try using the arrow keys to move around the circle.
 </div>
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your newfound knowledge by answering this quiz before continuing.
 
 {{#quiz ../quizzes/move-a-circle.toml}}
