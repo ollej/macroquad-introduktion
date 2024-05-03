@@ -1,0 +1,41 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+Vilken funktion används för att ladda in texturer i Macroquad?
+"""
+answer.answer = "load_texture"
+context = """
+Med `load_texture()` kan man ladda in en PNG-bild direkt till GPU-minnet.
+"""
+id = "b9c62202-c84c-4534-8d32-ce4f1d5f1d36"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vad används filtret `FilterMode::Nearest` till på en textur?
+"""
+prompt.distractors = [
+    "Det används för att få linjär skalning av texturer.",
+    "Det används för att filtrera bort de närmasta pixlarna.",
+    "Den används för att filtrera bort pixlar som är nära varandra."
+]
+answer.answer = "Det används för att pixelgrafik ska skalas till närmaste hela pixel."
+context = """
+"""
+id = "3a5ecd40-e8fa-49f3-bbf2-e20007225c2b"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Varför ska man använda funktionen `build_textures_atlas()`?
+"""
+prompt.distractors = [
+    "Den laddar in flera texturer samtidigt.",
+    "Den skapar texturer från `Image`-structar.",
+    "Den bygger en bakgrundskarta som täcker skärmen."
+]
+answer.answer = "Den bygger en kombinerad atlas för alla inladdade texturer."
+context = """
+Det är mycket effektivare att rita ut från en kombinerad texturatlas.
+"""
+id = "b755487b-76e3-451c-802a-802e2f0ef40e"

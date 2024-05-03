@@ -1,0 +1,56 @@
+@media print {
+  .noprint {
+      display: none;
+  }
+
+  .no-page-break {
+    page-break-inside: avoid;
+  }
+}
+
+img[src*="#center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+img[src*="#pixelated"] {
+  display: block;
+  margin: 0 auto;
+  width: 96px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  float: right;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+canvas {
+  margin: 0px;
+  padding: 0px;
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  position: absolute;
+  background: black;
+  z-index: 0;
+}
+
+main details > summary {
+  cursor: pointer;
+}
+
+.admonition.challenge > div:nth-child(2)::before {
+  content:url(images/ferris-teacher-small.png);
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 2rem 0 0 0;
+}
+
+footer {
+  text-align: right;
+}
+footer img {
+  margin: 2rem 0 0 0;
+}

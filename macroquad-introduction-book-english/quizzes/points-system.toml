@@ -1,0 +1,38 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vilken funktion används för att mäta storlek på text?"
+answer.answer = "measure_text"
+context = "Funktionen `measure_text` returnerer en `TextDimensions` struct."
+id = "d4c72779-c38a-4f5a-8598-d4f8c3d8a9ac"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilket fält ingår **INTE** i structen `TextDimensions`?
+"""
+prompt.distractors = [
+  "`width`",
+  "`height`",
+  "`offset_y`"
+]
+answer.answer = "`offset_x`"
+context = """
+Fältet `offset_y` returner avståndet från baslinjen av texten.
+"""
+id = "31bfdd56-8a5e-488c-a2d7-3e05b079dde5"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vilken funktion används för att läsa in en fil och returnera som en textsträng?
+"""
+prompt.distractors = [
+    "`load_file()`",
+    "`load_text()`",
+    "`read_file_as_string()`"
+]
+answer.answer = "`load_string()`"
+context = """
+Funktionen `load_string()` läser in en fil med `load_file()` och returner den som en `String`.
+"""
+id = "3e95bb78-740d-4b92-af4f-a05daebe989c"

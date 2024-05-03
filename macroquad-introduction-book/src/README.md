@@ -1,12 +1,12 @@
 # Koda ett spel i Rust med Macroquad
 
-![Ferris the rustacean with a santa hat holding a game controller](images/ferris-gamer-santa.png#center)
+![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
-## Välkommen till Agicals julkalender 2023!
-
-Häng med på Agicals spelmakarpyssel och bygg ett eget shoot 'em up-spel i
-Rust. Varje dag under december kommer vi lägga ut ett nytt kapitel och lagom
-till julafton kommer vi skrivit ett färdigt spel.
+Lär dig koda ett eget shoot 'em up-spel i programmeringsspråket Rust. I denna
+guide kommer du skriva ett komplett spel från grunden och samtidigt lära dig
+hur spelramverket Macroquad fungerar. När du gått igenom hela guiden kommer du
+ha ett spelbart spel som går att spela på stationära datorer, mobiler och
+webben.
 
 Guiden är skriven av [Olle Wreede](mailto:olle.wreede@agical.se) på
 [Agical](https://www.agical.se/). 

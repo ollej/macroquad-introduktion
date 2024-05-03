@@ -1,0 +1,36 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vilken funktion används för att rita ut en cirkel på skärmen?"
+answer.answer = "draw_circle"
+context = "Funktionen `draw_circle()` ligger i Macroquads `shapes` namespace."
+id = "b70d6ca5-0d05-4018-8d16-44bfc68a459b"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Varför används funktionen `is_key_pressed()` och inte `is_key_down()`?
+"""
+prompt.distractors = [
+  "Funktionen `is_key_down()` kollar om nedåtpiltangenten är nedtryckt.",
+  "Funktionen `is_key_pressed()` måste används för alla tangenter som inte är bokstäver."
+]
+answer.answer = "För att det bara ska bli ett skott per tangenttryckning."
+context = """
+"""
+id = "cd248c09-24da-40c9-8735-2a88c3433a29"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vad heter enum-värdet som representerar space-tangenten?
+"""
+prompt.distractors = [
+    "`Key::Space`",
+    "`KeyCode::Spacebar`",
+    "`Code::Space`"
+]
+answer.answer = "`KeyCode::Space`"
+context = """
+Enumen `KeyCode` innehåller värden för alla tangenter på tangentbordet.
+"""
+id = "abbd2048-13d4-49d3-977b-beb52036b34c"

@@ -1,0 +1,39 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Vad heter attributmakrot som annoterar Macroquads startfunktion?"
+answer.answer = "macroquad::main"
+context = "Det kan se ut så här: `macroquad::main(\"Macroquad game\")`"
+id = "49f9e5ff-2209-440f-a519-4001b5344966"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Vad händer om `macroquad::main`-attributet får argumentet "RED"?
+"""
+prompt.distractors = [
+  "Fönstrets bakgrund kommer vara röd.",
+  "Ingenting, det är bara en kommentar."
+]
+answer.answer = "Titeln på fönstret kommer bli \"RED\"."
+context = """
+Om argumentet är en sträng används det som titeln på fönstret.
+"""
+id = "f58d27f4-e1d8-4dd3-817f-1f608e1e3354"
+
+[[questions]]
+type = "Tracing"
+prompt.program = """
+use macroquad::prelude::*;
+#[macroquad::main("Macroquad")]
+fn main() {
+    loop {
+        next_frame().await
+    }
+}
+"""
+answer.doesCompile = false
+answer.lineNumber = 3
+context = """
+Det kommer inte kompilera eftersom `main`-funktionen inte är deklarerad som `async`.
+"""
+id = "54ee6b3c-1e8e-4a92-9089-f46348392f1a"

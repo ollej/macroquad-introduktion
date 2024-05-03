@@ -1,0 +1,35 @@
+[book]
+authors = ["Olle Wreede"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Develop a game with Rust and Macroquad"
+description = "A game development guide on how to program a shoot 'em up game with the Rust programming language and the Macroquad game library."
+
+[build]
+create-missing = false
+
+[rust]
+edition = "2021"
+
+[output.html]
+default-theme = "macchiato"
+preferred-dark-theme = "macchiato"
+curly-quotes = true
+git-repository-url = "https://github.com/ollej/macroquad-introduktion"
+additional-css = ["./book.css", "./theme/catppuccin.css", "./theme/catppuccin-highlight.css", "./theme/mdbook-admonish.css", "./theme/catppuccin-admonish.css"]
+additional-js = ["code-line-highlight.js"]
+
+[output.html.playground]
+runnable = false
+
+[preprocessor]
+[preprocessor.quiz]
+
+[preprocessor.catppuccin]
+assets_version = "2.0.1" # DO NOT EDIT: Managed by `mdbook-catppuccin install`
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.0" # do not edit: managed by `mdbook-admonish install`
+
