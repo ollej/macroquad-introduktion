@@ -21,8 +21,6 @@
 - [Resurser](ch14-resources.md)
   - [Resurser och felmeddelanden](ch14-1-resources-and-errors.md)
   - [Coroutines och Storage](ch14-2-coroutines-and-storage.md)
-- [Scene]()
-- [StateMachine]()
 - [Releasea ditt spel](release-game.md)
   - [Bygg för desktop](release-desktop.md)
   - [Bygg för webben](release-web.md)
