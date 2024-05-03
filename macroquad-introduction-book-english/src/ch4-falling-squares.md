@@ -1,140 +1,141 @@
-# Fallande fyrkanter
+# Falling squares
 
 ![Screenshot](images/falling-squares.gif#center)
 
-För att det ska hända lite mer i vårt spel är det dags att skapa lite
-action. Eftersom hjälten i vårt spel är en modig cirkel så får våra
-motståndare bli kantiga fyrkanter som faller ner från toppen av fönstret.
+To make sure there is something happening in our game, it's time to create
+some action. Since the hero in our game is a brave circle, our opponents will
+be angular squares falling down from the top of the window.
 
-## Implementering
+## Implementation
 
-### Struct för former
+### Struct for shapes
 
-För att hålla reda på vår cirkel och alla fyrkanter så skapar vi en struct som
-vi kan ge namnet `Shape` som innehåller storlek, hastighet samt x och
-y-koordinater.
+To keep track of our circle and all the squares, we'll create a struct that we
+can name `Shape`, which will contain the size and speed, as well as `x` and `y`
+coordinates.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:shape}}
 ```
 
-### Initiera slumpgenerator
+### Initialize random number generator
 
-Vi kommer använda oss av en slumpgenerator för att avgöra när nya fyrkanter
-ska komma in på skärmen. Därför behöver vi seeda slumpgeneratorn så att det
-inte blir samma slumptal varje gång. Detta görs i början av `main`-funktionen
-med metoden `rand::srand()` som vi skickar in nuvarande tid till som seed.
+We'll use a random number generator to determine when new squares should
+appear on the screen, how big they should be and the speed they will move.
+Therefore, we need to seed the random generator so that it doesn't produce the
+same random numbers every time. This is done at the beginning of the `main`
+function using the `rand::srand()` method, to which we pass the current time
+as the seed.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:srand}}
 ```
 
-```admonish note title="Notera"
-Vi använder oss av metoden `miniquad::date::now()` från det underliggande
-[grafikramverket Miniquad](https://docs.rs/miniquad/latest/miniquad/index.html)
-för att få den aktuella tiden.
+```admonish note
+We are using the function `miniquad::date::now()` from the
+[graphics library Miniquad](https://docs.rs/miniquad/latest/miniquad/index.html)
+to get the current time.
 ```
 
-### Vektor med fyrkanter
+### Vector of squares
 
-I början av `main`-funktionen skapar vi en vektor `squares` som kommer
-innehålla alla fyrkanter som ska visas på skärmen. Den nya variabeln `circle`
-får representera vår hjälte, den fantastiska cirkeln. Hastigheten använder
-konstanten `MOVEMENT_SPEED` och `x` och `y`-fälten sätts till mitten av
-skärmen.
+At the beginning of the `main` function we create a vector called `squares`
+that will contain all the squares to be displayed on the screen. The new
+variable `circle` will represent our hero, the amazing circle. The speed
+uses the constant `MOVEMENT_SPEED`, and the `x` and `y` fields are set to the
+center of the screen.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:variables}}
 ```
 
-Börja med att ändra programmet så att `circle` används i stället för variablerna
-`x`, och `y` och bekräfta att allt fungerar som förut innan du börjar skapa
-fiendefyrkanter.
+Start by modifying the program so that `circle` is used instead of the
+variables `x` and `y` and confirm that everything works as before
+adding the enemy squares.
 
-### Skapa nya fyrkanter
+### Add enemy squares
 
-Nu är det dags att starta invasionen av fyrkanter. Här delar vi som tidigare
-upp förflyttningen och utritningen av fyrkanterna. Det gör att förflyttningen
-inte behöver vara beroende av uppdateringsfrekvensen av skärmen, och vi kan se
-till att alla förändringar har skett innan vi börjar rita upp något på
-skärmen.
+It's time to start the invasion of evil squares. Here, just like before, we
+split updating of the movement and drawing of squares. This allows the movement to
+not depend on the screen's refresh rate, ensuring that all changes are dome
+before we start drawing anything to the screen.
 
-Först använder vi oss av funktionen `rand::gen_range()` för att avgöra om vi ska
-lägga till en ny fyrkant. Den tar två argument, ett lägsta värde och ett
-högsta värde, och returnerar sedan ett slumpat tal mellan dom två värdena. Om
-värdet är tillräckligt högt så skapar vi en ny Shape och lägger till i vektorn
-`squares`. För att få lite variation använder vi även `rand::gen_range()` för
-att få olika storlek, hastighet och startposition på alla fyrkanter.
+First, we use the function `rand::gen_range()` to determine whether to add a new
+square. It takes two arguments, a minimum value and a maximum value, and
+returns a random number between those two values. If the value is high enough,
+we create a new `Shape` and add it to the `squares` vector. To add some
+variation, we also use `rand::gen_range()` to get different size, speed, and
+starting position of every square.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:generatesquare}}
 ```
 
-```admonish note title="Notera"
-Rektanglar ritas ut med början från övre vänstra hörnet. Därför subtraherar vi
-halva fyrkantens storlek när vi räknar ut X-positionen. Y-positionen börjar på
-negativt av fyrkantens storlek, så att den börjar helt utanför skärmen.
+```admonish note
+Rectangles are drawn starting from the upper left corner. Therefore, we
+subtract half of the square's size when calculating the X position. The
+Y position starts at a negative value of the square's size, so it starts
+completely outside the screen.
 ```
 
-### Uppdatera fyrkanters position
+### Update square positions
 
-Nu kan vi gå igenom hela vektorn med en for-loop och uppdatera y-positionen
-med hjälp av fyrkantens hastighet och variabeln `delta_time`. Detta gör att
-fyrkanterna kommer åka neråt över skärmen.
+Now we can iterate through the vector using a for loop and update the
+Y position using the square's speed and the variable `delta_time`. This will
+make the squares move downwards across the screen.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:movesquares}}
 ```
 
-### Rensa bort fyrkanter som inte syns
+### Remove invisible squares
 
-Därefter måste vi rensa upp alla fyrkanter som har hamnat utanför skärmen då
-det är onödigt att rita ut saker som inte syns. Vi använder oss av metoden
-`retain()` på vektorn som tar en funktion som avgör om elementen ska behållas.
-Vi kollar att fyrkantens y-värde fortfarande är mindre än höjden på fönstret
-plus storleken på fyrkanten.
+Next, we need to clean up all the squares that have moved off the bottom of
+the screen since it's unnecessary to draw things that are not visible. We'll
+use the `retain()` method on the vector, which takes a function that determines
+whether elements should be kept. We'll check if the square's `y` value is still
+less than the height of the window plus the size of the square.
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:removesquares}}
 ```
 
-### Rita ut fyrkanterna
+### Draw the squares
 
-Till sist lägger vi till en for-loop som går igenom vektorn `squares` och
-använder funktionen `draw_rectangle()` för att rita ut en rektangel på den
-uppdaterade positionen och med rätt storlek. Eftersom rektanglar ritas ut med
-x och y från hörnet längst upp till vänster och våra koordinater utgår från
-center av fyrkanten så använder vi lite matematik för att räkna ut var dom ska
-placeras. Storleken används två gånger, en gång för fyrkantens bredd och en
-gång för fyrkantens höjd. Vi sätter färgen till `GREEN` så att alla fyrkanter
-blir gröna.
+Finally, we add a `for` loop that iterates over the `squares` vector and uses
+the function `draw_rectangle()` to draw a rectangle at the updated position
+and with the correct size. Since rectangles are drawn with x and y from the
+top-left corner and our coordinates are based on the center of the square, we
+use some mathematics to calculate where they should be placed. The size is
+used twice, once for the width of the square and once for the height. We set
+the color to `GREEN` so that all squares will have a green color.
 
-```admonish note title="Notera"
-Det finns även funktionen
+```admonish note
+It's also possible to use the function
 [`draw_rectangle_ex()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_rectangle_ex.html)
-som tar structen
+that uses the struct
 [`DrawTextureParams`](https://docs.rs/macroquad/latest/macroquad/shapes/struct.DrawRectangleParams.html)
-istället för en färg. Med den kan man förutom färg även sätta `rotation`
-och `offset` på rektangeln.
+instead of a color. In addition to setting color, it can be used to set
+`rotation` and `offset` of the rectangle.
 ```
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:drawsquares}}
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Försök att ge olika färger till fyrkanterna genom att använda metoden
-`choose()` på vektorer från Macroquads 
+```admonish tip title="Challenge" class="challenge"
+Try setting a different color for each square by using the method `choose()`
+on vectors from Macroquad's 
 [ChooseRandom trait](https://docs.rs/macroquad/latest/macroquad/rand/trait.ChooseRandom.html)
-som returnerar ett slumpmässigt valt element från vektorn.
+which returns a random element from the vector.
 ```
 
 <div class="noprint">
 
-## Komplett källkod
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/falling-squares.rs:all}}
@@ -144,6 +145,7 @@ som returnerar ett slumpmässigt valt element från vektorn.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/falling-squares.toml}}

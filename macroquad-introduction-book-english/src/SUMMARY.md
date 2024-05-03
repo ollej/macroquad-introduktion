@@ -6,7 +6,7 @@
 - [Fly away](./ch2-move-a-circle.md)
 - [Smooth movement](./ch3-smooth-movement.md)
 - [Falling squares](./ch4-falling-squares.md)
-- [Collissions](ch5-collision.md)
+- [Collision](ch5-collision.md)
 - [Bomber och granater](ch6-shooting.md)
 - [Points](ch7-points-system.md)
 - [Game state](ch8-game-state.md)

@@ -2,27 +2,29 @@
 
 ![Screenshot](images/smooth-movement.gif#center)
 
-Eftersom Macroquad kommer rita bildrutor så snabbt som den kan måste vi kolla
-hur lång tid som har gått mellan varje uppdatering för att avgöra hur långt
-cirkeln ska förflyttas. Annars kommer vårt spel gå olika fort på olika
-datorer, beroende på hur snabbt dom kan köra programmet.
+Since Macroquad will draw frames as quickly as possible, we need to check how
+much time has passed between each update to determine how far the circle
+should move. Otherwise our game will run at different speeds on different
+computers, depending on how quickly they can run the application. The specific
+framerate will depend on your computer, if Vsync is enabled it may be locked
+to 30 or 60 frames per second.
 
-## Implementering
+## Implementation
 
-Vi ska därför utöka programmet och lägga till en konstant variabel som avgör
-hur snabbt cirkeln ska röra sig. Vi kallar den `MOVEMENT_SPEED` och börjar med
-att tilldela den värdet `200.0`. Går det för fort eller för sakta kan vi sänka
-eller öka detta värde.
+We will expand the application and add a constant that determines how quickly
+the circle should move. We call the constant `MOVEMENT_SPEED` and assign the
+value `200.0`. If the circle moves too fast or too slow, we can decrease or
+increase this value.
 
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:constant}}
 ```
 
-### Tid mellan bildrutor
+### Time between frames
 
-Därefter använder vi funktionen `get_frame_time()` som ger oss hur lång tid i
-sekunder det har gått sedan föregående bildruta ritades på skärmen och
-tilldelar den till variabeln `delta_time`.
+Now we will use the function `get_frame_time()` to get the time in seconds
+that has passed since the last frame. We assign this value to a variable
+called `delta_time` that we will use later.
 
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:deltatime}}
@@ -30,38 +32,43 @@ tilldelar den till variabeln `delta_time`.
 
 ### Ändra förflyttningen
 
-Förändringen av variablerna `x` och `y` kan sedan bytas ut till en
-multiplikation av värdena för `MOVEMENT_SPEED` och `delta_time` för att få hur
-långt cirkeln ska förflyttas under denna bildruta.
+When the variables `x` and `y` are updated we will multiply the values of 
+the constant `MOVEMENT_SPEED` and the variable `delta_time` to get how far the
+circle should move during this frame.
 
 ```rust [hl,2,5,8,11]
 {{#include ../../mitt-spel/examples/smooth-movement.rs:movement}}
 ```
 
-### Begränsa förflyttningen
+### Limit movement
 
-Slutligen vill vi också att cirkeln aldrig ska hamna utanför fönstret, därför
-begränsar vi variablerna `x` och `y`.
+Finally we will make sure that the circle won't move outside of the window. 
+We use the Macroquad function `clamp()` to make sure `x` and `y` are never
+below `0` or above the width of the window.
 
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:clamp}}
 ```
 
 ```admonish info
-Metoderna `min()` och `max()` används för att få det minsta eller högsta av
-två värden.
+The `clamp()` function is used to clamp a value between a minimum and maximum
+value. It is part of the Macroquad
+[Math API](https://docs.rs/macroquad/latest/macroquad/math/index.html).
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Ändra konstanten `MOVEMENT_SPEED` om cirkeln rör sig för fort eller för sakta.
-Vad behöver ändras för att hela cirkeln ska vara kvar på skärmen?
+```admonish tip title="Challenge" class="challenge"
+Change the constant `MOVEMENT_SPEED` if the circle is moving to slow or too
+fast.
+
+What do you need to change to ensure that the entire circle stays within the
+window when the position is clamped?
 ```
 
 <div class="no-page-break">
 
-## Källkod
+## Source
 
-Nu ser vårt program ut så här:
+The code should now look like this:
 
 ```rust
 {{#include ../../mitt-spel/examples/smooth-movement.rs:all}}
@@ -70,6 +77,7 @@ Nu ser vårt program ut så här:
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/smooth-movement.toml}}

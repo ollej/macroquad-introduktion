@@ -1,53 +1,54 @@
-# Kollisionskurs
+# Collisions
 
 ![Screenshot](images/collision.gif#center)
 
-Våra ovänner fyrkanterna är ännu inte så farliga, så får att öka spänningen är
-det dags att skapa konflikt. Om vår vän cirkeln kolliderar med en fyrkant så
-är spelet över och måste startas om.
+To increase the excitement, let's add some conflict to the game. If our hero,
+the brave green circle, collides with a square, the game is over and has to be
+restarted.
 
-Efter att vi har ritat upp alla cirklar och fyrkanter så lägger vi till en
-kontroll som ser om någon fyrkant rör vid cirkeln. Om den gör det så visar vi
-texten Game Over och väntar på att spelaren trycker på space-tangenten. När
-spelaren trycker på space så nollställs vektorn med fyrkanter och cirkeln
-flyttas tillbaka till mitten av skärmen.
+After we have drawn the circle and all squares, we'll add a check to see if any
+square touches the circle. If it does, we'll display the text `Game Over` and
+wait for the player to press the space key. When the player presses space,
+we'll reset the vector with squares and move the circle back to the center of
+the screen.
 
-## Implementering
+## Implementation
 
-### Kollisionsmetod
+### Colliosion function
 
-Vi utökar structen `Shape` med en implementation som innehåller metoden
-`collides_with()` som kollar om den kolliderar med en annan `Shape`. Denna
-använder sig av Macroquads
+We expand the `Shape` struct with an implementation that contains the method
+`collides_with()` to check if it collides with another `Shape`. This method uses
+the `overlaps()` helper method from Macroquad's
 [`Rect`](https://docs.rs/macroquad/latest/macroquad/math/struct.Rect.html)
-struct som har hjälpmetoden `overlaps()`. Vi skapar även en egen hjälpmetod
-som skapar en `Rect` från vår `Shape`.
+struct. We also create a helper method called `rect()` that creates a `Rect`
+from our Shape.
 
 ```admonish info
-Det finns många hjälpmetoder på `Rect` för göra beräkningar på rektanglar, som
-`contains()`, `intersect()`, `scale()`, `combine_with() och `move_to()`.
+There are many methods on `Rect` to do calculations on rectangles, like
+`contains()`, `intersect()`, `scale()`, `combine_with()` and `move_to()`.
 ```
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:implshape}}
 ```
 
-```admonish note title="Notera"
-Macroquads `Rect` utgår också från övre vänstra hörnet, därför måste vi även
-här subtrahera halva storleken från både X och Y.
+```admonish note
+The origin of Macroqaud's `Rect` is also from the top left corner, so we must
+subtract half the size from both `X` and `Y`.
 ```
 
-### Är det game over?
+### Is it game over?
 
-Vi behöver en ny boolesk variabel `gameover` som håller reda på om spelaren
-har dött som vi lägger in före huvudloopen.
+Let's add a boolean variable called `gameover` to keep track of whether the
+player has died to the start of the main loop.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:variable}}
 ```
 
-För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
-görs all kod för förflyttning enbart om variabeln `gameover` är `false`.
+Since we don't want the circle and squares to move while it's game over, the
+movement code is wrapped in an `if` statement that checks if the `gameover`
+variable is `false`.
 
 ```rust
         if !gameover {
@@ -55,75 +56,77 @@ görs all kod för förflyttning enbart om variabeln `gameover` är `false`.
         }
 ```
 
-### Kollidering
+### Collision
 
-Efter förflyttningskoden lägger vi till en kontroll om någon fyrkant
-kolliderar med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn
-`squares` och kollar om någon fyrkant kolliderar med vår hjälte cirkeln. Om
-det har skett en kollision sätter vi variabeln `gameover` till `true`.
+After the movement code, we add a check if any square collides with the
+circle. We use the method `any()` on the iterator for the vector `squares` and
+check if any square collides with our hero circle. If a collision occurs, we
+set the variable `gameover` to true.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:collision}}
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Kollisionskoden utgår från att cirkeln är en fyrkant. Prova att skriva kod som
-tar hänsyn till att cirkeln inte fyller ut hela fyrkanten.
+```admonish tip title="Challenge" class="challenge"
+The collision code assumes that the circle is a square. Try writing code that
+takes into account that the circle does not entirely fill the square.
 ```
 
-### Återställning
+### Reset the game
 
-Om `gameover`-variabeln är `true` och spelaren precis har tryckt på
-mellanslagstangenten så tömmer vi vektorn `squares` med metoden `clear()` och
-återställer cirkelns `x` och `y`-koordinater till mitten av skärmen. Sen
-sätter vi variabeln `gameover` till `false` så att spelet kan börja igen.
+If the `gameover` variable is `true` and the player has just pressed the space
+key, we clear the vector `squares` using the `clear()` method and reset the
+`x` and `y` coordinates of `circle` to the center of the screen. Then, we set the
+variable `gameover` to `false` so that the game can start over.
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:gameover}}
 ```
 
 ```admonish info
-Skillnaden mellan `is_key_down()` och `is_key_pressed()` är att den senare
-bara kollar om tangenten trycktes ned under den aktuella bildrutan, medan den
-tidigare returnerar sant för alla bildrutor från att knappen trycktes ned
-och sedan hålls nedtryckt. Ett experiment du kan göra är att använda
-`is_key_pressed()` för att styra cirkeln.
 
-Det finns även `is_key_released()` som kollar om tangenten släpptes under den
-aktuella bildrutan.
+The difference between the functions `is_key_down()` and `is_key_pressed()` is
+that the latter only checks if the key was pressed during the current frame,
+while the former returns true for all frames from when the button was pressed
+and then held down. An experiment you can do is to use `is_key_pressed()` to
+control the circle.
+
+There's also a function called `is_key_released()` which checks if the key was
+released during the current frame.
 ```
 
-### Skriv ut Game Over
+### Display Game Over text
 
-Slutligen ritar vi ut texten "Game Over!" i mitten av skärmen efter cirkeln
-och fyrkanterna har ritats ut, men bara om variabeln `gameover` är `true`.
+Finally, we draw the text "Game Over!" in the middle of the screen after the
+circle and squares have been drawn, but only if the variable `gameover` is `true`.
 
 ```admonish info
-Det går också att använda funktionen
+It's also possible to use the function
 [`draw_text_ex()`](https://docs.rs/macroquad/latest/macroquad/text/fn.draw_text_ex.html)
-som tar en [`DrawTextParams` struct](https://docs.rs/macroquad/latest/macroquad/text/struct.TextParams.html)
-istället för `font_size` och `color`. Med den kan man ange fler parameterar som
-`font`, `font_scale`, `font_scale_aspect` och `rotation`.
+which takes a
+[`DrawTextParams` struct](https://docs.rs/macroquad/latest/macroquad/text/struct.TextParams.html)
+instead of `font_size` and `color`. Using that struct it's possible to set
+more parameters such as `font`, `font_scale`, `font_scale_aspect` and `rotation`.
 ```
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:drawgameover}}
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Eftersom `draw_text()` utgår från textens baslinje så kommer texten inte visas
-exakt i mitten av skärmen. Prova att använda fälten `offset_y` och `height`
-från `text_dimensions` för att räkna ut textens mittpunkt. Macroquads exempel [text
-measures](https://github.com/not-fl3/macroquad/blob/master/examples/text_measures.rs)
-kan ge tips till hur det fungerar.
+```admonish tip title="Challenge" class="challenge"
+Since `draw_text()` is based on the text's baseline, the text won't appear
+exactly in the center of the screen. Try using the `offset_y` and `height` fields
+from `text_dimensions` to calculate the text's midpoint. Macroquad's example
+[text measures](https://github.com/not-fl3/macroquad/blob/master/examples/text_measures.rs)
+can provide tips on how it works.
 ```
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/collision.rs:all}}
@@ -133,6 +136,7 @@ kan ge tips till hur det fungerar.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/collision.toml}}
