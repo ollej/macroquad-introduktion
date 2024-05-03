@@ -32,8 +32,8 @@ async fn main() {
         // ANCHOR_END: movement
 
         // ANCHOR: clamp
-        x = x.min(screen_width()).max(0.0);
-        y = y.min(screen_height()).max(0.0);
+        x = clamp(x, 0.0, screen_width());
+        y = clamp(y, 0.0, screen_height());
         // ANCHOR_END: clamp
 
         draw_circle(x, y, 16.0, YELLOW);
