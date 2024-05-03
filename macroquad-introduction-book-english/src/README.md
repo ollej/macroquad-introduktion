@@ -1,6 +1,6 @@
 # Develop a game in Rust with Macroquad
 
-![Ferris the rustacean with a santa hat holding a game controller](images/ferris-gamer-santa.png#center)
+![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
 This guide is written by [Olle Wreede](mailto:olle.wreede@agical.se) at
 [Agical](https://www.agical.se/). 
