@@ -21,11 +21,11 @@ Vi utökar structen `Shape` med en implementation som innehåller metoden
 använder sig av Macroquads
 [`Rect`](https://docs.rs/macroquad/latest/macroquad/math/struct.Rect.html)
 struct som har hjälpmetoden `overlaps()`. Vi skapar även en egen hjälpmetod
-som skapar en `Rect` från vår `Shape`.
+`rect()` som skapar en `Rect` från vår `Shape`.
 
 ```admonish info
 Det finns många hjälpmetoder på `Rect` för göra beräkningar på rektanglar, som
-`contains()`, `intersect()`, `scale()`, `combine_with() och `move_to()`.
+`contains()`, `intersect()`, `scale()`, `combine_with()` och `move_to()`.
 ```
 
 ```rust
