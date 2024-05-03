@@ -1,0 +1,13 @@
+[package]
+name = "my-game"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+macroquad = { version = "0.4", features = ["audio"], git = "https://github.com/not-fl3/macroquad", rev = "2d62c280e8828560a039c36c40e1a058fcc8e65c" }
+macroquad-particles = { version = "0.2.0", git = "https://github.com/not-fl3/macroquad", rev = "2d62c280e8828560a039c36c40e1a058fcc8e65c" }
+
+[profile.dev.package."*"]
+opt-level = 3
