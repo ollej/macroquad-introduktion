@@ -28,7 +28,7 @@ jobs:
       - name: Prepare Deployment Directory
         run: |
           mkdir -p ./deploy
-          cp ./target/wasm32-unknown-unknown/release/mitt-spel.wasm ./deploy/
+          cp ./target/wasm32-unknown-unknown/release/my-game.wasm ./deploy/
           cp index.html ./deploy/
 
       - name: Deploy

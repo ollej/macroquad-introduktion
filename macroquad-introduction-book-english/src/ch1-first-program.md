@@ -1,26 +1,27 @@
-# Ditt första Macroquad-program
+# Your first Macroquad app
 
-Nu är det dags att programmera ditt första program med Macroquad. Börja med
-att installera programmeringsspråket Rust om du inte redan har gjort det.
+Now it's time to develop your first application with Macroquad. Start by
+installing the programming language Rust if you don't already have it.
 
 ![Screenshot](images/first-program.png#center)
 
-## Implementering
+## Implementation
 
-Skapa ett nytt Rust-projekt med Cargo och lägg till `macroquad` med version
-0.4 som beroende.
+Create a new Rust project using the Cargo command line tool and add
+`macroquad` with version `0.4` as a dependency. If you want, you can give your
+game a more interesting name than "my-game".
 
 ```sh
-cargo new --bin mitt-spel
-cd mitt-spel/
+cargo new --bin my-game
+cd my-game/
 cargo add macroquad@0.4
 ```
 
-Din `Cargo.toml` fil kommer nu se ut såhär:
+Your `Cargo.toml` file should now look like this:
 
 ```toml
 [package]
-name = "mitt-spel"
+name = "my-game"
 version = "0.1.0"
 edition = "2021"
 
@@ -30,79 +31,106 @@ edition = "2021"
 macroquad = "0.4"
 ```
 
-Öppna filen `src/main.rs` i din favorit-editor och ändra innehållet till
-följande kod:
+Open the file `src/main.rs` in your favorite text editor and change the
+content to look like this:
 
 ```rust
-{{#include ../../mitt-spel/examples/first-program.rs}}
+{{#include ../../my-game/examples/first-program.rs}}
 ```
 
-Kör programmet med `cargo run` så ska ett nytt fönster med mörklila bakgrund
-öppnas efter att kompileringen är klar.
+Run your application with `cargo run` and a new window with a dark purple
+background will open once the compilation has finished.
 
-## Beskrivning av programmet
+## Description of the application
 
-Första raden används för att importera allt som behövs från Macroquad, vilket
-enklast görs med `use macroquad::prelude::*`, men det går också att importera
-alla funktioner manuellt.
+The first line is used to import everything needed to from Macroquad. This is
+easiest to do by importing `macroquad::prelude::*`, but it is also possible to
+import only the features that are used.
 
-Attributet `#[macroquad::main("Mitt spel")]` används för att berätta för
-Macroquad vilken funktion som ska köras. Macroquad kommer skapa ett fönster
-med titeln som anges som argument, och exekvera main-funktionen asynkront.
+The attribute `#[macroquad::main("My game")]` is used to tell Macroquad which
+function that will be run when the application starts. When the application is
+started, a window will be opened with the argument as the title, and the
+function will be executed asynchronously. If you have named your game
+something more interesting you should change the text `My game´ to the name of
+your game.
 
 ```admonish info
-För att ändra andra inställningar för fönstret, som storlek eller om det ska
-visas i fullskärm, går det att använda structen
-[Conf](https://docs.rs/macroquad/latest/macroquad/window/struct.Conf.html).
+To change the configuration for the window, like the size or if it should
+start in fullscreen mode you can use the struct 
+[Conf](https://docs.rs/macroquad/latest/macroquad/window/struct.Conf.html)
+instead of the string as an argument.
 ```
 
-Inne i main-funktionen körs en evig loop som aldrig avslutas. Inne i loopen
-ligger all spellogik som ska köras varje bildruta. I vårt fall rensar vi
-bakgrunden till mörklila med funktionen `clear_background(DARKPURPLE)`. I
-slutet av loopen används funktionen `next_frame().await` som kommer blocka
-exekveringen tills nästa bildruta.
+Inside the `main` function there is a loop that never ends. All the game logic
+will be placed inside this game loop and will be executed every frame. In our
+case we clear the background of the window with a dark purple color with the
+function `clear_background(DARKPURPLE)`. At the end of the loop is the
+function `next_frame().await` which will wait until the next frame is
+available.
 
-```admonish note title="Notera" 
-Även om `clear_background()` inte används explicit så kommer Macroquad att rensa
-skärmen i början av varje bildruta.
+```admonish note
+Even if `clear_background()` isn't used explicitly, the screen will be cleared
+with a black color at the start of each frame.
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Prova att ändra vilken bakgrundsfärg fönstret ska ha till din favoritfärg.
+```admonish tip title="Challenge" class="challenge"
+Try to change the background of the window to your favorite color.
 ```
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your new knowledge by answering this quiz before you continue to the next
+chapter.
 
 {{#quiz ../quizzes/first-program.toml}}
 
-## Publicera på webben (om du vill)
+## Publish on the web (if you want)
 
-En stor fördel med Rust och Macroquad är att det är väldigt smidigt att kompilera ett fristående program för olika plattformar. Vi kommer att gå igenom hur det görs senare i den här guiden, men om du vill kan du redan nu ordna så att varje gång du pushar kod till ditt Github-repository så publiceras även en webbläsarversion av spelet.
+One of the big advantages with Rust and Macroquad is that it is very easy to
+compile a standalone application for different platforms. How this works will
+be explained in a [later chapter](release-game.md) of this guide. If you want,
+you can setup a GitHub deploy action to publish a web version of the game
+every time you commit.
 
-När du skapade spelet med `cargo new` skapades även ett lokalt Git repository. Börja med att committa dina ändringar lokalt. Skapa sedan ett repository på Github, och pusha koden dit.
+When you created the game with `cargo new` a local Git repository was also
+created. Start by committing your changes locally. After that you can create a
+repository on GitHub and push the code there.
 
 ```admonish note
-Nedanstående två filer refererar till `mitt-spel.wasm`. Om du döpt din crate till något annat än `mitt-spel` behöver du ändra de referenserna.
+The two files below refer to `my-game.wasm`. If you've changed the name of
+your crate to something other than `my-game` you need to change those
+references.
 ```
 
-Det behövs en HTML-fil för att visa spelet. Skapa `index.html` i roten av projektet/craten med detta innehåll:
+You need an HTML file to show the game. Create a file called `index.html` in
+the root of the project/crate and add the following content:
 
 ```html
 {{#include game.html}}
 ```
 
-Följande Github Actions Workflow kompilerar spelet till WASM och lägger i ordning alla filer så att spelet funkar på webben. Koden skall placeras i `.github/workflows/deploy.yml`.
+The following GitHub Actions Workflow will compile the game to WASM and put
+all files in place so that the game will work on the web. Place the code in 
+`.github/workflows/deploy.yml`.
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-early.yml}}
+{{#include ../../my-game/examples/deploy-early.yml}}
 ```
 
-Committa och pusha! Du kan följa bygget under **Actions** för repositoryt. Första gången du pushar kommer spelet att byggas och alla filer placeras rätt i, i roten för branchen `gh-pages`, men ingen webbpats kommer att byggas. Du behöver justera en inställning för Github-repot i **Settings** > **Pages** > **Build and deployment**, och konfigurera `gh-pages` som den branch webbplatsen skall byggas från.
+Commit and push! You can follow the build under the **Actions** page of the
+repository. The first time you push your code the game will be built and all
+files placed in the correct place, in the root of the branch `gh-pages`, but
+no web page will be created. You need to change a configuration of the GitHub
+repository under **Settings** > **Pages** > **Build and deployment**. Set
+`gh-pages` as the branch to deploy the web page from.
 
 ![Github Pages Settings](images/github-pages-settings.png)
 
-När bygget är klart kommer du kunna spela spelet på `https://<ditt-github-namn>.github.io/<repository-namn>`.
+When the build is done you will be able to play your game on
+`https://<your-github-account>.github.io/<repository-name>`.
 
-Eller... spela, och spela, du kommer se en helt lila webbsida. Men nu har du levererat tidigt och projektet är dessutom konfigurerat för kontinuerlig leverans. Vartefter du lägger till funktionalitet till spelet och pushar dem till Github kommer den senaste versionen kunna spelas på webben. Redan i nästa kapitel börjar det röra på sig!
+It won't be much of game yet, only a purple background. But you have delivered
+early and the project is configured for continuous delivery. Every time you
+add functionality to the game and push the code to GitHub you will be able to
+play the latest version of the game on the web. In the next chapter things
+will start to move!
