@@ -168,8 +168,8 @@ async fn main() {
                 }
 
                 // Clamp X and Y to be within the screen
-                circle.x = circle.x.min(screen_width()).max(0.0);
-                circle.y = circle.y.min(screen_height()).max(0.0);
+                circle.x = clamp(circle.x, 0.0, screen_width());
+                circle.y = clamp(circle.y, 0.0, screen_height());
 
                 // Generate a new square
                 if rand::gen_range(0, 99) >= 95 {

@@ -100,8 +100,8 @@ impl Ship {
 
     fn clamp(&mut self) {
         // Clamp X and Y to be within the screen
-        self.x = self.x.min(screen_width()).max(0.0);
-        self.y = self.y.min(screen_height()).max(0.0);
+        self.x = clamp(self.x, 0.0, screen_width());
+        self.y = clamp(self.y, 0.0, screen_height());
     }
 
     fn bullet(&self) -> Shape {
