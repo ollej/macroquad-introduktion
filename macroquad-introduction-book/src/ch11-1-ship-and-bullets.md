@@ -74,12 +74,6 @@ innan detta anrop.
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:atlas}}
 ```
 
-```admonish bug
-I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
-fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
-konstiga ut eller flimrar så prova att ta bort detta anrop.
-```
-
 ### Animering av rymdskeppet
 
 ![Spritesheet för rymdskeppet](assets/ship.png#pixelated)
@@ -110,7 +104,7 @@ ska vara aktiv.
 
 ### Animering av kulor
 
-![Spritesheet för rymdskeppet](assets/laser-bolts.png#pixelated)
+![Spritesheet för kulor](assets/laser-bolts.png#pixelated)
 
 Animeringen för kulorna är väldigt lika, det är två animeringar med två
 bildrutor var som ska visas med 12 bildrutor per sekund. Storleken på bilderna
