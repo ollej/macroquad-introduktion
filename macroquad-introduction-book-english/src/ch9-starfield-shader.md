@@ -1,123 +1,125 @@
-# Stjärnfält med en shader
+# Starfield shader
 
 ![Screenshot](images/starfield-shader.gif#center)
 
-Den gröna bakgrunden börjar kännas lite tråkig, så nu är det dags att göra en
-lite mer intressant bakgrund. Vi kommer använda oss av en pixel shader för att
-göra ett stjärnfält. Hur man kodar en shader ligger utanför den här guiden,
-utan vi kommer använda oss av en färdig utan att gå in på detaljerna.
+The green background on the screen is starting to feel a bit boring. Instead
+we'll add something more interesting. We'll use a pixel shader to display a
+moving starfield in the background. How to implement a shader is outside the
+scope of this guide, so we'll use one that has already been prepared for us.
 
-Kortfattat är en shader ett program som körs på datorns GPU, skrivet i ett
-C-liknande programmeringsspråk som kallas GLSL. Shadern består av två delar,
-en vertex shader och en fragment shader. Vertex shadern konverterar från
-koordinater i en 3D-miljö till 2D-koordinater för en skärm. Fragment shadern
-körs sedan för varje pixel på skärmen, och sätter variabeln `gl_FragColor` som
-avgör vilken färg pixeln ska ha. Eftersom vårt spel är i 2D så gör vertex
-shadern ingenting mer än att sätta positionen.
+In short, a shader is a small program that runs on the GPU of the computer.
+They are written in a C like programming language called GLSL. The shader is
+made up of two parts, a vertex shader and a fragment shader. The vertex shader
+converts from coordinates in a 3D environment to the 2D coordinates of the
+screen. Whereas the fragment shader is run for every pixel on the screen to
+set the variable `gl_FragColor` to define the color that pixel should have.
+Since our game is entirely in 2D, the vertex shader won't do anything other
+than setting the position.
 
-## Implementering
+## Implementation
 
 ### Shaders
 
-Längst upp i `main.rs` ska vi lägga till en vertex shader och fragment-shadern
-från en fil som vi kommer skapa senare. Vi använder oss av Rusts macro
-`include_str!()` som läser in filen som en `&str` vid kompileringen.
-Vertex-shadern är så kort att den kan läggas in direkt här i källkoden.
+At the top of the `main.rs` file we'll add a vertex shader, the fragment
+shader will be loaded from a file that we will add later. We'll use the Rust
+macro `include_str!()` to read the file as a `&str` at compile time. The
+vertex shader is so short that it can be added directly in the Rust source
+code.
 
-Den viktigaste raden i shadern är den som sätter `gl_Position`. För
-enkelhetens skull sätter vi `iTime` som används av shadern från `_Time.x`. Det
-hade också gått att använda `_Time` direkt i shadern.
+The most important line in the vertex shader is the line that sets
+`gl_Position`. For simplicity's sake we'll also set the `iTime` variable that
+is used by the fragment shader from `_Time.x`. It would also be possible to
+use `_Time` directly in the fragment shader, but it would mean we would have
+to change it slightly.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
 ```
 
-### Initialisera shadern
+### Initialize the shader
 
-I vår `main()` funktion, innan loopen, så måste vi sätta upp några variabler
-för att kunna rita ut shadern. Vi börjar med att skapa variabeln
-`direction_modifier` som vi ska använda för att påverka hur stjärnorna rör sig
-medan cirkeln förflyttas i sidled. Därefter skapar vi en `render_target` som
-shadern kommer att renderas till.
+In the `main()` function, above the loop, we need to setup a few variables to
+be able to use the shader. We start by adding the variable `direction_modifier`
+that will be used to change the direction of the stars horizontally based on
+if the circle is moved left or right. After that we create a `render_target`
+which the shader will be rendered to.
 
-Sen laddar vi in vår vertex shader och fragment shader till en `Material` med
-hjälp av en `ShaderSource::Glsl`. 
+Now we can create a `Material` with the vertex shader and the fragment shader
+using the enum `ShaderSource::Glsl`. 
 
-I parametrarna sätter vi även upp två uniforms till shadern som är globala
-variabler som vi kan sätta för varje bildruta. Uniformen `iResolution`
-innehåller fönstrets storlek, och `direction_modifier` kommer användas för att
-styra åt vilken riktning stjärnorna ska röra sig.
+In the parameters we'll also setup two uniforms for the shader that are global
+variables that we can set for every frame. The uniform `iResolution` will
+contain the size of the window and `direction_modifier` is used to control the
+direction of the stars.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
 ```
 
 ```admonish info
-Macroquad lägger automatiskt in några uniforms till shaders. De som finns
-tillgängliga är `_Time`, `Model`, `Projection`, `Texture` och
-`_ScreenTexture`.
+Macroquad will automatically add some uniforms to all shaders. The available
+uniforms are `_Time`, `Model`, `Projection`, `Texture`, and `_ScreenTexture`.
 ```
 
-### Rita ut shadern
+### Draw the shader
 
-Nu är det dags att byta ut den lila bakgrund till vårt stjärnfält. Byt ut
-kodraden `clear_background(DARKPURPLE);` till nedanstående kod.
+It's now time to change the purple background to our new starfield. Change the
+line `clear_background(DARKPURPLE);` to the code below.
 
-Först måste vi tilldela fönstrets upplösning till materialets uniform
-`iResolution` för att alltid få rätt fönsterstorlek. Vi sätter även uniformen
-`direction_modifier` till värdet av den motsvarande variabeln.
+The first thing we need to do is to set the window resolution to the material
+uniform `iResolution`. We'll also set the `direction_modifier` uniform to the
+same value as the corresponding variable.
 
-Därefter använder vi funktionen `gl_use_material()` för att använda
-materialet. Slutligen använder vi funktionen `draw_texture_ex()` för att rita
-ut texturen från vår `render_target` på skärmens bakgrund. Innan vi fortsätter
-återställer vi shadern med `gl_use_default_material()` så den inte används när
-vi ritar ut resten av spelet.
+After this we'll use the function `gl_use_material()` to use the material.
+Finally we can use the function `draw_texture_ex()` to draw the texture from
+our `render_target` on the background of the screen. Before we continue we'll
+restore the shader with the function `gl_use_default_material()` so that it
+won't be used when drawing the rest of the game.
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
 ```
 
-### Styr stjärnornas rörelse
+### Controlling the stars
 
-När spelaren håller ner höger eller vänster piltangent så lägger vi till
-eller drar ifrån ett värde från variabeln `direction_modifier` så att shadern
-kan ändra riktningen på stjärnornas rörelse. Även här multiplicerar vi värdet
-med `delta_time` så det blir relativt till hur lång tid det har tagit sedan
-föregående bildruta.
+When the player holds down the left or right arrow key we'll add or subtract a
+value from the variable `direction_modifier` so that the shader can control
+the movement of the stars. Remember to multiply the value with `delta_time` so
+that the change is relative to framerate, just like when doing the movement.
 
  ```rust [hl,3,7]
 {{#include ../../mitt-spel/examples/starfield-shader.rs:shaderdir}}
 ```
 
-### Skapa fil för shadern
+### Create the shader file
 
-Till sist måste vi skapa en fil som innehåller fragment shadern. Skapa en fil
-med namnet `starfield-shader.glsl` i din `src`-katalog och lägg in följande
-kod:
+Now it's time to create a file that contains the fragment shader. Create a
+file with the name `starfield-shader.glsl` in the `src` directory and add the
+following code:
 
 ```glsl
 {{#include ../../mitt-spel/examples/starfield-shader.glsl}}
 ```
 
 ```admonish info
-Om du vill veta hur shadern fungerar så kan du titta på videon [Shader Coding:
-Making a starfield](https://youtu.be/rvDo9LvfoVE) av The Art of Code.
+If you want to know how the shader works you can watch the video 
+[Shader Coding: Making a starfield](https://youtu.be/rvDo9LvfoVE) by The Art of Code.
 ```
 
-Nu är vårt stjärnfält klart och vårt spel börjar se ut som det utspelar sig i
-rymden!
+Our starfield is now done and the game is starting to look like it takes place
+in outer space.
 
-```admonish tip title="Utmaning" class="challenge"
-Titta på videon som nämns ovan och se om du kan ändra på färger och storlek
-på stjärnorna.
+```admonish tip title="Challenge" class="challenge"
+Look at the video above and see if you can change the color and size of the
+stars.
 ```
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/starfield-shader.rs:all}}
@@ -127,6 +129,7 @@ på stjärnorna.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/starfield-shader.toml}}
