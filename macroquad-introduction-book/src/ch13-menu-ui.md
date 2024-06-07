@@ -8,9 +8,9 @@ att skapa en grafisk huvudmeny för vårt spel. Det kommer vara ganska mycket
 kod för att definiera hur gränssnittet ska se ut. Att använda det kräver dock
 inte riktigt lika mycket kod.
 
-Menyn kommer bestå av ett fönster centrerat på skärmen, med texten "Huvudmeny"
-i titeln, och kommer innehålla två knappar, en för att "Spela" och en för att
-"Avsluta". Utseendet kommer beskrivas med kod, och använder bilder för att
+Menyn kommer bestå av ett fönster centrerat på skärmen, med texten "Main menu"
+i titeln, och kommer innehålla två knappar, en för att "Play" och en för att
+"Quit". Utseendet kommer beskrivas med kod, och använder bilder för att
 skapa utseendet. Gränssnitt byggs upp med hjälp av olika widgets som label,
 button, editbox och combobox.
 
@@ -145,7 +145,7 @@ hamna i fönstrets titelrad.
 Widgets går också att skapa genom att instantiera ett objekt och använda
 builder-metoder.
 
-`widgets::Button::new("Spela").position(vec2(45.0, 25.0)).ui(ui);`
+`widgets::Button::new("Play").position(vec2(45.0, 25.0)).ui(ui);`
 ```
 
 #### Knappar
@@ -154,7 +154,7 @@ Sen ritar vi ut en knapp för att börja spela. Metoden `ui.button()` returnerar
 `true` om knappen är nedtryckt. Det använder vi oss för att sätta ett nytt
 `GameState` och starta ett nytt spel.
 
-Till sist skapar vi knappen "Avsluta" som avslutar programmet om spelaren
+Till sist skapar vi knappen "Quit" som avslutar programmet om spelaren
 klickar på den.
 
 ```rust [hl,2-11,19-20,22-24]

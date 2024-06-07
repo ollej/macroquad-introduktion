@@ -278,8 +278,8 @@ async fn main() {
                     ),
                     window_size,
                     |ui| {
-                        ui.label(vec2(80.0, -34.0), "Huvudmeny");
-                        if ui.button(vec2(45.0, 25.0), "Spela") {
+                        ui.label(vec2(80.0, -34.0), "Main menu");
+                        if ui.button(vec2(45.0, 25.0), "Play") {
                             squares.clear();
                             bullets.clear();
                             explosions.clear();
@@ -288,7 +288,7 @@ async fn main() {
                             score = 0;
                             game_state = GameState::Playing;
                         }
-                        if ui.button(vec2(20.0, 125.0), "Avsluta") {
+                        if ui.button(vec2(20.0, 125.0), "Quit") {
                             std::process::exit(0);
                         }
                     },

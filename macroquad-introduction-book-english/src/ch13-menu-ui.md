@@ -1,176 +1,172 @@
-# Grafisk meny
+# Graphical menu
 
 ![Screenshot](images/menu-ui.png#center)
 
-Macroquad har ett inbyggt system för att rita upp ett grafiskt gränssnitt som
-där utseendet enkelt kan ändras med hjälp av bilder. Vi ska använda det för
-att skapa en grafisk huvudmeny för vårt spel. Det kommer vara ganska mycket
-kod för att definiera hur gränssnittet ska se ut. Att använda det kräver dock
-inte riktigt lika mycket kod.
+Macroquad has a builtin system to display a graphical user interface where the
+look can easily be changed using PNG images. We will use this to create a
+graphical main menu for our game. There will be quite a lot of code to define
+the look of the UI. However once that is done, it is very easy to use it.
 
-Menyn kommer bestå av ett fönster centrerat på skärmen, med texten "Huvudmeny"
-i titeln, och kommer innehålla två knappar, en för att "Spela" och en för att
-"Avsluta". Utseendet kommer beskrivas med kod, och använder bilder för att
-skapa utseendet. Gränssnitt byggs upp med hjälp av olika widgets som label,
-button, editbox och combobox.
+The menu will have window centered on the screen with the text "Main meny" in
+the title bar. Inside the window there will be two buttons, one for "Play" and
+one for "Quit". The UI will be built using different kinds of widgets such as
+`label`, `button`, `editbox`, and `combobox`.
 
-## Implementering 
+## Implementation 
 
-Till att börja med måste vi importera det vi behöver från `ui`-modulen.
+To begin with we need to import what we need from the `ui` module.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:import}}
 ```
 
-### Ladda in resurser
+### Load resources
 
-Efter att ljuden har laddats in ska vi ladda in fonten och de bilder som
-behövs för att rita upp gränssnittet. Vi har en bild för att skapa ett
-fönster, `window_background.png`, en bild för att rita upp knappar,
-`button_background.png` och till sist en bild som används när en knapp är
-nedtryckt, `button_clicked_background.png`. Bilder laddas in med funktionen
-`load_image()` och binärfiler med `load_file()`. Både bilder och filer laddas
-in asynkront och kan returnera fel, därför använder vi oss av `await` och
-`unwrap()`. Lyckas vi inte ladda in det som behövs för att rita upp huvudmenyn
-kan vi avsluta programmet direkt.
+After loading the sounds we'll load the font and images used for the UI. 
+There is an image to create the window, `window_background.png`, one image for
+the buttons, `button_background.png`, and finally an image for when the button
+is pressed, `button_clicked_background.png`. The images are loaded with the
+function `load_image()` and binary files with the function `load_file()`. Both
+images and files are loaded asynchronously and may return errors. This means
+we will have to call `await` and `unwrap()` to get the files. If we can't load
+the files needed to display the main menu we can just exit the program
+immediately.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:loadresources}}
 ```
 
-### Skapa ett Skin
+### Create a skin
 
-Innan loopen måste vi definiera hur vårt gränssnitt ska se ut. Vi bygger upp
-`Style`-structar för fönstret, knappar och texter. Därefter skapar vi ett
-`Skin` med stilarna.
+Before the game loop we need to define how our UI should look. We will build
+`Style` structs for the window, buttons and texts. After that we will use the
+styles to create a `Skin`.
 
-Vi använder oss av funktionen `root_ui()` som kommer rita widgets sist i varje
-frame med en "default" kamera och koordinatsystemet
+We use the function `root_ui()` that will draw widgets last in every frame
+using a "default" camera and the coordinate system 
 `(0..screen_width(), 0..screen_height())`.
 
-#### Utseende på fönster
+#### Window look
 
-För att bygga en stil använder man en `StyleBuilder` som har hjälpmetoder för
-att definiera alla delar av stilen. Vi får tillgång till den genom att
-använda metoden `style_builder()` på `root_ui()`. De värden som inte sätts
-kommer att använda samma värden som default-utseendet.
+To build a style we use a `StyleBuilder` that has helper methods to define all
+the parts of the style. Vi get access to it by using the method
+`style_builder()` on `root_ui()`. The values that aren't set will use the same
+values as the default look.
 
-Vi använder metoden `background()` för att sätta bilden som ska användas för
-att rita ut fönstret. Sen måste vi använda `background_margin()` för att
-definiera vilka delar av bilden som inte ska stretchas ut när fönstret ändrar
-storlek. Det använder vi för att kanterna på fönstret ska se bra ut.
+We will use the method `background()` to set the image used to draw the
+window. After that we can use `background_margin()` to define which parts of
+the image that shouldn't be "stretched" out when the window changes size. This
+is used to ensure that the edges of the window will look good.
 
-Med metoden `margin()` sätts marginaler för innehållet. Dessa värden kan vara
-negativa för att rita ut innehåll på fönstrets bårder.
+The method `margin()` is used to set margins for the content. These values can
+be negative to draw content on the borders of the window.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:windowstyle}}
 ```
 
 ```admonish info
-Det finns många fler metoder för att definiera stilar, som finns beskrivna i
-dokumentationen för [Macroquads
+There are a lot more methods to define styles, these are described in the
+documentation for [Macroquad's
 `StyleBuilder`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.StyleBuilder.html)
 ```
 
-#### Utseende på knappar
+#### Button look
 
-I definitionen för knappar använder vi två bilder, med `background()` sätter
-vi grundbilden och med `background_clicked()` sätter vi bilden som ska
-användas när knappen är nedtryckt.
+In the definition for buttons we'll use two images. Using `background()` we
+set the default image for the button, and `background_clicked()` is used to
+set the image to display while the button is clicked on.
 
-Vi behöver `background_margin()` och `margin()` för att kunna stretcha ut
-bilden över hela textinnehållet. Utseendet på texten sätter vi med `font()`,
-`text_color()` och `font_size()`.
+We need to set both `background_margin()` and `margin()` to be able to stretch
+the image to cover the text inside the button. The look of the text is defined
+using the methods `font()`, `text_color()`, and `font_size()`.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:buttonstyle}}
 ```
 
-#### Utseende på text
+#### Text look
 
-Vanlig text som ska presenteras i gränssnittet använder `label_style`. Vi
-använder samma font som för knappar, men med en lite mindre storlek.
+Normal text displayed in the interface uses `label_style`. We will use the
+same font as for the buttons, but with a slightly smaller font size.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:labelstyle}}
 ```
 
-#### Definiera ett Skin
+#### Define a Skin
 
-Nu kan vi skapa ett `Skin` med hjälp av `window_style`, `button_style` och
-`label_style`. Övriga stilar i vårt skin låter vi vara som dom är då vi inte
-kommer använda dom just nu.
+We can now create a `Skin` using `window_style`, `button_style`, and
+`label_style`. We won't define any other styles for the skin as we won't be
+using them at the moment.
 
-Vi sätter vårt skin som aktuellt skin med `push_skin()`. Vi kommer bara
-använda oss av en stil, men för att byta mellan olika stilar mellan fönster
-kan man definiera flera skins och använda `push_skin()` och `pop_skin()` för
-att byta mellan dem.
+We set the current skin to use using `push_skin()`. We will only use one skin,
+but to change between different looks between windows, it's possible to use
+`push_skin()` and `pop_skin()` to change between them.
 
-Vi sätter också variabeln `window_size` som kommer användas för sätta
-fönstrets storlek.
+We will also set the variable `window_size` to define with size of the window.
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:uiskin}}
 ```
 
 ```admonish info
-Det går att ändra utseendet på fler delar av gränssnittet, som textrutor,
-dropboxar med mera. Mer information finns i [dokumentationen av structen
+It's possible to change the look of more parts of the UI, such as text boxes,
+drop boxes etc. More information on how to do this can be found in the 
+[documentation of the struct
 Skin](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Skin.html).
 ```
 
-### Bygg upp menyn
+### Build the menu
 
-Nu kan vi skapa en meny genom att rita ut ett fönster med två knappar och en
-rubrik. Innehållet i matchningen av `GameState::MainMenu` kan bytas ut mot
-nedanstående kod.
+We can now build a menu by drawing a window with two buttons and a heading.
+The content of the `GameState::MainMenu` matching arm can be replaced with the
+code below.
 
-Först skapar vi ett fönster med anropet `root_ui().window()`. Den funktionen
-tar ett id som genereras med macrot `hash!`, en position som vi räknar ut
-baserat på fönsterstorleken och skärmens dimensioner och en `Vec2` som
-beskriver fönstrets storlek. Till sist tar den en funktion som används för att
-rita upp fönstret.
+Start vy creating a window using `root_ui().window()`. The function takes an
+argument that is generated with the macro `hash!`, a position that we'll
+calculate based on the window size and the screen dimensions, and finally a
+`Vec2` for the size of the window. Finally it takes a function that is used to
+draw the content of the window.
 
-#### Fönstertitel
+#### Window title
 
-Inne i funktionen skapar vi först en titel på fönstret med widgeten `Label`
-som vi kan skapa med metoden `ul.label()`. Metoden tar två argument, först en
-`Vec2` med positionen för var den ska placeras, och texten som ska visas. Det
-går att skicka in `None` som position, då kommer den få en placering relativ
-till tidigare widgets. Här använder vi en negativ Y-position för att den ska
-hamna i fönstrets titelrad.
+In the window function we start by setting a title of the window with the
+widget `Label` that we can create using `ui.label()`. The method takes two
+arguments, a `Vec2` for the position of the label and a string with the text
+to display. It's possible to set `None` as position, in which case the
+placement will be relative to the previous widget. We will use a negative `y`
+position to place the text within the title bar of the window.
 
 ```admonish info
-Widgets går också att skapa genom att instantiera ett objekt och använda
-builder-metoder.
+It's also possible to create widgets by instantiating a struct and using
+builder methods.
 
-`widgets::Button::new("Spela").position(vec2(45.0, 25.0)).ui(ui);`
+`widgets::Button::new("Play").position(vec2(45.0, 25.0)).ui(ui);`
 ```
 
-#### Knappar
+#### Buttons
 
-Sen ritar vi ut en knapp för att börja spela. Metoden `ui.button()` returnerar
-`true` om knappen är nedtryckt. Det använder vi oss för att sätta ett nytt
-`GameState` och starta ett nytt spel.
+After the label we'll add a button to begin playing the game. The method
+`ui.button()` returns `true` when the button is clicked. We will use this to
+set the `GameState::Playing` to start a new game.
 
-Till sist skapar vi knappen "Avsluta" som avslutar programmet om spelaren
-klickar på den.
+Then we can create a button with the text "Quit" to exit the game.
 
 ```rust [hl,2-11,19-20,22-24]
 {{#include ../../mitt-spel/examples/menu-ui.rs:menu}}
 ```
 
 ```admonish info
-Det finns en mängd olika widgets som kan användas för att skapa gränssnitt.
-Läs mer om vad som finns tillgängligt i [dokumentationen av structen
-`Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
+There are many different widgets that can be used to create interfaces.
+The list of available widgets can be found in the [documentation of the
+struct `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
 ```
 
-## Prova spelet
+## Try the game
 
-När spelet startar nu så finns det en grafisk huvudmeny där spelaren kan välja
-att starta ett spel eller avsluta programmet.
+When starting the game a graphical menu will be shown where the player can
+choose to start a game or quit the program.
 
 <div class="noprint no-page-break">
 
