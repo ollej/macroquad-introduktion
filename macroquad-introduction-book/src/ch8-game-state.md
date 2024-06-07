@@ -66,7 +66,7 @@ tillstånd. När spelet börjar kommer spelet vara i tillståndet
 vi avsluta spelet. Om spelaren trycker på mellanslagstangenten tilldelar vi
 det nya tillståndet `GameState::Playing` till variabeln `game_state`. Vi
 passar även på att nollställa alla spelvariabler. Till sist skriver ut texten
-"Tryck mellanslag" i mitten av skärmen.
+"Press space" i mitten av skärmen.
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:mainmenu}}

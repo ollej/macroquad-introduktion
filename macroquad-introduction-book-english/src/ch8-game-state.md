@@ -2,40 +2,41 @@
 
 ![Screenshot](images/game-state.gif#center)
 
-Innan vi lägger till någon ny funktionalitet i vårt spel så är det dags för
-lite refaktorisering. För att det ska bli enklare att hantera spelets
-tillstånd så inför vi en enum vid namn `GameState` som håller reda på om
-spelet pågår eller om det har blivit game over. Tack vare detta kan vi ta bort
-vår `gameover` variabel, och lägga till tillstånd för en meny och pausa
-spelet.
+Before we add any more functionality to our game it's time for some
+refactoring. To make it easier to keep track of the game state we'll add an
+enum called `GameState` with variants to differentiate between a game that is
+played or if it is game over. Because of this we'll be able to remove the
+`gameover` variable, and we can also add states for showing a start menu and
+pausing the game.
 
-## Implementering
+## Implementation
 
-### Enum för game state
+### Game state enum
 
-Börja med att lägga till en enum kallad `GameState` under implementationen av
-`Shape`. Den innehåller alla fyra tillstånd som spelet kan vara i.
+Begin by adding an enum called `GameState` below the `Shape` implementation.
+It should contain all four possible game states: `MainMenu`, `Playing`,
+`Paused`, and `GameOver`.
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:stateenum}}
 ```
 
-### Variabel för GameState
-Ersätt raden som deklarerar variabeln `gameover` med en deklarering av en ny
-`game_state` variabel. Till att börja med sätter vi den till tillståndet
-`GameState::MainMenu` så att vi väntar på att spelaren trycker mellanslag
-innan spelet börjar.
+### Game state variable
+
+Replace the line that declares the `gameover` variable with a line that
+instantiates a `game_state` variable set to `GameState::MainMenu`. 
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:statevariable}}
 ```
 
-### Matcha på GameState
+### Match on GameState
 
-Koden inne i spelloopen ska nu ersättas med en matchning på variabeln
-`game_state`. Den måste hantera alla tillstånd i enumen. Senare ska vi införa
-koden från tidigare steg inne i de olika blocken. Behåll anropet till rensning
-av skärmen i början av loopen, och anropet till `next_frame().await` i slutet.
+We'll replace the old code in the game loop with code that matches on the
+`game_state` variable. It has to match on all four states in the enum. Later
+on we'll add back code from the earlier chapter within the matching arms. Keep
+the call to clearing the screen at the start of the loop, and the call to
+`next_frame().await` at the end.
 
 ```rust [hl,3-16]
         clear_background(DARKPURPLE);
@@ -58,39 +59,40 @@ av skärmen i början av loopen, och anropet till `next_frame().await` i slutet.
         next_frame().await
 ```
 
-### Huvudmeny
+### Main menu
 
-Nu ska vi lägga till kod i varje block i matchningen för att hantera varje
-tillstånd. När spelet börjar kommer spelet vara i tillståndet
-`GameState::MainMenu`. Vi börjar med att kolla om `Escape` är nedtryckt så kan
-vi avsluta spelet. Om spelaren trycker på mellanslagstangenten tilldelar vi
-det nya tillståndet `GameState::Playing` till variabeln `game_state`. Vi
-passar även på att nollställa alla spelvariabler. Till sist skriver ut texten
-"Tryck mellanslag" i mitten av skärmen.
+Now it's time to add back code into the match arms to handle each game state.
+When the game is started the state will be `GameState::MainMenu`. We'll start
+by quitting the gmae if the `Escape` key is pressed. If the player presses the
+space key we'll set the `game_state` to the new state `GameState::Playing`.
+We'll also reset all the game variables. Finally we'll draw the text "Press
+space" in the middle of the screen.
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:mainmenu}}
 ```
 
-### Pågående spel
+### Playing the game
 
-Nu ska vi lägga tillbaka koden för spelet, det är samma som större delen av
-spelloopen från förra kapitlet. Dock ska inte koden som hanterar game over vara
-med då vi kommer lägga in det nedan i tillståndet för `GameState::Playing`. Vi
-lägger också till en kontroll om spelaren tryckt på `Escape` och byter
-tillstånd till `GameState::Paused`.
+Let's add back the code for playing the game to the matching arm for the state
+`GameState::Playing`. It's the same code as most of the game loop from the
+last chapter. However, don't add back the code that handles game over as it
+will be added in the matching arm for the `GameState::GameOver`.
+
+We'll also add a code that checks if the player presses the `Escape` key and
+change the state to `GameState::Paused`.
 
 ```rust [hl,1,24-26,108]
 {{#include ../../mitt-spel/examples/game-state.rs:playing}}
 ```
 
-### Pausa spelet
+### Pause the game
 
-Många spel har en möjlighet att pausa, så vi passar på att lägga in stöd för
-det även i vårat spel. I pausat läge kollar vi om spelaren trycker på
-`Escape`, om så är fallet så sätter vi tillståndet till `GameState::Playing`
-så att spelet kan fortsätta igen. Sen skriver vi ut en text på skärmen om att
-spelet är pausat.
+Many games have the option to pause the action, so we'll add support for that
+in our game too. When the game is paused we'll check if the player presses
+the `Escape` key and change the game state to `GameState::Playing` so that the
+game can continue. We'll also draw a text on the screen showing that the game
+is paused.
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:paused}}
@@ -98,32 +100,35 @@ spelet är pausat.
 
 ### Game Over
 
-Till sist ska vi hantera vad som händer när det blir game over. Om spelaren
-trycker på mellanslag så byter vi tillstånd till `GameState::MainMenu` så att
-spelaren kan börja ett nytt spel eller avsluta spelet. Sen skriver vi ut
-texten på skärmen som tidigare.
+Finally we will handle what happens when the game is oer. If the player
+presses the spacebar we'll change the state to `GameState::MainMenu` to allow
+the player to start a new game or quit the game. We'll also draw the game over
+text to the screen like we did in the last chapter.
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:gameover}}
 ```
 
-```admonish note title="Notera"
-Eftersom tillstånden för `Playing` och `GameOver` är separerade nu så visas
-inte någonting från spelet när det är game over.
+```admonish note
+Since the states for `GameState::Playing` and `GameState::GameOver` are
+separated nothing will be shown when the game is paused.
 ```
 
-```admonish tip title="Utmaning" class="challenge"
-Nu när det finns en startmeny så kan du hitta på ett namn på ditt spel och
-skriva ut det med stor text på övre delen av skärmen i tillståndet för
+```admonish tip title="Challenge" class="challenge"
+Now that we have main menu you could come up with a name for your game and
+display it with a large font at the top of the screen in the state
 `GameState::MainMenu`.
+
+For extra credit you could also try to draw all the circles and squares even
+when the game is paused.
 ```
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/game-state.rs:all}}
@@ -133,6 +138,7 @@ skriva ut det med stor text på övre delen av skärmen i tillståndet för
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/game-state.toml}}

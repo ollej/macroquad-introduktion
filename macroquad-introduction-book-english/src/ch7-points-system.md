@@ -1,118 +1,126 @@
-# Poängsystem
+# Points
 
 ![Screenshot](images/points.gif#center)
 
-Vad vore ett spel utan poäng och high score? Det är nu dags att implementera
-ett poängsystem för vårt spel. Poäng kommer ges för varje fyrkant som skjuts
-ner, baserat på storleken. Poängen kommer visas på skärmen, såväl som den
-högsta poäng som har uppnåtts. Om poängen är en high score så kommer poängen
-skrivas ner till en fil på disk så att det kan läsas in igen nästa gång spelet
-startas.
+What is a game without points and a high score? Now that the circle can shoot
+down the loathsome squares it is time to add some points. Every square that is
+shot down will add to the score, where bigger squares will be worth more
+points. The current score will be shown on the screen, as well as the highest
+score achieved.
 
-## Implementering
+If the current score is the highest score when the game is over it will be
+written to a file on disk so that it can be read each time the game is
+started. This will only work if the game is played on desktop as the
+WebAssembly version doesn't have access to the file system. It would be
+possible to store the high score in the browser storage, but that won't be
+covered here to keep the implementation simple.
 
-### Importera modul
+## Implementation
 
-För att kunna läsa och skriva filer behöver vi importera [Rusts std::fs
-modul](https://doc.rust-lang.org/std/fs/index.html) som innehåller
-funktionalitet för att läsa och skriva till datorns lokala filsystem. Denna
-rad kan läggas in under raden som importerar Macroquad längst upp i filen.
+### Import module
+
+To be able to read and write files we need to import [std::fs
+modul](https://doc.rust-lang.org/std/fs/index.html) from the Rust standard
+library. Add this line directly below the line to import macroquad at the top
+of the file.
 
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:import}}
 ```
 
-### Nya variabler
+### New variables
 
-Vi behöver två nya variabler, `score` och `high_score` för att hålla reda på
-spelarens poäng och den högsta poängen som har uppnåtts. Vi använder oss av
-funktionen `fs::read_to_string()` för att läsa in filen `highscore.dat`.
-Poängen i filen måste konverteras till en `u32` vilket görs med
-`i.parse::<u32>()`. Om något går fel, som att filen inte finns eller
-innehåller något som inte är en siffra, så kommer siffran `0` att returneras.
+We will need two new variables, `score` and `high_score`, to keep track of the
+player's points as well as the highest score ever acheived. We'll use the
+function `fs::read_to_string()` to read the file `highscore.dat` from disk.
+The points stored in the file needs to be converted to `u32` with
+`i.parse::<u32>()`. If anything goes wrong, if the file doesn't exist or it
+contains something other than a number, the number `0` will be returned
+instead.
 
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:variables}}
 ```
 
-```admonish note title="Notera"
-Här skriver vi direkt till datorns hårddisk, vilket inte fungerar om spelet
-har kompilerats till WASM och körs på en webbsida.
+```admonish note
+We're writing the points directly to the computers hard drive, which will not
+work if the game has been compiled to WebAssembly and is run on a web page.
 ```
 
-### Uppdatera high score
+### Updating the high score
 
-Om cirkeln krockar med en fyrkant så lägger vi till en kontroll om spelarens
-poäng är en high score. Är den det så skriver vi ner high scoren till filen
-`highscore.dat`.
+If the circle collides with a square we'll check if the current score is
+higher than the high score. If it is higher, we'll update the high score and
+store the new high score to the file `highscore.dat`.
 
 ```rust [hl,2-4]
 {{#include ../../mitt-spel/examples/points.rs:savepoints}}
 ```
 
-```admonish note title="Notera"
-Macroquad har stöd för att läsa filer som fungerar även när spelet körs på en
-webbsida. Här skulle vi kunna använda funktionen
+```admonish note
+Macroquad supports reading files when the game is run on a web page. We could
+use the function
 [`load_string()`](https://docs.rs/macroquad/latest/macroquad/file/fn.load_string.html)
-istället, men eftersom vi inte kan skriva filen är det inte så meningsfullt.
+to load the high score instead. But since it isn't possible to save the file
+it isn't particularly useful in this case.
 ```
 
-### Öka poäng
+### Increasing the score
 
-Om en kula träffar en fyrkant så ökar vi spelarens poäng baserat på storleken
-på fyrkanten. Sen uppdaterar vi värdet i variabeln `high_score` om poängen är
-högre än det gamla värdet.
+When a bullet hits a terrifying square we'll increase the current score based
+on the size of the square. After that we'll update the `high_score` if the
+current `score` is higher.
 
 ```rust [hl,4-5]
 {{#include ../../mitt-spel/examples/points.rs:points}}
 ```
 
-### Nollställ poäng
+### Resetting the score
 
-När vi startar en ny spelomgång måste vi nollställa variabeln `score`.
+When a new game is started we need to set the `score` variable to `0`.
 
 ```rust [hl,6]
 {{#include ../../mitt-spel/examples/points.rs:clearpoints}}
 ```
 
-### Skriv ut poäng och high score
+### Displaying scores
 
-Till sist ritar vi ut poängen och high score på skärmen. Poängen skriver vi
-alltid ut i övre vänstra hörnet. För att kunna skriva ut high scoren i högra
-hörnet behöver vi använda oss av funktionen
+Finally we'll display the `score` and `high_score` on the screen. We'll
+display the `score` in the top left corner of the screen. To be able to
+display the high score in the top right corner we'll use the function
 [`measure_text()`](https://docs.rs/macroquad/latest/macroquad/text/fn.measure_text.html)
-för att räkna ut hur långt från skärmens högra sida texten ska placeras.
+to calculate how far from the right edge of the screen the text should be
+displayed.
 
-För att dimensionerna ska stämma måste samma värden användas som argument till
-`measure_text()` som till `draw_text()`. Argumenten är `text`, `font`,
-`font_size` och `font_scale`. Eftersom vi inte sätter någon speciell font
-eller skalar om texten så skickar vi in `None` som `font`, och `1.0` som
-`font_scale`. Däremot måste `font_size` vara samma som i anropet av
-`draw_text()` vilket i vårt fall är `25.0`.
+To ensure that the dimensions are correct we must use the same arguments for
+both `measure_text()` and `draw_text()`. The arguments for these functions are
+`text`, `font`, `font_size` and `font_scale`. Since we aren't setting any
+specific font or scaling the size of the text, we'll use `None` as the value
+for `font`, and `1.0` as `font_scale`. The `font_size` can be set to `25.0`.
 
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:drawpoints}}
 ```
 
 ```admonish info
-Funktionen `measure_text()` returnerar structen
+The function `measure_text()` returns the struct
 [`TextDimensions`](https://docs.rs/macroquad/latest/macroquad/text/struct.TextDimensions.html)
-som innehåller fälten `width`, `height` och `offset_y`.
+which contains the fields `width`, `height`, and `offset_y`.
 ```
 
-Kör igång spelet och försök få så hög poäng som möjligt!
+Run the game and try to get a high score!
 
-```admonish tip title="Utmaning" class="challenge"
-Testa att skriva ut en gratulationstext på skärmen vid Game Over om spelaren
-uppnådde en high score.
+```admonish tip title="Challenge" class="challenge"
+Try writing a congratulation text below the Game Over text if the player
+reached a high score.
 ```
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/points.rs:all}}
@@ -122,6 +130,7 @@ uppnådde en high score.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/points-system.toml}}

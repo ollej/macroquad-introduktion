@@ -208,7 +208,7 @@ async fn main() {
                     score = 0;
                     game_state = GameState::Playing;
                 }
-                let text = "Tryck på mellanslag";
+                let text = "Press space";
                 let text_dimensions = measure_text(text, None, 50, 1.0);
                 draw_text(
                     text,
