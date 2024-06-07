@@ -29,7 +29,7 @@ There are many methods on `Rect` to do calculations on rectangles, like
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:implshape}}
+{{#include ../../my-game/examples/collision.rs:implshape}}
 ```
 
 ```admonish note
@@ -43,7 +43,7 @@ Let's add a boolean variable called `gameover` to keep track of whether the
 player has died to the start of the main loop.
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:variable}}
+{{#include ../../my-game/examples/collision.rs:variable}}
 ```
 
 Since we don't want the circle and squares to move while it's game over, the
@@ -64,7 +64,7 @@ check if any square collides with our hero circle. If a collision occurs, we
 set the variable `gameover` to true.
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:collision}}
+{{#include ../../my-game/examples/collision.rs:collision}}
 ```
 
 ```admonish tip title="Challenge" class="challenge"
@@ -80,7 +80,7 @@ key, we clear the vector `squares` using the `clear()` method and reset the
 variable `gameover` to `false` so that the game can start over.
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:gameover}}
+{{#include ../../my-game/examples/collision.rs:gameover}}
 ```
 
 ```admonish info
@@ -110,7 +110,7 @@ more parameters such as `font`, `font_scale`, `font_scale_aspect` and `rotation`
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:drawgameover}}
+{{#include ../../my-game/examples/collision.rs:drawgameover}}
 ```
 
 ```admonish tip title="Challenge" class="challenge"
@@ -129,7 +129,7 @@ can provide tips on how it works.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:all}}
+{{#include ../../my-game/examples/collision.rs:all}}
 ```
 </details>
 </div>

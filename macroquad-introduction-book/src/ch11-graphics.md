@@ -47,19 +47,19 @@ Om du ordnade med att publicera ditt spel till Github Pages i [första kapitlet]
 Dels behöver `assets`-katalogen skapas:
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-mkdir}}
+{{#include ../../my-game/examples/deploy-with-assets.yml:assets-mkdir}}
 ```
 
 Och `assets`-filerna skall kopieras på plats:
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-cp}}
+{{#include ../../my-game/examples/deploy-with-assets.yml:assets-cp}}
 ```
 
 Den fullständiga deploy-konfigurationen skall se ut så här:
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-with-assets.yml:all}}
+{{#include ../../my-game/examples/deploy-with-assets.yml:all}}
 ```
 
 Committa och pusha och verifiera att spelet funkar som förut på:

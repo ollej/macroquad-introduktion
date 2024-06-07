@@ -31,7 +31,7 @@ jobs:
           # ANCHOR: assets-mkdir
           mkdir -p ./deploy/assets
           # ANCHOR_END: assets-mkdir
-          cp ./target/wasm32-unknown-unknown/release/mitt-spel.wasm ./deploy/
+          cp ./target/wasm32-unknown-unknown/release/my-game.wasm ./deploy/
           cp index.html ./deploy/
           # ANCHOR: assets-cp
           cp -r assets/ ./deploy/

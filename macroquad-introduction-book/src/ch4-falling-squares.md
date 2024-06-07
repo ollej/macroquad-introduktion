@@ -15,7 +15,7 @@ vi kan ge namnet `Shape` som innehåller storlek, hastighet samt x och
 y-koordinater.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:shape}}
+{{#include ../../my-game/examples/falling-squares.rs:shape}}
 ```
 
 ### Initiera slumpgenerator
@@ -26,7 +26,7 @@ inte blir samma slumptal varje gång. Detta görs i början av `main`-funktionen
 med metoden `rand::srand()` som vi skickar in nuvarande tid till som seed.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:srand}}
+{{#include ../../my-game/examples/falling-squares.rs:srand}}
 ```
 
 ```admonish note title="Notera"
@@ -44,7 +44,7 @@ konstanten `MOVEMENT_SPEED` och `x` och `y`-fälten sätts till mitten av
 skärmen.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:variables}}
+{{#include ../../my-game/examples/falling-squares.rs:variables}}
 ```
 
 Börja med att ändra programmet så att `circle` används i stället för variablerna
@@ -67,7 +67,7 @@ värdet är tillräckligt högt så skapar vi en ny Shape och lägger till i vek
 att få olika storlek, hastighet och startposition på alla fyrkanter.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:generatesquare}}
+{{#include ../../my-game/examples/falling-squares.rs:generatesquare}}
 ```
 
 ```admonish note title="Notera"
@@ -83,7 +83,7 @@ med hjälp av fyrkantens hastighet och variabeln `delta_time`. Detta gör att
 fyrkanterna kommer åka neråt över skärmen.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:movesquares}}
+{{#include ../../my-game/examples/falling-squares.rs:movesquares}}
 ```
 
 ### Rensa bort fyrkanter som inte syns
@@ -95,7 +95,7 @@ Vi kollar att fyrkantens y-värde fortfarande är mindre än höjden på fönstr
 plus storleken på fyrkanten.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:removesquares}}
+{{#include ../../my-game/examples/falling-squares.rs:removesquares}}
 ```
 
 ### Rita ut fyrkanterna
@@ -119,7 +119,7 @@ och `offset` på rektangeln.
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:drawsquares}}
+{{#include ../../my-game/examples/falling-squares.rs:drawsquares}}
 ```
 
 ```admonish tip title="Utmaning" class="challenge"
@@ -137,7 +137,7 @@ som returnerar ett slumpmässigt valt element från vektorn.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:all}}
+{{#include ../../my-game/examples/falling-squares.rs:all}}
 ```
 </details>
 </div>

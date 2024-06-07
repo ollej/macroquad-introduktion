@@ -13,7 +13,7 @@ dependency in the `Cargo.toml` file.
 
 ```toml [hl,9]
 [package]
-name = "mitt-spel"
+name = "my-game"
 version = "0.1.0"
 edition = "2021"
 
@@ -31,7 +31,7 @@ import the `audio` module at the top of the `main.rs` file. The things we need
 to import are `load_sound`, `play_sound`, `play_sound_once`, and `PlaySoundParams`.
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:import}}
+{{#include ../../my-game/examples/audio.rs:import}}
 ```
 
 ### Load resources
@@ -43,7 +43,7 @@ music is in the file format Ogg Vorbis which is supported by most, but not
 all, web browsers.
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:loadresources}}
+{{#include ../../my-game/examples/audio.rs:loadresources}}
 ```
 
 ```admonish note
@@ -61,7 +61,7 @@ the function `play_sound()`, which takes a sound, and the struct
 played in a loop and with full volume.
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:playmusic}}
+{{#include ../../my-game/examples/audio.rs:playmusic}}
 ```
 
 ```admonish info
@@ -77,7 +77,7 @@ play as the argument. It is a shortcut instead of using `play_sound()` with a
 non-looping parameter.
 
 ```rust [hl,8]
-{{#include ../../mitt-spel/examples/audio.rs:playlaser}}
+{{#include ../../my-game/examples/audio.rs:playlaser}}
 ```
 
 ```admonish info
@@ -92,7 +92,7 @@ When a bullet hits an enemy we will play the explosion sound, also using the
 function `play_sound_once()`.
 
 ```rust [hl,14]
-{{#include ../../mitt-spel/examples/audio.rs:playexplosion}}
+{{#include ../../my-game/examples/audio.rs:playexplosion}}
 ```
 
 You can now start the game and it should play music and sound effects.
@@ -111,7 +111,7 @@ to stop the music when the player pauses the game.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:all}}
+{{#include ../../my-game/examples/audio.rs:all}}
 ```
 </details>
 </div>

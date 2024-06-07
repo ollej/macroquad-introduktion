@@ -19,7 +19,7 @@ funktionalitet för att läsa och skriva till datorns lokala filsystem. Denna
 rad kan läggas in under raden som importerar Macroquad längst upp i filen.
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:import}}
+{{#include ../../my-game/examples/points.rs:import}}
 ```
 
 ### Nya variabler
@@ -32,7 +32,7 @@ Poängen i filen måste konverteras till en `u32` vilket görs med
 innehåller något som inte är en siffra, så kommer siffran `0` att returneras.
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:variables}}
+{{#include ../../my-game/examples/points.rs:variables}}
 ```
 
 ```admonish note title="Notera"
@@ -47,7 +47,7 @@ poäng är en high score. Är den det så skriver vi ner high scoren till filen
 `highscore.dat`.
 
 ```rust [hl,2-4]
-{{#include ../../mitt-spel/examples/points.rs:savepoints}}
+{{#include ../../my-game/examples/points.rs:savepoints}}
 ```
 
 ```admonish note title="Notera"
@@ -64,7 +64,7 @@ på fyrkanten. Sen uppdaterar vi värdet i variabeln `high_score` om poängen ä
 högre än det gamla värdet.
 
 ```rust [hl,4-5]
-{{#include ../../mitt-spel/examples/points.rs:points}}
+{{#include ../../my-game/examples/points.rs:points}}
 ```
 
 ### Nollställ poäng
@@ -72,7 +72,7 @@ högre än det gamla värdet.
 När vi startar en ny spelomgång måste vi nollställa variabeln `score`.
 
 ```rust [hl,6]
-{{#include ../../mitt-spel/examples/points.rs:clearpoints}}
+{{#include ../../my-game/examples/points.rs:clearpoints}}
 ```
 
 ### Skriv ut poäng och high score
@@ -91,7 +91,7 @@ eller skalar om texten så skickar vi in `None` som `font`, och `1.0` som
 `draw_text()` vilket i vårt fall är `25.0`.
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:drawpoints}}
+{{#include ../../my-game/examples/points.rs:drawpoints}}
 ```
 
 ```admonish info
@@ -115,7 +115,7 @@ uppnådde en high score.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:all}}
+{{#include ../../my-game/examples/points.rs:all}}
 ```
 </details>
 </div>

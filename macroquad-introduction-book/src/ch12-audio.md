@@ -13,7 +13,7 @@ under rubriken `[dependencies]` till att inkludera featuren `audio`.
 
 ```toml [hl,9]
 [package]
-name = "mitt-spel"
+name = "my-game"
 version = "0.1.0"
 edition = "2021"
 
@@ -30,7 +30,7 @@ Ljudmodulen är inte inkluderad i Macroquads `prelude`, därför behöver vi
 importera det vi använder i modulen `audio` längst upp i källkoden.
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:import}}
+{{#include ../../my-game/examples/audio.rs:import}}
 ```
 
 ### Ladda in resurser
@@ -42,7 +42,7 @@ använder filformatet Ogg Vorbis som stöds av det mesta, dock inte av vissa
 webbläsare.
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:loadresources}}
+{{#include ../../my-game/examples/audio.rs:loadresources}}
 ```
 
 ### Spela upp musik
@@ -52,7 +52,7 @@ som tar ett ljud, och structen `PlaySoundParams`. Vi sätter att ljudet ska
 spelas loopande, och med full volym.
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:playmusic}}
+{{#include ../../my-game/examples/audio.rs:playmusic}}
 ```
 
 ```admonish info
@@ -68,7 +68,7 @@ argument. Det är en genväg för att slippa använda `PlaySoundParams` för att
 spela upp ett ljud som inte loopar.
 
 ```rust [hl,8]
-{{#include ../../mitt-spel/examples/audio.rs:playlaser}}
+{{#include ../../my-game/examples/audio.rs:playlaser}}
 ```
 
 ```admonish info
@@ -82,7 +82,7 @@ När en kula träffar en fiende spelar vi upp explosionsljudet, även detta med
 `play_sound_once`.
 
 ```rust [hl,14]
-{{#include ../../mitt-spel/examples/audio.rs:playexplosion}}
+{{#include ../../my-game/examples/audio.rs:playexplosion}}
 ```
 
 När du startar spelet bör det nu spela upp musik och ljudeffekter.
@@ -101,7 +101,7 @@ stoppa musiken när spelaren pausar spelet.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/audio.rs:all}}
+{{#include ../../my-game/examples/audio.rs:all}}
 ```
 </details>
 </div>

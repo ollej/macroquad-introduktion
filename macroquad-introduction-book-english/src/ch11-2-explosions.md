@@ -13,7 +13,7 @@ To begin with we need to update the import of `macroquad_particles`
 and replace `ColorCurve` with `AtlasConfig`.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:import}}
+{{#include ../../my-game/examples/graphics-explosion.rs:import}}
 ```
 
 ### Update the particle configuration
@@ -24,7 +24,7 @@ instead of using the `ColorCurve`. We also update the size and lifetime to
 work better with the graphics.
 
 ```rust [hl,10,12,14]
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:emitterconfig}}
+{{#include ../../my-game/examples/graphics-explosion.rs:emitterconfig}}
 ```
 
 ### Load textures
@@ -36,7 +36,7 @@ the animation for the particle explosion. The file is called `explosion.png`.
 Don't forget to set the filter on the texture to `FilterMode::Nearest`.
 
 ```rust [hl,1-4]
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:loadresources}}
+{{#include ../../my-game/examples/graphics-explosion.rs:loadresources}}
 ```
 
 ### Add the texture
@@ -47,7 +47,7 @@ update the amount to get a few more particles. We need to use the method
 the texture.
 
 ```rust [hl,3-4]
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:explosiontexture}}
+{{#include ../../my-game/examples/graphics-explosion.rs:explosiontexture}}
 ```
 
 When the game is run the explosions should be animated with the explosion
@@ -61,7 +61,7 @@ image instead of colored squares.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:all}}
+{{#include ../../my-game/examples/graphics-explosion.rs:all}}
 ```
 </details>
 </div>

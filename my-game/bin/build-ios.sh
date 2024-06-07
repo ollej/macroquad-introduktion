@@ -44,7 +44,7 @@ function build_binary {
 # Copy binary to game directory
 function copy_binary {
     verbose_print "Copying iOS binary..."
-    cp target/x86_64-apple-ios/release/mitt-spel "$GAMEAPP"
+    cp target/x86_64-apple-ios/release/my-game "$GAMEAPP"
 }
 
 # Install game in simulator

@@ -1,6 +1,6 @@
-# Resurser
+# Resources
 
-![Svart bild med texten "Laddar resurser" följt av tre blinkande punkter](images/coroutines-and-storage.gif#center)
+![Black image with the text "Loading resources" followed by three blinking dots](images/coroutines-and-storage.gif#center)
 
 Då det börjar bli väldigt mycket kod i vår `main`-funktion börjar det bli dags
 att strukturera om koden lite.

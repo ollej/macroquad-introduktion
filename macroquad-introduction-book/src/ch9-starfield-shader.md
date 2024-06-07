@@ -29,7 +29,7 @@ enkelhetens skull sätter vi `iTime` som används av shadern från `_Time.x`. De
 hade också gått att använda `_Time` direkt i shadern.
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
+{{#include ../../my-game/examples/starfield-shader.rs:shaders}}
 ```
 
 ### Initialisera shadern
@@ -49,7 +49,7 @@ innehåller fönstrets storlek, och `direction_modifier` kommer användas för a
 styra åt vilken riktning stjärnorna ska röra sig.
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
+{{#include ../../my-game/examples/starfield-shader.rs:setupshader}}
 ```
 
 ```admonish info
@@ -74,7 +74,7 @@ ut texturen från vår `render_target` på skärmens bakgrund. Innan vi fortsät
 vi ritar ut resten av spelet.
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
+{{#include ../../my-game/examples/starfield-shader.rs:drawshader}}
 ```
 
 ### Styr stjärnornas rörelse
@@ -86,7 +86,7 @@ med `delta_time` så det blir relativt till hur lång tid det har tagit sedan
 föregående bildruta.
 
  ```rust [hl,3,7]
-{{#include ../../mitt-spel/examples/starfield-shader.rs:shaderdir}}
+{{#include ../../my-game/examples/starfield-shader.rs:shaderdir}}
 ```
 
 ### Skapa fil för shadern
@@ -96,7 +96,7 @@ med namnet `starfield-shader.glsl` i din `src`-katalog och lägg in följande
 kod:
 
 ```glsl
-{{#include ../../mitt-spel/examples/starfield-shader.glsl}}
+{{#include ../../my-game/examples/starfield-shader.glsl}}
 ```
 
 ```admonish info
@@ -120,7 +120,7 @@ på stjärnorna.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:all}}
+{{#include ../../my-game/examples/starfield-shader.rs:all}}
 ```
 </details>
 </div>

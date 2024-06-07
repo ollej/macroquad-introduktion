@@ -17,7 +17,7 @@ Börja med att lägga till en enum kallad `GameState` under implementationen av
 `Shape`. Den innehåller alla fyra tillstånd som spelet kan vara i.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:stateenum}}
+{{#include ../../my-game/examples/game-state.rs:stateenum}}
 ```
 
 ### Variabel för GameState
@@ -27,7 +27,7 @@ Ersätt raden som deklarerar variabeln `gameover` med en deklarering av en ny
 innan spelet börjar.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:statevariable}}
+{{#include ../../my-game/examples/game-state.rs:statevariable}}
 ```
 
 ### Matcha på GameState
@@ -69,7 +69,7 @@ passar även på att nollställa alla spelvariabler. Till sist skriver ut texten
 "Press space" i mitten av skärmen.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:mainmenu}}
+{{#include ../../my-game/examples/game-state.rs:mainmenu}}
 ```
 
 ### Pågående spel
@@ -81,7 +81,7 @@ lägger också till en kontroll om spelaren tryckt på `Escape` och byter
 tillstånd till `GameState::Paused`.
 
 ```rust [hl,1,24-26,108]
-{{#include ../../mitt-spel/examples/game-state.rs:playing}}
+{{#include ../../my-game/examples/game-state.rs:playing}}
 ```
 
 ### Pausa spelet
@@ -93,7 +93,7 @@ så att spelet kan fortsätta igen. Sen skriver vi ut en text på skärmen om at
 spelet är pausat.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:paused}}
+{{#include ../../my-game/examples/game-state.rs:paused}}
 ```
 
 ### Game Over
@@ -104,7 +104,7 @@ spelaren kan börja ett nytt spel eller avsluta spelet. Sen skriver vi ut
 texten på skärmen som tidigare.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:gameover}}
+{{#include ../../my-game/examples/game-state.rs:gameover}}
 ```
 
 ```admonish note title="Notera"
@@ -126,7 +126,7 @@ skriva ut det med stor text på övre delen av skärmen i tillståndet för
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:all}}
+{{#include ../../my-game/examples/game-state.rs:all}}
 ```
 </details>
 </div>

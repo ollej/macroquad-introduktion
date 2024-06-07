@@ -15,7 +15,7 @@ att tilldela den värdet `200.0`. Går det för fort eller för sakta kan vi sä
 eller öka detta värde.
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:constant}}
+{{#include ../../my-game/examples/smooth-movement.rs:constant}}
 ```
 
 ### Tid mellan bildrutor
@@ -25,7 +25,7 @@ sekunder det har gått sedan föregående bildruta ritades på skärmen och
 tilldelar den till variabeln `delta_time`.
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:deltatime}}
+{{#include ../../my-game/examples/smooth-movement.rs:deltatime}}
 ```
 
 ### Ändra förflyttningen
@@ -35,7 +35,7 @@ multiplikation av värdena för `MOVEMENT_SPEED` och `delta_time` för att få h
 långt cirkeln ska förflyttas under denna bildruta.
 
 ```rust [hl,2,5,8,11]
-{{#include ../../mitt-spel/examples/smooth-movement.rs:movement}}
+{{#include ../../my-game/examples/smooth-movement.rs:movement}}
 ```
 
 ### Begränsa förflyttningen
@@ -44,7 +44,7 @@ Slutligen vill vi också att cirkeln aldrig ska hamna utanför fönstret, därf�
 begränsar vi variablerna `x` och `y`.
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:clamp}}
+{{#include ../../my-game/examples/smooth-movement.rs:clamp}}
 ```
 
 ```admonish info
@@ -65,7 +65,7 @@ förflyttningen begränsas?
 Nu ser vårt program ut så här:
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:all}}
+{{#include ../../my-game/examples/smooth-movement.rs:all}}
 ```
 </div>
 

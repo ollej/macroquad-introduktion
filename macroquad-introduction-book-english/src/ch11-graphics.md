@@ -50,19 +50,19 @@ are included when publishing.
 The `assets` directory needs to be created:
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-mkdir}}
+{{#include ../../my-game/examples/deploy-with-assets.yml:assets-mkdir}}
 ```
 
 The asset files need to be copied into the `assets` directory:
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-cp}}
+{{#include ../../my-game/examples/deploy-with-assets.yml:assets-cp}}
 ```
 
 The complete deploy configuration should now look like this:
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-with-assets.yml:all}}
+{{#include ../../my-game/examples/deploy-with-assets.yml:all}}
 ```
 
 Commit your changes and push to GitHub and verify that the game still works

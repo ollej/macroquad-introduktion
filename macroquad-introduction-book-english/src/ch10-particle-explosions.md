@@ -27,7 +27,7 @@ The following line will be added to the `Cargo.toml` file under the heading
 
 ```toml [hl,10]
 [package]
-name = "mitt-spel"
+name = "my-game"
 version = "0.1.0"
 edition = "2021"
 
@@ -51,7 +51,7 @@ At the top of `main.rs` we need to import the things we use from the
 `macroquad_particles` module.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:import}}
+{{#include ../../my-game/examples/particle-explosions.rs:import}}
 ```
 
 ### Particle configuration
@@ -62,7 +62,7 @@ the size based on the sizes of the squares. Create a function that returns an
 point from where particles can be generated.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:particleconfig}}
+{{#include ../../my-game/examples/particle-explosions.rs:particleconfig}}
 ```
 
 ```admonish info
@@ -77,13 +77,13 @@ We need another vector to keep track of all the explosions. It includes a
 tuple with an `Emitter` and the coordinate it should be drawn at.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:explosions}}
+{{#include ../../my-game/examples/particle-explosions.rs:explosions}}
 ```
 
 When we start a new game we need to clear the vector of explosions.
 
 ```rust [hl,4]
-{{#include ../../mitt-spel/examples/particle-explosions.rs:clearexplosions}}
+{{#include ../../my-game/examples/particle-explosions.rs:clearexplosions}}
 ```
 
 ### Create an explosion
@@ -95,7 +95,7 @@ the particles will be generated at should be the same as the coordinates of
 the square.
 
 ```rust [hl,8-14]
-{{#include ../../mitt-spel/examples/particle-explosions.rs:addexplosion}}
+{{#include ../../my-game/examples/particle-explosions.rs:addexplosion}}
 ```
 
 ### Removing explosions
@@ -105,7 +105,7 @@ from the `explosions` vector so that we'll stop trying to draw it. Add the
 following code below the code that removes squares and bullets.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:removeexplosions}}
+{{#include ../../my-game/examples/particle-explosions.rs:removeexplosions}}
 ```
 
 ### Drawing explosions
@@ -116,7 +116,7 @@ generated at, then the emitter will randomize and move all the particles by
 itself.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:drawexplosion}}
+{{#include ../../my-game/examples/particle-explosions.rs:drawexplosion}}
 ```
 
 It's time to try the game to see if there are particle explosions when the
@@ -136,7 +136,7 @@ back of the circle so it looks like a rocket exhaust.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:all}}
+{{#include ../../my-game/examples/particle-explosions.rs:all}}
 ```
 </details>
 </div>

@@ -25,7 +25,7 @@ library. Add this line directly below the line to import macroquad at the top
 of the file.
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:import}}
+{{#include ../../my-game/examples/points.rs:import}}
 ```
 
 ### New variables
@@ -39,7 +39,7 @@ contains something other than a number, the number `0` will be returned
 instead.
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:variables}}
+{{#include ../../my-game/examples/points.rs:variables}}
 ```
 
 ```admonish note
@@ -54,7 +54,7 @@ higher than the high score. If it is higher, we'll update the high score and
 store the new high score to the file `highscore.dat`.
 
 ```rust [hl,2-4]
-{{#include ../../mitt-spel/examples/points.rs:savepoints}}
+{{#include ../../my-game/examples/points.rs:savepoints}}
 ```
 
 ```admonish note
@@ -72,7 +72,7 @@ on the size of the square. After that we'll update the `high_score` if the
 current `score` is higher.
 
 ```rust [hl,4-5]
-{{#include ../../mitt-spel/examples/points.rs:points}}
+{{#include ../../my-game/examples/points.rs:points}}
 ```
 
 ### Resetting the score
@@ -80,7 +80,7 @@ current `score` is higher.
 When a new game is started we need to set the `score` variable to `0`.
 
 ```rust [hl,6]
-{{#include ../../mitt-spel/examples/points.rs:clearpoints}}
+{{#include ../../my-game/examples/points.rs:clearpoints}}
 ```
 
 ### Displaying scores
@@ -99,7 +99,7 @@ specific font or scaling the size of the text, we'll use `None` as the value
 for `font`, and `1.0` as `font_scale`. The `font_size` can be set to `25.0`.
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:drawpoints}}
+{{#include ../../my-game/examples/points.rs:drawpoints}}
 ```
 
 ```admonish info
@@ -123,7 +123,7 @@ reached a high score.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/points.rs:all}}
+{{#include ../../my-game/examples/points.rs:all}}
 ```
 </details>
 </div>

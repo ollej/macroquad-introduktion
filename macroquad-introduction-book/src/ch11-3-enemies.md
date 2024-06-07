@@ -19,7 +19,7 @@ konstiga ut eller flimrar så prova att ta bort detta anrop.
 Ladda in texturen `enemy-small.png` och sätt filter mode till `Nearest`.
 
 ```rust [hl,1-4]
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:loadresources}}
+{{#include ../../my-game/examples/graphics-enemies.rs:loadresources}}
 ```
 
 ### Skapa animering
@@ -32,7 +32,7 @@ texturen. Det är bara en animering med två bildrutor. Grafiken för fienden ä
 att inte orsaka blödning mellan rutorna när vi skalar texturen.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:sprite}}
+{{#include ../../my-game/examples/graphics-enemies.rs:sprite}}
 ```
 
 ### Uppdatera animering
@@ -41,7 +41,7 @@ att inte orsaka blödning mellan rutorna när vi skalar texturen.
 kulorna.
 
 ```rust [hl,3]
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:updatesprites}}
+{{#include ../../my-game/examples/graphics-enemies.rs:updatesprites}}
 ```
 
 ### Rita bildrutor för fiender
@@ -53,7 +53,7 @@ utgår vi från fiendens storlek när vi sätter `dest_size` och X- och
 Y-koordinater.
 
 ```rust [hl,1,3-13]
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:drawenemy}}
+{{#include ../../my-game/examples/graphics-enemies.rs:drawenemy}}
 ```
 
 Nu har vi bytt till grafik för alla element i spelet och det ser mer ut som
@@ -67,7 +67,7 @@ ett riktigt spel.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:all}}
+{{#include ../../my-game/examples/graphics-enemies.rs:all}}
 ```
 </details>
 </div>

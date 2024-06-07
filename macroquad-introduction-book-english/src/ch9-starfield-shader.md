@@ -33,7 +33,7 @@ use `_Time` directly in the fragment shader, but it would mean we would have
 to change it slightly.
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:shaders}}
+{{#include ../../my-game/examples/starfield-shader.rs:shaders}}
 ```
 
 ### Initialize the shader
@@ -53,7 +53,7 @@ contain the size of the window and `direction_modifier` is used to control the
 direction of the stars.
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:setupshader}}
+{{#include ../../my-game/examples/starfield-shader.rs:setupshader}}
 ```
 
 ```admonish info
@@ -77,7 +77,7 @@ restore the shader with the function `gl_use_default_material()` so that it
 won't be used when drawing the rest of the game.
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:drawshader}}
+{{#include ../../my-game/examples/starfield-shader.rs:drawshader}}
 ```
 
 ### Controlling the stars
@@ -88,7 +88,7 @@ the movement of the stars. Remember to multiply the value with `delta_time` so
 that the change is relative to framerate, just like when doing the movement.
 
  ```rust [hl,3,7]
-{{#include ../../mitt-spel/examples/starfield-shader.rs:shaderdir}}
+{{#include ../../my-game/examples/starfield-shader.rs:shaderdir}}
 ```
 
 ### Create the shader file
@@ -98,7 +98,7 @@ file with the name `starfield-shader.glsl` in the `src` directory and add the
 following code:
 
 ```glsl
-{{#include ../../mitt-spel/examples/starfield-shader.glsl}}
+{{#include ../../my-game/examples/starfield-shader.glsl}}
 ```
 
 ```admonish info
@@ -122,7 +122,7 @@ stars.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/starfield-shader.rs:all}}
+{{#include ../../my-game/examples/starfield-shader.rs:all}}
 ```
 </details>
 </div>

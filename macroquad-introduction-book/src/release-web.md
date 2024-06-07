@@ -32,11 +32,11 @@ Binärfilen som skapas kommer att placeras i katalogen
 Du måste kopiera binärfilen som skapades i steget ovan till roten av din
 crate, samma katalog som `assets`-katalogen ligger i.
 
-Om du har döpt din crate till något annat än "mitt-spel" så kommer namnet på
+Om du har döpt din crate till något annat än "my-game" så kommer namnet på
 WASM-filen vara samma som namnet på din crate, med filändelsen `.wasm`.
 
 ```sh
-cp target/wasm32-unknown-unknown/release/mitt-spel.wasm .
+cp target/wasm32-unknown-unknown/release/my-game.wasm .
 ```
 
 ## Skapa en webbsida
@@ -45,7 +45,7 @@ Det behövs en HTML-sida för att ladda in WASM-binären. Den behöver ladda in 
 javascript-fil från Macroquad som innehåller kod för att WASM-binären ska
 kunna kommunicera med webbläsaren. Det behövs även en `canvas`-tagg som
 Macroquad använder för att rita ut grafiken. Kom ihåg att byta ut namnet på
-binärfilen i `load`-anropet från `mitt-spel.wasm` till det du döpt ditt spel
+binärfilen i `load`-anropet från `my-game.wasm` till det du döpt ditt spel
 till. Det kommer vara samma som namnet på din crate.
 
 Skapa en fil med namnet `index.html` i roten på din crate med följande
@@ -53,10 +53,10 @@ innehåll:
 
 ```html
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Mitt Spel</title>
+    <title>My Game</title>
     <style>
         html,
         body,
@@ -76,7 +76,7 @@ innehåll:
     <canvas id="glcanvas" tabindex='1'></canvas>
     <!-- Minified and statically hosted version of https://github.com/not-fl3/macroquad/blob/master/js/mq_js_bundle.js -->
     <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
-    <script>load("mitt-spel.wasm");</script> <!-- Din kompilerade WASM-binär -->
+    <script>load("my-game.wasm");</script> <!-- Your compiled WASM binary -->
 </body>
 </html>
 ```
@@ -114,7 +114,7 @@ kan spela ditt spel. Du behöver lägga upp html-filen, WASM-filen och katalogen
 
 ```
 index.html
-mitt-spel.wasm
+my-game.wasm
 assets/*
 ```
 

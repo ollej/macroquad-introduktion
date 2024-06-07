@@ -26,7 +26,7 @@ Följande rad kommer att läggas till i filen `Cargo.toml` under rubriken
 
 ```toml [hl,10]
 [package]
-name = "mitt-spel"
+name = "my-game"
 version = "0.1.0"
 edition = "2021"
 
@@ -52,7 +52,7 @@ tills detta är åtgärdat.
 `macroquad_particles`.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:import}}
+{{#include ../../my-game/examples/particle-explosions.rs:import}}
 ```
 
 ### Partikelkonfiguration
@@ -63,7 +63,7 @@ som returnerar en `EmitterConfig` som kan användas för att skapa en `Emitter`.
 En `Emitter` är en punkt utifrån partiklar kan genereras.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:particleconfig}}
+{{#include ../../my-game/examples/particle-explosions.rs:particleconfig}}
 ```
 
 ```admonish info
@@ -78,13 +78,13 @@ Vi behöver en vektor för att hålla reda på alla explosioner som inträffar. 
 innehåller en tuple med en Emitter och koordinaten som den ska ritas ut på.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:explosions}}
+{{#include ../../my-game/examples/particle-explosions.rs:explosions}}
 ```
 
 När vi startar ett nytt spel behöver vi rensa vektorn med explosioner.
 
 ```rust [hl,4]
-{{#include ../../mitt-spel/examples/particle-explosions.rs:clearexplosions}}
+{{#include ../../my-game/examples/particle-explosions.rs:clearexplosions}}
 ```
 
 ### Skapa en explosion
@@ -95,7 +95,7 @@ partiklar som ska genereras baseras på fyrkantens storlek. Koordinaten som
 partiklarna ska genereras ifrån sätts till samma som fyrkantens koordinater.
 
 ```rust [hl,8-14]
-{{#include ../../mitt-spel/examples/particle-explosions.rs:addexplosion}}
+{{#include ../../my-game/examples/particle-explosions.rs:addexplosion}}
 ```
 
 ### Ta bort explosioner
@@ -105,7 +105,7 @@ vektorn `explosions` då vi inte ska rita ut den längre. Lägg till denna kod
 efter fyrkanterna och kulorna har tagits bort.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:removeexplosions}}
+{{#include ../../my-game/examples/particle-explosions.rs:removeexplosions}}
 ```
 
 ### Rita ut explosioner
@@ -116,7 +116,7 @@ genereras på, sedan hanterar emittern själv att slumpa fram alla partiklarna
 och flytta på dem.
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:drawexplosion}}
+{{#include ../../my-game/examples/particle-explosions.rs:drawexplosion}}
 ```
 
 Prova spelet och se om det blir explosioner när fyrkanterna beskjuts.
@@ -135,7 +135,7 @@ från cirkeln så att det ser ut som en raketflamma.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/particle-explosions.rs:all}}
+{{#include ../../my-game/examples/particle-explosions.rs:all}}
 ```
 </details>
 </div>

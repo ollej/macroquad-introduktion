@@ -16,7 +16,7 @@ importera stödet för det explicit längst upp i källkodsfilen. Det är
 structarna `AnimatedSprite` och `Animation` vi kommer använda oss av.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:import}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:import}}
 ```
 
 ### Konfigurera assets-katalog
@@ -29,7 +29,7 @@ ange katalogen för varje fil som ska laddas in. Lägg in nedanstående kod i
 `main`-funktionen innan loopen. 
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:assetsfolder}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:assetsfolder}}
 ```
 
 ### Ladda in texturer
@@ -51,7 +51,7 @@ Vi laddar in filerna `ship.png` som innehåller animeringarna för skeppet, och
 `laser-bolts.png` som innehåller animeringar för två olika sorts kulor.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:loadresources}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:loadresources}}
 ```
 
 ```admonish info
@@ -71,7 +71,7 @@ från atlasen istället för varje separat textur. Alla texturer bör laddas in
 innan detta anrop.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:atlas}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:atlas}}
 ```
 
 ### Animering av rymdskeppet
@@ -99,7 +99,7 @@ Avslutningsvis sätter vi `playing` till `true` för att vi vill att animeringen
 ska vara aktiv.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:shipsprite}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:shipsprite}}
 ```
 
 ### Animering av kulor
@@ -113,7 +113,7 @@ oss av metoden `set_animation()` för att sätta att det är animeringen på rad
 `1` som ska användas.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:bulletsprite}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:bulletsprite}}
 ```
 
 ### Animera riktning
@@ -126,7 +126,7 @@ om skeppet ska förflyttas åt höger sätter vi animeringen till `2` och om den
 förflyttas åt höger sätter vi `1`.
 
 ```rust [hl,1,5,10]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:updateship}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:updateship}}
 ```
 
 ### Ändra kulstorlek
@@ -135,7 +135,7 @@ Eftersom grafiken för kulorna är större än den lilla cirkeln vi ritade ut
 tidigare måste vi uppdatera storleken och startpositionen när vi skapar kulorna.
 
 ```rust [hl,4,6]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:shoot}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:shoot}}
 ```
 
 ### Uppdatera animeringar
@@ -145,7 +145,7 @@ För att Macroquad ska kunna animera texturerna åt oss måste vi anropa metoden
 rader nedanför koden som uppdaterar fienders och kulors position.
 
 ```rust [hl,8-9]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:updatesprites}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:updatesprites}}
 ```
 
 ### Rita kulornas bildrutor
@@ -166,7 +166,7 @@ med kulans storlek för både X och Y. Därefter anropar vi
 hämtas.
 
 ```rust [hl,1,3-12]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:drawbullets}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:drawbullets}}
 ```
 
 ```admonish info
@@ -187,7 +187,7 @@ av `ship_frame.dest_size` för att få ut storleken den ska ritas ut i. Men för
 att det inte ska bli så smått ritar vi ut den med dubbla storleken.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:drawship}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:drawship}}
 ```
 
 Om allt fungerar som det ska så ska det nu vara grafik för både skeppet och
@@ -207,7 +207,7 @@ tid.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:all}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:all}}
 ```
 </details>
 </div>

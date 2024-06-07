@@ -15,7 +15,7 @@ can name `Shape`, which will contain the size and speed, as well as `x` and `y`
 coordinates.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:shape}}
+{{#include ../../my-game/examples/falling-squares.rs:shape}}
 ```
 
 ### Initialize random number generator
@@ -28,7 +28,7 @@ function using the `rand::srand()` method, to which we pass the current time
 as the seed.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:srand}}
+{{#include ../../my-game/examples/falling-squares.rs:srand}}
 ```
 
 ```admonish note
@@ -46,7 +46,7 @@ uses the constant `MOVEMENT_SPEED`, and the `x` and `y` fields are set to the
 center of the screen.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:variables}}
+{{#include ../../my-game/examples/falling-squares.rs:variables}}
 ```
 
 Start by modifying the program so that `circle` is used instead of the
@@ -68,7 +68,7 @@ variation, we also use `rand::gen_range()` to get different size, speed, and
 starting position of every square.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:generatesquare}}
+{{#include ../../my-game/examples/falling-squares.rs:generatesquare}}
 ```
 
 ```admonish note
@@ -85,7 +85,7 @@ Y position using the square's speed and the variable `delta_time`. This will
 make the squares move downwards across the screen.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:movesquares}}
+{{#include ../../my-game/examples/falling-squares.rs:movesquares}}
 ```
 
 ### Remove invisible squares
@@ -97,7 +97,7 @@ whether elements should be kept. We'll check if the square's `y` value is still
 less than the height of the window plus the size of the square.
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:removesquares}}
+{{#include ../../my-game/examples/falling-squares.rs:removesquares}}
 ```
 
 ### Draw the squares
@@ -120,7 +120,7 @@ instead of a color. In addition to setting color, it can be used to set
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:drawsquares}}
+{{#include ../../my-game/examples/falling-squares.rs:drawsquares}}
 ```
 
 ```admonish tip title="Challenge" class="challenge"
@@ -138,7 +138,7 @@ which returns a random element from the vector.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/falling-squares.rs:all}}
+{{#include ../../my-game/examples/falling-squares.rs:all}}
 ```
 </details>
 </div>

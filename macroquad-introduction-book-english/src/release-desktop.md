@@ -148,21 +148,21 @@ några exempel på hur det kan göras från ett terminalfönster.
 ### Windows
 
 ```sh
-cp target/x86_64-pc-windows-gnu/release/mitt-spel.exe ./
-tar -c -a -f mitt-spel-win.zip mitt-spel.exe assets/*
+cp target/x86_64-pc-windows-gnu/release/my-game.exe ./
+tar -c -a -f my-game-win.zip my-game.exe assets/*
 ```
 
 ### Linux
 
 ```sh
-cp target/x86_64-pc-linux-gnu/release/mitt-spel ./
-tar -zcf mitt-spel-linux.zip mitt-spel assets/*
+cp target/x86_64-pc-linux-gnu/release/my-game ./
+tar -zcf my-game-linux.zip my-game assets/*
 ```
 
 ### Mac
 
 ```sh
-cp target/aarch64-apple-darwin/release/mitt-spel ./
-zip -r mitt-spel-mac.zip mitt-spel assets/*
+cp target/aarch64-apple-darwin/release/my-game ./
+zip -r my-game-mac.zip my-game assets/*
 ```
 

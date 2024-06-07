@@ -15,7 +15,7 @@ och signerar appen.
 En iOS-applikation är en vanlig katalog/mapp med filändelse `.app`.
 
 ```sh
-mkdir MittSpel.app
+mkdir MyGame.app
 ```
 
 För vårt spel är filstrukturen i `.app`-mappen samma som när vi kör
@@ -26,7 +26,7 @@ spelet med `cargo run` från roten av craten. Det vill säga, binärfilen och
 Börja med att lägga `assets` på plats:
 
 ```sh
-cp -r assets MittSpel.app 
+cp -r assets MyGame.app 
 ```
 
 ## Bygg binärfilen
@@ -53,13 +53,13 @@ cargo build --release --target x86_64-apple-ios
 Kopiera in den exekverbara binärfil som byggdes ovan till spelets mapp.
 
 ```sh
-cp target/x86_64-apple-ios/release/mitt-spel MittSpel.app
+cp target/x86_64-apple-ios/release/my-game MyGame.app
 ```
 
 ## Skapa Info.plist
 
 Skapa en textfil för appens metadata med namnet `Info.plist` i
-`MittSpel.app`-mappen med följande innehåll:
+`MyGame.app`-mappen med följande innehåll:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -67,11 +67,11 @@ Skapa en textfil för appens metadata med namnet `Info.plist` i
 <plist version="1.0">
 <dict>
 <key>CFBundleExecutable</key>
-<string>mitt-spel</string>
+<string>my-game</string>
 <key>CFBundleIdentifier</key>
-<string>com.mittspel</string>
+<string>com.mygame</string>
 <key>CFBundleName</key>
-<string>mittspel</string>
+<string>mygame</string>
 <key>CFBundleVersion</key>
 <string>1</string>
 <key>CFBundleShortVersionString</key>
@@ -116,22 +116,22 @@ open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
 
 ## Installera spelet
 
-Du kan installera spelet genom att dra mappen `MittSpel.app` och släppa den
+Du kan installera spelet genom att dra mappen `MyGame.app` och släppa den
 i den startade simulatorn. Men eftersom du antagligen kommer vilja
 installera om ofta är det effektivare att använda kommandoraden för detta:
 
 ```sh
-xcrun simctl install booted MittSpel.app/
+xcrun simctl install booted MyGame.app/
 ```
 
 ## Starta spelet
 
 Även detta kan du göra i den startade simulatorn eller via kommandoraden.
 I vår `Info.plist` specificerade vi `CFBundleIdentifier` som
-`com.mittspel`.
+`com.mygame`.
 
 ```sh
-xcrun simctl launch booted com.mittspel
+xcrun simctl launch booted com.mygame
 ```
 
 ```admonish note

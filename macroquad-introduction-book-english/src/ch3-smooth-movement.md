@@ -17,7 +17,7 @@ value `200.0`. If the circle moves too fast or too slow, we can decrease or
 increase this value.
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:constant}}
+{{#include ../../my-game/examples/smooth-movement.rs:constant}}
 ```
 
 ### Time between frames
@@ -27,7 +27,7 @@ that has passed since the last frame. We assign this value to a variable
 called `delta_time` that we will use later.
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:deltatime}}
+{{#include ../../my-game/examples/smooth-movement.rs:deltatime}}
 ```
 
 ### Ändra förflyttningen
@@ -37,7 +37,7 @@ the constant `MOVEMENT_SPEED` and the variable `delta_time` to get how far the
 circle should move during this frame.
 
 ```rust [hl,2,5,8,11]
-{{#include ../../mitt-spel/examples/smooth-movement.rs:movement}}
+{{#include ../../my-game/examples/smooth-movement.rs:movement}}
 ```
 
 ### Limit movement
@@ -47,7 +47,7 @@ We use the Macroquad function `clamp()` to make sure `x` and `y` are never
 below `0` or above the width of the window.
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:clamp}}
+{{#include ../../my-game/examples/smooth-movement.rs:clamp}}
 ```
 
 ```admonish info
@@ -71,7 +71,7 @@ window when the position is clamped?
 The code should now look like this:
 
 ```rust
-{{#include ../../mitt-spel/examples/smooth-movement.rs:all}}
+{{#include ../../my-game/examples/smooth-movement.rs:all}}
 ```
 </div>
 

@@ -14,7 +14,7 @@ To keep track of which squares have been hit by bullets we add the field
 `collided` of the type `bool` to the struct `Shape`.
 
 ```rust [hl,6]
-{{#include ../../mitt-spel/examples/shooting.rs:shape}}
+{{#include ../../my-game/examples/shooting.rs:shape}}
 ```
 
 ### Keeping track
@@ -26,7 +26,7 @@ it is before we have added anything to it. We'll use the struct `Shape` for
 the bullets as well. 
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:bullets}}
+{{#include ../../my-game/examples/shooting.rs:bullets}}
 ```
 
 ### Shooting bullets
@@ -37,7 +37,7 @@ coordinates of the bullet is set to the same as that of the circle, and the
 speed is set to twice that of the circle.
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:shoot}}
+{{#include ../../my-game/examples/shooting.rs:shoot}}
 ```
 
 ```admonish notes
@@ -49,7 +49,7 @@ Since we added a new field to the `Shape` struct we'll need to set it when we
 create a square.
 
 ```rust [hl,6]
-{{#include ../../mitt-spel/examples/shooting.rs:squarecollided}}
+{{#include ../../my-game/examples/shooting.rs:squarecollided}}
 ```
 
 ### Moving bullets
@@ -59,7 +59,7 @@ the `bullets` vector and move them in the `y` direction. Add the following
 code after the code that moves the squars.
 
 ```rust [hl,4-6]
-{{#include ../../mitt-spel/examples/shooting.rs:movebullets}}
+{{#include ../../my-game/examples/shooting.rs:movebullets}}
 ```
 
 ### Removing bullets and squares
@@ -68,7 +68,7 @@ Make sure to remove the bullets that have gone outside of the screen in the
 same way that the squares are removed.
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:removebullets}}
+{{#include ../../my-game/examples/shooting.rs:removebullets}}
 ```
 
 Now it is time to remove all the squares and bullets that have collided. It
@@ -78,7 +78,7 @@ whether the `collided` field on the struct is false. Do the same thing for
 both the `squares` and the `bullets` vectors.
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:removecollided}}
+{{#include ../../my-game/examples/shooting.rs:removecollided}}
 ```
 
 ### Collision
@@ -89,7 +89,7 @@ check if any of the squares have been hit by a bullet. We'll set the field
 removed.
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:collided}}
+{{#include ../../my-game/examples/shooting.rs:collided}}
 ```
 
 ### Clearing bullets
@@ -98,7 +98,7 @@ If the game is over we also have to clear the `bullets` vector so that all the
 bullets are removed when a new game is started.
 
 ```rust [hl,3]
-{{#include ../../mitt-spel/examples/shooting.rs:clearbullets}}
+{{#include ../../my-game/examples/shooting.rs:clearbullets}}
 ```
 
 ### Drawing bullets
@@ -107,7 +107,7 @@ Before the cirkeln is drawn we'll draw all the bullets. This ensures that they
 are drawn behind all the other shapes.
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:drawbullets}}
+{{#include ../../my-game/examples/shooting.rs:drawbullets}}
 ```
 
 ```admonish info
@@ -138,7 +138,7 @@ screen at the same time.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/shooting.rs:all}}
+{{#include ../../my-game/examples/shooting.rs:all}}
 ```
 </details>
 </div>

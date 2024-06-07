@@ -27,7 +27,7 @@ Det första vi ska göra är att importera `coroutines::start_coroutine` och
 `collections::storage` från Macroquads experimentella namespace.
 
 ```rust
-{{#include ../../mitt-spel/examples/coroutines-and-storage.rs:import}}
+{{#include ../../my-game/examples/coroutines-and-storage.rs:import}}
 ```
 
 ### Skapa ny load-metod
@@ -51,7 +51,7 @@ också använda `clear_background()` och `next_frame.await` i loopen för att
 uppdateringen ska fungera rätt.
 
 ```rust
-{{#include ../../mitt-spel/examples/coroutines-and-storage.rs:load}}
+{{#include ../../my-game/examples/coroutines-and-storage.rs:load}}
 ```
 
 ```admonish info
@@ -70,7 +70,7 @@ sparar resurserna i Macroquads storage så använder vi `storage::get::<Resource
 för att hämta resurserna och tilldela till variabeln `resources`.
 
 ```rust [hl,2-3]
-{{#include ../../mitt-spel/examples/coroutines-and-storage.rs:loadresources}}
+{{#include ../../my-game/examples/coroutines-and-storage.rs:loadresources}}
 ```
 
 ## Prova spelet
@@ -87,7 +87,7 @@ inte hinner synas när filerna läses direkt från disk.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/coroutines-and-storage.rs:all}}
+{{#include ../../my-game/examples/coroutines-and-storage.rs:all}}
 ```
 </details>
 </div>

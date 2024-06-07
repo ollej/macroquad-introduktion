@@ -15,7 +15,7 @@ window, and stored in the variables `x` and `y`. These variables will be used
 to decide where to draw the circle on the screen.
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:coordinates}}
+{{#include ../../my-game/examples/move-a-circle.rs:coordinates}}
 ```
 
 ### Handle keyboard input
@@ -30,7 +30,7 @@ pressed during the current frame. The argument is of the enum `KeyCode` that
 contains all keys available on the keyboad.
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:movement}}
+{{#include ../../my-game/examples/move-a-circle.rs:movement}}
 ```
 
 ```admonish info
@@ -44,7 +44,7 @@ Finally we will draw a circle on the screen at the coordinates in `x` and `y`.
 The circle has a radius of 16 and will be drawn with a yellow color.
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
+{{#include ../../my-game/examples/move-a-circle.rs:draw}}
 ```
 
 ```admonish info
@@ -71,7 +71,7 @@ circle will move.
 The source of `main.rs` should look like this:
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:all}}
+{{#include ../../my-game/examples/move-a-circle.rs:all}}
 ```
 
 When you run the game there will be a yellow circle drawn in the middle of the

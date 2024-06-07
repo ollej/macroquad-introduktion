@@ -17,7 +17,7 @@ one for "Quit". The UI will be built using different kinds of widgets such as
 To begin with we need to import what we need from the `ui` module.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:import}}
+{{#include ../../my-game/examples/menu-ui.rs:import}}
 ```
 
 ### Load resources
@@ -33,7 +33,7 @@ the files needed to display the main menu we can just exit the program
 immediately.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:loadresources}}
+{{#include ../../my-game/examples/menu-ui.rs:loadresources}}
 ```
 
 ### Create a skin
@@ -62,7 +62,7 @@ The method `margin()` is used to set margins for the content. These values can
 be negative to draw content on the borders of the window.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:windowstyle}}
+{{#include ../../my-game/examples/menu-ui.rs:windowstyle}}
 ```
 
 ```admonish info
@@ -82,7 +82,7 @@ the image to cover the text inside the button. The look of the text is defined
 using the methods `font()`, `text_color()`, and `font_size()`.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:buttonstyle}}
+{{#include ../../my-game/examples/menu-ui.rs:buttonstyle}}
 ```
 
 #### Text look
@@ -91,7 +91,7 @@ Normal text displayed in the interface uses `label_style`. We will use the
 same font as for the buttons, but with a slightly smaller font size.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:labelstyle}}
+{{#include ../../my-game/examples/menu-ui.rs:labelstyle}}
 ```
 
 #### Define a Skin
@@ -107,7 +107,7 @@ but to change between different looks between windows, it's possible to use
 We will also set the variable `window_size` to define with size of the window.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:uiskin}}
+{{#include ../../my-game/examples/menu-ui.rs:uiskin}}
 ```
 
 ```admonish info
@@ -154,7 +154,7 @@ set the `GameState::Playing` to start a new game.
 Then we can create a button with the text "Quit" to exit the game.
 
 ```rust [hl,2-11,19-20,22-24]
-{{#include ../../mitt-spel/examples/menu-ui.rs:menu}}
+{{#include ../../my-game/examples/menu-ui.rs:menu}}
 ```
 
 ```admonish info
@@ -176,7 +176,7 @@ choose to start a game or quit the program.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:all}}
+{{#include ../../my-game/examples/menu-ui.rs:all}}
 ```
 </details>
 </div>

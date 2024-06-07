@@ -29,7 +29,7 @@ Det finns många hjälpmetoder på `Rect` för göra beräkningar på rektanglar
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:implshape}}
+{{#include ../../my-game/examples/collision.rs:implshape}}
 ```
 
 ```admonish note title="Notera"
@@ -43,7 +43,7 @@ Vi behöver en ny boolesk variabel `gameover` som håller reda på om spelaren
 har dött som vi lägger in före huvudloopen.
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:variable}}
+{{#include ../../my-game/examples/collision.rs:variable}}
 ```
 
 För att cirkeln och fyrkanterna inte ska röra sig medan det är game over så
@@ -63,7 +63,7 @@ kolliderar med cirkeln. Vi använder metoden `any()` på iteratorn för vektorn
 det har skett en kollision sätter vi variabeln `gameover` till `true`.
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:collision}}
+{{#include ../../my-game/examples/collision.rs:collision}}
 ```
 
 ```admonish tip title="Utmaning" class="challenge"
@@ -79,7 +79,7 @@ mellanslagstangenten så tömmer vi vektorn `squares` med metoden `clear()` och
 sätter vi variabeln `gameover` till `false` så att spelet kan börja igen.
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:gameover}}
+{{#include ../../my-game/examples/collision.rs:gameover}}
 ```
 
 ```admonish info
@@ -107,7 +107,7 @@ istället för `font_size` och `color`. Med den kan man ange fler parameterar so
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:drawgameover}}
+{{#include ../../my-game/examples/collision.rs:drawgameover}}
 ```
 
 ```admonish tip title="Utmaning" class="challenge"
@@ -126,7 +126,7 @@ kan ge tips till hur det fungerar.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/collision.rs:all}}
+{{#include ../../my-game/examples/collision.rs:all}}
 ```
 </details>
 </div>

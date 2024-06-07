@@ -19,7 +19,7 @@ button, editbox och combobox.
 Till att börja med måste vi importera det vi behöver från `ui`-modulen.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:import}}
+{{#include ../../my-game/examples/menu-ui.rs:import}}
 ```
 
 ### Ladda in resurser
@@ -35,7 +35,7 @@ in asynkront och kan returnera fel, därför använder vi oss av `await` och
 kan vi avsluta programmet direkt.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:loadresources}}
+{{#include ../../my-game/examples/menu-ui.rs:loadresources}}
 ```
 
 ### Skapa ett Skin
@@ -64,7 +64,7 @@ Med metoden `margin()` sätts marginaler för innehållet. Dessa värden kan var
 negativa för att rita ut innehåll på fönstrets bårder.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:windowstyle}}
+{{#include ../../my-game/examples/menu-ui.rs:windowstyle}}
 ```
 
 ```admonish info
@@ -84,7 +84,7 @@ bilden över hela textinnehållet. Utseendet på texten sätter vi med `font()`,
 `text_color()` och `font_size()`.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:buttonstyle}}
+{{#include ../../my-game/examples/menu-ui.rs:buttonstyle}}
 ```
 
 #### Utseende på text
@@ -93,7 +93,7 @@ Vanlig text som ska presenteras i gränssnittet använder `label_style`. Vi
 använder samma font som för knappar, men med en lite mindre storlek.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:labelstyle}}
+{{#include ../../my-game/examples/menu-ui.rs:labelstyle}}
 ```
 
 #### Definiera ett Skin
@@ -111,7 +111,7 @@ Vi sätter också variabeln `window_size` som kommer användas för sätta
 fönstrets storlek.
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:uiskin}}
+{{#include ../../my-game/examples/menu-ui.rs:uiskin}}
 ```
 
 ```admonish info
@@ -158,7 +158,7 @@ Till sist skapar vi knappen "Quit" som avslutar programmet om spelaren
 klickar på den.
 
 ```rust [hl,2-11,19-20,22-24]
-{{#include ../../mitt-spel/examples/menu-ui.rs:menu}}
+{{#include ../../my-game/examples/menu-ui.rs:menu}}
 ```
 
 ```admonish info
@@ -180,7 +180,7 @@ att starta ett spel eller avsluta programmet.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/menu-ui.rs:all}}
+{{#include ../../my-game/examples/menu-ui.rs:all}}
 ```
 </details>
 </div>

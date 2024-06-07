@@ -19,7 +19,7 @@ Vi börjar med att uppdatera importeringen från paketet `macroquad_particles`,
 och byta ut `ColorCurve` mot `AtlasConfig`.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:import}}
+{{#include ../../my-game/examples/graphics-explosion.rs:import}}
 ```
 
 ### Uppdatera partikelkonfigurationen
@@ -30,7 +30,7 @@ en textur istället för att använda `ColorCurve`. Vi uppdaterar även storleke
 och livstiden för att passa bättre med grafiken.
 
 ```rust [hl,10,12,14]
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:emitterconfig}}
+{{#include ../../my-game/examples/graphics-explosion.rs:emitterconfig}}
 ```
 
 ### Ladda in texturer
@@ -42,7 +42,7 @@ partiklarna. Filen med animeringen heter `explosion.png`. Glöm inte att sätta
 filtret till `FilterMode::Nearest`.
 
 ```rust [hl,1-4]
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:loadresources}}
+{{#include ../../my-game/examples/graphics-explosion.rs:loadresources}}
 ```
 
 ### Lägg till texturen
@@ -52,7 +52,7 @@ mängden för att få lite fler partiklar. Här måste vi anropa metoden `clone(
 på texturen, vilket går väldigt snabbt då det bara är en pekare till texturen.
 
 ```rust [hl,3-4]
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:explosiontexture}}
+{{#include ../../my-game/examples/graphics-explosion.rs:explosiontexture}}
 ```
 
 När du kör spelet nu ska explosionerna animeras med hjälp av
@@ -66,7 +66,7 @@ explosionstexturen istället för att vara flerfärgade rutor.
   <summary>Klicka för att visa hela källkoden</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-explosion.rs:all}}
+{{#include ../../my-game/examples/graphics-explosion.rs:all}}
 ```
 </details>
 </div>

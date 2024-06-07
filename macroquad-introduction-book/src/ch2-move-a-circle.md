@@ -13,7 +13,7 @@ delas med 2 för att få koordinaterna till mitten av skärmen, och tilldelas
 till variablerna `x` och `y`.
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:coordinates}}
+{{#include ../../my-game/examples/move-a-circle.rs:coordinates}}
 ```
 
 ### Hantera tangenbordsinput
@@ -26,7 +26,7 @@ nedtryckt. Dess argument är enumen `KeyCode` som innehåller alla tangenter som
 finns på ett tangentbord.
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:movement}}
+{{#include ../../my-game/examples/move-a-circle.rs:movement}}
 ```
 
 ```admonish info
@@ -40,7 +40,7 @@ Slutligen ritas cirkeln ut på de angivna koordinaterna med en radie på 16 och
 med gul färg på koordinaterna `x` och `y`.
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:draw}}
+{{#include ../../my-game/examples/move-a-circle.rs:draw}}
 ```
 
 ```admonish info
@@ -66,7 +66,7 @@ som cirkeln förflyttas.
 Hela källkoden i `main.rs` ska nu se ut så här:
 
 ```rust
-{{#include ../../mitt-spel/examples/move-a-circle.rs:all}}
+{{#include ../../my-game/examples/move-a-circle.rs:all}}
 ```
 
 När du kör programmet så kommer det visas en gul cirkel i mitten av skärmen.

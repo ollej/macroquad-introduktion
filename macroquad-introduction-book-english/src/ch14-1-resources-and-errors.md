@@ -16,7 +16,7 @@ innehålla alla filer vi laddar in från filsystemet. Lägg in den ovanför
 `main`-funktionen. Structen har ett fält för varje resurs vi laddar in.
 
 ```rust
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:struct}}
+{{#include ../../my-game/examples/resources-and-errors.rs:struct}}
 ```
 
 ### Resources impl
@@ -43,7 +43,7 @@ för macroquad::Error](https://docs.rs/macroquad/latest/macroquad/enum.Error.htm
 ```
 
 ```rust
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:impl}}
+{{#include ../../my-game/examples/resources-and-errors.rs:impl}}
 ```
 
 ### Returnera fel
@@ -62,7 +62,7 @@ Om det sista uttrycket i en funktion avslutas med ett semikolon `;` så slängs
 dess returvärde bort och `()` returneras istället.
 
 ```rust [hl,2]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:main}}
+{{#include ../../my-game/examples/resources-and-errors.rs:main}}
 ```
 
 ```admonish info
@@ -78,7 +78,7 @@ Vid inladdningen av materialet för shadern använde vi tidigare metoden
 istället. Ändringen sker på sista raden i kodexemplet.
 
 ```rust [hl,13]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:material}}
+{{#include ../../my-game/examples/resources-and-errors.rs:material}}
 ```
 
 ### Ladda resurser
@@ -93,7 +93,7 @@ Notera att den använder sig av `await` metoden som kör `new`-metoden som är
 vi får ett fel.
 
 ```rust [hl,2]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:loadresources}}
+{{#include ../../my-game/examples/resources-and-errors.rs:loadresources}}
 ```
 
 ### Uppdatera resursanvändningar
@@ -106,7 +106,7 @@ framför alla resursnamn.
 #### Spelmusik
 
 ```rust [hl,2]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:theme}}
+{{#include ../../my-game/examples/resources-and-errors.rs:theme}}
 ```
 
 #### Gränssnittet
@@ -116,7 +116,7 @@ det med att sätta det som aktivt skin med `root_ui().push_skin()`. Här kan vi
 alltså ta bort alla rader som bygger upp utseendet med en enda rad.
 
 ```rust [hl,1]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:ui}}
+{{#include ../../my-game/examples/resources-and-errors.rs:ui}}
 ```
 
 #### Laserljud
@@ -124,7 +124,7 @@ alltså ta bort alla rader som bygger upp utseendet med en enda rad.
 Laserljudet behöver använda `resources`-structen.
 
 ```rust [hl,9]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:sound_laser}}
+{{#include ../../my-game/examples/resources-and-errors.rs:sound_laser}}
 ```
 
 #### Explosioner
@@ -133,7 +133,7 @@ För explosionerna måste vi uppdatera referensen till både texturen och
 explosionsljudet.
 
 ```rust [hl,4,9]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:sound_explosion}}
+{{#include ../../my-game/examples/resources-and-errors.rs:sound_explosion}}
 ```
 
 #### Kulor
@@ -141,7 +141,7 @@ explosionsljudet.
 Uppdatera utritningen av kulorna till att använda texturen från `resources`.
 
 ```rust [hl,3]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:bullet_texture}}
+{{#include ../../my-game/examples/resources-and-errors.rs:bullet_texture}}
 ```
 
 #### Skeppet
@@ -149,7 +149,7 @@ Uppdatera utritningen av kulorna till att använda texturen från `resources`.
 Skeppet behöver också använda texturen från `resources`.
 
 ```rust [hl,3]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:ship_texture}}
+{{#include ../../my-game/examples/resources-and-errors.rs:ship_texture}}
 ```
 
 #### Fiender
@@ -157,7 +157,7 @@ Skeppet behöver också använda texturen från `resources`.
 När fiendera ritas ut behöver `resources` läggas till i referensen av texturen.
 
 ```rust [hl,3]
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:enemy_small_texture}}
+{{#include ../../my-game/examples/resources-and-errors.rs:enemy_small_texture}}
 ```
 
 Det ska vara allt som behöver ändras den här gången. Vi har nu skapat en
@@ -187,7 +187,7 @@ Ibland kan cargo-beroenden hamna ur synk och för vissa användare har det märk
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/resources-and-errors.rs:all}}
+{{#include ../../my-game/examples/resources-and-errors.rs:all}}
 ```
 </details>
 </div>

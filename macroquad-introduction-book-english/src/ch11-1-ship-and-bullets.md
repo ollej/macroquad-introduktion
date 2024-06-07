@@ -19,7 +19,7 @@ Import the structs `AnimatedSprite` and `Animation` at the top of `main.rs`
 file.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:import}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:import}}
 ```
 
 ### Configure assets directory
@@ -33,7 +33,7 @@ benefit of not having to add the directory name for every file we load.
 Add the following code in the `main` function above the game loop:
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:assetsfolder}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:assetsfolder}}
 ```
 
 ### Load textures
@@ -60,7 +60,7 @@ spaceship, and `laser-bolts.png` that contains animations for two different
 kinds of bullets.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:loadresources}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:loadresources}}
 ```
 
 ```admonish info
@@ -81,7 +81,7 @@ texture which is much more efficient. All textures needs to be loaded before
 this function is called.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:atlas}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:atlas}}
 ```
 
 ### Spaceship animation
@@ -108,7 +108,7 @@ is shown slightly less angled.
 Finally we set `playing` to `true` so that the animation will be active.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:shipsprite}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:shipsprite}}
 ```
 
 ### Bullet animation
@@ -121,7 +121,7 @@ each that should be shown at 12 frames per second. The size of the frames are
 `set_animation()` to define that we will be using the animation on row `1`.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:bulletsprite}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:bulletsprite}}
 ```
 
 ### Animate direction
@@ -134,7 +134,7 @@ right we'll set the animation to `2`, and if it moves to the left we'll set
 the animation to `1`.
 
 ```rust [hl,1,5,10]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:updateship}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:updateship}}
 ```
 
 ### Change bullet size
@@ -143,7 +143,7 @@ Since the graphics for the bullets is larger than the tiny circle we used to
 draw we need to change the size and starting position when creating a bullet.
 
 ```rust [hl,4,6]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:shoot}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:shoot}}
 ```
 
 ### Update animations
@@ -153,7 +153,7 @@ In order for Macroquad to animate the textures we need to call the method
 below the code that updates the positions of enemies and bullets.
 
 ```rust [hl,8-9]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:updatesprites}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:updatesprites}}
 ```
 
 ### Draw bullet animations
@@ -173,7 +173,7 @@ and `y` position based on the size of the bullet. We also add the struct
 current frame is placed.
 
 ```rust [hl,1,3-12]
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:drawbullets}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:drawbullets}}
 ```
 
 ```admonish info
@@ -195,7 +195,7 @@ use `ship_frame.dest_size` to get the size to draw. To make it a bit bigger
 we'll double the size.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:drawship}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:drawship}}
 ```
 
 If everything works correctly there should be animated graphics for both the
@@ -215,7 +215,7 @@ short amount of time.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-spaceship.rs:all}}
+{{#include ../../my-game/examples/graphics-spaceship.rs:all}}
 ```
 </details>
 </div>

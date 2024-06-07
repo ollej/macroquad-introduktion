@@ -15,7 +15,7 @@ Load the texutre `enemy-small.png` and set the filter mode to
 `FilterMode::Nearest`.
 
 ```rust [hl,1-4]
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:loadresources}}
+{{#include ../../my-game/examples/graphics-enemies.rs:loadresources}}
 ```
 
 ### Create animation
@@ -28,7 +28,7 @@ pixels, but the texture has one pixel gutter between the frames to ensure that
 they don't bleed into each other when we scale the texture.
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:sprite}}
+{{#include ../../my-game/examples/graphics-enemies.rs:sprite}}
 ```
 
 ### Update animation
@@ -37,7 +37,7 @@ The enemy sprites needs to be updated after the animations for the spaceship
 and bullets.
 
 ```rust [hl,3]
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:updatesprites}}
+{{#include ../../my-game/examples/graphics-enemies.rs:updatesprites}}
 ```
 
 ### Draw enemy frames
@@ -50,7 +50,7 @@ the size of the enemy when setting the `dest_size` and `x` and `y`
 coordinates.
 
 ```rust [hl,1,3-13]
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:drawenemy}}
+{{#include ../../my-game/examples/graphics-enemies.rs:drawenemy}}
 ```
 
 We have now change to graphics for all the elements of the game and when you
@@ -64,7 +64,7 @@ run it now it should look like a real game.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/graphics-enemies.rs:all}}
+{{#include ../../my-game/examples/graphics-enemies.rs:all}}
 ```
 </details>
 </div>

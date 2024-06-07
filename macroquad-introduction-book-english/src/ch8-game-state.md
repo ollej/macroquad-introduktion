@@ -18,7 +18,7 @@ It should contain all four possible game states: `MainMenu`, `Playing`,
 `Paused`, and `GameOver`.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:stateenum}}
+{{#include ../../my-game/examples/game-state.rs:stateenum}}
 ```
 
 ### Game state variable
@@ -27,7 +27,7 @@ Replace the line that declares the `gameover` variable with a line that
 instantiates a `game_state` variable set to `GameState::MainMenu`. 
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:statevariable}}
+{{#include ../../my-game/examples/game-state.rs:statevariable}}
 ```
 
 ### Match on GameState
@@ -69,7 +69,7 @@ We'll also reset all the game variables. Finally we'll draw the text "Press
 space" in the middle of the screen.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:mainmenu}}
+{{#include ../../my-game/examples/game-state.rs:mainmenu}}
 ```
 
 ### Playing the game
@@ -83,7 +83,7 @@ We'll also add a code that checks if the player presses the `Escape` key and
 change the state to `GameState::Paused`.
 
 ```rust [hl,1,24-26,108]
-{{#include ../../mitt-spel/examples/game-state.rs:playing}}
+{{#include ../../my-game/examples/game-state.rs:playing}}
 ```
 
 ### Pause the game
@@ -95,7 +95,7 @@ game can continue. We'll also draw a text on the screen showing that the game
 is paused.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:paused}}
+{{#include ../../my-game/examples/game-state.rs:paused}}
 ```
 
 ### Game Over
@@ -106,7 +106,7 @@ the player to start a new game or quit the game. We'll also draw the game over
 text to the screen like we did in the last chapter.
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:gameover}}
+{{#include ../../my-game/examples/game-state.rs:gameover}}
 ```
 
 ```admonish note
@@ -131,7 +131,7 @@ when the game is paused.
   <summary>Click to show the the full source code</summary>
 
 ```rust
-{{#include ../../mitt-spel/examples/game-state.rs:all}}
+{{#include ../../my-game/examples/game-state.rs:all}}
 ```
 </details>
 </div>

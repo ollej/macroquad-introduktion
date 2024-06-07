@@ -11,8 +11,8 @@ Skapa ett nytt Rust-projekt med Cargo och lägg till `macroquad` med version
 0.4 som beroende.
 
 ```sh
-cargo new --bin mitt-spel
-cd mitt-spel/
+cargo new --bin my-game
+cd my-game/
 cargo add macroquad@0.4
 ```
 
@@ -20,7 +20,7 @@ Din `Cargo.toml` fil kommer nu se ut såhär:
 
 ```toml
 [package]
-name = "mitt-spel"
+name = "my-game"
 version = "0.1.0"
 edition = "2021"
 
@@ -34,7 +34,7 @@ macroquad = "0.4"
 följande kod:
 
 ```rust
-{{#include ../../mitt-spel/examples/first-program.rs}}
+{{#include ../../my-game/examples/first-program.rs}}
 ```
 
 Kör programmet med `cargo run` så ska ett nytt fönster med mörklila bakgrund
@@ -84,7 +84,7 @@ En stor fördel med Rust och Macroquad är att det är väldigt smidigt att komp
 När du skapade spelet med `cargo new` skapades även ett lokalt Git repository. Börja med att committa dina ändringar lokalt. Skapa sedan ett repository på Github, och pusha koden dit.
 
 ```admonish note
-Nedanstående två filer refererar till `mitt-spel.wasm`. Om du döpt din crate till något annat än `mitt-spel` behöver du ändra de referenserna.
+Nedanstående två filer refererar till `my-game.wasm`. Om du döpt din crate till något annat än `my-game` behöver du ändra de referenserna.
 ```
 
 Det behövs en HTML-fil för att visa spelet. Skapa `index.html` i roten av projektet/craten med detta innehåll:
@@ -96,7 +96,7 @@ Det behövs en HTML-fil för att visa spelet. Skapa `index.html` i roten av proj
 Följande Github Actions Workflow kompilerar spelet till WASM och lägger i ordning alla filer så att spelet funkar på webben. Koden skall placeras i `.github/workflows/deploy.yml`.
 
 ```yaml
-{{#include ../../mitt-spel/examples/deploy-early.yml}}
+{{#include ../../my-game/examples/deploy-early.yml}}
 ```
 
 Committa och pusha! Du kan följa bygget under **Actions** för repositoryt. Första gången du pushar kommer spelet att byggas och alla filer placeras rätt i, i roten för branchen `gh-pages`, men ingen webbplats kommer att byggas. Du behöver justera en inställning för Github-repot i **Settings** > **Pages** > **Build and deployment**, och konfigurera `gh-pages` som den branch webbplatsen skall byggas från.
