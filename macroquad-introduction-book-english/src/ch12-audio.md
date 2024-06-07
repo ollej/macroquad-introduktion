@@ -1,15 +1,15 @@
-# Musik och ljudeffekter
+# Music and sound effects
 
-Ett spel behöver inte bara grafik för att det ska bli bra. Det behövs även
-musik och ljudeffekter. 
+A game doesn't only need graphics to be good, it also needs to sound good.
+It's now time to add some music and sound effects to the game.
 
-## Implementering
+## Implementation
 
-### Aktivera feature för ljud
+### Activate the sound feature
 
-För att kunna använda ljud i Macroquad måste en feature aktiveras för dess
-crate i `Cargo.toml` filen för ditt spel. Uppdatera raden för `macroquad`
-under rubriken `[dependencies]` till att inkludera featuren `audio`.
+To be able to use sound in Macroquad we need to activate the `audio` feature.
+This is done by adding `audio` to the list of features in the macroquad
+dependency in the `Cargo.toml` file.
 
 ```toml [hl,9]
 [package]
@@ -21,76 +21,86 @@ edition = "2021"
 
 [dependencies]
 macroquad = { version = "0.4", features = ["audio"] }
-macroquad-particles = "0.2.1"
+macroquad-particles = "0.2.2"
 ```
 
-### Importera
+### Import
 
-Ljudmodulen är inte inkluderad i Macroquads `prelude`, därför behöver vi
-importera det vi använder i modulen `audio` längst upp i källkoden.
+The sound module isn't included the the Macroquad prelude, so we need to
+import the `audio` module at the top of the `main.rs` file. The things we need
+to import are `load_sound`, `play_sound`, `play_sound_once`, and `PlaySoundParams`.
 
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:import}}
 ```
 
-### Ladda in resurser
+### Load resources
 
-Efter att alla texturer är inladdade så kan vi ladda in musiken och
-ljudeffekter. Vi har en mp3-fil med musiken som heter `8bit-spaceshooter.ogg`
-och två `wav`-filer med ljudeffekter, `explosion.wav` och `laser.wav`. Musiken
-använder filformatet Ogg Vorbis som stöds av det mesta, dock inte av vissa
-webbläsare.
+After all the textures have been loaded we can load the music and sound
+effects. There is a file with the music that is called `8bit-spaceshooter.ogg`
+and two `wav` files with sound effects, `explosion.wav` and `laser.wav`. The
+music is in the file format Ogg Vorbis which is supported by most, but not
+all, web browsers.
 
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:loadresources}}
 ```
 
-### Spela upp musik
+```admonish note
+In order for the music to work on the Safari web browser it has to be
+converted to `wav` format. This would make the file very large, so another
+option would be to use a version in OGG format and one in MP3 and select which
+one to use based on the web browser being used.
+```
 
-Innan loopen börjar vi spela upp musiken. Det görs med `play_sound`,
-som tar ett ljud, och structen `PlaySoundParams`. Vi sätter att ljudet ska
-spelas loopande, och med full volym.
+### Play music
+
+Before the game loop begins we will start playing the music. This is done the
+the function `play_sound()`, which takes a sound, and the struct
+`PlaySoundParams` as arguments. In the parameters we set the sound to be
+played in a loop and with full volume.
 
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:playmusic}}
 ```
 
 ```admonish info
-För att stoppa musiken kan man använda funktionen `stop_sound()` som tar ett
-ljud som argument.
+To stop the music use the function `stop_sound()` which takes the sound as
+argument.
 ```
 
-### Spela laserljud
+### Play laser sound
 
-När spelaren skjuter en ny kula så spelar vi upp ett laserljud med hjälp av
-funktionen `play_sound_once()` som tar det ljud som ska spelas upp som
-argument. Det är en genväg för att slippa använda `PlaySoundParams` för att
-spela upp ett ljud som inte loopar.
+When the player is shooting a bullet we will play the sound effect of a laser
+blast using the function `play_sound_once()`. This function takes the sound to
+play as the argument. It is a shortcut instead of using `play_sound()` with a
+non-looping parameter.
 
 ```rust [hl,8]
 {{#include ../../mitt-spel/examples/audio.rs:playlaser}}
 ```
 
 ```admonish info
-Det går även att sätta ljudvolym per ljud med hjälp av funktionen
-`set_sound_volume()` som tar ett ljud och ett tal mellan 0 och 1.
+It's also possible to set the sound volume per sound using the function
+`set_sound_volume()` which takes a sound and a number between `0` and `1` as
+argument.
 ```
 
-### Spela explosionsljud
+### Play explosion sound
 
-När en kula träffar en fiende spelar vi upp explosionsljudet, även detta med
-`play_sound_once`.
+When a bullet hits an enemy we will play the explosion sound, also using the
+function `play_sound_once()`.
 
 ```rust [hl,14]
 {{#include ../../mitt-spel/examples/audio.rs:playexplosion}}
 ```
 
-När du startar spelet bör det nu spela upp musik och ljudeffekter.
+You can now start the game and it should play music and sound effects.
 
-```admonish tip title="Utmaning" class="challenge"
-Det kanske är lite intensivt att musiken börjar på full volym direkt, prova
-att sänka volymen i början och höj den när spelet börjar. Prova även att
-stoppa musiken när spelaren pausar spelet.
+```admonish tip title="Challenge" class="challenge"
+It might be a bit intensive to start the music at full volume. Try setting the
+volume lower at the start and increase it once the game starts. Maybe also try
+to stop the music when the player pauses the game.
 ```
 
 <div class="noprint">
