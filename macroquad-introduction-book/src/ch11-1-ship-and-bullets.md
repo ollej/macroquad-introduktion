@@ -193,6 +193,16 @@ att det inte ska bli så smått ritar vi ut den med dubbla storleken.
 Om allt fungerar som det ska så ska det nu vara grafik för både skeppet och
 kulorna.
 
+## Snabba upp laddtider
+
+Lägg till följande rader i slutet av filen `Cargo.toml` för att bilder ska
+laddas in snabbare.
+
+```
+[profile.dev.package.'*']
+opt-level = 3
+```
+
 ```admonish tip title="Utmaning" class="challenge"
 Prova att använda de två extra skeppanimationerna för att vinkla skeppet lite
 mindre precis när det bytt håll för att sedan vinklas fullt ut efter en viss

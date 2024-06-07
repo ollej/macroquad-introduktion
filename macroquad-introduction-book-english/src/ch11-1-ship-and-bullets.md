@@ -201,6 +201,16 @@ we'll double the size.
 If everything works correctly there should be animated graphics for both the
 spaceship and the bullets when running the game.
 
+## Improve loading times
+
+Adding the following snippet at the end of the `Cargo.toml` file will ensure
+assets are loaded much faster.
+
+```
+[profile.dev.package.'*']
+opt-level = 3
+```
+
 ```admonish tip title="Challenge" class="challenge"
 Try using the two extra spaceship animations to make the ship turn only
 slightly just when it changes direction and then make it turn fully after a

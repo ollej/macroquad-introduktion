@@ -6,7 +6,7 @@ Då det börjar bli väldigt mycket kod i vår `main`-funktion börjar det bli d
 att strukturera om koden lite.
 
 Vi kommer börja med att flytta inladdningen av filresurser till en egen
-struct. samtidigt passar vi på att byta ut alla `unwrap()` och `expect()` till
+struct. Samtidigt passar vi på att byta ut alla `unwrap()` och `expect()` till
 att använda `?`-operatorn för hantering av felmmeddelanden.
 
 Därefter kommer vi använda oss av en `coroutine` för att ladda resurserna i

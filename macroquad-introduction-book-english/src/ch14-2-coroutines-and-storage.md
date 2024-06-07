@@ -1,83 +1,86 @@
-# Coroutines och Storage
+# Coroutines and Storage
 
-När spel har mycket resurser att ladda in så kan det ta en stund innan det har
-laddat klart. Speciellt om spelet kör i en browser och användaren sitter på en
-dålig internetuppkoppling. Då vill vi inte att det bara ska visas en svart
-skärm, utan istället ska ett meddelande visas för användaren.
+When there are a lot of assets to load it might take a while to load
+everything. This is especially true for the WebAssembly version that loads
+files via HTTP in the browser on a slow internet connection. In these cases we
+want to display a loading message on the screen instead of just having a
+completely black screen.
 
-För att lösa det ska vi använda oss av något som heter `coroutines` som
-emulerar multitasking. Det kan användas för att hantera tillståndsmaskiner och
-saker som behöver evalueras över tid. Med hjälp av en coroutine kan vi ladda
-alla resurser i bakgrunden och samtidigt uppdatera utseendet på skärmen.
+To solve this we will use something called `coroutines` which will emulate
+multitasking using the event loop in the browser. For the desktop these will
+execute immediately instead. This can be used to handle state machines and
+things that need to be evaluated over time. Using a coroutine we can load all
+the resources in the background while also drawing to the screen.
 
-Till sist lägger vi våra resurser i Macroquads `storage` som är en global
-persitent lagring. Det kan användas för att spara spelconfig som måste vara
-tillgänglig överallt i spelkoden utan att behöva skicka runt datan.
+Finally we will place the resources in the Macroquad `storage` that is a
+global persistant storage. It can be used to save game configuration that
+needs to be available anywhere in the game code without having to send the
+data around.
 
 ```admonish info
-Både `coroutines` och `storage` är experimentell funktionalitet i Macroquad och
-användningen av dem kan komma att ändras i framtiden.
+Both `coroutines` and `storage` are experimental features of Macroquad and the
+usage might change in future versions.
 ```
 
-## Implementering 
+## Implementation 
 
-### Importera
+### Importing
 
-Det första vi ska göra är att importera `coroutines::start_coroutine` och
-`collections::storage` från Macroquads experimentella namespace.
+Let's start by importing `coroutines::start_coroutine` and
+`collections::storage` from Macroquad's experimental namespace.
 
 ```rust
 {{#include ../../my-game/examples/coroutines-and-storage.rs:import}}
 ```
 
-### Skapa ny load-metod
+### Create a new load method
 
-Nu kan vi skapa en ny metod `load()` i implenteringsblocket för structen
-`Resources`. Där lägger vi in koden som sköter laddningen av resurserna med
-en coroutine och uppdaterar skärmen med information om att resurserna laddas.
+Now we can create a `load()` method in the implementation block for the
+`Resources` struct. In this method we'll add the code that loads the assets
+using a coroutine and display a text message on the screen showing that
+resources are being loaded.
 
-Funktionen `start_coroutine` tar ett `async` block och returnerar en
-`Coroutine`. I async-blocket instantierar vi structen `Resources` som laddar
-in alla resurser. Därefter använder vi `storage::store()` för att spara
-resurserna i Macroquads storage. Det gör att vi kan komma åt resurserna från
-andra platser i koden.
+The function `start_coroutine` takes an `async` block and returns a
+`Coroutine`. Inside the async block we will instantiate the `Resources` struct
+that loads all the assets. After that we use the `storage::store()` to save
+the resources in the Macroquad storage. This will ensure we can access the
+resources anywhere in the code.
 
-Med metoden `is_done()` på `Coroutine` kan vi kolla om coroutinen har kört
-klart eller inte. Vi skapar en loop som kör tills `is_done()` returnerar
-`true`. Medan coroutinen kör använder vi `draw_text()` för att skriva ut
-en text på skärmen. Vi lägger också till 1 till 3 punkter efter texten med
-hjälp av koden `".".repeat(((get_time() * 2.) as usize) % 4)`. Vi måste
-också använda `clear_background()` och `next_frame.await` i loopen för att
-uppdateringen ska fungera rätt.
+Using the method `is_done()` on `Coroutine` we can check if it has finished or
+not. We add a loop that runs until `is_done()` returns `true`. While the
+couroutine is running we use `draw_text()` to display a message on the screen.
+We also add 1 to 3 periods after the text using the code
+`".".repeat(((get_time() * 2.) as usize) % 4)`. We also need to use
+`clear_background()` and `next_frame.await` inside the loop for everything to
+work properly.
 
 ```rust
 {{#include ../../my-game/examples/coroutines-and-storage.rs:load}}
 ```
 
 ```admonish info
-Lite mer information om [Macroquads
-coroutines](https://docs.rs/macroquad/latest/macroquad/experimental/coroutines/index.html)
-och
+More information about the Macroquad
+[coroutines](https://docs.rs/macroquad/latest/macroquad/experimental/coroutines/index.html)
+and
 [storage](https://docs.rs/macroquad/latest/macroquad/experimental/collections/storage/index.html)
-finns att läsa i dokumentationen.
+can be found in the Macroquad documentation.
 ```
 
-### Ladda resurserna
+### Loading assets
 
-Anropet till att ladda resurserna måste uppdateras så att den använder den nya
-`load()` metoden istället för att köra `new()` direkt. Eftersom `load()`
-sparar resurserna i Macroquads storage så använder vi `storage::get::<Resources>()`
-för att hämta resurserna och tilldela till variabeln `resources`.
+The call to loading resources needs to be updated to use the new `load()`
+method instead of using `new()` directly. Since `load()` stores the resources
+in the Macroquad storage we will use `storage::get::<Resources>()` to retrieve
+the resources.
 
 ```rust [hl,2-3]
 {{#include ../../my-game/examples/coroutines-and-storage.rs:loadresources}}
 ```
 
-## Prova spelet
+## Try the game
 
-Spelet ska starta och medans filerna laddas ska meddelandet "Laddar
-resurser..." visas mitt på skärmen. Troligen går det dock så fort att det
-inte hinner synas när filerna läses direkt från disk. 
+While the game is loading in a browser the message "Loading resources..." will
+be shown on the screen.
 
 <div class="noprint no-page-break">
 

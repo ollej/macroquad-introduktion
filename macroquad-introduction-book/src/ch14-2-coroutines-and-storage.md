@@ -75,9 +75,9 @@ för att hämta resurserna och tilldela till variabeln `resources`.
 
 ## Prova spelet
 
-Spelet ska starta och medans filerna laddas ska meddelandet "Laddar
-resurser..." visas mitt på skärmen. Troligen går det dock så fort att det
-inte hinner synas när filerna läses direkt från disk. 
+Spelet ska starta och medans filerna laddas ska meddelandet "Loading
+resources..." visas mitt på skärmen. Detta gäller enbart webversionen då
+resurserna bör laddas väldigt snabbt på desktop. 
 
 <div class="noprint no-page-break">
 
