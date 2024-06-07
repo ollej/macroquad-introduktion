@@ -1,7 +1,7 @@
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilket enum-värde representerar escape-tangenten?
+Which enum variant represents the Escape key?
 """
 prompt.distractors = [
   "`KeyCode::Esc`",
@@ -10,14 +10,14 @@ prompt.distractors = [
 ]
 answer.answer = "`KeyCode::Escape`"
 context = """
-Värdena för de flesta tangenterna i enumen `KeyCode` är oförkortade.
+The most variant for keys in the `KeyCode` enums aren't abbreviated.
 """
-id = "b757ea7f-7afd-4551-9e83-e945ce017329"
+id = "589fe1df-eac3-4fc5-9b7a-21cc60b838db"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Hur kan man avsluta ett Macroquad-program?
+How can a Macroquad application be exited?
 """
 prompt.distractors = [
   "`macroquad::exit()`",
@@ -26,15 +26,15 @@ prompt.distractors = [
 ]
 answer.answer = "`std::process::exit(0)`"
 context = """
-Macroquad har inget eget sätt att avsluta men det går bra att använda
-Rusts vanliga funktionalitet för att avsluta programmet.
+There is no special way to exit a program in Macroquad.
+But it's possible to use the normal Rust ways of exiting a program.
 """
-id = "bb65e1bf-9d06-499e-a782-164f64e1cf33"
+id = "13771a47-2f7a-4f26-970f-e24b3b6f8755"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken argumentsordning till `measure_text()` är korrekt?
+Which argument order of the `measure_text()` function is correct?
 """
 prompt.distractors = [
     "`measure_text(text, font_size, font_scale, font)`",
@@ -44,6 +44,6 @@ prompt.distractors = [
 ]
 answer.answer = "`measure_text(text, font, font_size, font_scale)`"
 context = """
-Första argumentet är `text`, precis som i `draw_text()`.
+The first argument is `text`, just as in the `draw_text()` function.
 """
-id = "dfd61b93-182c-42cb-a78f-6455d477d73b"
+id = "08aad258-1e50-4542-b5e2-c3fcfb7e286f"

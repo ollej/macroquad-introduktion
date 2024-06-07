@@ -1,19 +1,18 @@
 [[questions]]
 type = "ShortAnswer"
 prompt.prompt = """
-Vilken funktion i Macroquad används för att sätta vilken `Material` som ska användas?
+Which Macroquad function is used to set which `Material` to use?
 """
 answer.answer = "gl_use_material"
 context = """
-Funktionerna `gl_use_material()` och `gl_use_default_material()` används för
-att slå på och av användning av en en shader.
+The functions `gl_use_material()` and `gl_use_default_material()` are used to start and stop using a shader.
 """
-id = "1f7b997f-6a8d-42c3-ad2b-1778de57e20b"
+id = "56f078b9-12bb-45df-8595-ea5b9dfc66c0"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken uniform finns **INTE** med automatiskt i shaders i Macroquad?
+Which uniform is **NOT** available automatically in Macroquad shaders?
 """
 prompt.distractors = [
   "`_Time`",
@@ -24,15 +23,15 @@ prompt.distractors = [
 ]
 answer.answer = "`iResolution`"
 context = """
-Macroquad har inget eget sätt att avsluta men det går bra att använda
-Rusts vanliga funktionalitet för att avsluta programmet.
+The screen resolution isn't automatically added to the shaders
+and has to be added manually to be used.
 """
-id = "03df6d30-b288-4c2e-b944-0c435cfb6fc0"
+id = "423ffde3-f8fe-450d-84ee-4bab080d4d4e"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Hur sätter man värdet på en uniform?
+How do you set the value of a uniform?
 """
 prompt.distractors = [
     "`gl_set_uniform(\"foo\", 1)`",
@@ -42,7 +41,7 @@ prompt.distractors = [
 ]
 answer.answer = "`material.set_uniform(\"foo\", 1)`"
 context = """
-Structen `Material` har metoden `set_uniform()` som
-används för att sätta uniformvärden.
+The `Material` struct has the method `set_uniform()` which is
+used to set uniform values on shaders.
 """
-id = "1a02bfa3-bbc8-4af8-9c74-0588573d7824"
+id = "e3c43a3f-9788-4422-8806-917d0015c68d"

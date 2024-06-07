@@ -1,40 +1,41 @@
 [[questions]]
 type = "ShortAnswer"
-prompt.prompt = "Vad är namnet på grafikramverket som Macroquad bygger på?"
+prompt.prompt = "What is the name of graphics library Macroquad uses?"
 answer.answer = "miniquad"
-context = "Miniquad är ett grafikramverk medan Macroquad är ett spelramverk."
-id = "7c0bb742-0aad-4abc-8c88-ec39adf9b07f"
+context = "Miniquad is a small graphics library while Macroquad is a game library."
+id = "8754972b-e6e4-46b2-adbf-e261b673d1d3"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken används funktionen `rand::gen_range()` till?
+What is the function `rand::gen_range()` used for?
 """
 prompt.distractors = [
-  "Den returnerar en lista av tal från första till andra argumentet.",
-  "Den ritar en rand på skärmen mellan positionerna som anges som argument.",
-  "Den returnerar ett slumpat tal mellan 0 och 1.",
-  "Den returnerar ett slumpat tal mellan 0 och u32::MAX"
-
+    "It returns a list of numbers between the first and second argument.",
+    "It displays a line on the screen between the coordinates used as argument.",
+    "It returns a random number between 0 and 1.",
+    "It returns a random number between 0 and `u32::MAX`."
 ]
-answer.answer = "Den slumpar fram ett tal mellan dess argument."
+answer.answer = "It returns a random number between the two arguments."
 context = """
-Funktionen `rand::gen_range()` tar argumenten low och high, och returnerar ett tal av samma typ.
+The function `rand::gen_range()` takes the argument `low` and `high`
+and returns a number of the same type.
 """
-id = "c52791b2-91b5-424d-a632-e739b64a39c5"
+id = "61544d0e-b4b9-449f-b3cf-498c54d0bd8f"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vad händer om man använder funktionen `rand::srand(42)`?
+What happens when using the function `rand::srand(42)`?
 """
 prompt.distractors = [
-    "Funktionen `rand()` kommer alltid returnera talet 42.",
-    "Det blir ett kompileringsfel eftersom argumentet inte är en tid.",
-    "Det returneras ett slumpat tal mellan 0 och 42."
+    "The function `rand()` will always return the number 42.",
+    "It's a compilation error since the argument isn't a time type.",
+    "It returns a random number between `0` and `42`."
 ]
-answer.answer = "Värdena som returneras av `rand()` kommer bli samma varje körning."
+answer.answer = "The values returned by `rand()` will be the same every time the program is run."
 context = """
-Pseudo-randomgeneratorn måste seedas med olika värden varje körning för att `rand()` ska returnera olika värden.
+The pseudo number generator needs to be seeded with different values every time the application is run
+in order for the `rand()`function to return random values.
 """
-id = "4516bf86-c579-4054-9741-c8da7b8d6f9a"
+id = "c5cb1795-1f08-48bb-8bd2-64f70fc8118d"

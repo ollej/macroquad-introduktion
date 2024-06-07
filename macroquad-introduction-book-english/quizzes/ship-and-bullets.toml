@@ -1,41 +1,43 @@
 [[questions]]
 type = "ShortAnswer"
 prompt.prompt = """
-Vilken funktion används för att ladda in texturer i Macroquad?
+Which function is used to load textures in Macroquad?
 """
 answer.answer = "load_texture"
 context = """
-Med `load_texture()` kan man ladda in en PNG-bild direkt till GPU-minnet.
+Use `load_texture()` to load a PNG image and store it in GPU memory.
 """
-id = "b9c62202-c84c-4534-8d32-ce4f1d5f1d36"
+id = "a31046aa-56e4-4416-8a49-874ea3000e25"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vad används filtret `FilterMode::Nearest` till på en textur?
+What is the filter mode `FilterMode::Nearest` used for on a texture?
 """
 prompt.distractors = [
-    "Det används för att få linjär skalning av texturer.",
-    "Det används för att filtrera bort de närmasta pixlarna.",
-    "Den används för att filtrera bort pixlar som är nära varandra."
+    "It's used to scale the texture linearly.",
+    "It's used to filter out the nearest pixels.",
+    "It's used to filter out pixels that are close to each other.",
 ]
-answer.answer = "Det används för att pixelgrafik ska skalas till närmaste hela pixel."
+answer.answer = "It's used to ensure that pixelated graphics is scaled to the nearest pixel."
 context = """
+The filter mode `FilterMode::Nearest` is generally used for pixel graphics
+while `FilterMode::Linear` is used for high resolution textures.
 """
-id = "3a5ecd40-e8fa-49f3-bbf2-e20007225c2b"
+id = "90372ead-ab70-4d1a-b93b-cb5c1e600eef"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Varför ska man använda funktionen `build_textures_atlas()`?
+Why should you use the function `build_textures_atlas()`?
 """
 prompt.distractors = [
-    "Den laddar in flera texturer samtidigt.",
-    "Den skapar texturer från `Image`-structar.",
-    "Den bygger en bakgrundskarta som täcker skärmen."
+    "It loads multiple textures at the same time.",
+    "It creates textures from `Image` structs.",
+    "It builds a background map that covers the screen."
 ]
-answer.answer = "Den bygger en kombinerad atlas för alla inladdade texturer."
+answer.answer = "It builds a combined atlas texture with all the loaded textures."
 context = """
-Det är mycket effektivare att rita ut från en kombinerad texturatlas.
+It's much more efficient to draw from a combined texture atlas.
 """
-id = "b755487b-76e3-451c-802a-802e2f0ef40e"
+id = "1dd8bd6f-f576-4c59-81e8-49790df8d9d7"

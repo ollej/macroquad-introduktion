@@ -5,7 +5,7 @@ prompt.prompt = """
 answer.answer = "load_texture"
 context = """
 """
-id = "5a7314ce-09b4-4210-b19b-b54ab714f5bf"
+id = "b640049a-7e02-425d-afb2-a66927bfa513"
 
 [[questions]]
 type = "MultipleChoice"
@@ -19,7 +19,7 @@ prompt.distractors = [
 answer.answer = ""
 context = """
 """
-id = "02260b1e-d79f-4daf-8d73-5a8fea9f0b13"
+id = "8e1986c3-b4f7-436f-a491-d7af9a4c532d"
 
 [[questions]]
 type = "MultipleChoice"
@@ -34,4 +34,4 @@ answer.answer = ""
 context = """
 
 """
-id = "0cf6a8b0-0a5c-4bd3-b563-9ceed8eeffb7"
+id = "3a229219-55bb-47e7-b1c9-6ce01462eb53"

@@ -1,31 +1,30 @@
 [[questions]]
 type = "ShortAnswer"
-prompt.prompt = "Vad heter structen som representerar en rektangel i Macroquad?"
+prompt.prompt = "What is the struct for a rectangle called in Macroquad?"
 answer.answer = "Rect"
-context = "Macroquads `math` namespace innehåller representation för många olika matematiska koncept."
-id = "0d01a70a-80fe-4fa7-bcdb-a10bf54d14ee"
+context = "The Macroquad `math` namespace contains representations for many different mathematical concepts."
+id = "dc4c5484-fee2-48eb-bd29-581517c92c36"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vad är namnet på metoden i `Rect` som kontrollerar om den delvis täcker en annan rektangel?
+What is the name of the method of `Rect` that checks if it partly covers another rectangle?
 """
 prompt.distractors = [
-  "`contains()`",
-  "`intersect()`",
-  "`combine_with()`"
-
+    "`contains()`",
+    "`intersect()`",
+    "`combine_with()`"
 ]
 answer.answer = "`overlaps()`"
 context = """
-Metoden `overlaps()` kollar om två rektanglar överlappar varandra.
+The method `overlaps()` checks if two rectangles are overlapping.
 """
-id = "cbdd1bb6-2701-45ee-bb94-6548c47ceb36"
+id = "64e016dc-2d80-426e-b37d-30fbc97f0ef5"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken funktion kollar om en tangent trycktes ned under den aktuella bildrutan?
+Which function checks if a key was pressed during the current frame?
 """
 prompt.distractors = [
     "`is_key_down()`",
@@ -34,18 +33,18 @@ prompt.distractors = [
 ]
 answer.answer = "`is_key_pressed()`"
 context = """
-Funktionen `is_key_pressed()` gäller bara första bildrutan tangent trycktes ned,
-medan `is_key_down()` fortsätter vara sann ända tills tangenten släpps.
+The function `is_key_pressed()` is only true during the first frame the key was pressed
+while `is_key_down()` continues to be true for every frame the key is being pressed.
 """
-id = "36c980ed-ef56-4da9-b292-72c307e1d16e"
+id = "a218ea1c-7fe4-42fb-934f-eba4582274d6"
 
 [[questions]]
 type = "ShortAnswer"
-prompt.prompt = "Vilken funktion används för att skriva ut text på skärmen med extra parametrar?"
+prompt.prompt = "Which function is used to display text on the screen with additional parameters?"
 answer.answer = "draw_text_ex"
 context = """
-Många funktioner i Macroquad har en motsvarande funktion med suffixet `_ex`
-som tar en struct med extra parametrar.
+Some functions in Macroquad has a corresponding function with the suffix `_ex` which
+takes an argument with a parameter struct.
 """
-id = "19ca2d73-ad8c-4627-95b2-edc5061c88c6"
+id = "3377c9db-63d4-42de-9bab-5405eb1e93d3"
 

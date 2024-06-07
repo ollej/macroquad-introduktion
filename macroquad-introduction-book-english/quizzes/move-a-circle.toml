@@ -1,32 +1,31 @@
 [[questions]]
 type = "ShortAnswer"
-prompt.prompt = "Vad heter funktionen för att få reda på vilken höjd fönstret har?"
+prompt.prompt = "What is the function called that returns the window height?"
 answer.answer = "screen_height"
-context = "Det kan se ut så här: `let height = screen_height()`"
-id = "3dd45345-5b47-414a-972c-7d0221cbf73b"
+context = "It can be used like this: `let height = screen_height()`"
+id = "d9305baf-c759-4daa-8299-c58af3004825"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Hur kollar man om mellanslagstangenten är nedtryckt?
+How do you check if the space bar is currently being pressed?
 """
 prompt.distractors = [
   "`is_key_down(Key::Space)`",
   "`is_space_down()`",
   "`is_key_pressed(SPACE)`",
   "`is_key_released(KeyCode::Space)`"
-
 ]
 answer.answer = "`is_key_down(KeyCode::Space)`"
 context = """
-Funktionen `is_key_down()` tar enumen `KeyCode` som argument och returnerar sant om den tangenten är nedtryckt.
+The function `is_key_down()` takes the enum `KeyCode` as argument and returns true if that key is being pressed.
 """
-id = "16fdc6e2-dd78-4119-ad48-f439daf7a8aa"
+id = "aae4f36e-7ce4-499c-b0f1-5b2e838dba2b"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilket av alternativen för funktionen `draw_circle()` har rätt ordning på argumenten?
+Which of the following alternatives of the function `draw_circle()` has the correct argument order?
 """
 prompt.distractors = [
     "`draw_circle(color, x, y, radius)`",
@@ -37,7 +36,7 @@ prompt.distractors = [
 ]
 answer.answer = "`draw_circle(x, y, radius, color)`"
 context = """
-Macroquads rit-funktioner börjar normalt med koordinater och avslutas med färgen.
+The Macroquad draw functions ususally start with coordinates and end with the color to use.
 """
-id = "b18d4b82-9068-4b2a-b8cb-317181f20fb8"
+id = "add860db-3099-471f-92eb-85ac7a9fa821"
 

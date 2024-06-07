@@ -1,50 +1,48 @@
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-I vilken tidsenhet returneras tiden från funktionen `get_frame_time`?
+In what time unit is the time returned from the function `get_frame_time`?
 """
 prompt.distractors = [
-  "nanosekunder",
-  "millisekunder",
-  "picosekunder"
-
+  "nano seconds",
+  "milli seconds",
+  "pico seconds"
 ]
-answer.answer = "sekunder"
+answer.answer = "seconds"
 context = """
-Funktionen `get_frame_time()` returnerar tiden i sekunder.
+The funtion `get_frame_time()` returns the time in seconds as a `f32`.
 """
-id = "4474fdcd-da2a-444e-ad69-1c92b6f5d38e"
+id = "4378a163-23ee-440f-b809-32f2b9defb04"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken funktion används för att få tiden som gått sedan föregeånde bildruta?
+Which function is used to get the time that has passed since the last frame?
 """
 prompt.distractors = [
   "`get_delta_time()`",
   "`get_time()`",
   "`get_fps()`"
-
 ]
 answer.answer = "`get_frame_time()`"
 context = """
-Funktionen `get_frame_time()` ger delta-tiden medan `get_time()` ger tiden sedan programmet startade.
+The function `get_frame_time()` returns the delta time since the last frame,
+while `get_time()` returns the accumulated time since the application was started.
 """
-id = "81a88077-097f-48d2-8812-74056a054632"
+id = "75a5919d-3c53-429f-b887-585791c62fa2"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Varför multipliceras `delta_time` med `MOVEMENT_SPEED`?
+Why is the `delta_time` value multiplied by `MOVEMENT_SPEED`?
 """
 prompt.distractors = [
-    "För att öka hastigheten varje bildruta.",
-    "Tiden sedan programmet startats avgör hur långt cirkeln kan röra sig.",
-    "För att kompensera att datorns klocka kan gå fel."
+    "To increase the speed every frame.",
+    "The time since the program was started defines how far the circle can move.",
+    "To compensate when the computer clock is incorrect."
 ]
-answer.answer = "För att förflyttningen per sekund alltid ska vara samma."
+answer.answer = "So that the movement per second will always be the same."
 context = """
-Antalet bildrutor som ritas ut per sekund kan vara olika mellan olika datorer.
+The number of frames drawn per second may be different on different computers and platforms.
 """
-id = "9a89f5d1-7500-43bc-abf3-77e43aa941bb"
-
+id = "ee3f9956-9831-4b57-8c11-3876a77b46b6"

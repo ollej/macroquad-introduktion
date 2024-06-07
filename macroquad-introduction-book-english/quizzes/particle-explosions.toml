@@ -1,19 +1,19 @@
 [[questions]]
 type = "ShortAnswer"
 prompt.prompt = """
-Vad heter craten för Macroquads partikel-system?
+What is the name of the crate for the Macroquad particle system?
 """
 answer.answer = "macroquad-particles"
 context = """
-Macroquads partikelsystem ingår inte i grunden utan måste
-inkluderas manuellt om den ska användas.
+The Macroquad particle system isn't included by default but has to be
+added to the `Cargo.toml` file to be used.
 """
-id = "d91740bc-e100-440f-a1f4-6e47a6ec40e4"
+id = "6488829a-94fb-493d-a835-95dad5cdef9a"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken struct används för att sätta värden för ett partikelsystem.
+Which struct is used to set particle system parameters?
 """
 prompt.distractors = [
   "`EmitterParams`",
@@ -24,15 +24,15 @@ prompt.distractors = [
 ]
 answer.answer = "`EmitterConfig`"
 context = """
-Med hjälp av structen `EmitterConfig` kan man ställa in värden för
-utseende, storlek, hastighet och mycket annat.
+The `EmitterConfig` struct has many fields to configure the emitter,
+such as the look, size, speed and lots of other things.
 """
-id = "70455181-bced-4864-85cf-606b129fe83d"
+id = "fe83c08f-c2e3-4026-86be-0931c7524e64"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Hur ritar man ut en partikelexplosion i variabeln `particle`?
+How do you draw a partcle explosion in the variable `particle`?
 """
 prompt.distractors = [
     "`draw_particle(particle, *coords)`",
@@ -41,8 +41,8 @@ prompt.distractors = [
 ]
 answer.answer = "`particle.draw(*coords)`"
 context = """
-Structen
+The structen
 [`Emitter`](https://docs.rs/macroquad-particles/latest/macroquad_particles/struct.Emitter.html)
-har metoden `draw()` som tar en koordinat där partiklarna ska ritas ut.
+has the method `draw()` which takes a coordinate where the particles are being emitted from.
 """
-id = "caf4748c-c4f8-41b2-82b8-a16a347fbafd"
+id = "6a16b9a6-cc60-4c52-8c8d-8e6950b388d2"

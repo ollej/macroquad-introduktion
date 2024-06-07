@@ -1,24 +1,25 @@
 [[questions]]
 type = "ShortAnswer"
-prompt.prompt = "Vad heter attributmakrot som annoterar Macroquads startfunktion?"
+prompt.prompt = "What is the attribute macro called that is used to annotate the Macroquad main function?"
 answer.answer = "macroquad::main"
-context = "Det kan se ut så här: `macroquad::main(\"Macroquad game\")`"
-id = "49f9e5ff-2209-440f-a519-4001b5344966"
+context = "It can be used like this: `#[macroquad::main(\"My game\")]`"
+id = "de532a4a-7d2c-4a72-94c1-529df8d5a626"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
 Vad händer om `macroquad::main`-attributet får argumentet "RED"?
+What happens if the `macroquad::main` attribute has the argument "RED"?
 """
 prompt.distractors = [
-  "Fönstrets bakgrund kommer vara röd.",
-  "Ingenting, det är bara en kommentar."
+    "The window background will be red.",
+    "Nothing, it is just a comment."
 ]
-answer.answer = "Titeln på fönstret kommer bli \"RED\"."
+answer.answer = "The window title will be \"RED\"."
 context = """
-Om argumentet är en sträng används det som titeln på fönstret.
+If the argument is a string it will be used as the window title.
 """
-id = "f58d27f4-e1d8-4dd3-817f-1f608e1e3354"
+id = "e0a941ab-119a-4c33-8394-f64f7b25f32d"
 
 [[questions]]
 type = "Tracing"
@@ -34,6 +35,6 @@ fn main() {
 answer.doesCompile = false
 answer.lineNumber = 3
 context = """
-Det kommer inte kompilera eftersom `main`-funktionen inte är deklarerad som `async`.
+It won't compile since the `main` function isn't marked as `async`.
 """
-id = "54ee6b3c-1e8e-4a92-9089-f46348392f1a"
+id = "fb80a3a0-be24-4111-b05f-fda4d347acb4"

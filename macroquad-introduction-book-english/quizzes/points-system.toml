@@ -1,14 +1,14 @@
 [[questions]]
 type = "ShortAnswer"
-prompt.prompt = "Vilken funktion används för att mäta storlek på text?"
+prompt.prompt = "Which function is used to measure the text dimensions?"
 answer.answer = "measure_text"
-context = "Funktionen `measure_text` returnerer en `TextDimensions` struct."
-id = "d4c72779-c38a-4f5a-8598-d4f8c3d8a9ac"
+context = "The function `measure_text` returns a `TextDimensions` struct."
+id = "c9ee860f-c229-46f9-986e-3f9ebd33e4fa"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilket fält ingår **INTE** i structen `TextDimensions`?
+Which field is **NOT** included in the struct `TextDimensions`?
 """
 prompt.distractors = [
   "`width`",
@@ -17,14 +17,14 @@ prompt.distractors = [
 ]
 answer.answer = "`offset_x`"
 context = """
-Fältet `offset_y` returner avståndet från baslinjen av texten.
+The field `offset_y` contains the distance from the base line of the text.
 """
-id = "31bfdd56-8a5e-488c-a2d7-3e05b079dde5"
+id = "12d7dee6-0a6c-43a3-8a90-7900fa6eb1dd"
 
 [[questions]]
 type = "MultipleChoice"
 prompt.prompt = """
-Vilken funktion används för att läsa in en fil och returnera som en textsträng?
+Which function is used to read a file and return it as a string?
 """
 prompt.distractors = [
     "`load_file()`",
@@ -33,6 +33,6 @@ prompt.distractors = [
 ]
 answer.answer = "`load_string()`"
 context = """
-Funktionen `load_string()` läser in en fil med `load_file()` och returner den som en `String`.
+The `load_string()` function reads a file using `load_file()` and returns it as a `String`.
 """
-id = "3e95bb78-740d-4b92-af4f-a05daebe989c"
+id = "7ada75f0-2509-46d7-b785-150d01cdaef6"
