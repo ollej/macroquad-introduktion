@@ -81,10 +81,10 @@ inte hinner synas när filerna läses direkt från disk.
 
 <div class="noprint no-page-break">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/coroutines-and-storage.rs:all}}

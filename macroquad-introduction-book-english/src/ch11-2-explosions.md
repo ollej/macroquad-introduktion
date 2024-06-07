@@ -60,10 +60,10 @@ explosionstexturen istället för att vara flerfärgade rutor.
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:all}}
@@ -73,6 +73,7 @@ explosionstexturen istället för att vara flerfärgade rutor.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/explosions.toml}}

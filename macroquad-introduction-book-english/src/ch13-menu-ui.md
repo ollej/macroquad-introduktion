@@ -174,10 +174,10 @@ att starta ett spel eller avsluta programmet.
 
 <div class="noprint no-page-break">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/menu-ui.rs:all}}

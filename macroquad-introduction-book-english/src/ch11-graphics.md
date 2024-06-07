@@ -1,20 +1,20 @@
-# Grafik
+# Graphics
 
-Nu börjar det bli dags att lägga till grafik i vårt spel så det börjar se ut
-som ett riktigt spel. Vi kommer göra det i tre omgångar, för att det inte ska
-bli för mycket ändringar på en gång. Till en början kommer vi lägga in
-inladdningen av texturer direkt i vår main-funktion och byta ut
-ritnings-funktionerna i huvudloopen. I ett senare kaptitel kommer vi titta på
-att bryta ut det till separata delar.
+It's time to add some graphics to our game to make it look more like a real
+game. We will do it in three steps so that there won't be too many changes at
+once. To begin with we'll add code to load textures directly in our `main`
+function and change the draw function in the game loop. In a later chapter we
+will look at how to extract the texture loading into a separate function.
 
-Innan vi ändrar någon kod behöver vi ladda ner alla resurser som behövs. Ladda
-ner det här [paketet med grafik och ljud](assets.zip) och packa upp det och
-lägg filerna i en katalog som heter `assets` i rotkatalogen för ditt spel.
-Alla resurser är public domain och har framförallt hämtats från webbplatsen
-[OpenGameArt.org](https://opengameart.org/) där det finns alla möjliga
-resurser för att skapa spel. 
+Before we make any code changes we need to download all the needed resources.
+Download this [package with graphics and sound](assets.zip) and extract it to
+a directory called `assets` in the root directory of your game.
 
-Filstrukturen för ditt spel bör nu se ut såhär:
+All the resources are public domain and are primarily from the website
+[OpenGameArt.org](https://opengameart.org/) where there are lots of different
+resources to develop games.
+
+The file structure for your game should look like this:
 
 ```
 .
@@ -40,27 +40,31 @@ Filstrukturen för ditt spel bör nu se ut såhär:
     └── starfield-shader.glsl
 ```
 
-## Uppdatera webbpubliceringen
+## Update web publishing
 
-Om du ordnade med att publicera ditt spel till Github Pages i [första kapitlet](ch1-first-program.md#publicera-på-webben-om-du-vill) behöver du även uppdatera `.github/workflows/deploy.yml` så att assets inkluderas i publiceringen:
+If you chose to setup web publishing of your game to Github Pages in the 
+[first chapter](ch1-first-program.md#publicera-på-webben-om-du-vill) you will
+need to update the file `.github/workflows/deploy.yml` to make sure the assets
+are included when publishing.
 
-Dels behöver `assets`-katalogen skapas:
+The `assets` directory needs to be created:
 
 ```yaml
 {{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-mkdir}}
 ```
 
-Och `assets`-filerna skall kopieras på plats:
+The asset files need to be copied into the `assets` directory:
 
 ```yaml
 {{#include ../../mitt-spel/examples/deploy-with-assets.yml:assets-cp}}
 ```
 
-Den fullständiga deploy-konfigurationen skall se ut så här:
+The complete deploy configuration should now look like this:
 
 ```yaml
 {{#include ../../mitt-spel/examples/deploy-with-assets.yml:all}}
 ```
 
-Committa och pusha och verifiera att spelet funkar som förut på:
-* `https://<ditt-github-namn>.github.io/<repository-namn>`.
+Commit your changes and push to GitHub and verify that the game still works
+on:
+* `https://<your-github-account>.github.io/<repository-name>`.

@@ -181,10 +181,10 @@ Ibland kan cargo-beroenden hamna ur synk och för vissa användare har det märk
 
 <div class="noprint no-page-break">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/resources-and-errors.rs:all}}

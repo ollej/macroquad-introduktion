@@ -1,216 +1,218 @@
-# Rymdskepp och kulor
+# Spaceship and bullets
 
 ![Screenshot](images/graphics-spaceship.gif#center)
 
-Först ska vi lägga till grafik för rymdskeppet som spelaren styr. Den kommer
-att animeras med två olika sprites, och kommer även ha olika animeringar för
-om skeppet styr åt höger eller vänster. Dessutom lägger vi till en textur med
-animering för kulorna som skeppet skjuter.
+To begin with we'll add graphics for the spaceship that the player controls.
+It will be animated with two different sprites, and will also have different
+animations for when the spaceship moves to the left or right. We'll also add a
+texture with animation for the bullets that the spaceship shoots.
 
-## Implementering
+## Implementation
 
-### Importera
+### Import
 
-Då animeringsstödet i Macroquad fortfarande räknas som experimentell måste vi
-importera stödet för det explicit längst upp i källkodsfilen. Det är
-structarna `AnimatedSprite` och `Animation` vi kommer använda oss av.
+The animation support in Macroquad is considered an experimental feature. It
+might change in a future version of Macroquad. It's also not included in the
+prelude that we have imported, so we will have to import it explicitly.
+
+Import the structs `AnimatedSprite` and `Animation` at the top of `main.rs`
+file.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:import}}
 ```
 
-### Konfigurera assets-katalog
+### Configure assets directory
 
-Först måste vi ange var Macroquad ska läsa resurserna ifrån, därför använder
-vi funktionen `set_pc_assets_folder()` som tar sökvägen till
-`assets`-katalogen med utgång från spelets rotkatalog. Detta behövs för att
-olika plattformar placerar filerna på olika ställen, och vi slipper dessutom
-ange katalogen för varje fil som ska laddas in. Lägg in nedanstående kod i
-`main`-funktionen innan loopen. 
+We need to start by setting where Macroquad should read the resources. We'll
+use the function `set_pc_assets_folder()` that takes the path to the `assets`
+directory relative to the root directory of the game. This is needed for
+platforms that might place files in other places, and we also have the added
+benefit of not having to add the directory name for every file we load.
+
+Add the following code in the `main` function above the game loop:
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:assetsfolder}}
 ```
 
-### Ladda in texturer
+### Load textures
 
-Nu kan vi ladda in filerna med texturerna för animeringarna av skeppet och
-kulorna. För att ladda in en textur används funktionen `load_texture()` som
-tar namnet på filen. Det är en asynkron funktion, så vi måste köra `await` och
-vänta på att inladdningen är klar. Filladdningen kan misslyckas, så vi får
-tillbaka ett `Result` och använder oss av `expect()` för att avsluta
-programmet med ett felmmeddelande om det uppstår. 
+Load the image files used for the animation textures of the ship and bullets.
+Use the function `load_texture()` to load a texture, which takes the name of
+the file to load. This function is async, because it supports loading files
+over HTTP in WebAssembly, so we need to call `await` to get the result.
 
-Efter att texturen är inladdad så sätter vi vilket sorts filter som ska
-användas när texturen skalas upp med metoden `set_filter()`. Vi sätter
-`FilterMode::Nearest` för att vi vill bibehålla pixelutseendet. Det här måste
-vi göra på varje textur. För högupplösta texturer är det bättre att använda
-`FilterMode::Linear` som ger linjär skalning av texturen.
+Since loading files can fail, this function will return a `Result`. We will
+call `expect()` on the result to stop the program if it wasn't possible to
+load the file. This can happen if the file is missing, or it has wrong read
+permissions. On WebAssembly it is possible that the HTTP request failed.
 
-Vi laddar in filerna `ship.png` som innehåller animeringarna för skeppet, och
-`laser-bolts.png` som innehåller animeringar för två olika sorts kulor.
+After loading the texture we'll set which kind of filter to use when scaling
+the texture using the method `set_filter()`. We will use the filter
+`FilterMode::Nearest` because we want to keep the pixelated look of the
+sprites. This needs to be done on every texture that is loaded. For high
+resolution textures it would be better to use `FilterMode::Linear` which makes
+a linear scaling of the texture.
+
+We'll load the files `ship.png` that contains the animations for the
+spaceship, and `laser-bolts.png` that contains animations for two different
+kinds of bullets.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:loadresources}}
 ```
 
 ```admonish info
-Bilderna returneras som structen
+The images are returned as the struct 
 [`Texture2D`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Texture2D.html)
-som innehåller bilddatan som sparas i GPU-minnet. Motsvarande struct för
-bilder som sparas i CPU-minnet är
+that stores the image data in GPU memory. The corresponding struct for images
+stored in CPU memory is 
 [`Image`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Image.html).
 ```
 
-### Bygg en texturatlas
+### Build a texture atlas
 
-Efter att alla texturer har laddats in anropar vi Macroquad-funktionen
-`build_textures_atlas` som bygger upp en atlas som innehåller alla inladdade
-texturer. Det gör att alla anrop till `draw_texture()` kommer använda texturen
-från atlasen istället för varje separat textur. Alla texturer bör laddas in
-innan detta anrop.
+After loading all the textures we'll call the Macroquad function
+`build_textures_atlas` that will build an atlas containing all loaded
+textures. This will ensure that all calls to `draw_texture` and
+`draw_texture_ex` will use the texture from the atlas instead of each separate
+texture which is much more efficient. All textures needs to be loaded before
+this function is called.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:atlas}}
 ```
 
-```admonish bug
-I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
-fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
-konstiga ut eller flimrar så prova att ta bort detta anrop.
-```
+### Spaceship animation
 
-### Animering av rymdskeppet
+![Spaceship spritesheet](assets/ship.png#pixelated)
 
-![Spritesheet för rymdskeppet](assets/ship.png#pixelated)
+We need to define how the animations in the textures should be displayed.
+We'll do this by creating an `AnimatedSprite` for each texture. The size of
+each frame of the spaceship texture is 16x24 pixels, so we'll set `tile_width`
+to `16` and `tile_height` to `24`.
 
-Nu måste vi beskriva hur animeringarna i texturerna ska visas. Det gör vi
-genom att skapa en `AnimatedSprite` för varje textur. Storleken på varje
-bildruta i skeppets textur är 16x24 pixlar, därför sätter vi `tile_width` till
-`16` och `tile_height` till `24`.
+After that is an array describing all the animations included in the texture.
+Each animation in a texture is placed in a separate row, with the frames next
+to each other horizontally. Each `Animation` should have a descriptive name,
+which row in the texture it is, how many frames it has, and how many frames to
+display each second.
 
-Därefter kommer en array som beskriver alla animeringar som ingår i texturen.
-Varje animation i en textur ligger på varsin rad, med bildrutorna efter
-varandra åt höger. Varje `Animation` ska ha ett beskrivande namn, vilken rad
-i texturen som innehåller animationen, hur många bildrutor det är samt hur
-många bildrutor som ska visas per sekund.
+The spaceship has three animations, the first one is used when flying up or
+down, the second is for moving left and the third is for moving right. There
+are two frames per animation and they should be shown at 12 frames per
+second. There are two more animations in the texture, on row 1 and 3 the ship
+is shown slightly less angled.
 
-Skeppet har tre animationer, den första är när den flyger rakt upp eller ner,
-den andra när det åker åt vänster och den tredje när det åker åt höger. Det är
-två bildrutor per animation och dom ska visas med 12 bildrutor per sekund.
-Texturen innehåller två animationer till, på rad 1 och 3 som visar skeppet
-lite mindre vinklade svängar.
-
-Avslutningsvis sätter vi `playing` till `true` för att vi vill att animeringen
-ska vara aktiv.
+Finally we set `playing` to `true` so that the animation will be active.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:shipsprite}}
 ```
 
-### Animering av kulor
+### Bullet animation
 
-![Spritesheet för rymdskeppet](assets/laser-bolts.png#pixelated)
+![Bullet spritesheet](assets/laser-bolts.png#pixelated)
 
-Animeringen för kulorna är väldigt lika, det är två animeringar med två
-bildrutor var som ska visas med 12 bildrutor per sekund. Storleken på bilderna
-är 16x16 pixlar. Vi kommer bara använda den andra animeringen, så vi använder
-oss av metoden `set_animation()` för att sätta att det är animeringen på rad
-`1` som ska användas.
+The bullet animation is very similar, it has two animations with two frames
+each that should be shown at 12 frames per second. The size of the frames are
+16x16 pixels. We will only use the second animation, so we'll use the method
+`set_animation()` to define that we will be using the animation on row `1`.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:bulletsprite}}
 ```
 
-### Animera riktning
+### Animate direction
 
-För skeppet behöver vi sätta vilken animation som ska användas baserat på åt
-vilket håll skeppet åker. I koden som sätter vilket håll skeppet ska
-förflyttas behöver vi därför köra metoden `set_animation` på vår
-`ship_sprite`. Vi sätter först animationen `0` som inte svänger åt något håll,
-om skeppet ska förflyttas åt höger sätter vi animeringen till `2` och om den
-förflyttas åt höger sätter vi `1`.
+For the spaceship we need to set which animation to use based on the direction
+it is moving. In the code for moving the spaceship we will add a line where we
+use the method `set_animation()` on the `ship_sprite`. We start by setting the
+animation to `0` if it isn't turning in any direction, if it is moving to the
+right we'll set the animation to `2`, and if it moves to the left we'll set
+the animation to `1`.
 
 ```rust [hl,1,5,10]
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:updateship}}
 ```
 
-### Ändra kulstorlek
+### Change bullet size
 
-Eftersom grafiken för kulorna är större än den lilla cirkeln vi ritade ut
-tidigare måste vi uppdatera storleken och startpositionen när vi skapar kulorna.
+Since the graphics for the bullets is larger than the tiny circle we used to
+draw we need to change the size and starting position when creating a bullet.
 
 ```rust [hl,4,6]
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:shoot}}
 ```
 
-### Uppdatera animeringar
+### Update animations
 
-För att Macroquad ska kunna animera texturerna åt oss måste vi anropa metoden
-`update()` på varje sprite inne i loopen. Vi lägger därför till följande två
-rader nedanför koden som uppdaterar fienders och kulors position.
+In order for Macroquad to animate the textures we need to call the method
+`update()` on every sprite inside our game loop. Add the following two lines
+below the code that updates the positions of enemies and bullets.
 
 ```rust [hl,8-9]
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:updatesprites}}
 ```
 
-### Rita kulornas bildrutor
+### Draw bullet animations
 
-Nu kan vi använda oss av funktionen `draw_texture_ex()` för att rita ut
-rätt bildruta från animeringen. Vi byter ut raderna som ritar ut en cirkel för
-varje kula till följande rader. Först anropar vi `frame()` på `bullet_sprite`
-för att få ut aktuell bildruta och tilldelar den till variabeln
-`bullet_frame`.
+Now we can use the function `draw_texture_ex` to draw each frame of the
+animation. Exchange the lines that draws a circle for each bullet to the code
+below. First we call the method `frame()` on the `bullet_sprite` to get the
+current animation frame and set it to the variable `bullet_frame`..
 
-Inne i loopen som ritar ut alla kulor anropar vi `draw_texture_ex()` för att
-rita ut kulan. Den tar `bullet_texture` som argument, därefter en X och
-Y-position som vi räknar ut baserat på kulans storlek. Vi skickar även med
-structen `DrawTextureParams` med värdena `dest_size` och `source_rect`. Fältet
-`dest_size` avgör hur stort texturen ska ritas ut, så vi skickar in en `Vec2`
-med kulans storlek för både X och Y. Därefter anropar vi
-`bullet_frame.source_rect` som anger var i texturen aktuell bildruta ska
-hämtas.
+Inside the loop that draws all the bullets we'll call `draw_texture_ex` to
+draw the bullet frame. It takes the `bullet_texture` as argument, and an `x`
+and `y` position based on the size of the bullet. We also add the struct
+`DrawTextureParams` with the fields `dest_size` and `source_rect`. The field
+`dest_size` defines the size the texture will be drawn as, so we will use a
+`Vec2` with the size of the bullet for both `x` and `y`. Finally we'll use
+`bullet_frame.source_rect` which is a reference to where in the texture the
+current frame is placed.
 
 ```rust [hl,1,3-12]
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:drawbullets}}
 ```
 
 ```admonish info
-Med hjälp av
+By using
 [`DrawTextureParams`](https://docs.rs/macroquad/0.3.25/macroquad/texture/struct.DrawTextureParams.html)
-går det att ändra hur texturen ska ritas ut.  Det går att rita ut texturen
-roterat eller spegelvänt med fälten `rotation`, `pivot`, `flip_x` och `flip_y`. 
+it is possible to change how the texture should be drawn. It is possible to
+draw the texture rotated or mirrored with the fields `rotation`, `pivot`,
+`flip_x`, and `flip_y`. 
 ```
 
-### Rita ut rymdskeppets bildrutor
+### Draw the spaceship frames
 
-Till sist kan vi byta ut cirkeln mot texturen för skeppet. Det fungerar
-likadant som för att rita ut kulorna. Vi hämtar först ut aktuell bildruta från
-spritens animering och ritar sedan ut texturen med `draw_texture_ex`.
+Finally it's time to replace the circle with the texture for the spaceship. It
+works the same as when drawing the bullets. First we'll retrieve the current
+frame from the animation sprite, and then draw it using `draw_texture_ex`.
 
-Då skeppanimeringen inte har samma storlek i höjd och bredd så använder vi oss
-av `ship_frame.dest_size` för att få ut storleken den ska ritas ut i. Men för
-att det inte ska bli så smått ritar vi ut den med dubbla storleken.
+Because the spaceship animation isn't the same size in width and height we'll
+use `ship_frame.dest_size` to get the size to draw. To make it a bit bigger
+we'll double the size.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:drawship}}
 ```
 
-Om allt fungerar som det ska så ska det nu vara grafik för både skeppet och
-kulorna.
+If everything works correctly there should be animated graphics for both the
+spaceship and the bullets when running the game.
 
-```admonish tip title="Utmaning" class="challenge"
-Prova att använda de två extra skeppanimationerna för att vinkla skeppet lite
-mindre precis när det bytt håll för att sedan vinklas fullt ut efter en viss
-tid.
+```admonish tip title="Challenge" class="challenge"
+Try using the two extra spaceship animations to make the ship turn only
+slightly just when it changes direction and then make it turn fully after a
+short amount of time.
 ```
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-spaceship.rs:all}}
@@ -220,6 +222,7 @@ tid.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/ship-and-bullets.toml}}

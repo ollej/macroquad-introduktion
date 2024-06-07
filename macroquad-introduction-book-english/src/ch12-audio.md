@@ -21,7 +21,7 @@ edition = "2021"
 
 [dependencies]
 macroquad = { version = "0.4", features = ["audio"] }
-macroquad-particles = "0.2.0"
+macroquad-particles = "0.2.1"
 ```
 
 ### Importera
@@ -95,10 +95,10 @@ stoppa musiken när spelaren pausar spelet.
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/audio.rs:all}}
