@@ -1,59 +1,59 @@
-# Lägg ut ditt spel på webben
+# Publish your game on the web
 
-Eftersom det går att kompilera Macroquad-spel till WebAssembly så är det
-möjligt att köra spelet i en webbläsare. Här kommer instruktioner för hur du
-kan skapa en webbsida som kör ditt spel. Denna sida kan du sedan lägga upp på
-ditt webhotell så att andra enkelt kan spela ditt spel utan att behöva ladda
-ner något.
+Since you can compile a Macroquad game to WebAssembly it's possible to run the
+game in a web browser. These are instructions on how to create a web page to
+run your game. This web page can be published on a web account so that people
+can play your game directly in the browser without having to download
+anything.
 
-## Installera WASM build target
+## Install WASM build target
 
-Till att börja med måste du installera en build target för WASM. Det görs
-med kommandot `rustup`.
+Start by installing the build target for WebAssembly using the command
+`rustup`.
 
 ```sh
 rustup target add wasm32-unknown-unknown
 ```
 
-## Bygg en WASM-binär
+## Build a WebAssembly binary
 
-Nu kan du använda WASM build targeten för att bygga en WASM-binärfil som sedan
-kan laddas från en webbsida.
+Using the WebAssembly target you can build a WASM binary file that can be
+loaded from a web page.
 
 ```sh
 cargo build --release --target wasm32-unknown-unknown
 ```
 
-Binärfilen som skapas kommer att placeras i katalogen
-`target/wasm32-unknown-unknown/release/` med filändelsen `.wasm`.
+The WASM binary file will be placed in the directory
+`target/wasm32-unknown-unknown/release/` with the extension `.wasm`.
 
-## Kopiera WASM-binären
+## Copy WebAssembly binary
 
-Du måste kopiera binärfilen som skapades i steget ovan till roten av din
-crate, samma katalog som `assets`-katalogen ligger i.
+You need to copy the WebAssembly binary to the root of your crate, in the same
+place that the `assets` directory is placed.
 
-Om du har döpt din crate till något annat än "my-game" så kommer namnet på
-WASM-filen vara samma som namnet på din crate, med filändelsen `.wasm`.
+If you have named your crate something else than `my-game` the name of the
+binary will have the same name, but with the file extension `.wasm`.
 
 ```sh
 cp target/wasm32-unknown-unknown/release/my-game.wasm .
 ```
 
-## Skapa en webbsida
+## Create an HTML page
 
-Det behövs en HTML-sida för att ladda in WASM-binären. Den behöver ladda in en
-javascript-fil från Macroquad som innehåller kod för att WASM-binären ska
-kunna kommunicera med webbläsaren. Det behövs även en `canvas`-tagg som
-Macroquad använder för att rita ut grafiken. Kom ihåg att byta ut namnet på
-binärfilen i `load`-anropet från `my-game.wasm` till det du döpt ditt spel
-till. Det kommer vara samma som namnet på din crate.
+You will need an HTML page to load the WebAssembly binary. It needs to load a
+javascript file from Macroquad which contains code to run the WebAssembly
+binary and communicate with the browser. You also need to add a canvas element
+that Macroquad will use to draw the graphics. Remember to change the name of
+the WebAssembly binary file in the `load()` call from `my-game.wasm` to the
+name of your game if you have changed it.
 
-Skapa en fil med namnet `index.html` i roten på din crate med följande
-innehåll:
+Create a file with the name `index.html` in the root of your crate with the
+following content:
 
 ```html
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>My Game</title>
@@ -76,41 +76,41 @@ innehåll:
     <canvas id="glcanvas" tabindex='1'></canvas>
     <!-- Minified and statically hosted version of https://github.com/not-fl3/macroquad/blob/master/js/mq_js_bundle.js -->
     <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
-    <script>load("my-game.wasm");</script> <!-- Din kompilerade WASM-binär -->
+    <script>load("my-game.wasm");</script> <!-- Your compile WASM binary -->
 </body>
 </html>
 ```
 
-## Testkör spelet i din webbläsare
+## Test the game in a browser
 
-Nu kan du starta en webbserver och ladda sidan i din webbläsare.
+You should be able to start a web server and open the page in a web browser.
 
-### Installera en enkel webbserver
+### Install a simple web server
 
-För att serva ditt spel lokalt på din dator kan du installera en enkel
-webbserver med nedanstående kommando. Detta är enbart för att kunna testköra
-spelet innan du lägger ut det på ett riktigt webbhotell.
+To serve your game locally on your computer you can install a simple web
+server with the following command. This is only to be able to test the game
+locally before you upload it to a proper web account.
 
 ```sh
 cargo install basic-http-server
 ```
 
-### Kör igång webbservern
+### Run the web server
 
-Detta kommando skriver ut vilken adress du kommer komma åt webbsidan på. Öppna
-din webbläsare och surfa till den adressen, till exempel
-`http://localhost:4000`. Spelet kommer nu köras i din webbläsare istället för
-som en egen applikation.
+This command will start the web server and print an address where you can
+reach the web page. Open your web browser and load the URL, this will be
+something similar to `http://localhost:4000`. The game should now run in your
+browser instead of as a native application.
 
 ```sh
 basic-http-server .
 ```
 
-### Lägg ut ditt spel
+### Publish your game
 
-Om du har tillgång till ett webbhotell kan du lägga ut filerna där så att andra
-kan spela ditt spel. Du behöver lägga upp html-filen, WASM-filen och katalogen
-`assets`.
+If you have access to a web account you can publish the files there to let
+other people play your game. You need to upload the HTML file, the WASM file,
+and the `assets` directory.
 
 ```
 index.html
@@ -119,5 +119,9 @@ assets/*
 ```
 
 ```admonish note
-Vi påminner om att det redan i [kapitel 1](ch1-first-program.md#publicera-på-webben-om-du-vill) finns instruktioner för hur du publicerar spelet till webben utan webbhotell. Se i så fall till att du använder den uppdaterade `deploy.yml` från [kapitel 10 – Grafik](ch11-graphics.md#uppdatera-webbpubliceringen).
+This is a reminder that there are instructions at the end of
+[chapter 1](ch1-first-program.md#publish-on-the-web-if-you-want)
+with instructions on how to automatically publish the game on GitHub without
+using a web account. In that case you need to use the updated `deploy.yml`
+from [chapter 10 – Graphics](ch11-graphics.md#update-web-publishing).
 ```
