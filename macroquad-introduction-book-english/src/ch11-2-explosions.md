@@ -1,62 +1,57 @@
-# Grafiska explosioner
+# Graphical explosions
 
 ![Screenshot](images/graphics-explosions.gif#center)
 
-För att göra explosionerna lite mer effektfulla så ska vi lägga till grafik
-även för partiklarna.
+To make the explosions a bit more spectacular we will add graphical textures
+to the particles.
 
-```admonish bug
-I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
-fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
-konstiga ut eller flimrar så prova att ta bort detta anrop.
-```
+## Implementation
 
-## Implementering
+### Import
 
-### Importering
-
-Vi börjar med att uppdatera importeringen från paketet `macroquad_particles`,
-och byta ut `ColorCurve` mot `AtlasConfig`.
+To begin with we need to update the import of `macroquad_particles`
+and replace `ColorCurve` with `AtlasConfig`.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:import}}
 ```
 
-### Uppdatera partikelkonfigurationen
+### Update the particle configuration
 
-Nu behöver vi uppdatera konfigurationen för vår `particle_explosion` så att
-den använder en `AtlasConfig` som beskriver hur den ska rita partiklarna från
-en textur istället för att använda `ColorCurve`. Vi uppdaterar även storleken
-och livstiden för att passa bättre med grafiken.
+We need to update the particle confguration for our `particle_explosion` so
+that it will use `AtlasConfig` to make it use a texture to draw the particles
+instead of using the `ColorCurve`. We also update the size and lifetime to
+work better with the graphics.
 
 ```rust [hl,10,12,14]
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:emitterconfig}}
 ```
 
-### Ladda in texturer
+### Load textures
 
 ![Spritesheet för explosionen](assets/explosion.png#pixelated)
 
-Innan vi bygger texturatlasen så laddar vi in texturen med animeringen för
-partiklarna. Filen med animeringen heter `explosion.png`. Glöm inte att sätta
-filtret till `FilterMode::Nearest`.
+Before the line that builds the texture atlas we need to load the texture with
+the animation for the particle explosion. The file is called `explosion.png`.
+Don't forget to set the filter on the texture to `FilterMode::Nearest`.
 
 ```rust [hl,1-4]
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:loadresources}}
 ```
 
-### Lägg till texturen
+### Add the texture
 
-När vi skapar explosionen måste vi lägga till texturen, och vi uppdaterar även
-mängden för att få lite fler partiklar. Här måste vi anropa metoden `clone()`
-på texturen, vilket går väldigt snabbt då det bara är en pekare till texturen.
+When we create the explosion we need to add the texture to use. We'll also
+update the amount to get a few more particles. We need to use the method
+`clone()` on the texture, which is a efficient since it is only a pointer to
+the texture.
 
 ```rust [hl,3-4]
 {{#include ../../mitt-spel/examples/graphics-explosion.rs:explosiontexture}}
 ```
 
-När du kör spelet nu ska explosionerna animeras med hjälp av
-explosionstexturen istället för att vara flerfärgade rutor.
+When the game is run the explosions should be animated with the explosion
+image instead of colored squares.
 
 <div class="noprint">
 
