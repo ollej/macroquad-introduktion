@@ -1,135 +1,141 @@
-# Bomber och granater
+# Bullet hell
 
 ![Screenshot](images/shooting.gif#center)
 
-Det känns lite orättvist att vår stackars cirkel inte kan försvara sig mot de
-läskiga fyrkanterna. Därför är det dags att implementera skott som cirkeln kan
-skjuta ner fyrkanterna med.
+It is slightly unfair that our poor circle isn't able to defend itself against
+the terrifying squares. So it's time to implement the ability for the cirle to
+shoot bullets to destroy the evil squares.
 
-## Implementering
+## Implementation
 
-### Känner sig träffade
+### Dead or alive?
 
-För att hålla reda på vilka fyrkanter som har blivit träffade av kulor så
-lägger vi till ett nytt fält `collided` av typen `bool` i structen `Shape`.
+To keep track of which squares have been hit by bullets we add the field
+`collided` of the type `bool` to the struct `Shape`.
 
 ```rust [hl,6]
 {{#include ../../mitt-spel/examples/shooting.rs:shape}}
 ```
 
-### Vektor för kulor
+### Keeping track
 
-Vi måste ha en ny vektor som håller reda på alla kulor som har skjutits. Vi
-kallar den `bullets` och skapar den efter vektorn med `squares`. Här anger vi
-vilken typ vektorn ska innehålla eftersom Rust-kompilatorn måste veta vilken
-typ det är innan vi har tilldelat den något värde. Vi använder structen
-`Shape` även för kulorna för enkelhetens skull.
+We need another vector to keep track of all the bullets. For simplicity's sake
+we'll call it `bullets`. Add it after the `squares` vector. Here we'll also
+set the type of the elements to ensure that the Rust compiler knows what type
+it is before we have added anything to it. We'll use the struct `Shape` for
+the bullets as well. 
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:bullets}}
 ```
 
-### Skjut kulor
+### Shooting bullets
 
-Efter cirkeln har förflyttats så lägger vi till en kontroll om spelaren har
-tryckt på mellanslag, och lägger till en kula i vektorn med kulor. Kulans `x`-
-och `y`-koordinater sätts till samma som cirkeln, och hastigheten till dubbla
-cirkelns hastighet.
+After the circle has moved we'll add a check if the player has pressed the
+space key and add a bullet to the `bullets` vector. The `x` and `y`
+coordinates of the bullet is set to the same as that of the circle, and the
+speed is set to twice that of the circle.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:shoot}}
 ```
 
-```admonish notes title="Notera"
-Notera att vi använder funktionen `is_key_pressed()` som bara är sann under
-den första bildrutan som tangenten trycks ned.
+```admonish notes
+Note that we're using the funktion `is_key_pressed()` which only returns true
+during the frame that the key is first pressed.
 ```
 
-Eftersom vi har lagt till ett fält på structen `Shape` måste vi lägga till den
-när vi skapar en fyrkant.
+Since we added a new field to the `Shape` struct we'll need to set it when we
+create a square.
 
 ```rust [hl,6]
 {{#include ../../mitt-spel/examples/shooting.rs:squarecollided}}
 ```
 
-### Flytta kulor
+### Moving bullets
 
-För att kulorna inte ska bli stillastående minor så måste vi loopa över alla
-kulor och flytta dom i Y-led. Lägg till följande kod efter förflyttningen av
-fyrkanterna.
+We don't want the bullets to be stationary mines, so we'll have to loop over
+the `bullets` vector and move them in the `y` direction. Add the following
+code after the code that moves the squars.
 
 ```rust [hl,4-6]
 {{#include ../../mitt-spel/examples/shooting.rs:movebullets}}
 ```
 
-### Ta bort kulor och fyrkanter
+### Removing bullets and squares
 
-Även kulorna behöver tas bort om de hamnar utanför skärmen.
+Make sure to remove the bullets that have gone outside of the screen in the
+same way that the squares are removed.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:removebullets}}
 ```
 
-Nu är det dags att ta bort alla fyrkanter och kulor som har kolliderat med
-något. Det gör vi enkelt med `retain`-metoden och behåller alla som inte har
-`collided` satt till `true`. Vi gör detta på båda vektorerna för `squares` och
-`bullets`.
+Now it is time to remove all the squares and bullets that have collided. It
+can be done with the `retain` method on the vectors which takes a predicate
+that should return `true` if the element should be kept. We'll just check
+whether the `collided` field on the struct is false. Do the same thing for
+both the `squares` and the `bullets` vectors.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:removecollided}}
 ```
 
-### Kollidering
+### Collision
 
-Efter vi har kollat om cirkeln har kolliderat med en fyrkant lägger vi till en
-kontroll om någon fyrkant blir träffad av en kula. Både kulan och fyrkanten
-uppdateras och fältet `collided` sätts till `true` så att vi kan ta bort dem
-längre ned i koden.
+After the check if the circle has collided with a square we'll add another
+check if any of the squares have been hit by a bullet. We'll set the field
+`collided` to true for both the sqaure and the bullet so that they can be
+removed.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:collided}}
 ```
 
-### Rensa kulor
+### Clearing bullets
 
-Om det har blivit game over måste vi även rensa vektorn `bullets` så att
-kulorna försvinner när ett nytt spel påbörjas.
+If the game is over we also have to clear the `bullets` vector so that all the
+bullets are removed when a new game is started.
 
 ```rust [hl,3]
 {{#include ../../mitt-spel/examples/shooting.rs:clearbullets}}
 ```
 
-### Rita ut kulor
+### Drawing bullets
 
-Innan vi ritar ut cirkeln så ritar vi ut alla kulor, så att de ritas ut under
-övriga former.
+Before the cirkeln is drawn we'll draw all the bullets. This ensures that they
+are drawn behind all the other shapes.
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:drawbullets}}
 ```
 
 ```admonish info
-Det finns även en funktion som heter
+The is another function called
 [`draw_circle_lines()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_circle_lines.html)
-som används för att rita ut en cirkel som inte är ifylld.
+that can be used to draw a circle with just the outline.
 ```
 
-Det var allt för att kunna skjuta sönder fyrkanter.
+This is all the code that is needed for the circle to be able to shoot down
+all the fearsome squares.
 
-```admonish tip title="Utmaning" class="challenge"
-För att öka svårighetsgraden går det att lägga till en begränsning så att det
-måste gå en viss tid mellan varje skott. Använd funktionen
+```admonish tip title="Challenge" class="challenge"
+To increase the difficulty it's possible to add a limit on the time between
+each shot. Try using the function
 [`get_time()`](https://docs.rs/macroquad/latest/macroquad/time/fn.get_time.html)
-för att spara undan när varje skott skjuts och jämför aktuella tiden med detta
-värde.
+to save when the last shot was fired and compare it with the current time.
+Only add a bullet if the difference is above a certain threshold.
+
+Another possibility is to only allow a specific amount of bullets on the
+screen at the same time.
 ```
 
 <div class="noprint">
 
-## Kompletta källkoden
+## Full source code
 
 <details>
-  <summary>Klicka för att visa hela källkoden</summary>
+  <summary>Click to show the the full source code</summary>
 
 ```rust
 {{#include ../../mitt-spel/examples/shooting.rs:all}}
@@ -139,6 +145,7 @@ värde.
 
 ## Quiz
 
-Testa dina nya kunskaper genom att svara på följande quiz innan du går vidare.
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
 
 {{#quiz ../quizzes/shooting.toml}}

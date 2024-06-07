@@ -8,11 +8,12 @@ foundation to make the game into your own.
 Here are some ideas on how to improve the game to make it more fun to play:
 
 * Add more enemies with different movements and graphics.
-* Allow enemies to shoot bullets themselves.
+* Allow enemies to shoot bullets or drop bombs themselves.
 * Add levels with increasing difficulty.
-* Upgrades that improve the weapon.
+* Upgrades that improve the weapon or add different types of weapons.
 * Add big boss enemies at the end of levels.
 * Extra lives
+* Store the top ten scores and add a highscore screen.
 
 <div class="noprint no-page-break">
 

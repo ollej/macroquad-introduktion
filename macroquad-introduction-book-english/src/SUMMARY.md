@@ -7,7 +7,7 @@
 - [Smooth movement](./ch3-smooth-movement.md)
 - [Falling squares](./ch4-falling-squares.md)
 - [Collision](ch5-collision.md)
-- [Bomber och granater](ch6-shooting.md)
+- [Bullet hell](ch6-shooting.md)
 - [Points](ch7-points-system.md)
 - [Game state](ch8-game-state.md)
 - [Starfield shader](ch9-starfield-shader.md)

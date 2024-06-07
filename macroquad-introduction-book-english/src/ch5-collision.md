@@ -2,9 +2,9 @@
 
 ![Screenshot](images/collision.gif#center)
 
-To increase the excitement, let's add some conflict to the game. If our hero,
-the brave green circle, collides with a square, the game is over and has to be
-restarted.
+To make the game more exciting, let's add some conflict to the game. If our
+hero, the brave green circle, collides with a square, the game will be over
+and has to be restarted.
 
 After we have drawn the circle and all squares, we'll add a check to see if any
 square touches the circle. If it does, we'll display the text `Game Over` and
@@ -14,7 +14,7 @@ the screen.
 
 ## Implementation
 
-### Colliosion function
+### Collision function
 
 We expand the `Shape` struct with an implementation that contains the method
 `collides_with()` to check if it collides with another `Shape`. This method uses
