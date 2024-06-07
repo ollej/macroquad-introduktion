@@ -1,65 +1,64 @@
-# Bygg för iOS
+# Build for iOS
 
-Det går även att bygga ditt Macroquad-spel för att köra på iPhone-mobiler och
-iPads. 
+You can build your Macroquad game to run on iPhone mobile phones and iPads.
 
 ```admonish info
-Utförligare information om att bygga för iOS finns i artikeln [Macroquad on
-iOS](https://macroquad.rs/articles/ios/) på Macroquads hemsida. Där finns
-information om hur man får tillgång till loggar, bygger för riktiga enheter
-och signerar appen.
+More detailed information on how to build for iOS is available in the article
+[Macroquad on iOS](https://macroquad.rs/articles/ios/) on the Macroquad homepage.
+There you can find information on how to access logs, building for real
+devices and signing your app.
 ```
 
-## Skapa en katalog
+## Create a directory
 
-En iOS-applikation är en vanlig katalog/mapp med filändelse `.app`.
+An iOS app is a regular directory with the file extension `.app`.
 
 ```sh
 mkdir MyGame.app
 ```
 
-För vårt spel är filstrukturen i `.app`-mappen samma som när vi kör
-spelet med `cargo run` från roten av craten. Det vill säga, binärfilen och
-`assets`-mappen skall placeras bredvid varandra. Det behövs även en
-`Info.plist`-fil.
+For our game the directory structure in the `MyGame.app` directory is the same
+as when we run the game with `cargo run` from the root of the crate. The
+binary file and `assets` directory should be placed nexxt to each other. You
+also need a `Info.plist` file.
 
-Börja med att lägga `assets` på plats:
+Start by adding the `asstes`.
 
 ```sh
 cp -r assets MyGame.app 
 ```
 
-## Bygg binärfilen
+## Build the binary
 
-Du behöver Rusts targets för iOS. För simulatorn används Intel-binärer och
-för en fysisk enhet används ARM-binärer. Vi går enbart igenom hur du testar
-på simulatorn i den här guiden. Att få igång testning på en fysisk enhet är
-ett kapitel för sig. Se [Macroquad on
-iOS](https://macroquad.rs/articles/ios/) för information om det.
+You need to add the Rust target for iOS. For the simulator you should use
+Intel binaries and for the real devices you should use ARM binaries. We'll
+only cover how to try the game in the simulator in this guide. To try the game
+on a real device is covered in the [Macroquad on
+iOS](https://macroquad.rs/articles/ios/) article on the Macroquad homepage.
 
 ```sh
 rustup target add x86_64-apple-ios
 ```
 
-Nu kan du bygga en exekverbar binärfil för iOS Simulator med följande
-kommando.
+After this you can build an executable binary for the iOS Simulator using the
+following command:
 
 ```sh
 cargo build --release --target x86_64-apple-ios
 ```
 
-## Kopiera binärfilen
+## Copy the binary file
 
-Kopiera in den exekverbara binärfil som byggdes ovan till spelets mapp.
+Copy the executable binary file to the game directory.
 
 ```sh
 cp target/x86_64-apple-ios/release/my-game MyGame.app
 ```
 
-## Skapa Info.plist
+## Create Info.plist
 
-Skapa en textfil för appens metadata med namnet `Info.plist` i
-`MyGame.app`-mappen med följande innehåll:
+Create a text file for the app metadata with the name `Info.plist` in the
+`MyGame.app` directory with the following content:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,66 +79,62 @@ Skapa en textfil för appens metadata med namnet `Info.plist` i
 </plist>
 ```
 
-## Sätt upp simulatorn
+## Setup the simulator
 
-För det här steget behöver du ha **XCode** och minst en simulator-image
-installerad. XCode hittar du i **App Store**-appen. Du kan lägga till
-simulatorer via kommandoraden, eller via XCode. I version 15.1 av XCode
-kan du göra det via **Settings...** -> **Platforms** och sedan välja någon
-av iOS-versionerna där. Där finns en även knapp (`+`) för att lägga till
-ytterligare iOS-versioner.
+For this step you need to have **XCode** and at least one simulator
+image installed. You'll find XCode in the **App Store** app. You can add
+simulators via the command line or via XCode. In version 15.1 of XCode you can
+do it via **Settings...** -> **Platforms** and then choose between the
+available iOS versions. There is also a button (`+`) to add more iOS versions.
 
-För att sätta upp via kommandoraden så kör först `xcrun simctl list` för att
-se en lista på alla tillgängliga simulatorer. Kopiera den långa hex-koden för
-den simulator du vill boota och använd det som argument till `xcrun simctl
-boot`. Detta behöver bara göras första gången du ska köra simulatorn.
+To add simulators via the command line you first need to run the command 
+`xcrun simctl list` to get a list of all the available simulators. Copy the
+hex code for the simulator you want and use it as argument to the `xcrun simctl
+boot` command. You only need to do this the first time you run the simulator.
 
 ```bash
 xcrun simctl list
 xcrun simctl boot <hex string>
 ```
 
-## Kör igång simulatorn
+## Run the simulator
 
-Kommandot vi kommer att använda för att installera och köra spelet, `xcrun
-simctl`, väljer ut simulator med argumentet `booted`. Det innebär att du
-först behöver starta en simulator, och för att göra det förutsägbart bör du
-ha endast en simulator igång. Även detta går att göra via kommandoraden,
-men det enklaste är nog att starta **Simulator**-appen och sedan starta en
-simulator via **File** -> **Open Simulator**.
+The command we'll use to install and run the game, 
+`xcrun simctl`, chooses a simulator with the argument `booted`. This means
+that you first need to start a simulator, and to make things predictable you
+should only run one simulator at a time. This can also be done using the
+terminal, but the easiest way is to start the **Simulator** app and then start
+the simulator you want via **File** -> **Open Simulator**.
 
-För att starta simulatorn via commandline använd följande kommando:
+To start the simulator using the terminal, use the following command:
 
 ```bash
 open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
 ```
 
-## Installera spelet
+## Install the game
 
-Du kan installera spelet genom att dra mappen `MyGame.app` och släppa den
-i den startade simulatorn. Men eftersom du antagligen kommer vilja
-installera om ofta är det effektivare att använda kommandoraden för detta:
+You can install the game by dragging the directory `MyGame.app` and drop it on
+the running simulator. But since you probably want to reinstall it multiple
+times it is more efficient to use the terminal with this command:
 
 ```sh
 xcrun simctl install booted MyGame.app/
 ```
 
-## Starta spelet
+## Start the game
 
-Även detta kan du göra i den startade simulatorn eller via kommandoraden.
-I vår `Info.plist` specificerade vi `CFBundleIdentifier` som
-`com.mygame`.
+This can be done using the running simulator or via the terjinal. In our
+`Info.plist` file we specified `CFBundleIdentifier` as `com.mygame`, which we
+will use to start the game.
 
 ```sh
 xcrun simctl launch booted com.mygame
 ```
 
 ```admonish note
-Du kommer märka att spelet inte är anpassat för att köras på en mobil
-plattform än. Du kan förslagsvis börja med att läsa om funktionen `touches()`
-i
-[Macroquads
-dokumentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
-för information om hur touch-kontroller fungerar.
+You'll notice that the game isn't adapted to be run on a mobile platform yet.
+To start with you can read about the function `touches()` in the
+[Macroquad documentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
+for more information about how touch interfaces work.
 ```
-

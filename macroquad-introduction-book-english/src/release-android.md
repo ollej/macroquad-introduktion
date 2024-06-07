@@ -1,32 +1,32 @@
-# Bygg för Android-mobiler
+# Build for Android phones
 
-Med Macroquad går det även att bygga för att spela spelet på Android-mobiler.
-Vi kommer bygga en APK-fil som kan installeras på Android-telefoner eller
-läggas ut på Google Play Store. Vi kommer bara beskriva hur man bygger med
-hjälp av Docker, så det kommer krävas att det är installerat.
+Using Macroquad it's possible to build your game to be run on Android phones.
+We will build an APK file that can be installed on Android phones or added to
+the Google Play store. We'll describe how to build the game using Docker, so
+you need to have that installed to continue.
 
-Tänk på att en mobil plattform inte har ett fysiskt tangentbord och därför
-behövs det byggas in stöd för att styra spelet med touch-kontroller.
+Since mobile platforms don't have physical keyboards you will also have to add
+support for controlling the game using touch controls.
 
 ```admonish note
-Läs om funktionen `touches()` i [Macroquads
-dokumentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
-för information om hur touch-kontroller fungerar.
+Read about the function `touches()` in the [Macroquad
+documentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
+for more information on how touch controls work.
 ```
 
-## Installera docker image
+## Install the docker image
 
-Innan du kan börja bygga en APK-fil för Android behöver du hämta hem 
-Docker-imagen `notfl3/cargo-apk`.
+Before you build an APK file for Android you need to pull the Docker image
+`notfl3/cargo-apk`.
 
 ```sh
 docker pull notfl3/cargo-apk
 ```
 
-## Bygg APK-fil
+## Build APK file
 
-Med detta kommando kan du bygga en APK-fil. Det kommer ta en stund då den
-gör tre fulla byggen, en för varje Android target.
+Using this command you can build an APK file. It will take quite some time
+since it will do three full builds, once for each Android target.
 
 ```sh
 docker run 
@@ -36,13 +36,14 @@ docker run
   notfl3/cargo-apk cargo quad-apk build --release
 ```
 
-Detta kommer skapa en APK-fil i katalogen
+After this you will have an APK file in the directory
 `target/android-artifacts/release/apk`.
 
-## Konfiguration
+## Configuration
 
-För att Android ska hitta alla assets måste en konfiguration läggas till i
-`Cargo.toml` som beskriver var assets-katalogen ligger.
+To ensure that Android can find all the assets you need to add some
+configuration to the `Cargo.toml` file to define where the assets can be
+found.
 
 ```toml
 [package.metadata.android]
@@ -50,8 +51,8 @@ assets = "assets/"
 ```
 
 ```admonish info
-På Macroquads hemsida finns en ingående beskrivning om hur man [bygger för
-Android](https://macroquad.rs/articles/android/). Där finns tips för att
-snabba upp bygget, hur man bygger manuellt utan Docker och hur man signerar
-APK-filen för att kunna lägga upp den på Google Play Store.
+On the Macroquad homepage there is a more detailed instruction on how to 
+[build for Android](https://macroquad.rs/articles/android/). It has tips on
+how to speed up the build, how to build manually without Docker and how to
+sign the APK file which is needed to upload it to the Google Play Store.
 ```

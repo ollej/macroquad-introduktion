@@ -1,9 +1,10 @@
-# Releasa ditt spel
+# Release your game
 
-Nu när du har byggt ett spel vill du förstås att andra ska kunna spela det
-också. Här kommer instruktioner för hur du kan paketera ditt spel för olika
-plattformar. Först kommer vi titta på hur spelet kan byggas och paketeras för
-de vanligaste desktop-plattformarna: Windows, Linux och MacOS. Därefter kommer
-ett kapitel som förklarar hur spelet kan byggas för att spelas via en
-webbsida. Vi kommer sedan titta på hur spelet kan byggas och paketeras för
-mobila plattformar som Android och iPhone.
+Now that you have made a complete game you need to release it so that others
+can play it. In the following chapters are instructions on how to build your
+game for different platforms.
+
+We'll start by looking at how to build and package the game for the most
+common desktop platforms: Windows, MacOS, and Linux. After that is a chapter
+on building the game to run on a web page. We will also look at how to build
+and package the game for mobile platforms like Android and iPhone.

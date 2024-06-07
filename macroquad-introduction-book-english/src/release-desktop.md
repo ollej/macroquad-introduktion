@@ -1,63 +1,62 @@
-# Bygg ditt spel för desktopdatorer
+# Build your game for desktop platforms
 
-Macroquad stödjer flera olika desktopplattformar, som Windows, Linux och
-MacOS. Det går att korskompilera för andra plattformar än den du själv kör på,
-men det kan kräva en del andra verktyg och tas inte upp i den här guiden.
-Enklast kan vara att använda ett byggsystem som har stöd för flera olika
-plattformar.
+Macroquad supports multiple desktop platforms, such as Windows, MacOS, and
+Linux. It's possible to cross compile for other platforms than the one you are
+using. But it might need other tools that won't be described in this guide.
+It's easiest to use a build system that has support for different platforms.
 
-## Bygg på Windows
+## Build for Windows
 
-Om du ska bygga ditt spel för att kunna köras på Windows så måste en Rust
-build target installeras. Både MSVC och GNU build targets stöds.
+If you want to build your game to be run on Windows you need to install a Rust
+build target. Both the MSVC and GNU build targets are supported.
 
-### Bygg med Windows GNU target
+### Build using Windows GNU target
 
-Innan första bygget måste rätt target installeras, detta behöver bara göras en
-gång.
+Before running the build the first time you need to install the build target.
+You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-pc-windows-gnu
 ```
 
-För att bygga spelet kan du köra detta kommando:
+To build the game, use the following command:
 
 ```sh
 cargo build --release --target x86_64-pc-windows-gnu
 ```
 
-Binärfilen som skapas kommer att placeras i katalogen
+The binary file created will be stored in the directory
 `target/x86_64-pc-windows-gnu/release/`.
 
-### Bygg med Windows MSVC target
+### Build using Windows MSVC target
 
-Innan första bygget måste rätt target installeras, detta behöver bara göras en
-gång.
+Before running the build the first time you need to install the build target.
+You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-pc-windows-msvc
 ``` 
 
-För att bygga spelet kan du köra detta kommando:
+To build the game, use the following command:
 
 ```sh
 cargo build --release --target x86_64-pc-windows-msvc
 ```
 
-Binärfilen som skapas kommer att placeras i katalogen
+The binary file created will be stored in the directory
 `target/x86_64-pc-windows-msvc/release/`.
 
-## Bygg på Linux
+## Build for Linux
 
-För att kunna bygga ett spel med Macroquad på Linux så krävs det att några
-utvecklingspaket är installerade. Nedan visas hur dessa paket kan installeras
-med några vanliga Linux-distributioner.
+To build your game with Macroquad on Linux you will need a couple of
+development packages. Below are a few instructions how to install these
+packages on some common Linux distributions.
 
-### Installera paket
+### Install packages
 
 #### Ubuntu
 
-Dessa systempaket måste installeras för att bygga på Ubuntu.
+These system packages must be installed to build on Ubuntu.
 
 ```sh
 apt install pkg-config libx11-dev libxi-dev libgl1-mesa-dev libasound2-dev
@@ -65,7 +64,7 @@ apt install pkg-config libx11-dev libxi-dev libgl1-mesa-dev libasound2-dev
 
 #### Fedora
 
-Dessa systempaket måste installeras för att bygga på Fedora.
+These system packages must be installed to build on Fedora.
 
 ```sh
 dnf install libX11-devel libXi-devel mesa-libGL-devel alsa-lib-devel
@@ -73,77 +72,77 @@ dnf install libX11-devel libXi-devel mesa-libGL-devel alsa-lib-devel
 
 #### Arch Linux
 
-Dessa systempaket måste installeras för att bygga på Arch Linux.
+These system packages must be installed to build on Arch Linux.
 
 ```sh
 pacman -S pkg-config libx11 libxi mesa-libgl alsa-lib
 ```
 
-### Bygg med Linux GNU target
+### Build using Linux GNU target
 
-Innan första bygget måste rätt target installeras, detta behöver bara göras en
-gång.
+Before running the build the first time you need to install the build target.
+You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-unknown-linux-gnu
 ```
 
-För att bygga spelet kan du köra detta kommando:
+To build the game, use the following command:
 
 ```sh
 cargo build --release --target x86_64-unknown-linux-gnu
 ```
 
-Binärfilen som skapas kommer att placeras i katalogen
+The binary file created will be stored in the directory
 `target/x86_64-unknown-linux-gnu/release/`.
 
-## Bygg på MacOS
+## Build using MacOS
 
-För MacOS finns det två möjliga targets, `x86_64-apple-darwin` som används för
-äldre Intel-baserade Mac-datorer, och `aarch64-apple-darwin` som bygger för att
-köras på nyare Apple Silicon-baserade Mac-datoer.
+To build on MacOS there are two possible targets, `x86_64-apple-darwin` is
+used for older Intel based Mac computers and `aarch64-apple-darwin` build for
+newer Apple Silicon based Mac computers.
 
-### Bygg med x86-64 Apple Darwin target
+### Build using x86-64 Apple Darwin target
 
-Innan första bygget måste rätt target installeras, detta behöver bara göras en
-gång.
+Before running the build the first time you need to install the build target.
+You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-apple-darwin
 ```
 
-För att bygga spelet kan du köra detta kommando:
+To build the game, use the following command:
 
 ```sh
 cargo build --release --target x86_64-apple-darwin
 ```
 
-Binärfilen som skapas kommer att placeras i katalogen
+The binary file created will be stored in the directory
 `target/x86_64-apple-darwin/release/`.
 
-### Bygg med aarch64 Apple Darwin target
+### Build using aarch64 Apple Darwin target
 
-Innan första bygget måste rätt target installeras, detta behöver bara göras en
-gång.
+Before running the build the first time you need to install the build target.
+You will only have to run this command once.
 
 ```sh
 rustup target add aarch64-apple-darwin
 ```
 
-För att bygga spelet kan du köra detta kommando:
+To build the game, use the following command:
 
 ```sh
 cargo build --release --target aarch64-apple-darwin
 ```
 
-Binärfilen som skapas kommer att placeras i katalogen
+The binary file created will be stored in the directory
 `target/aarch64-apple-darwin/release/`.
 
-## Paketera spelet
+## Package the game
 
-För att dela med dig av ditt spel till andra behöver du paketera binärfilen
-tillsammans med alla assets som behövs för att köra spelet. Här nedan visas
-några exempel på hur det kan göras från ett terminalfönster.
+To share your game with others you need to package the game binary file
+together with all the assets needed to run the game. Here are a couple of
+examples on how to do this using a terminal.
 
 ### Windows
 
