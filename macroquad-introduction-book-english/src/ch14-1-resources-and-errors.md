@@ -1,19 +1,19 @@
-# Resurser och felmeddelanden
+# Resources and errors
 
-I detta kapitel kommer vi refaktorisera vår kod utan att lägga någon direkt
-funktionalitet i spelet. Detta gör vi framförallt för att bygga en grund för
-att senare kunna lägga till en laddningsskärm som visar att resurserna håller
-på att laddas in. Dessutom kommer vi kunna refaktorisera alla draw-anrop så
-att de görs av dom structar som ritas ut. Vi får också fördelen att vi kan
-flytta bort kod från vår `main`-funktion som börjar bli svår att överblicka.
+In this chapter we will refactor our code without adding any new functionality
+to the game. We do this to build a foundation to be able to add a
+loading screen during the loading of resources in the web version. We also
+want to be able to refactor all the drawing to be done by the structs. Finally
+we will be able to move code away from our `main` function which is starting
+to get a bit hard to follow.
 
-## Implementering 
+## Implementation 
 
 ### Resources struct
 
-Till att börja med skapar vi en ny struct som vi kallar `Resources` som kommer
-innehålla alla filer vi laddar in från filsystemet. Lägg in den ovanför
-`main`-funktionen. Structen har ett fält för varje resurs vi laddar in.
+We start by creating a new struct called `Resources` that will contain all the
+files we load from the file system. Add it above the `main` function. The
+struct will have a field for every asset loaded.
 
 ```rust
 {{#include ../../my-game/examples/resources-and-errors.rs:struct}}
@@ -21,162 +21,160 @@ innehålla alla filer vi laddar in från filsystemet. Lägg in den ovanför
 
 ### Resources impl
 
-Direkt under `Resources`-structen skapar vi ett implementationsblock för den.
-Till att börja med kommer den bara innehålla en `new`-funktion som laddar in
-alla filer och returnerar en instans av structen om allt går bra. Här använder
-vi i stort sett samma kod som tidigare låg i `main`-funktionen för att ladda
-in alla filer.
+Directly below the `Resources` struct we'll add an implemenation block for it. 
+To begin with it will only contain a `new` method that loads all the files and
+returns an instance of the struct if everything went as expected. We'll reuse
+the code that used to be in the `main` function to load all the files.
 
-Vi sparar även hela UI-skinnet som en resurs så vi inte behöver returnera alla
-separata bilder och fonten. Notera att vi även här har bytt ut `unwrap()`
-efter `font()`-funktionerna till att använda `?`-operatorn.
+We'll also store the UI `Skin` as a resouce so we won't have to return the
+font and all the images used for it.
 
-Skillnaden är att vi har bytt ut alla `unwrap()` och `expect()`
-till `?`-operatorn. Med hjälp av denna kommer felmeddelandet returneras
-istället för att avsluta programmet. Det gör att vi kan hantera felmeddelandet
-på ett ställe i vår `main`-funktion om vi vill. Felmeddelandet är en enum av
-typen `macroquad::Error`.
+The difference in the code is that we've replaced all the `unwrap()` and
+`expect()` calls to use the `?` operator instead. Using this the error will be
+returned instead of exiting the program. This means we will be able to handle
+the error in a single place in our `main` function if we want to. The error
+message is an enum of the type `macroquad::Error`.
 
 ```admonish info
-Vilka felmeddelanden som finns i Macroquad finns beskrivet i [dokumentationen
-för macroquad::Error](https://docs.rs/macroquad/latest/macroquad/enum.Error.html).
+The errors available in Macroquad is documented in 
+[macroquad::Error](https://docs.rs/macroquad/latest/macroquad/enum.Error.html).
 ```
 
 ```rust
 {{#include ../../my-game/examples/resources-and-errors.rs:impl}}
 ```
 
-### Returnera fel
+### Returning errors
 
-För enkelhetens skull kommer vi låta vår `main`-funktion returnera ett
-resultat som kan vara ett felmeddelande. Det gör att vi kan använda
-`?`-operatorn även i `main`-funktionen. Om `main`-funktionen returnerar ett
-felmeddelande kommer applikationen att avslutas och felmeddelandet skrivas ut
-på konsollen.
+To keep things as simple as possible we'll let our `main` function return a
+result that may be an error. This means we can use the `?` operator in the
+`main` function as well. If the `main` function returns an error, the game
+will quit and the error message will be printed on the console.
 
-Det vanliga returvärdet i funktionen är `()` som är Rusts "unit typ" som kan
-användas om inget värde ska returneras. När funktionen tidigare inte hade
-något explicit returvärde så returnerades detta istället implicit.
+The standard return value for the `main` function is `()`, which is the Rust
+unit type that can be used if no value will be returned. Before when the
+function didn't specify a return value, this was still returned implicitly.
 
-Om det sista uttrycket i en funktion avslutas med ett semikolon `;` så slängs
-dess returvärde bort och `()` returneras istället.
+If the last expression in a function ends with a semi colon (`;`) the return
+value will be skipped and `()` is returned instead.
 
 ```rust [hl,2]
 {{#include ../../my-game/examples/resources-and-errors.rs:main}}
 ```
 
 ```admonish info
-Om du undrar hur Rusts unit-typ fungerar så hittar du lite mer information i
-[Rusts dokumentation av
-unit](https://doc.rust-lang.org/std/primitive.unit.html).
+If you want to know how the Rust unit type works you can find more information
+in the [Rust unit documentation](https://doc.rust-lang.org/std/primitive.unit.html).
 ```
 
-### Ta bort `unwrap()`
+### Remove `unwrap()`
 
-Vid inladdningen av materialet för shadern använde vi tidigare metoden
-`unwrap()` som vi byter ut mot `?`-operatorn för att returnera eventuella fel
-istället. Ändringen sker på sista raden i kodexemplet.
+When loading the material for the shader we used to use the method `unwrap()`
+which we will now change to the `?` operator to return any error instead. This
+change is in the last line of the code below.
 
 ```rust [hl,13]
 {{#include ../../my-game/examples/resources-and-errors.rs:material}}
 ```
 
-### Ladda resurser
+### Load resources
 
-Nu kommer vi till den intressanta biten i detta avsnitt. Det är dags att byta
-ut all kod som laddar in filresurser till att instantiera vår `Resources`
-struct istället. Resultat lägger vi variabeln `resources` som vi senare kommer
-använda när vi vill komma åt en resurs.
+We've finally reached the most interesting part of this chapter. It's time to
+change the code that loads file assets to instead instantiate our `Resources`
+struct. We add the result to the `resources` variable that we can use later
+when we need to use a resource.
 
-Notera att den använder sig av `await` metoden som kör `new`-metoden som är
-`async`. Vi använder oss även här av `?`-operatorn för att direkt returnera om
-vi får ett fel.
+Note that we use `await` after the `new()` method as it is async. We also use
+the `?` operator to bubble up any errors.
 
 ```rust [hl,2]
 {{#include ../../my-game/examples/resources-and-errors.rs:loadresources}}
 ```
 
-### Uppdatera resursanvändningar
+### Update resource usages
 
-Nu när vi har laddat in resurserna med `Resources` så behöver vi uppdatera
-alla ställen som använder en resurs så att de läser från `resources`-variabeln
-istället för direkt från en variabel. Vi lägger helt enkelt till `resources.`
-framför alla resursnamn.
+Now that we have loaded all the assets with the `Resources` struct we need to
+update all the places that uses a resource so that they retrieve the asset
+from it instead. We basically just add `resources.` in front of every resource
+name.
 
-#### Spelmusik
+#### Game music
 
 ```rust [hl,2]
 {{#include ../../my-game/examples/resources-and-errors.rs:theme}}
 ```
 
-#### Gränssnittet
+#### User interface
 
-Nu när vi har sparat gränssnittets utssende i vår `Resources` struct räcker
-det med att sätta det som aktivt skin med `root_ui().push_skin()`. Här kan vi
-alltså ta bort alla rader som bygger upp utseendet med en enda rad.
+Now that we've saved the UI `Skin` in our `Resources` struct we only need to
+activate it using `root_ui().push_skin()`. We can replace all the lines
+that builds the UI with a single line.
 
 ```rust [hl,1]
 {{#include ../../my-game/examples/resources-and-errors.rs:ui}}
 ```
 
-#### Laserljud
+#### Laser sound
 
-Laserljudet behöver använda `resources`-structen.
+The laser sound needs to use the `resources` variable.
 
 ```rust [hl,9]
 {{#include ../../my-game/examples/resources-and-errors.rs:sound_laser}}
 ```
 
-#### Explosioner
+#### Explosions
 
-För explosionerna måste vi uppdatera referensen till både texturen och
-explosionsljudet.
+We need to update both the texture and the sound for the explosions.
 
 ```rust [hl,4,9]
 {{#include ../../my-game/examples/resources-and-errors.rs:sound_explosion}}
 ```
 
-#### Kulor
+#### Bullets
 
-Uppdatera utritningen av kulorna till att använda texturen från `resources`.
+Update the call to drawing bullets to use the texture from `resources`.
 
 ```rust [hl,3]
 {{#include ../../my-game/examples/resources-and-errors.rs:bullet_texture}}
 ```
 
-#### Skeppet
+#### Spaceship
 
-Skeppet behöver också använda texturen från `resources`.
+The spaceship also needs to use the texture from `resources`.
 
 ```rust [hl,3]
 {{#include ../../my-game/examples/resources-and-errors.rs:ship_texture}}
 ```
 
-#### Fiender
+#### Enemies
 
-När fiendera ritas ut behöver `resources` läggas till i referensen av texturen.
+When the enemies are drawn, we need to add `resources` as well.
 
 ```rust [hl,3]
 {{#include ../../my-game/examples/resources-and-errors.rs:enemy_small_texture}}
 ```
 
-Det ska vara allt som behöver ändras den här gången. Vi har nu skapat en
-struct som innehåller alla resurser som vi kan använda oss av när vi ritar ut
-texturer och spelar upp ljud.
+That's everything that needs to be changed this time. In this chapter we've
+created a struct that contains all the loaded assets that we use when drawing
+textures and playing sounds.
 
-```admonish tip title="Utmaning" class="challenge"
-Istället för att bara avsluta applikationen så kan du pröva att skriva ut
-felmeddelandet på skärmen med Macroquads `draw_text` funktion. Tänk på att
-programmet då måste fortsätta köra utan att göra något annat än att rita ut
-text.
+```admonish tip title="Challenge" class="challenge"
+Instead of just exiting the game when encountering an error you could try to
+display the error message on the screen using the `draw_text()` function of
+Macroquad. Remember that the program will then need to keep on running and do
+nothing but displaying the text.
 ```
 
-## Prova spelet
+## Try the game
 
-Spelet ska se ut precis som förut.
+The game should work exactly like before.
 
 ```admonish info
-Ibland kan cargo-beroenden hamna ur synk och för vissa användare har det märkts när de gjort ändringarna i just detta kapitel. Symptomen är att knapparna i huvudmenyn börjar ”glappa” och kräver flera klick. Lösningen är att tvinga fran att beroendena byggs om igen, med `cargo clean`.
+Sometimes the cargo dependencies can become out of sync. Some users have
+experienced this in this chapter. The symptoms are that the buttons in the
+main menu starts to "glitch" and it requires multiple clicks to press the
+buttons. A workaround for this issue is to rebuild all the dependencies using
+`cargo clean`.
 ```
 
 <div class="noprint no-page-break">
