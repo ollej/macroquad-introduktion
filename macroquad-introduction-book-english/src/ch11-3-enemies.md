@@ -1,63 +1,60 @@
-# Animerade fiender
+# Animated enemies
 
 ![Screenshot](images/graphics-enemies.gif#center)
 
-Nu är det bara fienderna som behöver bytas från tråkiga fyrkanter till lite
-mer spännande grafik. Det här fungerar likadant som med skeppet, vi laddar in
-en textur, skapar en animeringssprite och byter hur fienderna ritas ut.
+The only thing left is to change the boring squares and replace them with some
+more exciting graphics. This works the same as when animating the spaceship,
+we load a texture, create an `AnimatedSprite`, and change how the enemies are
+drawn to the screen.
 
-```admonish bug
-I version 0.4.4 av Macroquad är det en bugg som gör att texturerna inte
-fungerar som de ska när `build_textures_atlas` används. Om texturerna ser
-konstiga ut eller flimrar så prova att ta bort detta anrop.
-```
+## Implementation
 
-## Implementering
+### Load the texture
 
-### Ladda in textur
-
-Ladda in texturen `enemy-small.png` och sätt filter mode till `Nearest`.
+Load the texutre `enemy-small.png` and set the filter mode to
+`FilterMode::Nearest`.
 
 ```rust [hl,1-4]
 {{#include ../../mitt-spel/examples/graphics-enemies.rs:loadresources}}
 ```
 
-### Skapa animering
+### Create animation
 
-![Spritesheet för rymdskeppet](assets/enemy-small.png#pixelated)
+![Enemy spritesheet](assets/enemy-small.png#pixelated)
 
-Skapa en `AnimatedSprite` som beskriver vilka animationer som finns i
-texturen. Det är bara en animering med två bildrutor. Grafiken för fienden är
-16x16 bildrutor, men texturen har en pixels mellanrum mellan bildrutorna för
-att inte orsaka blödning mellan rutorna när vi skalar texturen.
+Create an `AnimatedSprite` to describe the animations in the texture. It is
+only one animation with two rames. The graphics for the small enemy is 16x16
+pixels, but the texture has one pixel gutter between the frames to ensure that
+they don't bleed into each other when we scale the texture.
 
 ```rust
 {{#include ../../mitt-spel/examples/graphics-enemies.rs:sprite}}
 ```
 
-### Uppdatera animering
+### Update animation
 
-Även fiendens sprite måste uppdateras efter animeringarna för rymdskeppet och
-kulorna.
+The enemy sprites needs to be updated after the animations for the spaceship
+and bullets.
 
 ```rust [hl,3]
 {{#include ../../mitt-spel/examples/graphics-enemies.rs:updatesprites}}
 ```
 
-### Rita bildrutor för fiender
+### Draw enemy frames
 
-Nu kan vi byta ut utritningen av fyrkanter till att rita ut texturen från
-animeringen. Vi hämtar ut bildrutan från `enemy_frame` och använder dess
-`source_rect` i `DrawTextureParams`. Eftersom fienderna har slumpad storlek så
-utgår vi från fiendens storlek när vi sätter `dest_size` och X- och
-Y-koordinater.
+We can now change the drawing of squares to drawing the texture from the
+current frame of the animation. Vi retrieve the frame from
+`enemy_small_sprite` and use the `source_rect` in `DrawTextureParams` in the
+`draw_texture_ex()` call. Since the enemies have a randomized size, we'll use
+the size of the enemy when setting the `dest_size` and `x` and `y`
+coordinates.
 
 ```rust [hl,1,3-13]
 {{#include ../../mitt-spel/examples/graphics-enemies.rs:drawenemy}}
 ```
 
-Nu har vi bytt till grafik för alla element i spelet och det ser mer ut som
-ett riktigt spel.
+We have now change to graphics for all the elements of the game and when you
+run it now it should look like a real game.
 
 <div class="noprint">
 

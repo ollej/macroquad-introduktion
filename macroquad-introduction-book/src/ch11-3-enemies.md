@@ -24,11 +24,11 @@ Ladda in texturen `enemy-small.png` och sätt filter mode till `Nearest`.
 
 ### Skapa animering
 
-![Spritesheet för rymdskeppet](assets/enemy-small.png#pixelated)
+![Spritesheet för små fiender](assets/enemy-small.png#pixelated)
 
 Skapa en `AnimatedSprite` som beskriver vilka animationer som finns i
 texturen. Det är bara en animering med två bildrutor. Grafiken för fienden är
-16x16 bildrutor, men texturen har en pixels mellanrum mellan bildrutorna för
+16x16 pixlar, men texturen har en pixels mellanrum mellan bildrutorna för
 att inte orsaka blödning mellan rutorna när vi skalar texturen.
 
 ```rust
@@ -47,7 +47,7 @@ kulorna.
 ### Rita bildrutor för fiender
 
 Nu kan vi byta ut utritningen av fyrkanter till att rita ut texturen från
-animeringen. Vi hämtar ut bildrutan från `enemy_frame` och använder dess
+animeringen. Vi hämtar ut bildrutan från `enemy_small_sprite` och använder dess
 `source_rect` i `DrawTextureParams`. Eftersom fienderna har slumpad storlek så
 utgår vi från fiendens storlek när vi sätter `dest_size` och X- och
 Y-koordinater.
