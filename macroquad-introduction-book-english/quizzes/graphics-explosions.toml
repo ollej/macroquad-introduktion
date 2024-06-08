@@ -1,0 +1,43 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+What is the name of the struct used to specify the spritesheet layout?
+"""
+answer.answer = "AtlasConfig"
+context = """
+The AtlasConfig describes the spritesheet layout when drawing particles using a texture.
+"""
+id = "032db3b6-2d5f-41f9-8796-5759e0f7844b"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the meaning of the field `initial_velocity` in the `EmitterConfig`?
+"""
+prompt.distractors = [
+    "The speed the spaceship needs to have before it can emit particles.",
+    "The speed increase every frame.",
+    "How many particles are emitted every second."
+]
+answer.answer = "The speed of the particles when they are emitted."
+context = """
+Each particle will start with an initial velocity
+modified by the `initial_velocity_randomness`.
+"""
+id = "a9c348e4-7254-4aa1-870e-a8d57e006c7b"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is meaning of the field `lifetime`?
+"""
+prompt.distractors = [
+    "It's the time until a particle is emitted.",
+    "It's how long an Emitter must exist before it can start emitting.",
+    "It's how long an Emitter can emit particles."
+]
+answer.answer = "It's how long each particle will live."
+context = """
+Each individual particle will have a lifespan of lifetime modified by the `lifetime_randomness` value.
+"""
+id = "c58ad8ac-c331-4fe1-8bcf-d02f13d94ea4"
