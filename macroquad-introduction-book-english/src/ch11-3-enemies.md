@@ -56,6 +56,14 @@ coordinates.
 We have now change to graphics for all the elements of the game and when you
 run it now it should look like a real game.
 
+```admonish tip title="Challenge" class="challenge"
+![Medium enemy spritesheet](assets/enemy-medium.png#pixelated)
+![Big enemy spritesheet](assets/enemy-big.png#pixelated)
+There are two other enemy spritesheets included in the asset package,
+`enemy-medium.png` and `enemey-big.png`. Try changing which texture is used
+for the enemies based on their size.
+```
+
 <div class="noprint">
 
 ## Full source code

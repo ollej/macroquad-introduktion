@@ -59,6 +59,11 @@ the texture.
 When the game is run the explosions will be animated with the explosion
 image instead of colored squares.
 
+```admonish tip title="Challenge" class="challenge"
+Change the values of `EmitterConfig` fields based on the size of the enemey
+that is hit.
+```
+
 <div class="noprint">
 
 ## Full source code

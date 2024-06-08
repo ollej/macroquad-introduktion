@@ -82,6 +82,12 @@ the resources.
 While the game is loading in a browser the message "Loading resources..." will
 be shown on the screen.
 
+```admonish tip title="Challenge" class="challenge"
+Make a loading spinner by including an image as bytes and draw it using the
+`rotation` field in `DrawTextureParams` in the `load()` function instead of
+displaying text.
+```
+
 <div class="noprint no-page-break">
 
 ## Full source code
