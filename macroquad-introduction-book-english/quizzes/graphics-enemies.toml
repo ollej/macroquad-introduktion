@@ -1,0 +1,46 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+Name the struct to describe the spritesheet layout for animations?
+"""
+answer.answer = "AnimatedSprite"
+context = """
+An `AnimatedSprite` defines tile size and layout of frames
+for one or more animations in a spritesheet.
+"""
+id = "16741d3d-3b9c-49dc-b2dd-3cf153a3f8c2"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the meaning of the field `source_rect` in an `AnimationFrame`?
+"""
+prompt.distractors = [
+    "It contains the source code of the rectangle function.",
+    "It is the size of the original texture.",
+    "It contains the raw pixel data of the frame."
+]
+answer.answer = "It describes the area in the source image for the current frame."
+context = """
+When drawing animations, each frame uses a part of the texture
+described by the `source_rect`.
+"""
+id = "de2543c8-c91d-4271-8fa4-662ddd93e6c3"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Which field is **NOT** part of the `Animation` struct?
+"""
+prompt.distractors = [
+    "name",
+    "row",
+    "frames",
+    "fps"
+]
+answer.answer = "looping"
+context = """
+Animations will always loop when they are playing.
+The fields describe the layout of the animation in the spritesheet.
+"""
+id = "adb3d23a-e9fb-4b64-9c28-d078c23d2966"

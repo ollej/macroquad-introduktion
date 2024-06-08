@@ -23,7 +23,7 @@ Load the texutre `enemy-small.png` and set the filter mode to
 ![Enemy spritesheet](assets/enemy-small.png#pixelated)
 
 Create an `AnimatedSprite` to describe the animations in the texture. It is
-only one animation with two rames. The graphics for the small enemy is 16x16
+only one animation with two frames. The graphics for the small enemy is 16x16
 pixels, but the texture has one pixel gutter between the frames to ensure that
 they don't bleed into each other when we scale the texture.
 
@@ -69,3 +69,4 @@ run it now it should look like a real game.
 </details>
 </div>
 
+{{#quiz ../quizzes/graphics-enemies.toml}}
