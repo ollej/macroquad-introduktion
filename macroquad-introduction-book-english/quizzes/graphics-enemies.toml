@@ -33,12 +33,12 @@ prompt.prompt = """
 Which field is **NOT** part of the `Animation` struct?
 """
 prompt.distractors = [
-    "name",
-    "row",
-    "frames",
-    "fps"
+    "`name`",
+    "`row`",
+    "`frames`",
+    "`fps`"
 ]
-answer.answer = "looping"
+answer.answer = "`looping`"
 context = """
 Animations will always loop when they are playing.
 The fields describe the layout of the animation in the spritesheet.

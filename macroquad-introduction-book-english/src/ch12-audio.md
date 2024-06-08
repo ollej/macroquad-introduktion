@@ -116,3 +116,4 @@ to stop the music when the player pauses the game.
 </details>
 </div>
 
+{{#quiz ../quizzes/audio.toml}}

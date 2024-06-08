@@ -1,0 +1,43 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+What is the name of the Macroquad feature to enable sounds?
+"""
+answer.answer = "audio"
+context = """
+The audio feature includes functionality for loading and playing sounds.
+"""
+id = "aff0b416-a147-43ae-8b7c-77e27d78e53e"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Which function is used to play a music file in Macroquad?
+"""
+prompt.distractors = [
+    "`play_audio()`",
+    "`play_music()`",
+    "`play()`"
+]
+answer.answer = "`play_sound()`"
+context = """
+The functions `play_sound()` and `play_sound_once()` are used to start playing sounds.
+"""
+id = "7142dc25-a87e-4adb-bbe0-dc291e3e7d8b"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the name of the parameter struct for the `play_sound()` function?
+"""
+prompt.distractors = [
+    "`SoundParams`",
+    "`PlayParams`",
+    "`PlaySoundParameters`",
+    "`SoundParameters`"
+]
+answer.answer = "`PlaySoundParams`"
+context = """
+The struct with additional parameters is named after the function it is used in.
+"""
+id = "4abba854-6ed9-4d27-ac6e-a89caf0dd3e4"
