@@ -21,12 +21,12 @@ struct will have a field for every asset loaded.
 
 ### Resources impl
 
-Directly below the `Resources` struct we'll add an implemenation block for it. 
+Directly below the `Resources` struct we'll add an implementation block for it. 
 To begin with it will only contain a `new` method that loads all the files and
 returns an instance of the struct if everything went as expected. We'll reuse
 the code that used to be in the `main` function to load all the files.
 
-We'll also store the UI `Skin` as a resouce so we won't have to return the
+We'll also store the UI `Skin` as a resource so we won't have to return the
 font and all the images used for it.
 
 The difference in the code is that we've replaced all the `unwrap()` and
@@ -36,7 +36,7 @@ the error in a single place in our `main` function if we want to. The error
 message is an enum of the type `macroquad::Error`.
 
 ```admonish info
-The errors available in Macroquad is documented in 
+The errors available in Macroquad are documented in 
 [macroquad::Error](https://docs.rs/macroquad/latest/macroquad/enum.Error.html).
 ```
 
@@ -190,3 +190,4 @@ buttons. A workaround for this issue is to rebuild all the dependencies using
 </details>
 </div>
 
+{{#quiz ../quizzes/resources-and-errors.toml}}

@@ -1,0 +1,46 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+Which error is returned when loading a file fails?
+"""
+answer.answer = "FileError"
+context = """
+The `FileError` is returned when a file couldn't be loaded,
+regardless of if it's from the file system or over HTTP.
+"""
+id = "e14aa8de-447c-4e43-8703-b6255e163caa"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the name of the error enum in Macroquad?
+"""
+prompt.distractors = [
+    "macroquad::ErrorResult",
+    "macroquad::MacroquadError",
+    "macroquad::Failure"
+]
+answer.answer = "macroquad::Error"
+context = """
+The `macroquad::Error` enum contains variants for the different
+errors available in Macroquad.
+"""
+id = "7f1eb37a-257d-4b27-9ad4-249372dfbda6"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Which variant is **NOT** part of the `macroquad::Error` enum?
+"""
+prompt.distractors = [
+    "`FontError`",
+    "`FileError`",
+    "`ShaderError`",
+    "`ImageError`",
+    "`UnknownError`"
+]
+answer.answer = "`SoundError`"
+context = """
+The audio module only returns `FileError` in the `load_sound()` function.
+"""
+id = "1029add3-84d8-4911-a3f5-05e951df1a19"

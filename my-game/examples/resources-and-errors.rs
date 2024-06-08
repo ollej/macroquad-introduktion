@@ -97,7 +97,7 @@ impl Resources {
         explosion_texture.set_filter(FilterMode::Nearest);
         let enemy_small_texture: Texture2D = load_texture("enemy-small.png").await?;
         enemy_small_texture.set_filter(FilterMode::Nearest);
-        // build_textures_atlas();
+        build_textures_atlas();
 
         let theme_music = load_sound("8bit-spaceshooter.ogg").await?;
         let sound_explosion = load_sound("explosion.wav").await?;
