@@ -4,15 +4,16 @@ prompt.prompt = """
 In what time unit is the time returned from the function `get_frame_time`?
 """
 prompt.distractors = [
-  "nano seconds",
-  "milli seconds",
-  "pico seconds"
+  "nanoseconds",
+  "microseconds",
+  "milliseconds",
+  "picoseconds"
 ]
 answer.answer = "seconds"
 context = """
 The funtion `get_frame_time()` returns the time in seconds as a `f32`.
 """
-id = "4378a163-23ee-440f-b809-32f2b9defb04"
+id = "28533e84-c0df-41e7-9b6f-34415e56e985"
 
 [[questions]]
 type = "MultipleChoice"
