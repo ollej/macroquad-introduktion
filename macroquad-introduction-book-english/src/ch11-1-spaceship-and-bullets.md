@@ -235,4 +235,4 @@ short amount of time.
 Try your knowledge by answering the following quiz before you move on to the
 next chapter.
 
-{{#quiz ../quizzes/ship-and-bullets.toml}}
+{{#quiz ../quizzes/graphics-spaceship-and-bullets.toml}}

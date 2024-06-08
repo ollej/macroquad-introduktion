@@ -13,7 +13,7 @@
 - [Starfield shader](ch9-starfield-shader.md)
 - [Particle explosions](ch10-particle-explosions.md)
 - [Graphics](ch11-graphics.md)
-  - [Spaceship and bullets](ch11-1-ship-and-bullets.md)
+  - [Spaceship and bullets](ch11-1-spaceship-and-bullets.md)
   - [Graphical explosions](ch11-2-explosions.md)
   - [Animated enemies](ch11-3-enemies.md)
 - [Music and sound effects](ch12-audio.md)
