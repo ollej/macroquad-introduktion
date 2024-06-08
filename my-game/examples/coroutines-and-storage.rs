@@ -160,7 +160,7 @@ impl Resources {
         while !resources_loading.is_done() {
             clear_background(BLACK);
             let text = format!(
-                "Laddar resurser {}",
+                "Loading resources {}",
                 ".".repeat(((get_time() * 2.) as usize) % 4)
             );
             draw_text(
