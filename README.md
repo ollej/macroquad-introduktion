@@ -1,9 +1,9 @@
-# Macroquad Introduction
+# Game development with Macroquad
 
 This is a game development guide showing how to create a shoot'em up game
 using the game library Macroquad and the Rust programming language.
 
-Read the guide [Develop a game with Macroquad](https://macroquad-introduktion-english.agical.se/)
+Read the guide [Game development with Macroquad](https://macroquad-game-dev.agical.se/)
 online.
 
 Read the Swedish version of the guide: [Koda ett spel i Rust med Macroquad](https://macroquad-introduktion.agical.se/).
@@ -12,4 +12,4 @@ The source code for the chapters are available under examples in the
 [my-game](https://github.com/ollej/macroquad-introduktion/tree/main/my-game/)
 repository on GitHub.
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons-licens" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommerical-ShareAlike 4.0 International License</a>.
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="http://macroquad-introduction.agical.se/">Game development with Macroquad</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://olle.wreede.se/">Olle Wreede</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
