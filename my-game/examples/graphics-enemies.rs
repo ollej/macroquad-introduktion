@@ -378,7 +378,7 @@ async fn main() {
                     explosion.draw(*coords);
                 }
                 draw_text(
-                    format!("Poäng: {}", score).as_str(),
+                    format!("Score: {}", score).as_str(),
                     10.0,
                     35.0,
                     25.0,
