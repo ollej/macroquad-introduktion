@@ -1,0 +1,48 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+What is the name of the function to check if a coroutine has finished?
+"""
+answer.answer = "is_done"
+context = """
+The `is_done()` method on `Coroutine` will return true when the
+coroutine has finished or has been stopped.
+"""
+id = "33973a5c-c34f-490a-94b8-7673570e576c"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Which function is used to save an object in the Macroquad storage?
+"""
+prompt.distractors = [
+    "`storage::save()`",
+    "`storage::collect()`",
+    "`collection::store()`",
+    "`collection::save()`"
+]
+answer.answer = "`storage::store()`"
+context = """
+The Macroquad `storage` is an experimental global persistent read-only
+storage where game configs can be stored and accessed everywhere.
+The `store()` method will silently overwrite any old value of the same type.
+"""
+id = "0f49a367-ae4a-4198-9929-101710048292"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the function to run a coroutine?
+"""
+prompt.distractors = [
+    "`begin_coroutine()`",
+    "`call_coroutine()`",
+    "`activate_coroutine()`",
+    "`run_coroutine()`"
+]
+answer.answer = "`start_coroutine()`"
+context = """
+The `start_coroutine()` function takes an async block and will emulate
+multitasking. It's useful for things that need to be evaluated over time.
+"""
+id = "98ab8d70-7fbe-4e9b-94d9-df8b51f4ffdf"

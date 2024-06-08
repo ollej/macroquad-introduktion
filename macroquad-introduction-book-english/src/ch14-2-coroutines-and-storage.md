@@ -95,3 +95,4 @@ be shown on the screen.
 </details>
 </div>
 
+{{#quiz ../quizzes/coroutines-and-storage.toml}}
