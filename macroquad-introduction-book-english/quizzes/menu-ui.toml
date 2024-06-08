@@ -1,0 +1,44 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+What is the name of the Macroquad module to create a user interface?
+"""
+answer.answer = "ui"
+context = """
+The `ui` module contains a user interface library that is skinnable and configurable.
+"""
+id = "d280d146-dfd3-428f-883b-a83646b66d16"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the name of the struct used to create widget looks?
+"""
+prompt.distractors = [
+    "`SkinBuilder`",
+    "`WidgetBuilder`",
+    "`UiBuilder`"
+]
+answer.answer = "`StyleBuilder`"
+context = """
+The `StyleBuilder` has builder methods to create widget styles to be used in a `Skin`.
+"""
+id = "34b07923-81a0-4e9e-919e-4460d9863b58"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+What is the name of the struct used to configure the entire look of the UI?
+"""
+prompt.distractors = [
+    "`StyleParams`",
+    "`SkinParams`",
+    "`WidgetStyles`",
+    "`UiSkin`"
+]
+answer.answer = "`Skin`"
+context = """
+The `Skin` struct contains the `Style` for all the different
+widgets that can be used in the UI.
+"""
+id = "b290ec43-0818-4cf7-9041-341073b80493"

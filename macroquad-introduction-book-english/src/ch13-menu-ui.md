@@ -7,7 +7,7 @@ look can easily be changed using PNG images. We will use this to create a
 graphical main menu for our game. There will be quite a lot of code to define
 the look of the UI. However once that is done, it is very easy to use it.
 
-The menu will have window centered on the screen with the text "Main meny" in
+The menu will have a window centered on the screen with the text "Main menu" in
 the title bar. Inside the window there will be two buttons, one for "Play" and
 one for "Quit". The UI will be built using different kinds of widgets such as
 `label`, `button`, `editbox`, and `combobox`.
@@ -181,3 +181,4 @@ choose to start a game or quit the program.
 </details>
 </div>
 
+{{#quiz ../quizzes/menu-ui.toml}}
