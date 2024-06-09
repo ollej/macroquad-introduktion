@@ -3,10 +3,10 @@
 This is a game development guide showing how to create a shoot'em up game
 using the game library Macroquad and the Rust programming language.
 
-Read the guide [Game development with Macroquad](https://macroquad-game-dev.agical.se/)
+Read the guide [Game development with Macroquad](https://mq.agical.se/)
 online.
 
-Read the Swedish version of the guide: [Koda ett spel i Rust med Macroquad](https://macroquad-introduktion.agical.se/).
+There is also a [Swedish version](https://macroquad-introduktion.agical.se/) of the guide.
 
 The source code for the chapters are available under examples in the
 [my-game](https://github.com/ollej/macroquad-introduktion/tree/main/my-game/)
