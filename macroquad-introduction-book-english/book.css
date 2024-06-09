@@ -7,7 +7,9 @@
     page-break-before: always;
   }
 
-  .no-page-break {
+  .no-page-break, 
+  .no-page-break pre,
+  .no-page-break code {
     page-break-inside: avoid;
   }
 

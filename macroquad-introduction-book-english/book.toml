@@ -3,7 +3,7 @@ authors = ["Olle Wreede"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Game development with Rust and Macroquad"
+title = "Game development in Rust with Macroquad"
 description = "A game development guide on how to program a shoot 'em up game with the Rust programming language and the Macroquad game library."
 
 [build]

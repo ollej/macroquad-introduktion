@@ -88,6 +88,8 @@ chapter.
 
 </div>
 
+<div class="page-break"></div>
+
 ## Publish on the web (if you want)
 
 One of the big advantages with Rust and Macroquad is that it is very easy to
