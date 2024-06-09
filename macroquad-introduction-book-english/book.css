@@ -3,6 +3,10 @@
       display: none;
   }
 
+  .page-break {
+    page-break-before: always;
+  }
+
   .no-page-break {
     page-break-inside: avoid;
   }

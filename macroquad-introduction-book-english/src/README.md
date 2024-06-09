@@ -5,6 +5,8 @@
 This guide is written by [Olle Wreede](mailto:olle.wreede@agical.se) at
 [Agical](https://www.agical.se/). 
 
+<div class="page-break"></div>
+
 ## The Macroquad game library
 
 Macroquad is game library for the programming language Rust. It includes
