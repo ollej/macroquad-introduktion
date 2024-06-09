@@ -89,7 +89,7 @@ You should be able to start a web server and open the page in a web browser.
 
 To serve your game locally on your computer you can install a simple web
 server with the following command. This is only to be able to test the game
-locally before you upload it to a proper web account.
+locally before you upload it to a proper web hosting account.
 
 ```sh
 cargo install basic-http-server
@@ -108,9 +108,9 @@ basic-http-server .
 
 ### Publish your game
 
-If you have access to a web account you can publish the files there to let
-other people play your game. You need to upload the HTML file, the WASM file,
-and the `assets` directory.
+If you have access to a web hosting account you can publish the files there to
+let other people play your game. You need to upload the HTML file, the WASM
+file, and the `assets` directory.
 
 ```
 index.html

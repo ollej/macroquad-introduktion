@@ -37,19 +37,19 @@ of Macroquad works and
 
 ## Game development guide
 
-In this guide we will be developing a game from scratch. In each chapter
-we will add a small feature to the game that explains a part of the Macroquad
+In this guide we will be developing a game from scratch. In each chapter we
+will add a small feature to the game that explains a part of the Macroquad
 library. In the beginning the game will be very simple, but at the end of the
 guide you will have built a complete game with graphics and sound. You will
-also be able to build the game for desktop, the web, as well as mobile
-devices.
+also be able to build the game for desktop computers, the web, as well as
+mobile devices.
 
 The game we are making is a classic shoot 'em up where the player controls a
 spaceship that has to shoot down enemies flying down from the top of the
 screen.
 
 At the end of every chapter there is a short quiz where you can see how much
-you've learned. The answers are anonymous and are not stored anywhere.
+you've learned. The answers are anonymous and are only stored in your browser.
 
 ```admonish tip title="Challenge" class="challenge"
 This image is the teacher Ferris who will show up at the end of every chapter

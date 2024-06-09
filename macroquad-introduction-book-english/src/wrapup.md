@@ -29,12 +29,12 @@ Here are some ideas on how to improve the game to make it more fun to play:
 
 ## Game showcase
 
-If you have completed this game guide and published your game online and want
-your game showcased on this page
+If you have completed this game guide and published your game online you can
+have your game showcased on this page. You can
 [open a PR](https://github.com/ollej/macroquad-introduktion/blob/main/macroquad-introduction-book-english/src/wrapup.md)
-in the GitHub repository with a link to your game.
+in the GitHub repository and add a link to your game in the list below.
 
-* [My first Macroquad game](https://pez.github.io/my-first-macroquad-game/) by Pez
+* [My first Macroquad game](https://pez.github.io/my-first-macroquad-game/) by [Pez](https://www.github.com/pez)
 
 <div class="noprint no-page-break">
 
