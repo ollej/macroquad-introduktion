@@ -7,6 +7,18 @@ language Rust and the game library Macroquad. However there is still a lot to
 be done to make it into a complete game, but you should now have a solid
 foundation to make the game into your own.
 
+<div class="noprint">
+
+## Try the game
+
+Click to <a href="game.html" target="_blank"
+onclick="window.open(this.href, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=480'); return false;">play the game</a>
+to see how it will look when it's finished.
+
+</div>
+
+## Improvement ideas
+
 Here are some ideas on how to improve the game to make it more fun to play:
 
 * Add more enemies with different movements and graphics.
@@ -46,12 +58,3 @@ in the GitHub repository and add a link to your game in the list below.
 
 * [My first Macroquad game](https://pez.github.io/my-first-macroquad-game/) by [Pez](https://www.github.com/pez)
 
-<div class="noprint">
-
-## Try the game
-
-Click to <a href="game.html" target="_blank"
-onclick="window.open(this.href, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=480'); return false;">play the game</a>
-to see how it will look when it's finished.
-
-</div>
