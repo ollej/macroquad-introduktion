@@ -141,9 +141,13 @@ back of the circle so it looks like a rocket exhaust.
 </details>
 </div>
 
+<div class="noprint">
+
 ## Quiz
 
 Try your knowledge by answering the following quiz before you move on to the
 next chapter.
 
 {{#quiz ../quizzes/particle-explosions.toml}}
+
+</div>

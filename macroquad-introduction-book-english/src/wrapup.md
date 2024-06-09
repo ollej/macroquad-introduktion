@@ -36,7 +36,7 @@ in the GitHub repository and add a link to your game in the list below.
 
 * [My first Macroquad game](https://pez.github.io/my-first-macroquad-game/) by [Pez](https://www.github.com/pez)
 
-<div class="noprint no-page-break">
+<div class="noprint">
 
 ## Try the game
 

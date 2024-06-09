@@ -77,12 +77,16 @@ with a black color at the start of each frame.
 Try to change the background of the window to your favorite color.
 ```
 
+<div class="noprint">
+
 ## Quiz
 
 Try your new knowledge by answering this quiz before you continue to the next
 chapter.
 
 {{#quiz ../quizzes/first-program.toml}}
+
+</div>
 
 ## Publish on the web (if you want)
 

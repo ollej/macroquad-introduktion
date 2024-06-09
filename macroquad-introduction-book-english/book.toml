@@ -23,6 +23,17 @@ additional-js = ["code-line-highlight.js"]
 [output.html.playground]
 runnable = false
 
+[output.pdf]
+# A4
+#paper-width = 8.268
+#paper-height = 11.693
+# Book
+paper-width = 7.401575
+paper-height = 9.251969
+display-header-footer = true
+header-template = " "
+footer-template = "<p style='font-size:10px; margin-left: 49.5%'><span class='pageNumber'></span></p>"
+
 [preprocessor]
 [preprocessor.quiz]
 cache-answers = true

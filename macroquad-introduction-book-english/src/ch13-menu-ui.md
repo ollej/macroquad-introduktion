@@ -173,7 +173,7 @@ Try creating a `Skin` of your own from another image and make it possible
 to switch between the skins while the game is running.
 ```
 
-<div class="noprint no-page-break">
+<div class="noprint">
 
 ## Full source code
 
@@ -186,4 +186,13 @@ to switch between the skins while the game is running.
 </details>
 </div>
 
+<div class="noprint">
+
+## Quiz
+
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
+
 {{#quiz ../quizzes/menu-ui.toml}}
+
+</div>

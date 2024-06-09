@@ -78,8 +78,12 @@ When you run the game there will be a yellow circle drawn in the middle of the
 window. Try using the arrow keys to move around the circle.
 </div>
 
+<div class="noprint">
+
 ## Quiz
 
 Try your newfound knowledge by answering this quiz before continuing.
 
 {{#quiz ../quizzes/move-a-circle.toml}}
+
+</div>

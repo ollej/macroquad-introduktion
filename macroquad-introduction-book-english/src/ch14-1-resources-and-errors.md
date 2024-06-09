@@ -177,7 +177,7 @@ buttons. A workaround for this issue is to rebuild all the dependencies using
 `cargo clean`.
 ```
 
-<div class="noprint no-page-break">
+<div class="noprint">
 
 ## Full source code
 
@@ -190,4 +190,13 @@ buttons. A workaround for this issue is to rebuild all the dependencies using
 </details>
 </div>
 
+<div class="noprint">
+
+## Quiz
+
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
+
 {{#quiz ../quizzes/resources-and-errors.toml}}
+
+</div>

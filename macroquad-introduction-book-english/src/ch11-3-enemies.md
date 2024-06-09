@@ -77,4 +77,13 @@ for the enemies based on their size.
 </details>
 </div>
 
+<div class="noprint">
+
+## Quiz
+
+Try your knowledge by answering the following quiz before you move on to the
+next chapter.
+
 {{#quiz ../quizzes/graphics-enemies.toml}}
+
+</div>
