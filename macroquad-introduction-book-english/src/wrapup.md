@@ -27,6 +27,16 @@ Here are some ideas on how to improve the game to make it more fun to play:
 * Show a victory sequence at the end of each level.
 * Support two simultaneous players.
 
+## Other resources
+
+These are some other resources about the Macroquad game library.
+
+* [Macroquad](https://macroquad.rs) -- The official homepage of Macroquad.
+* [Awesome Quads](https://github.com/ozkriff/awesome-quads) -- A curated list of Macroquad games and resources.
+* [Quads discord server](https://discord.gg/WfEp6ut) -- The official Macroquad community.
+* [Rust game ports](https://github.com/rust-gamedev/rust-game-ports) -- Official host of games ported using Rust game libraries.
+
+
 ## Game showcase
 
 If you have completed this game guide and published your game online you can
