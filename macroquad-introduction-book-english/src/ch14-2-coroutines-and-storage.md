@@ -88,7 +88,7 @@ Make a loading spinner by including an image as bytes and draw it using the
 displaying text.
 ```
 
-<div class="noprint no-page-break">
+<div class="noprint">
 
 ## Full source code
 

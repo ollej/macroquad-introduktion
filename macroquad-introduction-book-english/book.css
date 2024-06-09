@@ -6,6 +6,10 @@
   .no-page-break {
     page-break-inside: avoid;
   }
+
+  .allow-page-break pre, .allow-page-break code {
+    page-break-inside: initial;
+  }
 }
 
 img[src*="#center"] {

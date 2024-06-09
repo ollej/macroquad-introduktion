@@ -28,4 +28,5 @@
   - [Build for iOS](release-ios.md)
 - [The end](wrapup.md)
 
+[Full source code](full-source.md)
 [Credits](credits.md)
