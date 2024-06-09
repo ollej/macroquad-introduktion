@@ -31,10 +31,10 @@ that is available online. I can also recommend the book
 Herbert Wolverson where you learn Rust by writing a roguelike game.
 
 ```admonish info
-On the [Macroquads homepage](https://macroquad.rs) there are
+On the [Macroquad homepage](https://macroquad.rs) there are
 [examples](https://macroquad.rs/examples/) that show how different features
-of Macroquad works and
-[API documentation](https://docs.rs/macroquad/latest/macroquad/).
+of Macroquad works, Macroquad related [articles](https://macroquad.rs/articles) and
+[documentation of the API](https://docs.rs/macroquad/latest/macroquad/).
 ```
 
 ## Game development guide
@@ -54,10 +54,16 @@ At the end of every chapter there is a short quiz where you can see how much
 you've learned. The answers are anonymous and are only stored in your browser.
 
 ```admonish tip title="Challenge" class="challenge"
-This image is the teacher Ferris who will show up at the end of every chapter
+This image is Ferris the teacher who will show up at the end of every chapter
 to give you an extra challenge. Doing the challenge is optional and is not
 necessary to continue to the next chapter.
 ```
+
+## PDF book
+
+This guide is also available as a downloadable [PDF book](pdf/output.pdf). In
+the top hand corner of the page there is a link to a [printable version](print.html)
+of the guide as well.
 
 ```admonish note
 This guide is written for version 0.4 of Macroquad. Since Macroquad is under
