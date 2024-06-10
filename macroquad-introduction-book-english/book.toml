@@ -23,16 +23,30 @@ additional-js = ["code-line-highlight.js"]
 [output.html.playground]
 runnable = false
 
+[output.html.redirect]
+"/github.html" = "https://github.com/ollej/macroquad-introduktion/tree/main/my-game"
+
 [output.pdf]
 # A4
 #paper-width = 8.268
 #paper-height = 11.693
 # Book
-paper-width = 7.401575
-paper-height = 9.251969
+#paper-width = 7.401575
+#paper-height = 9.251969
+# US Trade
+#paper-width = 6
+#paper-height = 9
+# Crown quarto
+paper-width = 7.44
+paper-height = 9.68
+margin-top = 0.5
+margin-bottom = 0.5
+margin-left = 0.35
+margin-right = 0.35
 display-header-footer = true
 header-template = " "
 footer-template = "<p style='font-size:10px; margin-left: 49.5%'><span class='pageNumber'></span></p>"
+static_site_url = "https://mq.agical.se"
 
 [preprocessor]
 [preprocessor.quiz]

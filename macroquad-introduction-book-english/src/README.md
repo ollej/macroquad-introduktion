@@ -2,8 +2,15 @@
 
 ![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
-This guide is written by [Olle Wreede](mailto:olle.wreede@agical.se) at
-[Agical](https://www.agical.se/). 
+This guide is written by Olle Wreede at [Agical](https://www.agical.se/).
+
+<div class="onlyprint">
+This guide is available online at the following address:  
+https://mq.agical.se/
+</div>
+
+The source code for all chapters of this book is available here:  
+[https://mq.agical.se/github.html](https://mq.agical.se/github.html)
 
 <div class="page-break"></div>
 
@@ -62,8 +69,8 @@ necessary to continue to the next chapter.
 ## PDF book
 
 This guide is also available as a downloadable [PDF book](pdf/output.pdf). In
-the top hand corner of the page there is a link to a [printable version](print.html)
-of the guide as well.
+the top right hand corner of the page there is a link to a [printable
+version](print.html) of the guide as well.
 
 ```admonish note
 This guide is written for version 0.4 of Macroquad. Since Macroquad is under

@@ -1,5 +1,7 @@
-# Contents
+# Table of contents
 
+[Copyright](copyright.md)
+[Table of contents](SUMMARY.md)  
 [Introduction](README.md)
 
 - [Your first Macroquad app](./ch1-first-program.md)
@@ -28,5 +30,5 @@
   - [Build for iOS](release-ios.md)
 - [The end](wrapup.md)
 
-[Full source code](full-source.md)
+[Full source code](full-source.md)  
 [Credits](credits.md)

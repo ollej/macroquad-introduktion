@@ -1,6 +1,14 @@
+.onlyprint {
+  display: none;
+}
+
 @media print {
   .noprint {
-      display: none;
+    display: none;
+  }
+
+  .onlyprint {
+    display: block;
   }
 
   .page-break {
@@ -15,6 +23,10 @@
 
   .allow-page-break pre, .allow-page-break code {
     page-break-inside: initial;
+  }
+
+  .admonition.challenge > div:nth-child(2)::before {
+    width: 100px;
   }
 }
 
@@ -63,4 +75,8 @@ footer {
 }
 footer img {
   margin: 2rem 0 0 0;
+}
+
+.center {
+  text-align: center;
 }
