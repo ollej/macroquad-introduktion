@@ -1,6 +1,6 @@
 # Table of contents
 
-[Copyright](copyright.md)
+[Copyright](copyright.md)  
 [Table of contents](SUMMARY.md)  
 [Introduction](README.md)
 
