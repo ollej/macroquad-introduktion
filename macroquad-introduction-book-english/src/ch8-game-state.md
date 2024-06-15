@@ -63,7 +63,7 @@ the call to clearing the screen at the start of the loop, and the call to
 
 Now it's time to add back code into the match arms to handle each game state.
 When the game is started the state will be `GameState::MainMenu`. We'll start
-by quitting the gmae if the `Escape` key is pressed. If the player presses the
+by quitting the game if the `Escape` key is pressed. If the player presses the
 space key we'll set the `game_state` to the new state `GameState::Playing`.
 We'll also reset all the game variables. Finally we'll draw the text "Press
 space" in the middle of the screen.
@@ -100,8 +100,8 @@ is paused.
 
 ### Game Over
 
-Finally we will handle what happens when the game is oer. If the player
-presses the spacebar we'll change the state to `GameState::MainMenu` to allow
+Finally we will handle what happens when the game is over. If the player
+presses the space bar we'll change the state to `GameState::MainMenu` to allow
 the player to start a new game or quit the game. We'll also draw the game over
 text to the screen like we did in the last chapter.
 

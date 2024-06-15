@@ -30,7 +30,7 @@ called `delta_time` that we will use later.
 {{#include ../../my-game/examples/smooth-movement.rs:deltatime}}
 ```
 
-### Ändra förflyttningen
+### Update movement
 
 When the variables `x` and `y` are updated we will multiply the values of 
 the constant `MOVEMENT_SPEED` and the variable `delta_time` to get how far the

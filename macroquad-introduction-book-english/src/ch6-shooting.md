@@ -103,7 +103,7 @@ bullets are removed when a new game is started.
 
 ### Drawing bullets
 
-Before the cirkeln is drawn we'll draw all the bullets. This ensures that they
+Before the circle  is drawn we'll draw all the bullets. This ensures that they
 are drawn behind all the other shapes.
 
 ```rust
