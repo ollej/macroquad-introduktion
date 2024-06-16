@@ -51,6 +51,12 @@ Börja med att ändra programmet så att `circle` används i stället för varia
 `x`, och `y` och bekräfta att allt fungerar som förut innan du börjar skapa
 fiendefyrkanter.
 
+```admonish note
+Rust-kompilatorn kan ge varningen "type annotations needed" på raden där
+vektorn skapas. Detta kommer försvinna när vi lägger till en fyrkant i vektorn
+i avsnittet nedan.
+```
+
 ### Skapa nya fyrkanter
 
 Nu är det dags att starta invasionen av fyrkanter. Här delar vi som tidigare

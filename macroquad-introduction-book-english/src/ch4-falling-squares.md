@@ -53,6 +53,11 @@ Start by modifying the program so that `circle` is used instead of the
 variables `x` and `y` and confirm that everything works as before
 adding the enemy squares.
 
+```admonish note
+The Rust compiler might warn about "type annotations needed" on the Vector.
+Once we add an enemy square in the next section that warning should disappear.
+```
+
 ### Add enemy squares
 
 It's time to start the invasion of evil squares. Here, just like before, we
