@@ -14,6 +14,28 @@ The source code for all chapters of this book is available here:
 
 <div class="page-break"></div>
 
+## Game development guide
+
+In this guide we will be developing a game from scratch. In each chapter we
+will add a small feature to the game that explains a part of the Macroquad
+library. In the beginning the game will be very simple, but at the end of the
+guide you will have built a complete game with graphics and sound. You will
+also be able to build the game for desktop computers, the web, as well as
+mobile devices.
+
+The game we are making is a classic shoot 'em up where the player controls a
+spaceship that has to shoot down enemies flying down from the top of the
+screen.
+
+At the end of every chapter there is a short quiz where you can see how much
+you've learned. The answers are anonymous and are only stored in your browser.
+
+```admonish tip title="Challenge" class="challenge"
+This image is Ferris the teacher who will show up at the end of every chapter
+to give you an extra challenge. Doing the challenge is optional and is not
+necessary to continue to the next chapter.
+```
+
 ## The Macroquad game library
 
 Macroquad is game library for the programming language Rust. It includes
@@ -42,28 +64,6 @@ On the [Macroquad homepage](https://macroquad.rs) there are
 [examples](https://macroquad.rs/examples/) that show how different features
 of Macroquad works, Macroquad related [articles](https://macroquad.rs/articles) and
 [documentation of the API](https://docs.rs/macroquad/latest/macroquad/).
-```
-
-## Game development guide
-
-In this guide we will be developing a game from scratch. In each chapter we
-will add a small feature to the game that explains a part of the Macroquad
-library. In the beginning the game will be very simple, but at the end of the
-guide you will have built a complete game with graphics and sound. You will
-also be able to build the game for desktop computers, the web, as well as
-mobile devices.
-
-The game we are making is a classic shoot 'em up where the player controls a
-spaceship that has to shoot down enemies flying down from the top of the
-screen.
-
-At the end of every chapter there is a short quiz where you can see how much
-you've learned. The answers are anonymous and are only stored in your browser.
-
-```admonish tip title="Challenge" class="challenge"
-This image is Ferris the teacher who will show up at the end of every chapter
-to give you an extra challenge. Doing the challenge is optional and is not
-necessary to continue to the next chapter.
 ```
 
 ## PDF book
