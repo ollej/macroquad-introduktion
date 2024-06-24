@@ -176,7 +176,7 @@ async fn main() {
         );
         // ANCHOR_END: drawpoints
         if gameover {
-            let text = "Game Over!";
+            let text = "GAME OVER!";
             let text_dimensions = measure_text(text, None, 50, 1.0);
             draw_text(
                 text,

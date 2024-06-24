@@ -112,7 +112,7 @@ async fn main() {
         }
         // ANCHOR: drawgameover
         if gameover {
-            let text = "Game Over!";
+            let text = "GAME OVER!";
             let text_dimensions = measure_text(text, None, 50, 1.0);
             draw_text(
                 text,

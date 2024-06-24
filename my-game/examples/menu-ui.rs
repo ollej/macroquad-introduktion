@@ -460,10 +460,10 @@ async fn main() {
                 );
             }
             GameState::Paused => {
-                if is_key_pressed(KeyCode::Escape) {
+                if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::Playing;
                 }
-                let text = "Pausad";
+                let text = "Paused";
                 let text_dimensions = measure_text(text, None, 50, 1.0);
                 draw_text(
                     text,
@@ -477,7 +477,7 @@ async fn main() {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::MainMenu;
                 }
-                let text = "Game Over!";
+                let text = "GAME OVER!";
                 let text_dimensions = measure_text(text, None, 50, 1.0);
                 draw_text(
                     text,
