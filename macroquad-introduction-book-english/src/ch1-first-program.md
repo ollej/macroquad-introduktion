@@ -1,9 +1,9 @@
 # Your first Macroquad app
 
+![Screenshot](images/first-program.png#center)
+
 Now it's time to develop your first application with Macroquad. Start by
 installing the programming language Rust if you don't already have it.
-
-![Screenshot](images/first-program.png#center)
 
 ## Implementation
 
@@ -38,31 +38,31 @@ content to look like this:
 {{#include ../../my-game/examples/first-program.rs}}
 ```
 
-Run your application with `cargo run` and a new window with a dark purple
+Run your application with `cargo run`, and a new window with a dark purple
 background will open once the compilation has finished.
 
 ## Description of the application
 
-The first line is used to import everything needed to from Macroquad. This is
-easiest to do by importing `macroquad::prelude::*`, but it is also possible to
+The first line is used to import everything you need from Macroquad. This is
+most easily done by importing `macroquad::prelude::*`, but it is also possible to
 import only the features that are used.
 
 The attribute `#[macroquad::main("My game")]` is used to tell Macroquad which
-function that will be run when the application starts. When the application is
-started, a window will be opened with the argument as the title, and the
+function will be run when the application starts. When the application is
+started, a window will open with the argument as the title, and the
 function will be executed asynchronously. If you have named your game
 something more interesting you should change the text `My game´ to the name of
 your game.
 
 ```admonish info
-To change the configuration for the window, like the size or if it should
-start in fullscreen mode you can use the struct 
+To change the configuration for the window, such as the size or whether it
+should start in fullscreen mode, you can use the struct 
 [Conf](https://docs.rs/macroquad/latest/macroquad/window/struct.Conf.html)
 instead of the string as an argument.
 ```
 
 Inside the `main` function there is a loop that never ends. All the game logic
-will be placed inside this game loop and will be executed every frame. In our
+will be placed inside this game loop and will be executed in every frame. In our
 case we clear the background of the window with a dark purple color with the
 function `clear_background(DARKPURPLE)`. At the end of the loop is the
 function `next_frame().await` which will wait until the next frame is
@@ -74,7 +74,7 @@ with a black color at the start of each frame.
 ```
 
 ```admonish tip title="Challenge" class="challenge"
-Try to change the background of the window to your favorite color.
+Try changing the background of the window to your favorite color.
 ```
 
 <div class="noprint">
@@ -128,7 +128,7 @@ repository. The first time you push your code the game will be built and all
 files placed in the correct place, in the root of the branch `gh-pages`, but
 no web page will be created. You need to change a configuration of the GitHub
 repository under **Settings** > **Pages** > **Build and deployment**. Set
-`gh-pages` as the branch to deploy the web page from.
+`gh-pages` as the branch from which to deploy the web page.
 
 ![Github Pages Settings](images/github-pages-settings.png)
 
@@ -136,7 +136,7 @@ When the build is done you will be able to play your game on
 `https://<your-github-account>.github.io/<repository-name>`.
 
 It won't be much of game yet, only a purple background. But you have delivered
-early and the project is configured for continuous delivery. Every time you
-add functionality to the game and push the code to GitHub you will be able to
+early, and the project is configured for continuous delivery. Every time you
+add functionality to the game and push the code to GitHub, you will be able to
 play the latest version of the game on the web. In the next chapter things
 will start to move!

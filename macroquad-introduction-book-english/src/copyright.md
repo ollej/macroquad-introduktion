@@ -14,7 +14,7 @@ terms. CC BY-SA includes the following elements:
 BY: credit must be given to the creator.  
 SA: Adaptations must be shared under the same terms.
 
-First edition June 2024
+First edition July 2024
 
 [https://mq.agical.se](https://mq.agical.se)
 

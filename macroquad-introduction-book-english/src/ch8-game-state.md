@@ -4,10 +4,9 @@
 
 Before we add any more functionality to our game it's time for some
 refactoring. To make it easier to keep track of the game state we'll add an
-enum called `GameState` with variants to differentiate between a game that is
-played or if it is game over. Because of this we'll be able to remove the
-`gameover` variable, and we can also add states for showing a start menu and
-pausing the game.
+enum called `GameState` with variants to differentiate between the game being
+played and the game being over. This will allows us to remove the `gameover`
+variable, and we can add states for showing a start menu and pausing the game.
 
 ## Implementation
 
@@ -32,11 +31,11 @@ instantiates a `game_state` variable set to `GameState::MainMenu`.
 
 ### Match on GameState
 
-We'll replace the old code in the game loop with code that matches on the
-`game_state` variable. It has to match on all four states in the enum. Later
-on we'll add back code from the earlier chapter within the matching arms. Keep
-the call to clearing the screen at the start of the loop, and the call to
-`next_frame().await` at the end.
+We'll replace the old code in the game loop with code that uses the `match`
+control flow construct on the `game_state` variable. It has to match on all
+four states in the enum. Later on we'll add back code from the earlier chapter
+within the matching arms. Keep the call to clearing the screen at the start of
+the loop, and the call to `next_frame().await` at the end.
 
 ```rust [hl,3-16]
         clear_background(DARKPURPLE);
@@ -61,11 +60,11 @@ the call to clearing the screen at the start of the loop, and the call to
 
 ### Main menu
 
-Now it's time to add back code into the match arms to handle each game state.
-When the game is started the state will be `GameState::MainMenu`. We'll start
-by quitting the game if the `Escape` key is pressed. If the player presses the
+Now let's add back code into the match arms to handle each game state. When
+the game is started, the state will be `GameState::MainMenu`. We'll start by
+quitting the game if the `Escape` key is pressed. If the player presses the
 space key we'll set the `game_state` to the new state `GameState::Playing`.
-We'll also reset all the game variables. Finally we'll draw the text "Press
+We'll also reset all the game variables. We will also draw the text "Press
 space" in the middle of the screen.
 
 ```rust
@@ -76,7 +75,7 @@ space" in the middle of the screen.
 
 Let's add back the code for playing the game to the matching arm for the state
 `GameState::Playing`. It's the same code as most of the game loop from the
-last chapter. However, don't add back the code that handles game over as it
+last chapter. However, don't add back the code that handles Game Over as it
 will be added in the matching arm for the `GameState::GameOver`.
 
 We'll also add a code that checks if the player presses the `Escape` key and
@@ -89,8 +88,8 @@ change the state to `GameState::Paused`.
 ### Pause the game
 
 Many games have the option to pause the action, so we'll add support for that
-in our game too. When the game is paused we'll check if the player presses
-the `Escape` key and change the game state to `GameState::Playing` so that the
+in our game, too. When the game is paused, we'll check if the player presses
+the `Space` key and change the game state to `GameState::Playing` so that the
 game can continue. We'll also draw a text on the screen showing that the game
 is paused.
 
@@ -102,8 +101,8 @@ is paused.
 
 Finally we will handle what happens when the game is over. If the player
 presses the space bar we'll change the state to `GameState::MainMenu` to allow
-the player to start a new game or quit the game. We'll also draw the game over
-text to the screen like we did in the last chapter.
+the player to start a new game or quit the game. We'll also draw the "GAME
+OVER!" text to the screen as we did in the last chapter.
 
 ```rust
 {{#include ../../my-game/examples/game-state.rs:gameover}}
@@ -111,16 +110,16 @@ text to the screen like we did in the last chapter.
 
 ```admonish note
 Since the states for `GameState::Playing` and `GameState::GameOver` are
-separated nothing will be shown when the game is paused.
+separated, the squares and circles will not be shown when the game is paused.
 ```
 
 ```admonish tip title="Challenge" class="challenge"
-Now that we have main menu you could come up with a name for your game and
-display it with a large font at the top of the screen in the state
+Now that we have a main menu, you could come up with a name for your game and
+display it in a large font at the top of the screen in the state
 `GameState::MainMenu`.
 
-For extra credit you could also try to draw all the circles and squares even
-when the game is paused.
+You could also try drawing all the circles and squares even when the game is
+paused without moving them.
 ```
 
 <div class="noprint">

@@ -2,13 +2,13 @@
 
 ![Screenshot](images/starfield-shader.gif#center)
 
-The green background on the screen is starting to feel a bit boring. Instead
+The purple background on the screen is starting to feel a bit boring. Instead
 we'll add something more interesting. We'll use a pixel shader to display a
 moving starfield in the background. How to implement a shader is outside the
 scope of this guide, so we'll use one that has already been prepared for us.
 
 In short, a shader is a small program that runs on the GPU of the computer.
-They are written in a C like programming language called GLSL. The shader is
+They are written in a C-like programming language called GLSL. The shader is
 made up of two parts, a vertex shader and a fragment shader. The vertex shader
 converts from coordinates in a 3D environment to the 2D coordinates of the
 screen. Whereas the fragment shader is run for every pixel on the screen to
@@ -29,7 +29,7 @@ code.
 The most important line in the vertex shader is the line that sets
 `gl_Position`. For simplicity's sake we'll also set the `iTime` variable that
 is used by the fragment shader from `_Time.x`. It would also be possible to
-use `_Time` directly in the fragment shader, but it would mean we would have
+use `_Time` directly in the fragment shader, but it would mean we have
 to change it slightly.
 
 ```rust
@@ -39,10 +39,10 @@ to change it slightly.
 ### Initialize the shader
 
 In the `main()` function, above the loop, we need to setup a few variables to
-be able to use the shader. We start by adding the variable `direction_modifier`
-that will be used to change the direction of the stars horizontally based on
-if the circle is moved left or right. After that we create a `render_target`
-which the shader will be rendered to.
+be able to use the shader. We start by adding the variable
+`direction_modifier` that will be used to change the direction of the stars
+horizontally, depending on whether the circle is moved left or right. After
+that we create a `render_target` to which the shader will be rendered.
 
 Now we can create a `Material` with the vertex shader and the fragment shader
 using the enum `ShaderSource::Glsl`. 
@@ -93,9 +93,8 @@ that the change is relative to framerate, just like when doing the movement.
 
 ### Create the shader file
 
-Now it's time to create a file that contains the fragment shader. Create a
-file with the name `starfield-shader.glsl` in the `src` directory and add the
-following code:
+Now create a file with the name `starfield-shader.glsl` in the `src` directory
+to contain the fragment shader and add the following code:
 
 ```glsl
 {{#include ../../my-game/examples/starfield-shader.glsl}}
@@ -110,8 +109,8 @@ Our starfield is now done and the game is starting to look like it takes place
 in outer space.
 
 ```admonish tip title="Challenge" class="challenge"
-Look at the video above and see if you can change the color and size of the
-stars.
+Look at the video Shader Coding: Making a starﬁeld and see if you can change
+the color and size of the stars.
 ```
 
 <div class="noprint">

@@ -22,6 +22,7 @@ to see how it will look when it's finished.
 Here are some ideas on how to improve the game to make it more fun to play:
 
 * Add more enemies with different movements and graphics.
+* Add life to enemies so bigger enemies needs to shot multiple times before they are destroyed.
 * Allow enemies to shoot bullets or drop bombs themselves.
 * Make enemies show up in waves instead of just randomly.
 * Add levels with increasing difficulty.

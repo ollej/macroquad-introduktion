@@ -4,7 +4,7 @@
 
 To make sure there is something happening in our game, it's time to create
 some action. Since the hero in our game is a brave circle, our opponents will
-be angular squares falling down from the top of the window.
+be squares falling down from the top of the window.
 
 ## Implementation
 
@@ -21,7 +21,7 @@ coordinates.
 ### Initialize random number generator
 
 We'll use a random number generator to determine when new squares should
-appear on the screen, how big they should be and the speed they will move.
+appear on the screen, how big they should be and how fast they will move.
 Therefore, we need to seed the random generator so that it doesn't produce the
 same random numbers every time. This is done at the beginning of the `main`
 function using the `rand::srand()` method, to which we pass the current time
@@ -50,7 +50,7 @@ center of the screen.
 ```
 
 Start by modifying the program so that `circle` is used instead of the
-variables `x` and `y` and confirm that everything works as before
+variables `x` and `y` and confirm that everything works as it did before
 adding the enemy squares.
 
 ```admonish note
@@ -61,25 +61,26 @@ Once we add an enemy square in the next section that warning should disappear.
 ### Add enemy squares
 
 It's time to start the invasion of evil squares. Here, just like before, we
-split updating of the movement and drawing of squares. This allows the movement to
-not depend on the screen's refresh rate, ensuring that all changes are dome
-before we start drawing anything to the screen.
+split updating the movement and drawing the squares. This way, the movement
+does not depend on the screen's refresh rate, ensuring that all changes are
+done before we start drawing anything to the screen.
 
-First, we use the function `rand::gen_range()` to determine whether to add a new
-square. It takes two arguments, a minimum value and a maximum value, and
-returns a random number between those two values. If the value is high enough,
-we create a new `Shape` and add it to the `squares` vector. To add some
-variation, we also use `rand::gen_range()` to get different size, speed, and
-starting position of every square.
+First, we use the function `rand::gen_range()` to determine whether to add a
+new square. It takes two arguments, a minimum value and a maximum value, and
+returns a random number between those two values. We generate a random number
+between 0 and 99, and if the value is 95 or higher, a new `Shape` is created
+and added to the `squares` vector. To add some variation, we also use
+`rand::gen_range()` to get different size, speed, and starting position of
+every square.
 
 ```rust
 {{#include ../../my-game/examples/falling-squares.rs:generatesquare}}
 ```
 
 ```admonish note
-Rectangles are drawn starting from the upper left corner. Therefore, we
-subtract half of the square's size when calculating the X position. The
-Y position starts at a negative value of the square's size, so it starts
+Rectangles are drawn starting from their upper left corner. Therefore, we
+subtract half of the square's size when calculating the `x` position. The
+`y` position starts at a negative value of the square's size, so it starts
 completely outside the screen.
 ```
 
@@ -131,7 +132,7 @@ instead of a color. In addition to setting color, it can be used to set
 ```admonish tip title="Challenge" class="challenge"
 Try setting a different color for each square by using the method `choose()`
 on vectors from Macroquad's 
-[ChooseRandom trait](https://docs.rs/macroquad/latest/macroquad/rand/trait.ChooseRandom.html)
+[ChooseRandom trait](https://docs.rs/macroquad/latest/macroquad/rand/trait.ChooseRandom.html),
 which returns a random element from the vector.
 ```
 

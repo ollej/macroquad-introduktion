@@ -2,15 +2,15 @@
 
 ![Screenshot](images/collision.gif#center)
 
-To make the game more exciting, let's add some conflict to the game. If our
-hero, the brave green circle, collides with a square, the game will be over
-and has to be restarted.
+To make the game more exciting, let's add some conflict. If our hero, the
+brave yellow circle, collides with a square, the game will be over and has to
+be restarted.
 
-After we have drawn the circle and all squares, we'll add a check to see if any
-square touches the circle. If it does, we'll display the text `Game Over` and
-wait for the player to press the space key. When the player presses space,
-we'll reset the vector with squares and move the circle back to the center of
-the screen.
+After we have drawn the circle and all squares, we'll add a check to see if
+any square touches the circle. If it does, we'll display the text "`GAME
+OVER!`" in capital letters and wait for the player to press the space key.
+When the player presses space, we'll reset the vector with squares and move
+the circle back to the center of the screen.
 
 ## Implementation
 
@@ -24,7 +24,7 @@ struct. We also create a helper method called `rect()` that creates a `Rect`
 from our Shape.
 
 ```admonish info
-There are many methods on `Rect` to do calculations on rectangles, like
+There are many methods on `Rect` to do calculations on rectangles, such as
 `contains()`, `intersect()`, `scale()`, `combine_with()` and `move_to()`.
 ```
 
@@ -33,14 +33,14 @@ There are many methods on `Rect` to do calculations on rectangles, like
 ```
 
 ```admonish note
-The origin of Macroqaud's `Rect` is also from the top left corner, so we must
-subtract half the size from both `X` and `Y`.
+The origin of Macroquad's `Rect` is also from the top left corner, so we must
+subtract half its size from both `X` and `Y`.
 ```
 
 ### Is it game over?
 
-Let's add a boolean variable called `gameover` to keep track of whether the
-player has died to the start of the main loop.
+Let's add a boolean variable called `gameover` to the start of the main loop
+to keep track of whether the player has died.
 
 ```rust
 {{#include ../../my-game/examples/collision.rs:variable}}
@@ -95,10 +95,13 @@ There's also a function called `is_key_released()` which checks if the key was
 released during the current frame.
 ```
 
-### Display Game Over text
+### Display GAME OVER
 
 Finally, we draw the text "Game Over!" in the middle of the screen after the
 circle and squares have been drawn, but only if the variable `gameover` is `true`.
+Macroquad does not have any feature to decide which things will be drawn on
+top of other things. Each thing drawn will be drawn on top of all other
+things drawn earlier during the the same frame.
 
 ```admonish info
 It's also possible to use the function

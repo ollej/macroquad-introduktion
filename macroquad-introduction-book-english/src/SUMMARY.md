@@ -2,7 +2,7 @@
 
 [Copyright](copyright.md)  
 [Table of contents](SUMMARY.md)  
-[Introduction](README.md)
+[Game development in Rust with Macroquad](README.md)
 
 - [Your first Macroquad app](./ch1-first-program.md)
 - [Fly away](./ch2-move-a-circle.md)
@@ -32,3 +32,4 @@
 
 [Full source code](full-source.md)  
 [Credits](credits.md)
+[Glossary](glossary.md)

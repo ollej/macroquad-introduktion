@@ -4,9 +4,9 @@
 
 Since Macroquad will draw frames as quickly as possible, we need to check how
 much time has passed between each update to determine how far the circle
-should move. Otherwise our game will run at different speeds on different
+should move. Otherwise, our game will run at different speeds on different
 computers, depending on how quickly they can run the application. The specific
-framerate will depend on your computer, if Vsync is enabled it may be locked
+framerate will depend on your computer; if Vsync is enabled it may be locked
 to 30 or 60 frames per second.
 
 ## Implementation
@@ -32,8 +32,8 @@ called `delta_time` that we will use later.
 
 ### Update movement
 
-When the variables `x` and `y` are updated we will multiply the values of 
-the constant `MOVEMENT_SPEED` and the variable `delta_time` to get how far the
+When the variables `x` and `y` are updated, we will multiply the values of 
+the constant `MOVEMENT_SPEED` by the variable `delta_time` to get how far the
 circle should move during this frame.
 
 ```rust [hl,2,5,8,11]
@@ -42,7 +42,7 @@ circle should move during this frame.
 
 ### Limit movement
 
-Finally we will make sure that the circle won't move outside of the window. 
+Finally, we will prevent the circle from moving outside of the window. 
 We use the Macroquad function `clamp()` to make sure `x` and `y` are never
 below `0` or above the width of the window.
 
@@ -57,7 +57,7 @@ value. It is part of the Macroquad
 ```
 
 ```admonish tip title="Challenge" class="challenge"
-Change the constant `MOVEMENT_SPEED` if the circle is moving to slow or too
+Change the constant `MOVEMENT_SPEED` if the circle is moving too slow or too
 fast.
 
 What do you need to change to ensure that the entire circle stays within the

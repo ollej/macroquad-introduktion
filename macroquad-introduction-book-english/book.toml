@@ -50,7 +50,7 @@ static_site_url = "https://mq.agical.se"
 
 [preprocessor]
 [preprocessor.quiz]
-cache-answers = true
+cache-answers = false
 spellcheck = false
 
 [preprocessor.catppuccin]
