@@ -6,12 +6,12 @@ once. To begin with we'll add code to load textures directly in our `main`
 function and change the draw function in the game loop. In a later chapter we
 will look at how to extract the texture loading into a separate function.
 
-Before we make any code changes we need to download all the needed resources.
+Before we make any code changes we need to download all necessary resources.
 Download this [package with graphics and sound](assets.zip) and extract it to
 a directory called `assets` in the root directory of your game.
 
 All the resources are public domain and are primarily from the website
-[OpenGameArt.org](https://opengameart.org/) where there are lots of different
+[OpenGameArt.org](https://opengameart.org/) which offers lots of different
 resources to develop games.
 
 The file structure for your game should look like this:
@@ -42,7 +42,7 @@ The file structure for your game should look like this:
 
 ## Update web publishing
 
-If you chose to setup web publishing of your game to Github Pages in the 
+If you chose to setup web publishing of your game to GitHub Pages in the 
 [first chapter](ch1-first-program.md#publicera-på-webben-om-du-vill) you will
 need to update the file `.github/workflows/deploy.yml` to make sure the assets
 are included when publishing.

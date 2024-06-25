@@ -1,7 +1,7 @@
 # Music and sound effects
 
 A game doesn't only need graphics to be good, it also needs to sound good.
-It's now time to add some music and sound effects to the game.
+Let's add some music and sound effects to the game.
 
 ## Implementation
 
@@ -26,9 +26,10 @@ macroquad-particles = "0.2.2"
 
 ### Import
 
-The sound module isn't included the the Macroquad prelude, so we need to
-import the `audio` module at the top of the `main.rs` file. The things we need
-to import are `load_sound`, `play_sound`, `play_sound_once`, and `PlaySoundParams`.
+The sound module isn't included the Macroquad prelude, so we need to import
+the `audio` module at the top of the `main.rs` file. The things we need to
+import are `load_sound`, `play_sound`, `play_sound_once`, and
+`PlaySoundParams`.
 
 ```rust
 {{#include ../../my-game/examples/audio.rs:import}}
@@ -36,7 +37,7 @@ to import are `load_sound`, `play_sound`, `play_sound_once`, and `PlaySoundParam
 
 ### Load resources
 
-After all the textures have been loaded we can load the music and sound
+After all the textures have been loaded, we can load the music and sound
 effects. There is a file with the music that is called `8bit-spaceshooter.ogg`
 and two `wav` files with sound effects, `explosion.wav` and `laser.wav`. The
 music is in the file format Ogg Vorbis which is supported by most, but not
@@ -48,14 +49,14 @@ all, web browsers.
 
 ```admonish note
 In order for the music to work on the Safari web browser it has to be
-converted to `wav` format. This would make the file very large, so another
-option would be to use a version in OGG format and one in MP3 and select which
+converted to `WAV` format. This would make the file very large, so another
+option is to use a version in `OGG` format and one in `MP3` and select which
 one to use based on the web browser being used.
 ```
 
 ### Play music
 
-Before the game loop begins we will start playing the music. This is done the
+Before the game loop begins we will start playing the music. This is done with
 the function `play_sound()`, which takes a sound, and the struct
 `PlaySoundParams` as arguments. In the parameters we set the sound to be
 played in a loop and with full volume.
@@ -71,7 +72,7 @@ argument.
 
 ### Play laser sound
 
-When the player is shooting a bullet we will play the sound effect of a laser
+When the player is shooting a bullet, we will play the sound effect of a laser
 blast using the function `play_sound_once()`. This function takes the sound to
 play as the argument. It is a shortcut instead of using `play_sound()` with a
 non-looping parameter.
@@ -88,17 +89,17 @@ argument.
 
 ### Play explosion sound
 
-When a bullet hits an enemy we will play the explosion sound, also using the
+When a bullet hits an enemy, we will play the explosion sound, also using the
 function `play_sound_once()`.
 
 ```rust [hl,14]
 {{#include ../../my-game/examples/audio.rs:playexplosion}}
 ```
 
-You can now start the game and it should play music and sound effects.
+You can now start the game, and it should play music and sound effects.
 
 ```admonish tip title="Challenge" class="challenge"
-It might be a bit intensive to start the music at full volume. Try setting the
+It might be a bit intense to start the music at full volume. Try setting the
 volume lower at the start and increase it once the game starts. Maybe also try
 to stop the music when the player pauses the game.
 ```

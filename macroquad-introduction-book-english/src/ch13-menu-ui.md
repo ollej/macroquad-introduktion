@@ -2,10 +2,10 @@
 
 ![Screenshot](images/menu-ui.png#center)
 
-Macroquad has a builtin system to display a graphical user interface where the
+Macroquad has a built-in system to display a graphical user interface where the
 look can easily be changed using PNG images. We will use this to create a
 graphical main menu for our game. There will be quite a lot of code to define
-the look of the UI. However once that is done, it is very easy to use it.
+the look of the UI. However, once that is done, it is very easy to use it.
 
 The menu will have a window centered on the screen with the text "Main menu" in
 the title bar. Inside the window there will be two buttons, one for "Play" and
@@ -29,7 +29,7 @@ is pressed, `button_clicked_background.png`. The images are loaded with the
 function `load_image()` and binary files with the function `load_file()`. Both
 images and files are loaded asynchronously and may return errors. This means
 we will have to call `await` and `unwrap()` to get the files. If we can't load
-the files needed to display the main menu we can just exit the program
+the files needed to display the main menu, we can just exit the program
 immediately.
 
 ```rust
@@ -43,30 +43,30 @@ Before the game loop we need to define how our UI should look. We will build
 styles to create a `Skin`.
 
 We use the function `root_ui()` that will draw widgets last in every frame
-using a "default" camera and the coordinate system 
+using a default camera and the coordinate system 
 `(0..screen_width(), 0..screen_height())`.
 
 #### Window look
 
 To build a style we use a `StyleBuilder` that has helper methods to define all
-the parts of the style. Vi get access to it by using the method
-`style_builder()` on `root_ui()`. The values that aren't set will use the same
-values as the default look.
+parts of the style. Vi get access to it by using the method `style_builder()`
+on `root_ui()`. The values that aren't set will use the same values as the
+default look.
 
 We will use the method `background()` to set the image used to draw the
 window. After that we can use `background_margin()` to define which parts of
-the image that shouldn't be "stretched" out when the window changes size. This
+the image that shouldn't change proportion when the window changes size. This
 is used to ensure that the edges of the window will look good.
 
 The method `margin()` is used to set margins for the content. These values can
-be negative to draw content on the borders of the window.
+be negative to draw content to the borders of the window.
 
 ```rust
 {{#include ../../my-game/examples/menu-ui.rs:windowstyle}}
 ```
 
 ```admonish info
-There are a lot more methods to define styles, these are described in the
+There are many more methods to define styles, these are described in the
 documentation for [Macroquad's
 `StyleBuilder`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.StyleBuilder.html)
 ```
@@ -75,7 +75,7 @@ documentation for [Macroquad's
 
 In the definition for buttons we'll use two images. Using `background()` we
 set the default image for the button, and `background_clicked()` is used to
-set the image to display while the button is clicked on.
+set the image to be displayed while the button is clicked on.
 
 We need to set both `background_margin()` and `margin()` to be able to stretch
 the image to cover the text inside the button. The look of the text is defined
@@ -88,7 +88,7 @@ using the methods `font()`, `text_color()`, and `font_size()`.
 #### Text look
 
 Normal text displayed in the interface uses `label_style`. We will use the
-same font as for the buttons, but with a slightly smaller font size.
+same font as for the buttons, but in a slightly smaller font size.
 
 ```rust
 {{#include ../../my-game/examples/menu-ui.rs:labelstyle}}
@@ -98,21 +98,21 @@ same font as for the buttons, but with a slightly smaller font size.
 
 We can now create a `Skin` using `window_style`, `button_style`, and
 `label_style`. We won't define any other styles for the skin as we won't be
-using them at the moment.
+using them.
 
-We set the current skin to use using `push_skin()`. We will only use one skin,
-but to change between different looks between windows, it's possible to use
-`push_skin()` and `pop_skin()` to change between them.
+We use `push_skin()` to define the current skin that is to be applied. We will
+only use one skin, but to change between different looks between windows, it's
+possible to use `push_skin()` and `pop_skin()`.
 
-We will also set the variable `window_size` to define with size of the window.
+We will also set the variable `window_size` to define the size of the window.
 
 ```rust
 {{#include ../../my-game/examples/menu-ui.rs:uiskin}}
 ```
 
 ```admonish info
-It's possible to change the look of more parts of the UI, such as text boxes,
-drop boxes etc. More information on how to do this can be found in the 
+It's possible to change the look of more parts of the UI. More information
+on how to do this can be found in the 
 [documentation of the struct
 Skin](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Skin.html).
 ```
@@ -121,9 +121,9 @@ Skin](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Skin.html).
 
 We can now build a menu by drawing a window with two buttons and a heading.
 The content of the `GameState::MainMenu` matching arm can be replaced with the
-code below.
+code at the end of this chapter.
 
-Start vy creating a window using `root_ui().window()`. The function takes an
+Start by creating a window using `root_ui().window()`. The function takes an
 argument that is generated with the macro `hash!`, a position that we'll
 calculate based on the window size and the screen dimensions, and finally a
 `Vec2` for the size of the window. Finally it takes a function that is used to
@@ -131,10 +131,10 @@ draw the content of the window.
 
 #### Window title
 
-In the window function we start by setting a title of the window with the
+In the window function we start by setting a title for the window with the
 widget `Label` that we can create using `ui.label()`. The method takes two
 arguments, a `Vec2` for the position of the label and a string with the text
-to display. It's possible to set `None` as position, in which case the
+to be displayed. It's possible to set `None` as position, in which case the
 placement will be relative to the previous widget. We will use a negative `y`
 position to place the text within the title bar of the window.
 
@@ -165,7 +165,7 @@ struct `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
 
 ## Try the game
 
-When starting the game a graphical menu will be shown where the player can
+When starting the game, a graphical menu will be shown where the player can
 choose to start a game or quit the program.
 
 ```admonish tip title="Challenge" class="challenge"

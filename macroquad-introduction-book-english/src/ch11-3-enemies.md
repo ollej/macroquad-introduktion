@@ -23,9 +23,9 @@ Load the texutre `enemy-small.png` and set the filter mode to
 ![Enemy spritesheet](assets/enemy-small.png#pixelated)
 
 Create an `AnimatedSprite` to describe the animations in the texture. It is
-only one animation with two frames. The graphics for the small enemy is 16x16
-pixels, but the texture has one pixel gutter between the frames to ensure that
-they don't bleed into each other when we scale the texture.
+only one animation with two frames. The graphics for the small enemy ships are
+16x16 pixels, but the texture has one pixel gutter between the frames to
+ensure that they don't bleed into each other when we scale the texture.
 
 ```rust
 {{#include ../../my-game/examples/graphics-enemies.rs:sprite}}
@@ -33,8 +33,9 @@ they don't bleed into each other when we scale the texture.
 
 ### Update animation
 
-The enemy sprites needs to be updated after the animations for the spaceship
-and bullets.
+The enemy sprites need to be updated, add a line with
+`enemy_small_sprite.update();` after updating the animations for the
+`ship_sprite` and the `bullet_sprite`.
 
 ```rust [hl,3]
 {{#include ../../my-game/examples/graphics-enemies.rs:updatesprites}}
@@ -53,15 +54,15 @@ coordinates.
 {{#include ../../my-game/examples/graphics-enemies.rs:drawenemy}}
 ```
 
-We have now change to graphics for all the elements of the game and when you
-run it now it should look like a real game.
+We have now changed to graphics for all the elements of the game, and when you
+run it now, it should look like a real game.
 
 ```admonish tip title="Challenge" class="challenge"
 ![Medium enemy spritesheet](assets/enemy-medium.png#pixelated)
 ![Big enemy spritesheet](assets/enemy-big.png#pixelated)
-There are two other enemy spritesheets included in the asset package,
-`enemy-medium.png` and `enemey-big.png`. Try changing which texture is used
-for the enemies based on their size.
+The asset package includes two other enemy spritesheets, `enemy-medium.png`
+and `enemey-big.png`. Try changing which texture is used for the enemies
+based on their size.
 ```
 
 <div class="noprint">

@@ -4,11 +4,11 @@
 
 We don't want the squares to just disappear when they are hit by a bullet. So
 now we'll make use of the Macroquad particle system to generate explosions.
-The particle system is used to easily create and draw many small particles on
-the screen based on a base configuration. In our case the particles will start
-from the center of the square and move outwards in all directions. In a later
-chapter we will add a texture to the particles to make it look even more like
-a real explosion.
+With the particle system you can easily create and draw many small particles
+on the screen based on a base configuration. In our case the particles will
+start from the center of the square and move outwards in all directions. In a
+later chapter we will add a graphical image to the particles to make it look
+even more like a real explosion.
 
 ## Implementation
 
@@ -39,9 +39,9 @@ macroquad-particles = "0.2.1"
 ```
 
 ```admonish bug
-Version 0.2.1 of macroquad-particles doesn't support the latest version of
-Macroquad. If you get an error when compiling you can try to use both
-macroquad and macroquad-particles 
+Version 0.2.2 of macroquad-particles doesn't support the latest version of
+Macroquad. If you get an error when compiling you can try using both
+`macroquad` and `macroquad-particles` crates
 [directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories).
 ```
 
@@ -68,7 +68,7 @@ point from where particles can be generated.
 ```admonish info
 There are a lot of different things to configure in an `Emitter`. The fields of 
 [`EmitterConfig`](https://docs.rs/macroquad-particles/latest/macroquad_particles/struct.EmitterConfig.html)
-is described in the documentation of the module `macroquad-particles´.
+are described in the documentation of the module `macroquad-particles`.
 ```
 
 ### Vector of explosions
@@ -80,7 +80,7 @@ tuple with an `Emitter` and the coordinate it should be drawn at.
 {{#include ../../my-game/examples/particle-explosions.rs:explosions}}
 ```
 
-When we start a new game we need to clear the vector of explosions.
+When we start a new game, we need to clear the vector of explosions.
 
 ```rust [hl,4]
 {{#include ../../my-game/examples/particle-explosions.rs:clearexplosions}}
@@ -88,10 +88,10 @@ When we start a new game we need to clear the vector of explosions.
 
 ### Create an explosion
 
-When a ghastly square is hit by a bullet we'll create a new `Emitter` based on
-the configuration from `particle_explosion()` with the addition that the
-number of particles is based on the size of the square. The coordinate that
-the particles will be generated at should be the same as the coordinates of
+When a square is hit by a bullet, we'll create a new `Emitter` based on
+the configuration from `particle_explosion()`, with the addition that the
+number of particles is based on the size of the square. The coordinates where
+the particles are generated should be the same as the coordinates of
 the square.
 
 ```rust [hl,8-14]
@@ -100,8 +100,8 @@ the square.
 
 ### Removing explosions
 
-When the emitter has finished drawing all the particles we need to remove them
-from the `explosions` vector so that we'll stop trying to draw it. Add the
+When the emitter has finished drawing all the particles, we need to remove
+them from the `explosions` vector so that we stop trying to draw it. Add the
 following code below the code that removes squares and bullets.
 
 ```rust
@@ -110,9 +110,9 @@ following code below the code that removes squares and bullets.
 
 ### Drawing explosions
 
-After drawing all the squares we can loop through the `explosions` vector and
-draw them. We only need to send in the coordinate the particles will be
-generated at, then the emitter will randomize and move all the particles by
+After drawing all the squares, we can loop through the `explosions` vector and
+draw them. We only need to send in the coordinates where the particles will be
+generated, then the emitter will randomize and move all the particles by
 itself.
 
 ```rust
@@ -125,7 +125,7 @@ squares get hit by bullets.
 ```admonish tip title="Challenge" class="challenge"
 Read the documentation for `EmitterConfig` and try what happens if you change
 different values. Can you add a particle system that shoots particles out the
-back of the circle so it looks like a rocket exhaust.
+back of the circle so it looks like a rocket exhaust?
 ```
 
 <div class="noprint">

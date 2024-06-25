@@ -132,6 +132,28 @@ async fn main() {
     build_textures_atlas();
     // ANCHOR_END: atlas
 
+    // ANCHOR: bulletsprite
+    let mut bullet_sprite = AnimatedSprite::new(
+        16,
+        16,
+        &[
+            Animation {
+                name: "bullet".to_string(),
+                row: 0,
+                frames: 2,
+                fps: 12,
+            },
+            Animation {
+                name: "bolt".to_string(),
+                row: 1,
+                frames: 2,
+                fps: 12,
+            },
+        ],
+        true,
+    );
+    bullet_sprite.set_animation(1);
+    // ANCHOR_END: bulletsprite
     // ANCHOR: shipsprite
     let mut ship_sprite = AnimatedSprite::new(
         16,
@@ -159,28 +181,6 @@ async fn main() {
         true,
     );
     // ANCHOR_END: shipsprite
-    // ANCHOR: bulletsprite
-    let mut bullet_sprite = AnimatedSprite::new(
-        16,
-        16,
-        &[
-            Animation {
-                name: "bullet".to_string(),
-                row: 0,
-                frames: 2,
-                fps: 12,
-            },
-            Animation {
-                name: "bolt".to_string(),
-                row: 1,
-                frames: 2,
-                fps: 12,
-            },
-        ],
-        true,
-    );
-    bullet_sprite.set_animation(1);
-    // ANCHOR_END: bulletsprite
 
     loop {
         clear_background(BLACK);

@@ -1,19 +1,19 @@
 # Coroutines and Storage
 
-When there are a lot of assets to load it might take a while to load
+When there are a lot of assets to load, it might take a while to load
 everything. This is especially true for the WebAssembly version that loads
 files via HTTP in the browser on a slow internet connection. In these cases we
 want to display a loading message on the screen instead of just having a
 completely black screen.
 
-To solve this we will use something called `coroutines` which will emulate
+To solve this we will use something called `coroutines`, which will emulate
 multitasking using the event loop in the browser. For the desktop these will
 execute immediately instead. This can be used to handle state machines and
 things that need to be evaluated over time. Using a coroutine we can load all
 the resources in the background while also drawing to the screen.
 
 Finally we will place the resources in the Macroquad `storage` that is a
-global persistant storage. It can be used to save game configuration that
+global persistent storage. It can be used to save game configuration that
 needs to be available anywhere in the game code without having to send the
 data around.
 
@@ -43,14 +43,14 @@ resources are being loaded.
 The function `start_coroutine` takes an `async` block and returns a
 `Coroutine`. Inside the async block we will instantiate the `Resources` struct
 that loads all the assets. After that we use the `storage::store()` to save
-the resources in the Macroquad storage. This will ensure we can access the
-resources anywhere in the code.
+the resources in the Macroquad storage. This will ensure that we can access
+the resources anywhere in the code.
 
-Using the method `is_done()` on `Coroutine` we can check if it has finished or
-not. We add a loop that runs until `is_done()` returns `true`. While the
-couroutine is running we use `draw_text()` to display a message on the screen.
-We also add 1 to 3 periods after the text using the code
-`".".repeat(((get_time() * 2.) as usize) % 4)`. We also need to use
+Using the method `is_done()` on `Coroutine` we can check if the couroutune has
+finished running or not. We add a loop that runs until `is_done()` returns
+`true`. While the coroutine is running we use `draw_text()` to display a
+message on the screen.  We also add 1 to 3 periods after the text using the
+code `".".repeat(((get_time() * 2.) as usize) % 4)`. We also need to use
 `clear_background()` and `next_frame.await` inside the loop for everything to
 work properly.
 
@@ -79,7 +79,7 @@ the resources.
 
 ## Try the game
 
-While the game is loading in a browser the message "Loading resources..." will
+While the game is loading in a browser, the message "Loading resources..." will
 be shown on the screen.
 
 ```admonish tip title="Challenge" class="challenge"
