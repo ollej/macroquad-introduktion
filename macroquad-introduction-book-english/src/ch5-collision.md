@@ -97,7 +97,7 @@ released during the current frame.
 
 ### Display GAME OVER
 
-Finally, we draw the text "Game Over!" in the middle of the screen after the
+Finally, we draw the text "GAME OVER!" in the middle of the screen after the
 circle and squares have been drawn, but only if the variable `gameover` is `true`.
 Macroquad does not have any feature to decide which things will be drawn on
 top of other things. Each thing drawn will be drawn on top of all other

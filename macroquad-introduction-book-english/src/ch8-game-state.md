@@ -79,7 +79,8 @@ last chapter. However, don't add back the code that handles Game Over as it
 will be added in the matching arm for the `GameState::GameOver`.
 
 We'll also add a code that checks if the player presses the `Escape` key and
-change the state to `GameState::Paused`.
+change the state to `GameState::Paused`. This will ensure that the game will
+be paused in the next iteration of the game loop.
 
 ```rust [hl,1,24-26,108]
 {{#include ../../my-game/examples/game-state.rs:playing}}
@@ -92,6 +93,10 @@ in our game, too. When the game is paused, we'll check if the player presses
 the `Space` key and change the game state to `GameState::Playing` so that the
 game can continue. We'll also draw a text on the screen showing that the game
 is paused.
+
+The changed game state will only come into effect in the next iteration of the
+game loop, so even if it has been changed we need to display the text during
+the current frame.
 
 ```rust
 {{#include ../../my-game/examples/game-state.rs:paused}}

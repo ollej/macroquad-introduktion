@@ -3,7 +3,8 @@
 ![Screenshot](images/first-program.png#center)
 
 Now it's time to develop your first application with Macroquad. Start by
-installing the programming language Rust if you don't already have it.
+[installing](https://www.rust-lang.org/learn/get-started) the programming
+language Rust if you don't already have it.
 
 ## Implementation
 
