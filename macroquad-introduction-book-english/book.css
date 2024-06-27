@@ -1,35 +1,3 @@
-.onlyprint {
-  display: none;
-}
-
-@media print {
-  .noprint {
-    display: none;
-  }
-
-  .onlyprint {
-    display: block;
-  }
-
-  .page-break {
-    page-break-before: always;
-  }
-
-  .no-page-break, 
-  .no-page-break pre,
-  .no-page-break code {
-    page-break-inside: avoid;
-  }
-
-  .allow-page-break pre, .allow-page-break code {
-    page-break-inside: initial;
-  }
-
-  .admonition.challenge > div:nth-child(2)::before {
-    width: 100px;
-  }
-}
-
 img[src*="#center"] {
   display: block;
   margin: 0 auto;
@@ -79,4 +47,41 @@ footer img {
 
 .center {
   text-align: center;
+}
+
+.onlyprint {
+  display: none;
+}
+
+@media print {
+  :is(.admonition),
+  html {
+    color: #000000 !important;
+  }
+
+  .noprint {
+    display: none;
+  }
+
+  .onlyprint {
+    display: block;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .no-page-break, 
+  .no-page-break pre,
+  .no-page-break code {
+    page-break-inside: avoid;
+  }
+
+  .allow-page-break pre, .allow-page-break code {
+    page-break-inside: initial;
+  }
+
+  .admonition.challenge > div:nth-child(2)::before {
+    width: 72pt;
+  }
 }
