@@ -1,8 +1,8 @@
 # Build your game for desktop platforms
 
 Macroquad supports multiple desktop platforms, such as Windows, MacOS, and
-Linux. It's possible to cross compile for other platforms than the one you are
-using. But it might need other tools that won't be described in this guide.
+Linux. It's possible to cross-compile for other platforms than the one you are
+using. But it might need other tools that are not described in this guide.
 It's easiest to use a build system that has support for different platforms.
 
 ## Build for Windows
@@ -12,8 +12,8 @@ build target. Both the MSVC and GNU build targets are supported.
 
 ### Build using Windows GNU target
 
-Before running the build the first time you need to install the build target.
-You will only have to run this command once.
+Before running the build the for first time you need to install the build
+target. You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-pc-windows-gnu
@@ -30,8 +30,8 @@ The binary file created will be stored in the directory
 
 ### Build using Windows MSVC target
 
-Before running the build the first time you need to install the build target.
-You will only have to run this command once.
+Before running the build the for first time you need to install the build
+target. You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-pc-windows-msvc
@@ -80,8 +80,8 @@ pacman -S pkg-config libx11 libxi mesa-libgl alsa-lib
 
 ### Build using Linux GNU target
 
-Before running the build the first time you need to install the build target.
-You will only have to run this command once.
+Before running the build for the first time you need to install the build
+target. You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-unknown-linux-gnu
@@ -98,14 +98,14 @@ The binary file created will be stored in the directory
 
 ## Build using MacOS
 
-To build on MacOS there are two possible targets, `x86_64-apple-darwin` is
-used for older Intel based Mac computers and `aarch64-apple-darwin` build for
-newer Apple Silicon based Mac computers.
+To build on MacOS there are two possible targets: `x86_64-apple-darwin` is
+used for older Intel-based Mac computers, and `aarch64-apple-darwin` build is
+used for newer Apple Silicon-based Mac computers.
 
 ### Build using x86-64 Apple Darwin target
 
-Before running the build the first time you need to install the build target.
-You will only have to run this command once.
+Before running the build for the first time you need to install the build
+target. You will only have to run this command once.
 
 ```sh
 rustup target add x86_64-apple-darwin
@@ -122,8 +122,8 @@ The binary file created will be stored in the directory
 
 ### Build using aarch64 Apple Darwin target
 
-Before running the build the first time you need to install the build target.
-You will only have to run this command once.
+Before running the build for the first time you need to install the build
+target. You will only have to run this command once.
 
 ```sh
 rustup target add aarch64-apple-darwin

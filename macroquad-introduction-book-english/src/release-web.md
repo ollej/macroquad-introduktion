@@ -30,9 +30,9 @@ The WASM binary file will be placed in the directory
 ## Copy WebAssembly binary
 
 You need to copy the WebAssembly binary to the root of your crate, in the same
-place that the `assets` directory is placed.
+place where the `assets` directory is placed.
 
-If you have named your crate something else than `my-game` the name of the
+If you have named your crate something else than `my-game`, the name of the
 binary will have the same name, but with the file extension `.wasm`.
 
 ```sh
@@ -83,13 +83,13 @@ following content:
 
 ## Test the game in a browser
 
-You should be able to start a web server and open the page in a web browser.
+You should be able to start a web server and open the game in a web browser.
 
 ### Install a simple web server
 
-To serve your game locally on your computer you can install a simple web
-server with the following command. This is only to be able to test the game
-locally before you upload it to a proper web hosting account.
+This is only to be able to test the game locally before you upload it to a
+proper web hosting account. To serve your game locally on your computer you
+can install a simple web server with the following command:
 
 ```sh
 cargo install basic-http-server
@@ -108,8 +108,8 @@ basic-http-server .
 
 ### Publish your game
 
-If you have access to a web hosting account you can publish the files there to
-let other people play your game. You need to upload the HTML file, the WASM
+If you have access to a web hosting account, you can publish the files there
+to let other people play your game. You need to upload the HTML file, the WASM
 file, and the `assets` directory.
 
 ```
@@ -121,7 +121,7 @@ assets/*
 ```admonish note
 This is a reminder that there are instructions at the end of
 [chapter 1](ch1-first-program.md#publish-on-the-web-if-you-want)
-with instructions on how to automatically publish the game on GitHub without
-using a web account. In that case you need to use the updated `deploy.yml`
+on how to automatically publish the game on GitHub without using a web
+account. In that case you need to use the updated `deploy.yml`
 from [chapter 10 – Graphics](ch11-graphics.md#update-web-publishing).
 ```

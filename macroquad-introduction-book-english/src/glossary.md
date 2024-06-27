@@ -18,8 +18,8 @@ This is a list of terms and abbreviations used in this guide.
 | OGG | The filename extension for Ogg Vorbis sound files. |
 | MP3 | A sound file format. |
 | camera |  |
-| |  |
-| |  |
+| Docker |  |
+| XCode |  |
 | |  |
 | |  |
 | |  |

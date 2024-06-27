@@ -4,10 +4,12 @@
 
 ![Ferris the gamer](images/ferris-gamer.png)
 
-The image of Ferris holding a game controller is based on the Ferris the
-Rustacean image created by Karen Rustad Tölva. The game controller is
-drawn by Clovis_Cheminot from 
-[Pixabay](https://pixabay.com/vectors/controller-video-game-flat-x-box-1486898/).
+The image of Ferris holding a game controller is adapted from the "Ferris the
+Rustacean" public domain image created by [Karen Rustad
+Tölva](https://www.rustacean.net/). The game controller is drawn by
+Clovis_Cheminot from
+[Pixabay](https://pixabay.com/vectors/controller-video-game-flat-x-box-1486898/)
+and released under the Pixabay Content License.
 
 ## Ferris the Teacher
 
