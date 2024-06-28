@@ -17,12 +17,12 @@ global persistent storage. It can be used to save game configuration that
 needs to be available anywhere in the game code without having to send the
 data around.
 
-```admonish info
+```admonish info title="More information"
 Both `coroutines` and `storage` are experimental features of Macroquad and the
 usage might change in future versions.
 ```
 
-## Implementation 
+## Implementation
 
 ### Importing
 
@@ -58,7 +58,7 @@ work properly.
 {{#include ../../my-game/examples/coroutines-and-storage.rs:load}}
 ```
 
-```admonish info
+```admonish info title="More information"
 More information about the Macroquad
 [coroutines](https://docs.rs/macroquad/latest/macroquad/experimental/coroutines/index.html)
 and

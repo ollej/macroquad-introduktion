@@ -7,7 +7,7 @@ want to be able to refactor all the drawing to be done by the structs. Finally
 we will be able to move code away from our `main` function which is starting
 to get a bit hard to follow.
 
-## Implementation 
+## Implementation
 
 ### Resources struct
 
@@ -21,7 +21,7 @@ struct will have a field for every asset loaded.
 
 ### Resources impl
 
-Directly below the `Resources` struct we'll add an implementation block for it. 
+Directly below the `Resources` struct we'll add an implementation block for it.
 To begin with it will only contain a `new` method that loads all the files and
 returns an instance of the struct if everything went as expected. We'll reuse
 the code that used to be in the `main` function to load all the files.
@@ -35,8 +35,8 @@ returned instead of exiting the program. This means we will be able to handle
 the error in a single place in our `main` function if we want to. The error
 message is an enum of the type `macroquad::Error`.
 
-```admonish info
-The errors available in Macroquad are documented in 
+```admonish info title="More information"
+The errors available in Macroquad are documented in
 [macroquad::Error](https://docs.rs/macroquad/latest/macroquad/enum.Error.html).
 ```
 
@@ -62,7 +62,7 @@ value will be skipped and `()` is returned instead.
 {{#include ../../my-game/examples/resources-and-errors.rs:main}}
 ```
 
-```admonish info
+```admonish info title="More information"
 If you want to know how the Rust unit type works you can find more information
 in the [Rust unit documentation](https://doc.rust-lang.org/std/primitive.unit.html).
 ```
@@ -169,7 +169,7 @@ nothing but displaying the text.
 
 The game should work exactly like before.
 
-```admonish info
+```admonish info title="More information"
 Sometimes the cargo dependencies can become out of sync. Some users have
 experienced this in this chapter. The symptoms are that the buttons in the
 main menu starts to "glitch" and it requires multiple clicks to press the

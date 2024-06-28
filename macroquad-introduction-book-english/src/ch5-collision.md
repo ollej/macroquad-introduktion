@@ -23,7 +23,7 @@ the `overlaps()` helper method from Macroquad's
 struct. We also create a helper method called `rect()` that creates a `Rect`
 from our Shape.
 
-```admonish info
+```admonish info title="More information"
 There are many methods on `Rect` to do calculations on rectangles, such as
 `contains()`, `intersect()`, `scale()`, `combine_with()` and `move_to()`.
 ```
@@ -32,7 +32,7 @@ There are many methods on `Rect` to do calculations on rectangles, such as
 {{#include ../../my-game/examples/collision.rs:implshape}}
 ```
 
-```admonish note
+```admonish note title="Please note!"
 The origin of Macroquad's `Rect` is also from the top left corner, so we must
 subtract half its size from both `X` and `Y`.
 ```
@@ -83,7 +83,7 @@ variable `gameover` to `false` so that the game can start over.
 {{#include ../../my-game/examples/collision.rs:gameover}}
 ```
 
-```admonish info
+```admonish info title="More information"
 
 The difference between the functions `is_key_down()` and `is_key_pressed()` is
 that the latter only checks if the key was pressed during the current frame,
@@ -103,7 +103,7 @@ Macroquad does not have any feature to decide which things will be drawn on
 top of other things. Each thing drawn will be drawn on top of all other
 things drawn earlier during the the same frame.
 
-```admonish info
+```admonish info title="More information"
 It's also possible to use the function
 [`draw_text_ex()`](https://docs.rs/macroquad/latest/macroquad/text/fn.draw_text_ex.html)
 which takes a
