@@ -69,7 +69,7 @@ function `clear_background(DARKPURPLE)`. At the end of the loop is the
 function `next_frame().await` which will wait until the next frame is
 available.
 
-```admonish pnote
+```admonish note title="Please note!"
 Even if `clear_background()` isn't used explicitly, the screen will be cleared
 with a black color at the start of each frame.
 ```
