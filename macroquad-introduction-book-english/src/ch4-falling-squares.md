@@ -31,7 +31,7 @@ as the seed.
 {{#include ../../my-game/examples/falling-squares.rs:srand}}
 ```
 
-```admonish note title="Please note!"
+```admonish note title="Miniquad in play!"
 We are using the function `miniquad::date::now()` from the
 [graphics library Miniquad](https://docs.rs/miniquad/latest/miniquad/index.html)
 to get the current time.
@@ -53,7 +53,7 @@ Start by modifying the program so that `circle` is used instead of the
 variables `x` and `y` and confirm that everything works as it did before
 adding the enemy squares.
 
-```admonish note title="Please note!"
+```admonish note title="Getting a “type annotation needed” warning?"
 The Rust compiler might warn about "type annotations needed" on the Vector.
 Once we add an enemy square in the next section that warning should disappear.
 ```
@@ -77,7 +77,7 @@ every square.
 {{#include ../../my-game/examples/falling-squares.rs:generatesquare}}
 ```
 
-```admonish note title="Please note!"
+```admonish note title="The coordinate system starts top left"
 Rectangles are drawn starting from their upper left corner. Therefore, we
 subtract half of the square's size when calculating the `x` position. The
 `y` position starts at a negative value of the square's size, so it starts
@@ -116,7 +116,11 @@ use some mathematics to calculate where they should be placed. The size is
 used twice, once for the width of the square and once for the height. We set
 the color to `GREEN` so that all squares will have a green color.
 
-```admonish note title="Please note!"
+```rust
+{{#include ../../my-game/examples/falling-squares.rs:drawsquares}}
+```
+
+```admonish note title="Fancier rectangles available"
 It's also possible to use the function
 [`draw_rectangle_ex()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_rectangle_ex.html)
 that uses the struct
@@ -125,9 +129,6 @@ instead of a color. In addition to setting color, it can be used to set
 `rotation` and `offset` of the rectangle.
 ```
 
-```rust
-{{#include ../../my-game/examples/falling-squares.rs:drawsquares}}
-```
 
 ```admonish tip title="Challenge" class="challenge"
 Try setting a different color for each square by using the method `choose()`
