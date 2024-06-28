@@ -40,7 +40,7 @@ the speed is set to twice that of the circle.
 {{#include ../../my-game/examples/shooting.rs:shoot}}
 ```
 
-```admonish note title="Please note!"s
+```admonish note title="Please note!"
 Note that we're using the function `is_key_pressed()` which only returns true
 during the frame when the key was first pressed.
 ```
