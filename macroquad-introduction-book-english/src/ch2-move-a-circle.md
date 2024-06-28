@@ -29,7 +29,7 @@ The function `is_key_down()` returns true if the given key is being
 pressed during the current frame. The argument is of the enum `KeyCode` that
 contains all keys available on the keyboard.
 
-```admonish info
+```admonish info title="More information"
 You can read more about how the [Rust `enum`
 feature](https://doc.rust-lang.org/book/ch06-00-enums.html)
 works in the Rust book.
@@ -39,8 +39,8 @@ works in the Rust book.
 {{#include ../../my-game/examples/move-a-circle.rs:movement}}
 ```
 
-```admonish info
-You can find other available keys in the 
+```admonish info title="More information"
+You can find other available keys in the
 [documentation of KeyCode](https://docs.rs/macroquad/latest/macroquad/input/enum.KeyCode.html).
 ```
 
@@ -53,15 +53,15 @@ The circle has a radius of 16 and will be drawn in a yellow color.
 {{#include ../../my-game/examples/move-a-circle.rs:draw}}
 ```
 
-```admonish info
+```admonish info title="More information"
 Macroquad has several constants for common
 [colors](https://docs.rs/macroquad/latest/macroquad/color/colors/index.html),
-and you can also use the macro 
+and you can also use the macro
 [`color_u8`](https://docs.rs/macroquad/latest/macroquad/macro.color_u8.html)
 to create a color with specific values for red, green, blue, and transparency.
 
 The other shapes that can be drawn with Macroquad are described in the
-documentation of Macroquad's 
+documentation of Macroquad's
 [Shape API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 ```
 

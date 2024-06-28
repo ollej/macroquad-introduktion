@@ -32,7 +32,7 @@ called `delta_time` that we will use later.
 
 ### Update movement
 
-When the variables `x` and `y` are updated, we will multiply the values of 
+When the variables `x` and `y` are updated, we will multiply the values of
 the constant `MOVEMENT_SPEED` by the variable `delta_time` to get how far the
 circle should move during this frame.
 
@@ -42,7 +42,7 @@ circle should move during this frame.
 
 ### Limit movement
 
-Finally, we will prevent the circle from moving outside of the window. 
+Finally, we will prevent the circle from moving outside of the window.
 We use the Macroquad function `clamp()` to make sure `x` and `y` are never
 below `0` or above the width of the window.
 
@@ -50,7 +50,7 @@ below `0` or above the width of the window.
 {{#include ../../my-game/examples/smooth-movement.rs:clamp}}
 ```
 
-```admonish info
+```admonish info title="More information"
 The `clamp()` function is used to clamp a value between a minimum and maximum
 value. It is part of the Macroquad
 [Math API](https://docs.rs/macroquad/latest/macroquad/math/index.html).

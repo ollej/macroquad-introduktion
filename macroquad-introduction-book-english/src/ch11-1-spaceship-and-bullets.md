@@ -63,11 +63,11 @@ kinds of bullets.
 {{#include ../../my-game/examples/graphics-spaceship.rs:loadresources}}
 ```
 
-```admonish info
-The images are returned as the struct 
+```admonish info title="More information"
+The images are returned as the struct
 [`Texture2D`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Texture2D.html)
 that stores the image data in GPU memory. The corresponding struct for images
-stored in CPU memory is 
+stored in CPU memory is
 [`Image`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Image.html).
 ```
 
@@ -197,12 +197,12 @@ current frame is placed.
 {{#include ../../my-game/examples/graphics-spaceship.rs:drawbullets}}
 ```
 
-```admonish info
+```admonish info title="More information"
 By using
 [`DrawTextureParams`](https://docs.rs/macroquad/0.3.25/macroquad/texture/struct.DrawTextureParams.html)
 it is possible to change how the texture should be drawn. It is possible to
 draw the texture rotated or mirrored with the fields `rotation`, `pivot`,
-`flip_x`, and `flip_y`. 
+`flip_x`, and `flip_y`.
 ```
 
 ### Draw the spaceship frames

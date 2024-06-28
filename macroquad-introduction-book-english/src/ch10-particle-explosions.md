@@ -65,8 +65,8 @@ point from where particles can be generated.
 {{#include ../../my-game/examples/particle-explosions.rs:particleconfig}}
 ```
 
-```admonish info
-There are a lot of different things to configure in an `Emitter`. The fields of 
+```admonish info title="More information"
+There are a lot of different things to configure in an `Emitter`. The fields of
 [`EmitterConfig`](https://docs.rs/macroquad-particles/latest/macroquad_particles/struct.EmitterConfig.html)
 are described in the documentation of the module `macroquad-particles`.
 ```

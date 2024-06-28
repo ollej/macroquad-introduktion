@@ -5,11 +5,11 @@
 This guide is written by Olle Wreede at [Agical](https://www.agical.se/).
 
 <div class="onlyprint">
-This guide is available online at the following address:  
+This guide is available online at the following address:
 https://mq.agical.se/
 </div>
 
-The source code for all chapters of this book is available here:  
+The source code for all chapters of this book is available here:
 [https://mq.agical.se/github.html](https://mq.agical.se/github.html)
 
 <div class="page-break"></div>
@@ -55,18 +55,18 @@ game interfaces.
 
 This guide assumes some prior knowledge of Rust programming. More information
 about Rust is available in the [Rust book](https://doc.rust-lang.org/book/)
-that is available online. I can also recommend the book 
+that is available online. I can also recommend the book
 [Hands-on Rust](https://pragprog.com/titles/hwrust/hands-on-rust/) by
 Herbert Wolverson where you learn Rust by writing a roguelike game.
 
-```admonish info
+```admonish info title="More information"
 On the [Macroquad homepage](https://macroquad.rs) there are
 [examples](https://macroquad.rs/examples/) of how different features
 of Macroquad work, Macroquad-related [articles](https://macroquad.rs/articles),
 and [documentation of the API](https://docs.rs/macroquad/latest/macroquad/).
 ```
 
-```admonish note
+```admonish note title="Please note!"
 This guide is written for version 0.4 of Macroquad. It may not work for future
 versions because Macroquad is under active development.
 ```
