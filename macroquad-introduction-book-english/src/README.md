@@ -59,14 +59,14 @@ that is available online. I can also recommend the book
 [Hands-on Rust](https://pragprog.com/titles/hwrust/hands-on-rust/) by
 Herbert Wolverson where you learn Rust by writing a roguelike game.
 
-```admonish info title="More information"
+```admonish info title="Find more info on the Macroquad homepage"
 On the [Macroquad homepage](https://macroquad.rs) there are
 [examples](https://macroquad.rs/examples/) of how different features
 of Macroquad work, Macroquad-related [articles](https://macroquad.rs/articles),
 and [documentation of the API](https://docs.rs/macroquad/latest/macroquad/).
 ```
 
-```admonish note title="Please note!"
+```admonish note title="Macroquad version 0.4"
 This guide is written for version 0.4 of Macroquad. It may not work for future
 versions because Macroquad is under active development.
 ```
