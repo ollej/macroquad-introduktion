@@ -5,11 +5,11 @@
 This guide is written by Olle Wreede at [Agical](https://www.agical.se/).
 
 <div class="onlyprint">
-This guide is available online at the following address:
+This guide is available online at the following address:  
 https://mq.agical.se/
 </div>
 
-The source code for all chapters of this book is available here:
+The source code for all chapters of this book is available here:  
 [https://mq.agical.se/github.html](https://mq.agical.se/github.html)
 
 <div class="page-break"></div>
