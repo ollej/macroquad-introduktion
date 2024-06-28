@@ -50,7 +50,7 @@ below `0` or above the width of the window.
 {{#include ../../my-game/examples/smooth-movement.rs:clamp}}
 ```
 
-```admonish info title="More information"
+```admonish info title="The Macroquad Math API"
 The `clamp()` function is used to clamp a value between a minimum and maximum
 value. It is part of the Macroquad
 [Math API](https://docs.rs/macroquad/latest/macroquad/math/index.html).
