@@ -18,4 +18,7 @@ First edition July 2024
 
 [https://mq.agical.se](https://mq.agical.se)
 
+Proofreading and consistency check: Kathrin Hagmaier
+
+Additional content by Peter Strömberg
 </div>
