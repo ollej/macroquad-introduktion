@@ -114,7 +114,7 @@ We will only use the second animation, so we'll use the method
 
 ### Spaceship animation
 
-![Spaceship spritesheet](assets/ship.png#pixelated)
+![Spaceship spritesheet](images/ship-spritesheet.png#right)
 
 The spritesheet for the spaceship is in the image `ship.png` and we need to
 define how the animations in the spritesheet should be displayed. We have to
