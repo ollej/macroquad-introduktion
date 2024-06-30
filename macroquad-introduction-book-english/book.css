@@ -31,11 +31,15 @@ main details > summary {
 }
 
 .admonition.challenge > div:nth-child(2)::before {
-  content:url(images/ferris-teacher-small.png);
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  padding: 2rem 0 0 0;
+  content: '';
+  background: url(images/ferris-teacher-small.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  width: 400px;
+  height: 116px;
+  max-width: 90vw;
+  margin-top: 2rem;
 }
 
 footer {
