@@ -11,6 +11,10 @@ webben.
 Guiden är skriven av [Olle Wreede](mailto:olle.wreede@agical.se) på
 [Agical](https://www.agical.se/). 
 
+```admonish info
+Denna guide finns även att läsa på [engelska](https://mq.agical.se/).
+```
+
 ## Spelramverket Macroquad
 
 Macroquad är ett spelramverk för programmeringsspråket Rust som har allt som
