@@ -35,15 +35,21 @@ edition = "2021"
 
 [dependencies]
 macroquad = { version = "0.4" }
-macroquad-particles = "0.2.1"
+macroquad-particles = "0.2.2"
 ```
 
-```admonish bug
+~~~admonish bug
 Version 0.2.2 of macroquad-particles doesn't support the latest version of
 Macroquad. If you get an error when compiling you can try using both
 `macroquad` and `macroquad-particles` crates
 [directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories).
+
+```toml
+[dependencies]
+macroquad = { git = "https://github.com/not-fl3/macroquad" }
+macroquad-particles = { git = "https://github.com/not-fl3/macroquad" }
 ```
+~~~
 
 ### Import crate
 

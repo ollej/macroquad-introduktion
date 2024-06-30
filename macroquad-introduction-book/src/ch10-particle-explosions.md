@@ -33,8 +33,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-macroquad = { version = "0.4", features = ["audio"] }
-macroquad-particles = "0.2.0"
+macroquad = { version = "0.4" }
+macroquad-particles = "0.2.2"
 ```
 
 ```admonish bug
