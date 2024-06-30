@@ -6,7 +6,7 @@ img[src*="#center"] {
 img[src*="#pixelated"] {
   display: block;
   margin: 0 auto;
-  width: 96px;
+  width: 192px;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
