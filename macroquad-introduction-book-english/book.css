@@ -63,6 +63,21 @@ footer img {
     color: #000000 !important;
   }
 
+  html,
+  .page-wrapper,
+  :is(.admonition) {
+    background-color: #ffffff !important;
+  }
+
+  .content .header:link,
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(22, 25, 35) !important;
+  }
+
+  .content a:link, a:visited, a {
+    color: #282d3f;
+  }
+
   .noprint {
     display: none;
   }
@@ -83,9 +98,5 @@ footer img {
 
   .allow-page-break pre, .allow-page-break code {
     page-break-inside: initial;
-  }
-
-  .admonition.challenge > div:nth-child(2)::before {
-    width: 72pt;
   }
 }
