@@ -10,6 +10,11 @@ Before we make any code changes we need to download all necessary resources.
 Download this [package with graphics and sound](assets.zip) and extract it to
 a directory called `assets` in the root directory of your game.
 
+<div class="onlyprint">
+Assets are available at this address:  
+https://mq.agical.se/assets.zip
+</div>
+
 All the resources are public domain and are primarily from the website
 [OpenGameArt.org](https://opengameart.org/) which offers lots of different
 resources to develop games.

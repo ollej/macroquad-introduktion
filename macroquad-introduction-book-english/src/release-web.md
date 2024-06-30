@@ -42,7 +42,7 @@ cp target/wasm32-unknown-unknown/release/my-game.wasm .
 ## Create an HTML page
 
 You will need an HTML page to load the WebAssembly binary. It needs to load a
-javascript file from Macroquad which contains code to run the WebAssembly
+Javascript file from Macroquad which contains code to run the WebAssembly
 binary and communicate with the browser. You also need to add a canvas element
 that Macroquad will use to draw the graphics. Remember to change the name of
 the WebAssembly binary file in the `load()` call from `my-game.wasm` to the
@@ -52,33 +52,7 @@ Create a file with the name `index.html` in the root of your crate with the
 following content:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My Game</title>
-    <style>
-        html,
-        body,
-        canvas {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: absolute;
-            background: black;
-            z-index: 0;
-        }
-    </style>
-</head>
-<body>
-    <canvas id="glcanvas" tabindex='1'></canvas>
-    <!-- Minified and statically hosted version of https://github.com/not-fl3/macroquad/blob/master/js/mq_js_bundle.js -->
-    <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
-    <script>load("my-game.wasm");</script> <!-- Your compile WASM binary -->
-</body>
-</html>
+{{#include game.html}}
 ```
 
 ## Test the game in a browser
