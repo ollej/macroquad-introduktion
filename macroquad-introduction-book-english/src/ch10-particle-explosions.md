@@ -1,6 +1,15 @@
 # Particle explosions
 
+<div class="noprint">
+
 ![Screenshot](images/screenshots-web/particle-explosions.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/particle-explosions.png#center)
+
+</div>
 
 We don't want the squares to just disappear when they are hit by a bullet. So
 now we'll make use of the Macroquad particle system to generate explosions.

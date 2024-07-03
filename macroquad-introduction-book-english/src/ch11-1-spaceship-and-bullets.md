@@ -1,6 +1,15 @@
 # Spaceship and bullets
 
+<div class="noprint">
+
 ![Screenshot](images/screenshots-web/graphics-spaceship.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/graphics-spaceship.png#center)
+
+</div>
 
 To begin with we'll add graphics for the spaceship that the player controls.
 It will be animated with two different sprites and will also have different

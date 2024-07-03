@@ -1,6 +1,15 @@
 # Game state
 
+<div class="noprint">
+
 ![Screenshot](images/screenshots-web/game-state.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/game-state.png#center)
+
+</div>
 
 Before we add any more functionality to our game it's time for some
 refactoring. To make it easier to keep track of the game state we'll add an

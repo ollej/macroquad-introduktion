@@ -1,6 +1,15 @@
 # Collisions
 
+<div class="noprint">
+
 ![Screenshot](images/screenshots-web/collision.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/collision.png#center)
+
+</div>
 
 To make the game more exciting, let's add some conflict. If our hero, the
 brave yellow circle, collides with a square, the game will be over and has to

@@ -1,6 +1,15 @@
 # Falling squares
 
+<div class="noprint">
+
 ![Screenshot](images/screenshots-web/falling-squares.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/falling-squares.png#center)
+
+</div>
 
 To make sure there is something happening in our game, it's time to create
 some action. Since the hero in our game is a brave circle, our opponents will
