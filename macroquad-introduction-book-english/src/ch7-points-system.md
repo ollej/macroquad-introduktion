@@ -1,6 +1,6 @@
 # Points
 
-![Screenshot](images/points.gif#center)
+![Screenshot](images/screenshots-web/points.gif#center)
 
 What is a game without points and a high score? Now that the circle can shoot
 down the squares it is time to add some points. Every square that is shot down

@@ -1,6 +1,6 @@
 # Game state
 
-![Screenshot](images/game-state.gif#center)
+![Screenshot](images/screenshots-web/game-state.gif#center)
 
 Before we add any more functionality to our game it's time for some
 refactoring. To make it easier to keep track of the game state we'll add an

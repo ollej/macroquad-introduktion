@@ -1,6 +1,6 @@
 # Your first Macroquad app
 
-![Screenshot](images/first-program.png#center)
+![Screenshot](images/screenshots-web/first-program.png#center)
 
 Now it's time to develop your first application with Macroquad. Start by
 [installing](https://www.rust-lang.org/learn/get-started) the programming

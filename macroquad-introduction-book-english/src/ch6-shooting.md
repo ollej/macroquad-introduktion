@@ -1,6 +1,6 @@
 # Bullet hell
 
-![Screenshot](images/shooting.gif#center)
+![Screenshot](images/screenshots-web/shooting.gif#center)
 
 It is slightly unfair that our poor circle isn't able to defend itself against
 the terrifying squares. So it's time to implement the ability for the circle to

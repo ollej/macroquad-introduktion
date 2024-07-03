@@ -1,6 +1,6 @@
 # Resources
 
-![Black image with the text "Loading resources" followed by three blinking dots](images/coroutines-and-storage.gif#center)
+![Black image with the text "Loading resources" followed by three blinking dots](images/screenshots-web/coroutines-and-storage.gif#center)
 
 We're starting to get quite a lot of code in our `main` function so it's time
 to refactor again to improve the code structure a little.

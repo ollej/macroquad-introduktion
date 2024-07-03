@@ -1,6 +1,6 @@
 # Fly away
 
-![Screenshot](images/move-a-circle.gif#center)
+![Screenshot](images/screenshots-web/move-a-circle.gif#center)
 
 A game is not much fun without something happening on the screen. To begin
 with, we will show a circle that we can steer with the arrow keys on the

@@ -1,6 +1,6 @@
 # Animated enemies
 
-![Screenshot](images/graphics-enemies.gif#center)
+![Screenshot](images/screenshots-web/graphics-enemies.gif#center)
 
 The only thing left is to change the boring squares and replace them with some
 more exciting graphics. This works the same as when animating the spaceship,

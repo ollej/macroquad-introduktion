@@ -1,6 +1,6 @@
 # Smooth movement
 
-![Screenshot](images/smooth-movement.gif#center)
+![Screenshot](images/screenshots-web/smooth-movement.gif#center)
 
 Since Macroquad will draw frames as quickly as possible, we need to check how
 much time has passed between each update to determine how far the circle
