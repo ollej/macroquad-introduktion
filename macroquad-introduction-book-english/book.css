@@ -69,6 +69,8 @@ footer img {
 
   html,
   .page-wrapper,
+  table thead,
+  table tbody tr:nth-child(2n),
   :is(.admonition) {
     background-color: #ffffff !important;
   }
