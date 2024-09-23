@@ -105,4 +105,19 @@ footer img {
   .allow-page-break pre, .allow-page-break code {
     page-break-inside: initial;
   }
+
+  @page {
+    margin-top: 27mm;
+    margin-bottom: 28mm;
+  }
+
+  @page :left {
+    margin-left: 25mm;
+    margin-right: 15.5mm;
+  }
+
+  @page :right {
+    margin-left: 15.5mm;
+    margin-right: 25mm;
+  }
 }
