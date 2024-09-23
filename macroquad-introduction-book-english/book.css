@@ -111,6 +111,10 @@ footer img {
     background: none !important;
   }
 
+  img[alt="Spaceship spritesheet"] {
+    max-width: 50%;
+  }
+
   @page {
     margin-top: 27mm;
     margin-bottom: 28mm;
