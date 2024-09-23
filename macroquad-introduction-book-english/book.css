@@ -119,6 +119,10 @@ footer img {
     max-width: 50%;
   }
 
+  a[href*="://"]::after {
+    content: " (" attr(href) ")";
+  }
+
   @page {
     margin-top: 27mm;
     margin-bottom: 28mm;

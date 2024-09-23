@@ -73,7 +73,7 @@ versions because Macroquad is under active development.
 
 ## PDF book
 
-This guide is also available as a downloadable [PDF book](pdf/output.pdf).
+This guide is also available as a downloadable [PDF book](https://mq.agical.se/pdf/output.pdf).
 
 <div class="noprint">
 In the top right hand corner of the site there is a link to a
