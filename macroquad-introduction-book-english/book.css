@@ -124,17 +124,17 @@ footer img {
   }
 
   @page {
-    margin-top: 27mm;
+    margin-top: 20mm;
     margin-bottom: 28mm;
   }
 
   @page :left {
     margin-left: 25mm;
-    margin-right: 15.5mm;
+    margin-right: 19mm;
   }
 
   @page :right {
-    margin-left: 15.5mm;
+    margin-left: 19mm;
     margin-right: 25mm;
   }
 }
