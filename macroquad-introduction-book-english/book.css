@@ -111,6 +111,10 @@ footer img {
     background: none !important;
   }
 
+  img {
+    page-break-inside: avoid;
+  }
+
   img[alt="Spaceship spritesheet"] {
     max-width: 50%;
   }
