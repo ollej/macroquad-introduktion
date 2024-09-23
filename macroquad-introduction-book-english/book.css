@@ -107,6 +107,10 @@ footer img {
     page-break-inside: initial;
   }
 
+  code {
+    background: none !important;
+  }
+
   @page {
     margin-top: 27mm;
     margin-bottom: 28mm;
