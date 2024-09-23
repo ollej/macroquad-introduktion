@@ -49,6 +49,7 @@ display-header-footer = true
 header-template = " "
 footer-template = "<p style='font-size:10px; margin-left: 49%'><span class='pageNumber'></span></p>"
 static_site_url = "https://mq.agical.se"
+theme = "light"
 
 [preprocessor]
 [preprocessor.quiz]

@@ -5,6 +5,7 @@ img[src*="#center"] {
 
 img[src*="#right"] {
   float: right;
+  padding-left: 2rem;
 }
 
 img[src*="#pixelated"] {
