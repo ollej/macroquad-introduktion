@@ -21,4 +21,7 @@ First edition July 2024
 Proofreading and consistency check: Kathrin Hagmaier
 
 Additional content by Peter Strömberg
+
+[Ferris the Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) image by [Esther Arzola](https://www.behance.net/estherarzola) is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).
 </div>
