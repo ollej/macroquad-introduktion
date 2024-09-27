@@ -1,6 +1,7 @@
 # Innehåll
 
-[Introduktion](README.md)
+[Copyright](copyright.md)  
+[Koda ett spel i Rust med Macroquad](README.md)
 
 - [Ditt första Macroquad-program](./ch1-first-program.md)
 - [Far å flyg](./ch2-move-a-circle.md)
