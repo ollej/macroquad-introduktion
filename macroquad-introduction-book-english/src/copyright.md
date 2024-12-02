@@ -1,6 +1,6 @@
 <div class="center">
 
-Copyright © 2024 by Olle Wreede
+Copyright © 2025 by Olle Wreede
 
 Licensed under CC BY-SA 4.0
 [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)
