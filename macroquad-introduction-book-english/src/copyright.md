@@ -14,13 +14,15 @@ terms. CC BY-SA includes the following elements:
 BY: credit must be given to the creator.  
 SA: Adaptations must be shared under the same terms.
 
-First edition July 2024
+First edition January 2025
 
 [https://mq.agical.se](https://mq.agical.se)
 
 Proofreading and consistency check: Kathrin Hagmaier
 
 Additional content by Peter Strömberg
+
+Cover design by Niklas Elmgren
 
 [Ferris the Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) image by [Esther Arzola](https://www.behance.net/estherarzola) is licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).
