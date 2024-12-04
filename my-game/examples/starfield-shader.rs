@@ -84,8 +84,8 @@ async fn main() {
         },
         MaterialParams {
             uniforms: vec![
-                ("iResolution".to_owned(), UniformType::Float2),
-                ("direction_modifier".to_owned(), UniformType::Float1),
+                UniformDesc::new("iResolution", UniformType::Float2),
+                UniformDesc::new("direction_modifier", UniformType::Float1),
             ],
             ..Default::default()
         },

@@ -1,6 +1,15 @@
 # Bullet hell
 
-![Screenshot](images/shooting.gif#center)
+<div class="noprint">
+
+![Screenshot](images/screenshots-web/shooting.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/shooting.png#center)
+
+</div>
 
 It is slightly unfair that our poor circle isn't able to defend itself against
 the terrifying squares. So it's time to implement the ability for the circle to

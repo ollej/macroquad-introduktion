@@ -1,6 +1,6 @@
 # Graphical menu
 
-![Screenshot](images/menu-ui.png#center)
+![Screenshot](images/screenshots-web/menu-ui.png#center)
 
 Macroquad has a built-in system to display a graphical user interface where the
 look can easily be changed using PNG images. We will use this to create a

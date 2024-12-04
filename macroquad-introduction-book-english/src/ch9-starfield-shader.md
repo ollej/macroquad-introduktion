@@ -1,6 +1,15 @@
 # Starfield shader
 
-![Screenshot](images/starfield-shader.gif#center)
+<div class="noprint">
+
+![Screenshot](images/screenshots-web/starfield-shader.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/starfield-shader.png#center)
+
+</div>
 
 The purple background on the screen is starting to feel a bit boring. Instead
 we'll add something more interesting. We'll use a pixel shader to display a

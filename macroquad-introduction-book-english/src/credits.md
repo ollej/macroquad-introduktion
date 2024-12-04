@@ -16,7 +16,7 @@ and released under the Pixabay Content License.
 ![Ferris the Teacher](images/ferris-teacher-small.png)
 
 The image [Ferris the
-Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) is made by Esther Arzola.
+Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) is made by [Esther Arzola](https://www.behance.net/estherarzola) licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).
 
 ## Starfield shader
 

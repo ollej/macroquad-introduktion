@@ -1,5 +1,7 @@
 # Game development with Macroquad
 
+![Game screenshot](game-screenshot.png)
+
 This is a game development guide showing how to create a shoot'em up game
 using the game library Macroquad and the Rust programming language.
 

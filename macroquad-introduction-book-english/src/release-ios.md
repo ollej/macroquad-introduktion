@@ -2,6 +2,13 @@
 
 You can build your Macroquad game to run on iPhone mobile phones and iPads.
 
+```admonish note title="Adapt to mobile"
+You'll notice that the game isn't fully adapted to be run on a mobile platform yet.
+To start with you can read about the function `touches()` in the
+[Macroquad documentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
+or more information about how touch interfaces work.
+```
+
 ```admonish info title="More information"
 More detailed information on how to build for iOS is available in the article
 [Macroquad on iOS](https://macroquad.rs/articles/ios/) on the Macroquad homepage.
@@ -130,11 +137,4 @@ will use to start the game.
 
 ```sh
 xcrun simctl launch booted com.mygame
-```
-
-```admonish note title="Please note!"
-You'll notice that the game isn't fully adapted to be run on a mobile platform yet.
-To start with you can read about the function `touches()` in the
-[Macroquad documentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
-or more information about how touch interfaces work.
 ```

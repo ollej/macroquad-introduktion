@@ -39,15 +39,17 @@ runnable = false
 # Crown quarto
 paper-width = 7.44
 paper-height = 9.68
-scale = 0.9
-margin-top = 1
-margin-bottom = 1
-margin-left = 1
-margin-right = 1
+print-background = true
+scale = 0.7
+#margin-top = 1
+#margin-bottom = 1
+#margin-left = 1
+#margin-right = 1
 display-header-footer = true
 header-template = " "
 footer-template = "<p style='font-size:10px; margin-left: 49%'><span class='pageNumber'></span></p>"
 static_site_url = "https://mq.agical.se"
+theme = "light"
 
 [preprocessor]
 [preprocessor.quiz]

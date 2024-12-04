@@ -1,6 +1,15 @@
 # Spaceship and bullets
 
-![Screenshot](images/graphics-spaceship.gif#center)
+<div class="noprint">
+
+![Screenshot](images/screenshots-web/graphics-spaceship.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/graphics-spaceship.png#center)
+
+</div>
 
 To begin with we'll add graphics for the spaceship that the player controls.
 It will be animated with two different sprites and will also have different
@@ -114,7 +123,7 @@ We will only use the second animation, so we'll use the method
 
 ### Spaceship animation
 
-![Spaceship spritesheet](assets/ship.png#pixelated)
+![Spaceship spritesheet](images/ship-spritesheet.png#right)
 
 The spritesheet for the spaceship is in the image `ship.png` and we need to
 define how the animations in the spritesheet should be displayed. We have to

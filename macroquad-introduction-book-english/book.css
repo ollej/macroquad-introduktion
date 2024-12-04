@@ -3,10 +3,15 @@ img[src*="#center"] {
   margin: 0 auto;
 }
 
+img[src*="#right"] {
+  float: right;
+  padding-left: 2rem;
+}
+
 img[src*="#pixelated"] {
   display: block;
   margin: 0 auto;
-  width: 96px;
+  width: 192px;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -31,11 +36,15 @@ main details > summary {
 }
 
 .admonition.challenge > div:nth-child(2)::before {
-  content:url(images/ferris-teacher-small.png);
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  padding: 2rem 0 0 0;
+  content: '';
+  background: url(images/ferris-teacher-small.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  width: 400px;
+  height: 116px;
+  max-width: 90vw;
+  margin-top: 2rem;
 }
 
 footer {
@@ -57,6 +66,23 @@ footer img {
   :is(.admonition),
   html {
     color: #000000 !important;
+  }
+
+  html,
+  .page-wrapper,
+  table thead,
+  table tbody tr:nth-child(2n),
+  :is(.admonition) {
+    background-color: #ffffff !important;
+  }
+
+  .content .header:link,
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(22, 25, 35) !important;
+  }
+
+  .content a:link, a:visited, a {
+    color: #282d3f;
   }
 
   .noprint {
@@ -81,7 +107,34 @@ footer img {
     page-break-inside: initial;
   }
 
-  .admonition.challenge > div:nth-child(2)::before {
-    width: 72pt;
+  code {
+    background: none !important;
+  }
+
+  img {
+    page-break-inside: avoid;
+  }
+
+  img[alt="Spaceship spritesheet"] {
+    max-width: 50%;
+  }
+
+  a[href*="://"]::after {
+    content: " (" attr(href) ")";
+  }
+
+  @page {
+    margin-top: 20mm;
+    margin-bottom: 28mm;
+  }
+
+  @page :left {
+    margin-left: 25mm;
+    margin-right: 19mm;
+  }
+
+  @page :right {
+    margin-left: 19mm;
+    margin-right: 25mm;
   }
 }

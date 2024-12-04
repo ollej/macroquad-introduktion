@@ -1,6 +1,15 @@
 # Resources
 
-![Black image with the text "Loading resources" followed by three blinking dots](images/coroutines-and-storage.gif#center)
+<div class="noprint">
+
+![Black image with the text "Loading resources" followed by three blinking dots](images/screenshots-web/coroutines-and-storage.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Black image with the text "Loading resources" followed by a dot](images/screenshots-print/coroutines-and-storage.png#center)
+
+</div>
 
 We're starting to get quite a lot of code in our `main` function so it's time
 to refactor again to improve the code structure a little.

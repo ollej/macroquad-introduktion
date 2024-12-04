@@ -1,6 +1,15 @@
 # Graphical explosions
 
-![Screenshot](images/graphics-explosions.gif#center)
+<div class="noprint">
+
+![Screenshot](images/screenshots-web/graphics-explosions.gif#center)
+
+</div>
+<div class="onlyprint">
+
+![Screenshot](images/screenshots-print/graphics-explosions.png#center)
+
+</div>
 
 To make the explosions a bit more spectacular we will add graphical textures
 to the particles.
