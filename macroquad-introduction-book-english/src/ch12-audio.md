@@ -47,7 +47,7 @@ all, web browsers.
 {{#include ../../my-game/examples/audio.rs:loadresources}}
 ```
 
-```admonish note
+```admonish note title="Safari sounds"
 In order for the music to work on the Safari web browser it has to be
 converted to `WAV` format. This would make the file very large, so another
 option is to use a version in `OGG` format and one in `MP3` and select which
@@ -65,7 +65,7 @@ played in a loop and with full volume.
 {{#include ../../my-game/examples/audio.rs:playmusic}}
 ```
 
-```admonish info
+```admonish info title="Stop the music"
 To stop the music use the function `stop_sound()` which takes the sound as
 argument.
 ```
@@ -81,7 +81,7 @@ non-looping parameter.
 {{#include ../../my-game/examples/audio.rs:playlaser}}
 ```
 
-```admonish info
+```admonish info title="Turn up the volume"
 It's also possible to set the sound volume per sound using the function
 `set_sound_volume()` which takes a sound and a number between `0` and `1` as
 argument.
@@ -98,7 +98,7 @@ function `play_sound_once()`.
 
 You can now start the game, and it should play music and sound effects.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Change the volume" class="challenge"
 It might be a bit intense to start the music at full volume. Try setting the
 volume lower at the start and increase it once the game starts. Maybe also try
 to stop the music when the player pauses the game.

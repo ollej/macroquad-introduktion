@@ -47,14 +47,15 @@ macroquad = { version = "0.4" }
 macroquad-particles = "0.2.2"
 ```
 
-~~~admonish bug
+~~~admonish bug title="Bug in macroquad-particles"
 Version 0.2.2 of macroquad-particles doesn't support the latest version of
 Macroquad. If you get an error when compiling you can try using both
 `macroquad` and `macroquad-particles` crates
-[directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories).
+[directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories)
+by adding the following section to the `Cargo.toml` file.
 
 ```toml
-[dependencies]
+[patch.crates-io]
 macroquad = { git = "https://github.com/not-fl3/macroquad" }
 macroquad-particles = { git = "https://github.com/not-fl3/macroquad" }
 ```
@@ -80,8 +81,8 @@ point from where particles can be generated.
 {{#include ../../my-game/examples/particle-explosions.rs:particleconfig}}
 ```
 
-```admonish info
-There are a lot of different things to configure in an `Emitter`. The fields of 
+```admonish info title="Emitter API documentation"
+There are a lot of different things to configure in an `Emitter`. The fields of
 [`EmitterConfig`](https://docs.rs/macroquad-particles/latest/macroquad_particles/struct.EmitterConfig.html)
 are described in the documentation of the module `macroquad-particles`.
 ```
@@ -137,7 +138,7 @@ itself.
 It's time to try the game to see if there are particle explosions when the
 squares get hit by bullets.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Rocket exhaust" class="challenge"
 Read the documentation for `EmitterConfig` and try what happens if you change
 different values. Can you add a particle system that shoots particles out the
 back of the circle so it looks like a rocket exhaust?

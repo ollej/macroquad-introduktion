@@ -9,7 +9,7 @@ installed to continue.
 Since mobile platforms don't have physical keyboards you will also have to add
 support for controlling the game using touch controls.
 
-```admonish note
+```admonish note title="Macroquad touch API"
 Read about the function `touches()` in the [Macroquad
 documentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
 for more information on how touch controls work.
@@ -30,10 +30,10 @@ Using this command you can build an APK file. It will take quite some time
 since it will do three full builds, one for each Android target.
 
 ```sh
-docker run 
-  --rm 
-  -v $(pwd):/root/src 
-  -w /root/src 
+docker run
+  --rm
+  -v $(pwd):/root/src
+  -w /root/src
   notfl3/cargo-apk cargo quad-apk build --release
 ```
 
@@ -51,8 +51,8 @@ found.
 assets = "assets/"
 ```
 
-```admonish info
-On the Macroquad homepage there are more detailed instructions on how to 
+```admonish info title="Detailed Android instructions"
+On the Macroquad homepage there are more detailed instructions on how to
 [build for Android](https://macroquad.rs/articles/android/). It has tips on
 how to speed up the build, how to build manually without Docker, and how to
 sign the APK file which is needed to upload it to the Google Play Store.

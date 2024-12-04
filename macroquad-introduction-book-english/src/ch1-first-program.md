@@ -64,9 +64,9 @@ function will be executed asynchronously. If you have named your game
 something more interesting you should change the text `My game´ to the name of
 your game.
 
-```admonish info
+```admonish info title="Control the window configuration"
 To change the configuration for the window, such as the size or whether it
-should start in fullscreen mode, you can use the struct 
+should start in fullscreen mode, you can use the struct
 [Conf](https://docs.rs/macroquad/latest/macroquad/window/struct.Conf.html)
 instead of the string as an argument.
 ```
@@ -78,12 +78,12 @@ function `clear_background(DARKPURPLE)`. At the end of the loop is the
 function `next_frame().await` which will wait until the next frame is
 available.
 
-```admonish note
+```admonish note title="Clears with black as default"
 Even if `clear_background()` isn't used explicitly, the screen will be cleared
 with a black color at the start of each frame.
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Change background color" class="challenge"
 Try changing the background of the window to your favorite color.
 ```
 
@@ -112,7 +112,7 @@ When you created the game with `cargo new` a local Git repository was also
 created. Start by committing your changes locally. After that you can create a
 repository on GitHub and push the code there.
 
-```admonish note
+```admonish note title="The name of the game"
 The two files below refer to `my-game.wasm`. If you've changed the name of
 your crate to something other than `my-game` you need to change those
 references.
@@ -126,7 +126,7 @@ the root of the project/crate and add the following content:
 ```
 
 The following GitHub Actions Workflow will compile the game to WASM and put
-all files in place so that the game will work on the web. Place the code in 
+all files in place so that the game will work on the web. Place the code in
 `.github/workflows/deploy.yml`.
 
 ```yaml

@@ -2,14 +2,14 @@
 
 You can build your Macroquad game to run on iPhone mobile phones and iPads.
 
-```admonish note
+```admonish note title="Adapt to mobile"
 You'll notice that the game isn't fully adapted to be run on a mobile platform yet.
 To start with you can read about the function `touches()` in the
 [Macroquad documentation](https://docs.rs/macroquad/latest/macroquad/input/index.html)
 or more information about how touch interfaces work.
 ```
 
-```admonish info
+```admonish info title="Detailed iOS instructions"
 More detailed information on how to build for iOS is available in the article
 [Macroquad on iOS](https://macroquad.rs/articles/ios/) on the Macroquad homepage.
 There you can find information on how to access logs, building for real
@@ -32,7 +32,7 @@ also need an `Info.plist` file.
 Start by adding the `assets`.
 
 ```sh
-cp -r assets MyGame.app 
+cp -r assets MyGame.app
 ```
 
 ## Build the binary
@@ -94,7 +94,7 @@ the command line or via XCode. In version 15.1 of XCode you can do it via
 `Settings...` &rarr; `Platforms` and then choose between the available iOS
 versions. There is also a button (`+`) to add more iOS versions.
 
-To add simulators via the command line you first need to run the command 
+To add simulators via the command line you first need to run the command
 `xcrun simctl list` to get a list of all the available simulators. Copy the
 hex code for the simulator you want and use it as argument to the `xcrun simctl
 boot` command. You only need to do this the first time you run the simulator.

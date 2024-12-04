@@ -32,7 +32,7 @@ We need another vector to keep track of all the bullets. For simplicity's sake
 we'll call it `bullets`. Add it after the `squares` vector. Here we'll also
 set the type of the elements to ensure that the Rust compiler knows what type
 it is before we have added anything to it. We'll use the struct `Shape` for
-the bullets as well. 
+the bullets as well.
 
 ```rust
 {{#include ../../my-game/examples/shooting.rs:bullets}}
@@ -49,7 +49,7 @@ the speed is set to twice that of the circle.
 {{#include ../../my-game/examples/shooting.rs:shoot}}
 ```
 
-```admonish notes
+```admonish note title="Only one shot"
 Note that we're using the function `is_key_pressed()` which only returns true
 during the frame when the key was first pressed.
 ```
@@ -119,7 +119,7 @@ shot. This ensures that they are drawn behind all the other shapes.
 {{#include ../../my-game/examples/shooting.rs:drawbullets}}
 ```
 
-```admonish info
+```admonish info title="Outlined circle"
 The is another function called
 [`draw_circle_lines()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_circle_lines.html)
 that can be used to draw a circle with just the outline.
@@ -128,7 +128,7 @@ that can be used to draw a circle with just the outline.
 This is all the code that is needed for the circle to be able to shoot down
 all the fearsome squares.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Bullet reloading" class="challenge"
 To increase the difficulty it's possible to add a minimum time for reloading
 between each shot. Try using the function
 [`get_time()`](https://docs.rs/macroquad/latest/macroquad/time/fn.get_time.html)

@@ -54,7 +54,7 @@ horizontally, depending on whether the circle is moved left or right. After
 that we create a `render_target` to which the shader will be rendered.
 
 Now we can create a `Material` with the vertex shader and the fragment shader
-using the enum `ShaderSource::Glsl`. 
+using the enum `ShaderSource::Glsl`.
 
 In the parameters we'll also setup two uniforms for the shader that are global
 variables that we can set for every frame. The uniform `iResolution` will
@@ -65,7 +65,7 @@ direction of the stars.
 {{#include ../../my-game/examples/starfield-shader.rs:setupshader}}
 ```
 
-```admonish info
+```admonish info title="Available uniforms"
 Macroquad will automatically add some uniforms to all shaders. The available
 uniforms are `_Time`, `Model`, `Projection`, `Texture`, and `_ScreenTexture`.
 ```
@@ -109,15 +109,15 @@ to contain the fragment shader and add the following code:
 {{#include ../../my-game/examples/starfield-shader.glsl}}
 ```
 
-```admonish info
-If you want to know how the shader works you can watch the video 
+```admonish info title="Shader Coding tutorial video"
+If you want to know how the shader works you can watch the video
 [Shader Coding: Making a starfield](https://youtu.be/rvDo9LvfoVE) by The Art of Code.
 ```
 
 Our starfield is now done and the game is starting to look like it takes place
 in outer space.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Star colors" class="challenge"
 Look at the video Shader Coding: Making a starﬁeld and see if you can change
 the color and size of the stars.
 ```

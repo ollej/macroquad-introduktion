@@ -12,7 +12,7 @@ the title bar. Inside the window there will be two buttons, one for "Play" and
 one for "Quit". The UI will be built using different kinds of widgets such as
 `label`, `button`, `editbox`, and `combobox`.
 
-## Implementation 
+## Implementation
 
 To begin with we need to import what we need from the `ui` module.
 
@@ -22,7 +22,7 @@ To begin with we need to import what we need from the `ui` module.
 
 ### Load resources
 
-After loading the sounds we'll load the font and images used for the UI. 
+After loading the sounds we'll load the font and images used for the UI.
 There is an image to create the window, `window_background.png`, one image for
 the buttons, `button_background.png`, and finally an image for when the button
 is pressed, `button_clicked_background.png`. The images are loaded with the
@@ -43,7 +43,7 @@ Before the game loop we need to define how our UI should look. We will build
 styles to create a `Skin`.
 
 We use the function `root_ui()` that will draw widgets last in every frame
-using a default camera and the coordinate system 
+using a default camera and the coordinate system
 `(0..screen_width(), 0..screen_height())`.
 
 #### Window look
@@ -65,7 +65,7 @@ be negative to draw content to the borders of the window.
 {{#include ../../my-game/examples/menu-ui.rs:windowstyle}}
 ```
 
-```admonish info
+```admonish info title="StyleBuilder API"
 There are many more methods to define styles, these are described in the
 documentation for [Macroquad's
 `StyleBuilder`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.StyleBuilder.html)
@@ -110,9 +110,9 @@ We will also set the variable `window_size` to define the size of the window.
 {{#include ../../my-game/examples/menu-ui.rs:uiskin}}
 ```
 
-```admonish info
+```admonish info title="Macroquad Skin API"
 It's possible to change the look of more parts of the UI. More information
-on how to do this can be found in the 
+on how to do this can be found in the
 [documentation of the struct
 Skin](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Skin.html).
 ```
@@ -138,7 +138,7 @@ to be displayed. It's possible to set `None` as position, in which case the
 placement will be relative to the previous widget. We will use a negative `y`
 position to place the text within the title bar of the window.
 
-```admonish info
+```admonish info title="Widget builder methods"
 It's also possible to create widgets by instantiating a struct and using
 builder methods.
 
@@ -157,7 +157,7 @@ Then we can create a button with the text "Quit" to exit the game.
 {{#include ../../my-game/examples/menu-ui.rs:menu}}
 ```
 
-```admonish info
+```admonish info title="Macroquad UI API"
 There are many different widgets that can be used to create interfaces.
 The list of available widgets can be found in the [documentation of the
 struct `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
@@ -168,7 +168,7 @@ struct `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
 When starting the game, a graphical menu will be shown where the player can
 choose to start a game or quit the program.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Switch skins" class="challenge"
 Try creating a `Skin` of your own from another image and make it possible
 to switch between the skins while the game is running.
 ```

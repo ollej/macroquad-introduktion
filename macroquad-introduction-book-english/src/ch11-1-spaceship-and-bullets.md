@@ -72,11 +72,11 @@ kinds of bullets.
 {{#include ../../my-game/examples/graphics-spaceship.rs:loadresources}}
 ```
 
-```admonish info
-The images are returned as the struct 
+```admonish info title="Texture2D and Image API"
+The images are returned as the struct
 [`Texture2D`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Texture2D.html)
 that stores the image data in GPU memory. The corresponding struct for images
-stored in CPU memory is 
+stored in CPU memory is
 [`Image`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Image.html).
 ```
 
@@ -206,12 +206,12 @@ current frame is placed.
 {{#include ../../my-game/examples/graphics-spaceship.rs:drawbullets}}
 ```
 
-```admonish info
+```admonish info title="Draw parameters"
 By using
 [`DrawTextureParams`](https://docs.rs/macroquad/0.3.25/macroquad/texture/struct.DrawTextureParams.html)
 it is possible to change how the texture should be drawn. It is possible to
 draw the texture rotated or mirrored with the fields `rotation`, `pivot`,
-`flip_x`, and `flip_y`. 
+`flip_x`, and `flip_y`.
 ```
 
 ### Draw the spaceship frames
@@ -242,7 +242,7 @@ that the assets are loaded much faster when running on a desktop computer.
 opt-level = 3
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Turn animation" class="challenge"
 Try using the two extra spaceship animations to make the ship turn only
 slightly just when it changes direction and then make it turn fully after a
 short time.

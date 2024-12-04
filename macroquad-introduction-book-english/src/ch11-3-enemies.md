@@ -66,7 +66,7 @@ coordinates.
 We have now changed to graphics for all the elements of the game, and when you
 run it now, it should look like a real game.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Different enemies" class="challenge"
 ![Medium enemy spritesheet](assets/enemy-medium.png#pixelated)
 ![Big enemy spritesheet](assets/enemy-big.png#pixelated)
 The asset package includes two other enemy spritesheets, `enemy-medium.png`

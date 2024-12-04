@@ -92,7 +92,7 @@ my-game.wasm
 assets/*
 ```
 
-```admonish note
+```admonish note title="Publish automatically"
 This is a reminder that there are instructions at the end of
 [chapter 1](ch1-first-program.md#publish-on-the-web-if-you-want)
 on how to automatically publish the game on GitHub without using a web

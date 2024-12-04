@@ -32,7 +32,7 @@ It should contain all four possible game states: `MainMenu`, `Playing`,
 ### Game state variable
 
 Replace the line that declares the `gameover` variable with a line that
-instantiates a `game_state` variable set to `GameState::MainMenu`. 
+instantiates a `game_state` variable set to `GameState::MainMenu`.
 
 ```rust
 {{#include ../../my-game/examples/game-state.rs:statevariable}}
@@ -122,12 +122,12 @@ OVER!" text to the screen as we did in the last chapter.
 {{#include ../../my-game/examples/game-state.rs:gameover}}
 ```
 
-```admonish note
+```admonish note title="Separate game states"
 Since the states for `GameState::Playing` and `GameState::GameOver` are
 separated, the squares and circles will not be shown when the game is paused.
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Name of the game" class="challenge"
 Now that we have a main menu, you could come up with a name for your game and
 display it in a large font at the top of the screen in the state
 `GameState::MainMenu`.

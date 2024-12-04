@@ -17,10 +17,10 @@ will add to the score, where bigger squares will be worth more points. The
 current score will be shown on the screen, as well as the highest score
 achieved.
 
-```admonish info
-Bigger squares could be worth more because they contain more resources. Later
-on they could be made harder to destroy by being able to take more bullets
-hits.
+```admonish info title="Is bigger better?"
+Bigger squares could be worth more because they contain more resources. It
+is also possible to make bigger circles harder to kill by requiring
+multiple hits to destroy.
 ```
 
 If the current score is the highest score when the game is over, it will be
@@ -57,7 +57,7 @@ instead.
 {{#include ../../my-game/examples/points.rs:variables}}
 ```
 
-```admonish note
+```admonish note title="Writing to disk"
 We're writing the points directly to the computers hard drive, which will not
 work if the game has been compiled to WebAssembly and is run on a web page.
 This will be treated as if the file doesn't exist.
@@ -76,7 +76,7 @@ store the new high score to the file `highscore.dat`.
 {{#include ../../my-game/examples/points.rs:savepoints}}
 ```
 
-```admonish note
+```admonish note title="Reading files on web"
 Macroquad supports reading files when the game is run on a web page. We could
 use the function
 [`load_string()`](https://docs.rs/macroquad/latest/macroquad/file/fn.load_string.html)
@@ -121,7 +121,7 @@ for `font`, and `1.0` as `font_scale`. The `font_size` can be set to `25.0`.
 {{#include ../../my-game/examples/points.rs:drawpoints}}
 ```
 
-```admonish info
+```admonish info title="Measure text"
 The function `measure_text()` returns the struct
 [`TextDimensions`](https://docs.rs/macroquad/latest/macroquad/text/struct.TextDimensions.html)
 which contains the fields `width`, `height`, and `offset_y`.
@@ -129,7 +129,7 @@ which contains the fields `width`, `height`, and `offset_y`.
 
 Run the game and try to get a high score!
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: High score message" class="challenge"
 Try writing a congratulations message below the "GAME OVER" text if the player
 reached a high score.
 ```
