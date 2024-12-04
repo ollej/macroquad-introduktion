@@ -39,6 +39,9 @@ runnable = false
 # Crown quarto
 paper-width = 7.44
 paper-height = 9.68
+# Publit book
+#paper-width = 7.87
+#paper-height = 10.63
 print-background = true
 scale = 0.7
 #margin-top = 1
