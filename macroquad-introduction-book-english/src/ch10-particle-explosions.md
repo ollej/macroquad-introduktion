@@ -47,11 +47,12 @@ macroquad = { version = "0.4" }
 macroquad-particles = "0.2.2"
 ```
 
-~~~admonish bug
+~~~admonish bug title="Bug in macroquad-particles"
 Version 0.2.2 of macroquad-particles doesn't support the latest version of
 Macroquad. If you get an error when compiling you can try using both
 `macroquad` and `macroquad-particles` crates
-[directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories).
+[directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories)
+by adding the following section to the `Cargo.toml` file.
 
 ```toml
 [patch.crates-io]
