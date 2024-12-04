@@ -137,7 +137,7 @@ itself.
 It's time to try the game to see if there are particle explosions when the
 squares get hit by bullets.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Rocket exhaust" class="challenge"
 Read the documentation for `EmitterConfig` and try what happens if you change
 different values. Can you add a particle system that shoots particles out the
 back of the circle so it looks like a rocket exhaust?

@@ -129,7 +129,7 @@ which contains the fields `width`, `height`, and `offset_y`.
 
 Run the game and try to get a high score!
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: High score message" class="challenge"
 Try writing a congratulations message below the "GAME OVER" text if the player
 reached a high score.
 ```

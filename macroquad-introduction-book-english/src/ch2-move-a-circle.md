@@ -74,7 +74,7 @@ documentation of Macroquad's
 [Shape API](https://docs.rs/macroquad/latest/macroquad/shapes/index.html).
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Faster movement" class="challenge"
 Change the value added to `x` and `y` to define how fast the circle will move.
 ```
 

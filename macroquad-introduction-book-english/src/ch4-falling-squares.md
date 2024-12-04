@@ -139,7 +139,7 @@ instead of a color. In addition to setting color, it can be used to set
 ```
 
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Multiple colors" class="challenge"
 Try setting a different color for each square by using the method `choose()`
 on vectors from Macroquad's
 [ChooseRandom trait](https://docs.rs/macroquad/latest/macroquad/rand/trait.ChooseRandom.html),

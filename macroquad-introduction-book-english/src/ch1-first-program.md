@@ -83,7 +83,7 @@ Even if `clear_background()` isn't used explicitly, the screen will be cleared
 with a black color at the start of each frame.
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Change background color" class="challenge"
 Try changing the background of the window to your favorite color.
 ```
 

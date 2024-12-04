@@ -68,7 +68,7 @@ the texture.
 When the game is run, the explosions will be animated with the explosion
 image instead of colored squares.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Bigger explosions" class="challenge"
 Change the values of `EmitterConfig` fields based on the size of the enemy
 that is hit.
 ```

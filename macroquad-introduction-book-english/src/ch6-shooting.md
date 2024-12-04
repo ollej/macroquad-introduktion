@@ -128,7 +128,7 @@ that can be used to draw a circle with just the outline.
 This is all the code that is needed for the circle to be able to shoot down
 all the fearsome squares.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Bullet reloading" class="challenge"
 To increase the difficulty it's possible to add a minimum time for reloading
 between each shot. Try using the function
 [`get_time()`](https://docs.rs/macroquad/latest/macroquad/time/fn.get_time.html)

@@ -76,7 +76,7 @@ set the variable `gameover` to true.
 {{#include ../../my-game/examples/collision.rs:collision}}
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Circle collision" class="challenge"
 The collision code assumes that the circle is a square. Try writing code that
 takes into account that the circle does not entirely fill the square.
 ```
@@ -124,7 +124,7 @@ more parameters such as `font`, `font_scale`, `font_scale_aspect` and `rotation`
 {{#include ../../my-game/examples/collision.rs:drawgameover}}
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Calculate midpoint" class="challenge"
 Since `draw_text()` is based on the text's baseline, the text won't appear
 exactly in the center of the screen. Try using the `offset_y` and `height` fields
 from `text_dimensions` to calculate the text's midpoint. Macroquad's example

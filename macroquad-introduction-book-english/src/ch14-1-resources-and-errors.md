@@ -158,7 +158,7 @@ That's everything that needs to be changed this time. In this chapter we've
 created a struct that contains all the loaded assets that we use when drawing
 textures and playing sounds.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Display errors" class="challenge"
 Instead of just exiting the game when encountering an error you could try to
 display the error message on the screen using the `draw_text()` function of
 Macroquad. Remember that the program will then need to keep on running and do

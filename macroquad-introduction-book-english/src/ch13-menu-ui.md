@@ -168,7 +168,7 @@ struct `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).
 When starting the game, a graphical menu will be shown where the player can
 choose to start a game or quit the program.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Switch skins" class="challenge"
 Try creating a `Skin` of your own from another image and make it possible
 to switch between the skins while the game is running.
 ```

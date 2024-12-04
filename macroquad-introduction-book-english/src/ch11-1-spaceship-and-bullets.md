@@ -242,7 +242,7 @@ that the assets are loaded much faster when running on a desktop computer.
 opt-level = 3
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Turn animation" class="challenge"
 Try using the two extra spaceship animations to make the ship turn only
 slightly just when it changes direction and then make it turn fully after a
 short time.

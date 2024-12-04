@@ -117,7 +117,7 @@ If you want to know how the shader works you can watch the video
 Our starfield is now done and the game is starting to look like it takes place
 in outer space.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Star colors" class="challenge"
 Look at the video Shader Coding: Making a starﬁeld and see if you can change
 the color and size of the stars.
 ```

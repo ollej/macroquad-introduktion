@@ -98,7 +98,7 @@ function `play_sound_once()`.
 
 You can now start the game, and it should play music and sound effects.
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Change the volume" class="challenge"
 It might be a bit intense to start the music at full volume. Try setting the
 volume lower at the start and increase it once the game starts. Maybe also try
 to stop the music when the player pauses the game.

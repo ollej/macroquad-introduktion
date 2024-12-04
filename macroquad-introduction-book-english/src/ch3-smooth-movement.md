@@ -65,7 +65,7 @@ value. It is part of the Macroquad
 [Math API](https://docs.rs/macroquad/latest/macroquad/math/index.html).
 ```
 
-```admonish tip title="Challenge" class="challenge"
+```admonish tip title="Challenge: Clamp movement" class="challenge"
 Change the constant `MOVEMENT_SPEED` if the circle is moving too slow or too
 fast.
 
