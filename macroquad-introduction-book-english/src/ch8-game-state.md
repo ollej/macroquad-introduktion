@@ -122,7 +122,7 @@ OVER!" text to the screen as we did in the last chapter.
 {{#include ../../my-game/examples/game-state.rs:gameover}}
 ```
 
-```admonish note title="Please note!"
+```admonish note title="Separate game states"
 Since the states for `GameState::Playing` and `GameState::GameOver` are
 separated, the squares and circles will not be shown when the game is paused.
 ```

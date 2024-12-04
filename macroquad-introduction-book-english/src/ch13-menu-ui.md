@@ -65,7 +65,7 @@ be negative to draw content to the borders of the window.
 {{#include ../../my-game/examples/menu-ui.rs:windowstyle}}
 ```
 
-```admonish info title="More information"
+```admonish info title="StyleBuilder API"
 There are many more methods to define styles, these are described in the
 documentation for [Macroquad's
 `StyleBuilder`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.StyleBuilder.html)
@@ -110,7 +110,7 @@ We will also set the variable `window_size` to define the size of the window.
 {{#include ../../my-game/examples/menu-ui.rs:uiskin}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Macroquad Skin API"
 It's possible to change the look of more parts of the UI. More information
 on how to do this can be found in the
 [documentation of the struct
@@ -138,7 +138,7 @@ to be displayed. It's possible to set `None` as position, in which case the
 placement will be relative to the previous widget. We will use a negative `y`
 position to place the text within the title bar of the window.
 
-```admonish info title="More information"
+```admonish info title="Widget builder methods"
 It's also possible to create widgets by instantiating a struct and using
 builder methods.
 
@@ -157,7 +157,7 @@ Then we can create a button with the text "Quit" to exit the game.
 {{#include ../../my-game/examples/menu-ui.rs:menu}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Macroquad UI API"
 There are many different widgets that can be used to create interfaces.
 The list of available widgets can be found in the [documentation of the
 struct `Ui`](https://docs.rs/macroquad/0.3.25/macroquad/ui/struct.Ui.html).

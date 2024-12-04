@@ -72,7 +72,7 @@ kinds of bullets.
 {{#include ../../my-game/examples/graphics-spaceship.rs:loadresources}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Texture2D and Image API"
 The images are returned as the struct
 [`Texture2D`](https://docs.rs/macroquad/latest/macroquad/texture/struct.Texture2D.html)
 that stores the image data in GPU memory. The corresponding struct for images
@@ -206,7 +206,7 @@ current frame is placed.
 {{#include ../../my-game/examples/graphics-spaceship.rs:drawbullets}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Draw parameters"
 By using
 [`DrawTextureParams`](https://docs.rs/macroquad/0.3.25/macroquad/texture/struct.DrawTextureParams.html)
 it is possible to change how the texture should be drawn. It is possible to

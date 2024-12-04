@@ -35,7 +35,7 @@ returned instead of exiting the program. This means we will be able to handle
 the error in a single place in our `main` function if we want to. The error
 message is an enum of the type `macroquad::Error`.
 
-```admonish info title="More information"
+```admonish info title="Macroquad errors"
 The errors available in Macroquad are documented in
 [macroquad::Error](https://docs.rs/macroquad/latest/macroquad/enum.Error.html).
 ```
@@ -62,7 +62,7 @@ value will be skipped and `()` is returned instead.
 {{#include ../../my-game/examples/resources-and-errors.rs:main}}
 ```
 
-```admonish info title="More information"
+```admonish info title="The Rust unit type"
 If you want to know how the Rust unit type works you can find more information
 in the [Rust unit documentation](https://doc.rust-lang.org/std/primitive.unit.html).
 ```
@@ -169,7 +169,7 @@ nothing but displaying the text.
 
 The game should work exactly like before.
 
-```admonish info title="More information"
+```admonish info title="Cargo dependencies"
 Sometimes the cargo dependencies can become out of sync. Some users have
 experienced this in this chapter. The symptoms are that the buttons in the
 main menu starts to "glitch" and it requires multiple clicks to press the

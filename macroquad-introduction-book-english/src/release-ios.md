@@ -9,7 +9,7 @@ To start with you can read about the function `touches()` in the
 or more information about how touch interfaces work.
 ```
 
-```admonish info title="More information"
+```admonish info title="Detailed iOS instructions"
 More detailed information on how to build for iOS is available in the article
 [Macroquad on iOS](https://macroquad.rs/articles/ios/) on the Macroquad homepage.
 There you can find information on how to access logs, building for real

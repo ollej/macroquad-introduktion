@@ -65,7 +65,7 @@ direction of the stars.
 {{#include ../../my-game/examples/starfield-shader.rs:setupshader}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Available uniforms"
 Macroquad will automatically add some uniforms to all shaders. The available
 uniforms are `_Time`, `Model`, `Projection`, `Texture`, and `_ScreenTexture`.
 ```
@@ -109,7 +109,7 @@ to contain the fragment shader and add the following code:
 {{#include ../../my-game/examples/starfield-shader.glsl}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Shader Coding tutorial video"
 If you want to know how the shader works you can watch the video
 [Shader Coding: Making a starfield](https://youtu.be/rvDo9LvfoVE) by The Art of Code.
 ```

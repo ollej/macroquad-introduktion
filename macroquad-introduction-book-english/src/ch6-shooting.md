@@ -49,7 +49,7 @@ the speed is set to twice that of the circle.
 {{#include ../../my-game/examples/shooting.rs:shoot}}
 ```
 
-```admonish note title="Please note!"
+```admonish note title="Only one shot"
 Note that we're using the function `is_key_pressed()` which only returns true
 during the frame when the key was first pressed.
 ```
@@ -119,7 +119,7 @@ shot. This ensures that they are drawn behind all the other shapes.
 {{#include ../../my-game/examples/shooting.rs:drawbullets}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Outlined circle"
 The is another function called
 [`draw_circle_lines()`](https://docs.rs/macroquad/latest/macroquad/shapes/fn.draw_circle_lines.html)
 that can be used to draw a circle with just the outline.

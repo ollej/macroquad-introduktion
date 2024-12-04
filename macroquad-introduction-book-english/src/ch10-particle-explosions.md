@@ -54,7 +54,7 @@ Macroquad. If you get an error when compiling you can try using both
 [directly from git](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories).
 
 ```toml
-[dependencies]
+[patch.crates-io]
 macroquad = { git = "https://github.com/not-fl3/macroquad" }
 macroquad-particles = { git = "https://github.com/not-fl3/macroquad" }
 ```
@@ -80,7 +80,7 @@ point from where particles can be generated.
 {{#include ../../my-game/examples/particle-explosions.rs:particleconfig}}
 ```
 
-```admonish info title="More information"
+```admonish info title="Emitter API documentation"
 There are a lot of different things to configure in an `Emitter`. The fields of
 [`EmitterConfig`](https://docs.rs/macroquad-particles/latest/macroquad_particles/struct.EmitterConfig.html)
 are described in the documentation of the module `macroquad-particles`.
