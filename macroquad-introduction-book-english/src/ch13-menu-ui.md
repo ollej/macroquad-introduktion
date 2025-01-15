@@ -49,7 +49,7 @@ using a default camera and the coordinate system
 #### Window look
 
 To build a style we use a `StyleBuilder` that has helper methods to define all
-parts of the style. Vi get access to it by using the method `style_builder()`
+parts of the style. We get access to it by using the method `style_builder()`
 on `root_ui()`. The values that aren't set will use the same values as the
 default look.
 
