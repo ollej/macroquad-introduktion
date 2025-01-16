@@ -22,6 +22,7 @@ Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) is ma
 
 The starfield shader is created by The Art of Code and taken from the video
 [Shader Coding: Making a starfield](https://youtu.be/rvDo9LvfoVE).
+License: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
 {{#include assets/README.md}}
 
