@@ -21,7 +21,7 @@ First web edition July 2024
 </div>
 <div class="onlyprint">
 
-First print edition January 2025
+First print edition February 2025
 
 </div>
 

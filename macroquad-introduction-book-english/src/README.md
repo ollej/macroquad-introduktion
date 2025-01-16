@@ -4,6 +4,14 @@
 
 This guide is written by Olle Wreede at [Agical](https://www.agical.se/).
 
+Olle Wreede is a senior software developer working at Agical where he helps
+customers build better software. He has worked in the software industry for
+two and a half decades.
+
+Agical helps their customers deliver software earlier. By focusing on helping
+everyone involved, getting better at working together and improving their
+technical skills.
+
 <div class="onlyprint">
 This guide is available online at the following address:  
 https://mq.agical.se/
@@ -27,8 +35,10 @@ The game we are making is a classic shoot 'em up where the player controls a
 spaceship that has to shoot down enemies flying down from the top of the
 screen.
 
+<div class="noprint">
 At the end of every chapter there is a short quiz that shows you how much
 you've learned. The answers are anonymous and are not stored anywhere.
+</div>
 
 ```admonish tip title="Challenge" class="challenge"
 This is Ferris, the teacher who will show up at the end of every chapter
