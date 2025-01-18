@@ -63,10 +63,11 @@ The library has efficient 2D rendering support, and some rudimentary 3D
 features. It also includes a simple immediate UI library to make graphical
 game interfaces.
 
-This guide assumes some prior knowledge of Rust programming. More information
-about Rust is available in the [Rust book](https://doc.rust-lang.org/book/)
-that is available online. I can also recommend the book
-[Hands-on Rust](https://pragprog.com/titles/hwrust/hands-on-rust/) by
+This guide assumes some prior knowledge of Rust programming. However there are
+no advanced concepts, so if you already know another programming language it
+is still possible to follow along. More information about Rust is available in
+the [Rust book](https://doc.rust-lang.org/book/) that is available online. I
+can also recommend the book [Hands-on Rust](https://hands-on-rust.com/) by
 Herbert Wolverson where you learn Rust by writing a roguelike game.
 
 ```admonish info title="Find more info on the Macroquad homepage"
