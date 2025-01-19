@@ -123,6 +123,36 @@ footer img {
     content: " (" attr(href) ")";
   }
 
+  li {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li a {
+    flex: 1;
+    display: flex;
+  }
+
+  li a:after {
+    content: '';
+    border-bottom: 1px dotted;
+    flex: 1;
+    margin: 0 .5em;
+  }
+
+  ul li ul li a:after {
+    flex: revert;
+  }
+
+  .flexbreak {
+    flex-basis: 100%;
+    height: 0;
+  }
+
+  li span.pagenumber {
+    text-align: right;
+  }
+
   @page {
     margin-top: 20mm;
     margin-bottom: 28mm;
