@@ -1,5 +1,15 @@
 # Koda ett spel i Rust med Macroquad
 
+![Boksläpp 26:e februari kl 18 på Agicals kontor, OSA till bok@agical.se](images/bokrelease.png)
+
+Den [26:e februari kl 18](https://events.agical.se/events/bokslapp-game-development-in-rust-with-macroquad-20250226/)
+kommer det vara boksläpp för den tryckta versionen av denna guide på engelska.
+Tillställningen kommer hållas på Agicals kontor i Gamla stan i Stockholm. OSA
+till [bok@agical.se](mailto:bok@agical.se) om du vill vara med på boksläppet
+och skriv även om du vill köpa ett exemplar av boken.
+
+Efter boksläppet kommer boken finnas tillgänglig att beställa online.
+
 ![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
 Lär dig koda ett eget shoot 'em up-spel i programmeringsspråket Rust. I denna
