@@ -1,5 +1,14 @@
 <div class="center">
 
+<div class="onlyprint titlepage">
+
+# Game development in Rust with Macroquad 
+
+## Olle Wreede
+
+<div class="page-break"></div>
+</div>
+
 Copyright © 2025 by Olle Wreede
 
 Licensed under CC BY-SA 4.0

@@ -153,6 +153,14 @@ footer img {
     text-align: right;
   }
 
+  .titlepage h1 {
+    font-size: 4em;
+  }
+
+  .titlepage h2 {
+    font-size: 3em;
+  }
+
   @page {
     margin-top: 20mm;
     margin-bottom: 28mm;
