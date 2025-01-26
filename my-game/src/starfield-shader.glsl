@@ -1,7 +1,6 @@
 #version 100
 
 // Starfield Tutorial by Martijn Steinrucken aka BigWings - 2020
-// countfrolic@gmail.com
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 // From The Art of Code: https://www.youtube.com/watch?v=rvDo9LvfoVE
 
