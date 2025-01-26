@@ -1,5 +1,7 @@
 # Game development in Rust with Macroquad
 
+<div class="noprint">
+
 ![Book release February 26 at 6pm at the Agical office, RSVP to book@agical.se](images/book-release-english.png)
 
 On [February 26 at 6pm CET](https://events.agical.se/events/bokslapp-game-development-in-rust-with-macroquad-20250226/) there will be a book release party for the print version
@@ -8,6 +10,8 @@ of this guide at the Agical office in Gamla Stan, Stockholm, Sweden. RSVP to
 mention if you want to buy a copy of the book.
 
 After the release party, the book will be available for purchase online.
+
+</div>
 
 ![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 

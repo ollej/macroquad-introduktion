@@ -1,5 +1,7 @@
 # Koda ett spel i Rust med Macroquad
 
+<div class="noprint">
+
 ![Boksläpp 26:e februari kl 18 på Agicals kontor, OSA till bok@agical.se](images/bokrelease.png)
 
 Den [26:e februari kl 18](https://events.agical.se/events/bokslapp-game-development-in-rust-with-macroquad-20250226/)
@@ -9,6 +11,8 @@ till [bok@agical.se](mailto:bok@agical.se) om du vill vara med på boksläppet
 och skriv även om du vill köpa ett exemplar av boken.
 
 Efter boksläppet kommer boken finnas tillgänglig att beställa online.
+
+</div>
 
 ![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
