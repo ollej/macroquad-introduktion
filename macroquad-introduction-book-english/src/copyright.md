@@ -2,12 +2,14 @@
 
 <div class="onlyprint titlepage">
 
-# Game development in Rust with Macroquad 
+# Game development in Rust with Macroquad
 
 ## Olle Wreede
 
 <div class="page-break"></div>
 </div>
+
+# Game development in Rust with Macroquad
 
 Copyright © 2025 by Olle Wreede
 
@@ -44,4 +46,12 @@ Cover design by Niklas Elmgren
 
 [Ferris the Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) image by [Esther Arzola](https://www.behance.net/estherarzola) is licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).
+
+<div class="onlyprint">
+
+ISBN: 978-91-976896-0-1
+
 </div>
+
+</div>
+
