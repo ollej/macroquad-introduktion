@@ -1,6 +1,9 @@
 # Table of contents
 
+<div class="toc">
+
 [Copyright](copyright.md)  
+[Acknowledgments](acknowledgments.md)  
 [Table of contents](SUMMARY.md)  
 [Game development in Rust with Macroquad](README.md)  
 
@@ -33,3 +36,5 @@
 [Full source code](full-source.md)  
 [Credits](credits.md)
 [Glossary](glossary.md)
+
+</div>

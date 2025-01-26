@@ -123,24 +123,24 @@ footer img {
     content: " (" attr(href) ")";
   }
 
-  li {
+  .toc li {
     display: flex;
     flex-wrap: wrap;
   }
 
-  li a {
+  .toc li a {
     flex: 1;
     display: flex;
   }
 
-  li a:after {
+  .toc li a:after {
     content: '';
     border-bottom: 1px dotted;
     flex: 1;
     margin: 0 .5em;
   }
 
-  ul li ul li a:after {
+  .toc ul li ul li a:after {
     flex: revert;
   }
 
@@ -149,7 +149,7 @@ footer img {
     height: 0;
   }
 
-  li span.pagenumber {
+  .toc li span.pagenumber {
     text-align: right;
   }
 
