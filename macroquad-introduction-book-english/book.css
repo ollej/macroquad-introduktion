@@ -20,6 +20,10 @@ img[src*="#pixelated"] {
   padding-left: 2rem;
 }
 
+img[src*="#small"] {
+  width: 25%;
+}
+
 canvas {
   margin: 0px;
   padding: 0px;
@@ -159,6 +163,10 @@ footer img {
 
   .titlepage h2 {
     font-size: 3em;
+  }
+
+  .glossarypage table {
+    font-size: 1.4rem;
   }
 
   @page {

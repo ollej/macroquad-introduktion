@@ -1,5 +1,7 @@
 # Glossary
 
+<div class="glossarypage">
+
 This is a list of terms and abbreviations used in this guide.
 
 | Word | Definition |
@@ -35,3 +37,5 @@ This is a list of terms and abbreviations used in this guide.
 | WASM | Abbreviation of WebAssembly |
 | WebAssembly | A binary instruction format that can run in web browsers |
 | XCode | An IDE by Apple to develop software for their platforms  |
+
+</div>

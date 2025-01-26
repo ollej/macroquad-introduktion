@@ -2,7 +2,7 @@
 
 ## Ferris the Gamer
 
-![Ferris the gamer](images/ferris-gamer.png)
+![Ferris the gamer](images/ferris-gamer.png#small)
 
 The image of Ferris holding a game controller is adapted from the "Ferris the
 Rustacean" public domain image created by [Karen Rustad
@@ -13,7 +13,7 @@ and released under the Pixabay Content License.
 
 ## Ferris the Teacher
 
-![Ferris the Teacher](images/ferris-teacher-small.png)
+![Ferris the Teacher](images/ferris-teacher-small.png#small)
 
 The image [Ferris the
 Teacher](https://www.behance.net/gallery/89117181/Ferris-the-professional) is made by [Esther Arzola](https://www.behance.net/estherarzola) licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).
