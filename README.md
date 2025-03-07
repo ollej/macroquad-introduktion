@@ -13,7 +13,7 @@ There is also a [Swedish version](https://macroquad-introduktion.agical.se/) of 
 You can [buy the physical book](https://agical.se/buymq) on the Lulu online
 book store.
 
-![Book cover](macroquad_cover_small.png)
+[![Book cover](macroquad_cover_small.png)](https://agical.se/buymq)
 
 The source code for the chapters are available under examples in the
 [my-game](https://github.com/ollej/macroquad-introduktion/tree/main/my-game/)
