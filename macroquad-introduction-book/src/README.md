@@ -1,19 +1,5 @@
 # Koda ett spel i Rust med Macroquad
 
-<div class="noprint">
-
-![Boksläpp 26:e februari kl 18 på Agicals kontor, OSA till bok@agical.se](images/bokrelease.png)
-
-Den [26:e februari kl 18](https://events.agical.se/events/bokslapp-game-development-in-rust-with-macroquad-20250226/)
-kommer det vara boksläpp för den tryckta versionen av denna guide på engelska.
-Tillställningen kommer hållas på Agicals kontor i Gamla stan i Stockholm. OSA
-till [bok@agical.se](mailto:bok@agical.se) om du vill vara med på boksläppet
-och skriv även om du vill köpa ett exemplar av boken.
-
-Efter boksläppet kommer boken finnas tillgänglig att beställa online.
-
-</div>
-
 ![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
 Lär dig koda ett eget shoot 'em up-spel i programmeringsspråket Rust. I denna
@@ -26,8 +12,47 @@ Guiden är skriven av [Olle Wreede](mailto:olle.wreede@agical.se) på
 [Agical](https://www.agical.se/). 
 
 ```admonish info
-Denna guide finns även att läsa på [engelska](https://mq.agical.se/).
+Denna guide finns även att läsa på [engelska](https://mq.agical.se/) och
+att [köpa som tryckt bok](https://agical.se/buymq).
 ```
+
+<div class="noprint">
+
+<div class="card">
+<div class="card__border"></div>
+<div class="card_title__container">
+<span class="card_title">Köp den tryckta boken</span>
+<p class="card_paragraph">
+Nu går det att köpa denna guide som en inbunden fyrfärgsbok på engelska.
+</p>
+<p class="card_paragraph">
+Gå till <a href="https://agical.se/buymq">webshoppen för att köpa boken</a> för €32/$35/£28.
+</p>
+
+<div class="centered with-margin">
+<a href="https://agical.se/buymq">
+<img src="images/macroquad_cover_small.png" title="Köp boken">
+</a>
+</div>
+
+</div>
+
+<div class="centered">
+<button type="button" class="space-btn">
+  <strong>Köp boken</strong>
+  <div id="container-stars">
+    <div id="stars"></div>
+  </div>
+
+  <div id="glow">
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</button>
+</div>
+</div>
+
+</div>
 
 ## Spelramverket Macroquad
 

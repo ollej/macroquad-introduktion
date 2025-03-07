@@ -1,18 +1,5 @@
 # Game development in Rust with Macroquad
 
-<div class="noprint">
-
-![Book release February 26 at 6pm at the Agical office, RSVP to book@agical.se](images/book-release-english.png)
-
-On [February 26 at 6pm CET](https://events.agical.se/events/bokslapp-game-development-in-rust-with-macroquad-20250226/) there will be a book release party for the print version
-of this guide at the Agical office in Gamla Stan, Stockholm, Sweden. RSVP to
-[book@agical.se](mailto:book@agical.se) if you want to attend, and please
-mention if you want to buy a copy of the book.
-
-After the release party, the book will be available for purchase online.
-
-</div>
-
 ![Ferris the rustacean holding a game controller](images/ferris-gamer.png#center)
 
 This guide is written by Olle Wreede at [Agical](https://www.agical.se/).
@@ -30,8 +17,47 @@ This guide is available online at the following address:
 https://mq.agical.se/
 </div>
 
+```admonish info
 The source code for all chapters of this book is available here:  
 [https://mq.agical.se/github.html](https://mq.agical.se/github.html)
+```
+
+<div class="noprint">
+
+<div class="card">
+<div class="card__border"></div>
+<div class="card_title__container">
+<span class="card_title">Buy the print book</span>
+<p class="card_paragraph">
+This guide is now available to buy as a full color print book with a hard
+cover. You can <a href="https://agical.se/buymq">buy the book online</a>
+for €32/$35/£28 on the Lulu web shop.
+</p>
+
+<div class="centered with-margin">
+<a href="https://agical.se/buymq">
+<img src="images/macroquad_cover_small.png" title="Buy the book online">
+</a>
+</div>
+
+</div>
+
+<div class="centered">
+<button type="button" class="space-btn">
+  <strong>Buy the book</strong>
+  <div id="container-stars">
+    <div id="stars"></div>
+  </div>
+
+  <div id="glow">
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</button>
+</div>
+</div>
+
+</div>
 
 <div class="page-break"></div>
 
