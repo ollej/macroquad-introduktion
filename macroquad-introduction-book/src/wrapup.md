@@ -21,3 +21,23 @@ onclick="window.open(this.href, '_blank', 'toolbar=no,location=no,status=no,menu
 som det kommer se ut när det är klart.
 
 </div>
+
+## Andra resurser
+
+Om du vill lära dig mer om Macroquad så finns det några resurser online:
+
+* [Macroquad](https://macroquad.rs) -- Macroquads officiella hemsida
+* [Awesome Quads](https://github.com/ozkriff/awesome-quads) -- En lista med spel och annat som har med Macroquad att göra
+* [Quads discord server](https://discord.gg/WfEp6ut) -- Den officiella communityn för Macroquad 
+* [Rust game ports](https://github.com/rust-gamedev/rust-game-ports) -- Officiell lista över spel skrivna i olika Rust-spelbibliotek
+
+## Andras spel
+
+Här nedan finns en lista över spel som andra har skapat baserat på den här
+guiden. Om du vill vara med på listan så 
+[öppna en Pull Request](https://github.com/ollej/macroquad-introduktion/blob/main/macroquad-introduction-book-english/src/wrapup.md)
+i GitHub repositoryt och lägg till den i listan.
+
+* [My first Macroquad game](https://pez.github.io/my-first-macroquad-game/) av [Pez](https://www.github.com/pez)
+* [Implementering med Bevy ECS](https://github.com/ddmills/macroquad-book) av [ddmills](https://github.com/ddmills)
+

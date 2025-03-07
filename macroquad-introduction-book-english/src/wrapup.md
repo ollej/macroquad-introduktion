@@ -49,7 +49,6 @@ These are some other resources for the Macroquad game library.
 * [Quads discord server](https://discord.gg/WfEp6ut) -- The official Macroquad community
 * [Rust game ports](https://github.com/rust-gamedev/rust-game-ports) -- Official host of games ported using Rust game libraries
 
-
 ## Game showcase
 
 If you have completed this game guide and published your game online, you can
@@ -58,4 +57,5 @@ have your game showcased on this page. You can
 in the GitHub repository and add a link to your game in the list below.
 
 * [My first Macroquad game](https://pez.github.io/my-first-macroquad-game/) by [Pez](https://www.github.com/pez)
+* [Implementation with Bevy ECS](https://github.com/ddmills/macroquad-book) by [ddmills](https://github.com/ddmills)
 
