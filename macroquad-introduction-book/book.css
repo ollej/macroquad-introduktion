@@ -107,7 +107,7 @@ footer img {
   border-radius: 5rem;
 }
 
-strong {
+.space-btn strong {
   z-index: 2;
   font-size: 24px;
   letter-spacing: 5px;
@@ -121,7 +121,7 @@ strong {
   width: 12rem;
 }
 
-.circle {
+.space-btn .circle {
   width: 100%;
   height: 30px;
   filter: blur(2rem);
@@ -129,11 +129,11 @@ strong {
   z-index: -1;
 }
 
-.circle:nth-of-type(1) {
+.space-btn .circle:nth-of-type(1) {
   background: rgba(254, 83, 186, 0.636);
 }
 
-.circle:nth-of-type(2) {
+.space-btn .circle:nth-of-type(2) {
   background: rgba(142, 81, 234, 0.704);
 }
 
