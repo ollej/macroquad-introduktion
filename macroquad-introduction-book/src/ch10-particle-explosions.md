@@ -28,7 +28,7 @@ Följande rad kommer att läggas till i filen `Cargo.toml` under rubriken
 [package]
 name = "my-game"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
