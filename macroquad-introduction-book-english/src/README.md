@@ -33,27 +33,22 @@ This guide is now available to buy as a full color print book with a hard
 cover. You can <a href="https://agical.se/buymq">buy the book online</a>
 for €32/$35/£28 on the Lulu web shop.
 </p>
-
 <div class="centered with-margin">
 <a href="https://agical.se/buymq">
-<img src="images/macroquad_cover_small.png" title="Buy the book online">
+<img src="images/macroquad_cover_small.png" title="Buy the book online" alt="Book cover">
 </a>
 </div>
-
 </div>
 
 <div class="centered">
-<button type="button" class="space-btn">
-  <strong>Buy the book</strong>
-  <div id="container-stars">
-    <div id="stars"></div>
-  </div>
-
-  <div id="glow">
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-</button>
+<a href="https://agical.se/buymq" target="_blank" class="space-btn">
+<strong>Buy the book</strong>
+<span id="container-stars"><span id="stars"></span></span>
+<span id="glow">
+<span class="circle"></span>
+<span class="circle"></span>
+</span>
+</a>
 </div>
 </div>
 

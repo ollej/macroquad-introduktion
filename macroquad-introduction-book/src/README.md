@@ -28,27 +28,22 @@ Nu går det att köpa denna guide som en inbunden fyrfärgsbok på engelska.
 <p class="card_paragraph">
 Gå till <a href="https://agical.se/buymq">webshoppen för att köpa boken</a> för €32/$35/£28.
 </p>
-
 <div class="centered with-margin">
 <a href="https://agical.se/buymq">
 <img src="images/macroquad_cover_small.png" title="Köp boken">
 </a>
 </div>
-
 </div>
 
 <div class="centered">
-<button type="button" class="space-btn">
-  <strong>Köp boken</strong>
-  <div id="container-stars">
-    <div id="stars"></div>
-  </div>
-
-  <div id="glow">
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-</button>
+<a href="https://agical.se/buymq" target="_blank" class="space-btn">
+<strong>Köp boken</strong>
+<span id="container-stars"><span id="stars"></span></span>
+<span id="glow">
+<span class="circle"></span>
+<span class="circle"></span>
+</span>
+</a>
 </div>
 </div>
 
