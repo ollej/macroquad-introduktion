@@ -1,7 +1,6 @@
 [book]
 authors = ["Olle Wreede"]
 language = "sv"
-multilingual = false
 src = "src"
 title = "Koda ett spel med Rust och Macroquad"
 description = "En guide som beskriver hur man kodar ett spel med programmeringsspråket Rust och spelramverket Macroquad."
