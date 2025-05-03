@@ -80,7 +80,7 @@ med då vi kommer lägga in det nedan i tillståndet för `GameState::Playing`. 
 lägger också till en kontroll om spelaren tryckt på `Escape` och byter
 tillstånd till `GameState::Paused`.
 
-```rust [hl,1,24-26,108]
+```rust [hl,1,24-26,65,108]
 {{#include ../../my-game/examples/game-state.rs:playing}}
 ```
 

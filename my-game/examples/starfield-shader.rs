@@ -135,7 +135,7 @@ async fn main() {
                     50.0,
                     WHITE,
                 );
-            }
+            },
             GameState::Playing => {
                 let delta_time = get_frame_time();
                 // ANCHOR: shaderdir
@@ -201,7 +201,7 @@ async fn main() {
 
                 // Check for collisions
                 if squares.iter().any(|square| circle.collides_with(square)) {
-                    if score == high_score {
+                    if score > high_score {
                         fs::write("highscore.dat", high_score.to_string()).ok();
                     }
                     game_state = GameState::GameOver;
@@ -247,7 +247,7 @@ async fn main() {
                     25.0,
                     WHITE,
                 );
-            }
+            },
             GameState::Paused => {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::Playing;
@@ -261,7 +261,7 @@ async fn main() {
                     50.0,
                     WHITE,
                 );
-            }
+            },
             GameState::GameOver => {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::MainMenu;
@@ -275,7 +275,7 @@ async fn main() {
                     50.0,
                     RED,
                 );
-            }
+            },
         }
 
         next_frame().await

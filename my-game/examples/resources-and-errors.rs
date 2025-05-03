@@ -1,8 +1,8 @@
 // ANCHOR: all
-use macroquad::audio::{Sound, load_sound, play_sound, play_sound_once, PlaySoundParams};
+use macroquad::audio::{PlaySoundParams, Sound, load_sound, play_sound, play_sound_once};
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
-use macroquad::ui::{hash, root_ui, Skin};
+use macroquad::ui::{Skin, hash, root_ui};
 use macroquad_particles::{self as particles, AtlasConfig, Emitter, EmitterConfig};
 
 use std::fs;
@@ -154,7 +154,7 @@ impl Resources {
 // ANCHOR: main
 #[macroquad::main("My game")]
 async fn main() -> Result<(), macroquad::Error> {
-// ANCHOR_END: main
+    // ANCHOR_END: main
     const MOVEMENT_SPEED: f32 = 200.0;
 
     rand::srand(miniquad::date::now() as u64);
@@ -314,7 +314,7 @@ async fn main() -> Result<(), macroquad::Error> {
                         }
                     },
                 );
-            }
+            },
             GameState::Playing => {
                 let delta_time = get_frame_time();
                 ship_sprite.set_animation(0);
@@ -391,7 +391,7 @@ async fn main() -> Result<(), macroquad::Error> {
 
                 // Check for collisions
                 if squares.iter().any(|square| circle.collides_with(square)) {
-                    if score == high_score {
+                    if score > high_score {
                         fs::write("highscore.dat", high_score.to_string()).ok();
                     }
                     game_state = GameState::GameOver;
@@ -484,7 +484,7 @@ async fn main() -> Result<(), macroquad::Error> {
                     25.0,
                     WHITE,
                 );
-            }
+            },
             GameState::Paused => {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::Playing;
@@ -498,7 +498,7 @@ async fn main() -> Result<(), macroquad::Error> {
                     50.0,
                     WHITE,
                 );
-            }
+            },
             GameState::GameOver => {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::MainMenu;
@@ -512,7 +512,7 @@ async fn main() -> Result<(), macroquad::Error> {
                     50.0,
                     RED,
                 );
-            }
+            },
         }
 
         next_frame().await

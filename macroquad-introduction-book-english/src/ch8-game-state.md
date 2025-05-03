@@ -91,7 +91,7 @@ We'll also add a code that checks if the player presses the `Escape` key and
 change the state to `GameState::Paused`. This will ensure that the game will
 be paused in the next iteration of the game loop.
 
-```rust [hl,1,24-26,108]
+```rust [hl,1,24-26,65,108]
 {{#include ../../my-game/examples/game-state.rs:playing}}
 ```
 
