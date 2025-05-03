@@ -14,7 +14,7 @@ startas.
 ### Importera modul
 
 För att kunna läsa och skriva filer behöver vi importera [Rusts std::fs
-modul](https://doc.rust-lang.org/std/fs/index.html) som innehåller
+module](https://doc.rust-lang.org/std/fs/index.html) som innehåller
 funktionalitet för att läsa och skriva till datorns lokala filsystem. Denna
 rad kan läggas in under raden som importerar Macroquad längst upp i filen.
 
