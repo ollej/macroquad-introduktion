@@ -1,9 +1,9 @@
 // ANCHOR: all
-use macroquad::audio::{load_sound, play_sound, play_sound_once, PlaySoundParams};
+use macroquad::audio::{PlaySoundParams, load_sound, play_sound, play_sound_once};
 use macroquad::experimental::animation::{AnimatedSprite, Animation};
 use macroquad::prelude::*;
 // ANCHOR: import
-use macroquad::ui::{hash, root_ui, Skin};
+use macroquad::ui::{Skin, hash, root_ui};
 // ANCHOR_END: import
 use macroquad_particles::{self as particles, AtlasConfig, Emitter, EmitterConfig};
 
@@ -293,7 +293,7 @@ async fn main() {
                         }
                     },
                 );
-            }
+            },
             // ANCHOR_END: menu
             GameState::Playing => {
                 let delta_time = get_frame_time();
@@ -371,7 +371,7 @@ async fn main() {
 
                 // Check for collisions
                 if squares.iter().any(|square| circle.collides_with(square)) {
-                    if score > high_score {
+                    if score == high_score {
                         fs::write("highscore.dat", high_score.to_string()).ok();
                     }
                     game_state = GameState::GameOver;
@@ -458,7 +458,7 @@ async fn main() {
                     25.0,
                     WHITE,
                 );
-            }
+            },
             GameState::Paused => {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::Playing;
@@ -472,7 +472,7 @@ async fn main() {
                     50.0,
                     WHITE,
                 );
-            }
+            },
             GameState::GameOver => {
                 if is_key_pressed(KeyCode::Space) {
                     game_state = GameState::MainMenu;
@@ -486,7 +486,7 @@ async fn main() {
                     50.0,
                     RED,
                 );
-            }
+            },
         }
 
         next_frame().await

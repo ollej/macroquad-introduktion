@@ -124,7 +124,7 @@ async fn main() {
         // Check for collisions
         // ANCHOR: savepoints
         if squares.iter().any(|square| circle.collides_with(square)) {
-            if score > high_score {
+            if score == high_score {
                 fs::write("highscore.dat", high_score.to_string()).ok();
             }
             gameover = true;
