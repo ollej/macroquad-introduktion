@@ -34,7 +34,7 @@ covered here to keep the implementation simple.
 
 ### Import module
 
-To be able to read and write files we need to import [std::fs
+To be able to read and write files we need to import the [std::fs
 module](https://doc.rust-lang.org/std/fs/index.html) from the Rust standard
 library. Add this line directly below the line to import Macroquad at the top
 of the file.
