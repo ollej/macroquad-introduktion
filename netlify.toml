@@ -1,0 +1,10 @@
+[build]
+  base = "macroquad-introduction-book"
+  publish = "book"
+  command = "cargo build --release && export PATH=\"$PATH:$(pwd)/target/release/build\" && mdbook build"
+
+[context.master]
+  command = "cargo build --release && export PATH=\"$PATH:$(pwd)/target/release/build\" && mdbook build"
+
+[context.branch-deploy]
+  command = "cargo build --release && export PATH=\"$PATH:$(pwd)/target/release/build\" && mdbook build"
