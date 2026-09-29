@@ -27,7 +27,7 @@ The source code for all chapters of this book is available here:
 <div class="card">
 <div class="card__border"></div>
 <div class="card_title__container">
-<span class="card_title">RustConf discount!</span>
+<span class="card_title">Buy the book</span>
 <p class="card_paragraph">
 <span style="font-size: 2.6rem">Buy a physical copy of the book</span><br>
 

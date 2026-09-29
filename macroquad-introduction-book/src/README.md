@@ -21,7 +21,7 @@ att [köpa som tryckt bok](https://agical.se/buymq).
 <div class="card">
 <div class="card__border"></div>
 <div class="card_title__container">
-<span class="card_title">25% rabatt!</span>
+<span class="card_title">Köp boken</span>
 <p class="card_paragraph">
 <span style="font-size: 2.6rem">Köp en fysisk bok!</span><br>
 
