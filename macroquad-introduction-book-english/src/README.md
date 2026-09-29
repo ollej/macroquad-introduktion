@@ -29,11 +29,11 @@ The source code for all chapters of this book is available here:
 <div class="card_title__container">
 <span class="card_title">RustConf discount!</span>
 <p class="card_paragraph">
-<span style="font-size: 2.6rem">There's a discount until September 26th in celebration of RustConf.</span><br>
+<span style="font-size: 2.6rem">Buy a physical copy of the book</span><br>
 
 This guide is available to buy as a full color print book with a hard
 cover. You can <a href="https://agical.se/buymq">buy the book online</a>
-for €18/$20/£16 on the Lulu web shop.
+for €32/$35/£28 on the Lulu web shop.
 </p>
 <div class="centered with-margin">
 <a href="https://agical.se/buymq">

@@ -23,13 +23,12 @@ att [köpa som tryckt bok](https://agical.se/buymq).
 <div class="card_title__container">
 <span class="card_title">25% rabatt!</span>
 <p class="card_paragraph">
-<span style="font-size: 2.6rem">Köp boken innan sista december 2025 för att
-få 25% rabatt!</span><br>
+<span style="font-size: 2.6rem">Köp en fysisk bok!</span><br>
 
-Nu går det att köpa denna guide som en inbunden fyrfärgsbok på engelska.
+Det går att köpa denna guide som en inbunden fyrfärgsbok på engelska.
 </p>
 <p class="card_paragraph">
-Gå till <a href="https://agical.se/buymq">webshoppen för att köpa boken</a> för €24/$25/£20.
+Gå till <a href="https://agical.se/buymq">webshoppen för att köpa boken</a> för €32/$35/£28.
 </p>
 <div class="centered with-margin">
 <a href="https://agical.se/buymq">
