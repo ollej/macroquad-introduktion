@@ -23,12 +23,14 @@ att [köpa som tryckt bok](https://agical.se/buymq).
 <div class="card_title__container">
 <span class="card_title">Köp boken</span>
 <p class="card_paragraph">
-<span style="font-size: 2.6rem">Köp en fysisk bok!</span><br>
+<span style="font-size: 2.6rem">EuroRust-rabatt!</span><br>
 
+Under konferensen EuroRust går det att köpa boken med cirka 50% rabatt.
 Det går att köpa denna guide som en inbunden fyrfärgsbok på engelska.
 </p>
 <p class="card_paragraph">
-Gå till <a href="https://agical.se/buymq">webshoppen för att köpa boken</a> för €32/$35/£28.
+Gå till <a href="https://agical.se/buymq">webshoppen för att köpa boken</a> för endast €18/$20/£16.
+
 </p>
 <div class="centered with-margin">
 <a href="https://agical.se/buymq">
